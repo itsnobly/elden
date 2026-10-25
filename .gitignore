@@ -1,2 +1,9 @@
-.vscode
-package-look.json
+gitignore
+.vscode/
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+
+package-lock.json
