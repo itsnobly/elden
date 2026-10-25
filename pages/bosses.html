@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/css/pages/bosses.css" />
+
+    <title>Elden Ring — Bosses</title>
+  </head>
+
+  <body>
+    <section class="bosses">
+      <div class="container">
+        <div class="bosses__header">
+          <span class="bosses__eyebrow">THE LANDS BETWEEN</span>
+
+          <h2 class="bosses__title">Legends of the Lands Between</h2>
+
+          <p class="bosses__subtitle">
+            Face the legends that stand between you and the Elden Throne.
+            Discover their stories and uncover the secrets they guard.
+          </p>
+        </div>
+
+        <div class="bosses__grid">
+          <!-- Карточки появятся здесь через JavaScript -->
+        </div>
+      </div>
+    </section>
+    <div class="pagination">
+      <button class="pagination__prev" disabled>Previous</button>
+      <div class="pagination__pages">
+        <button class="pagination__page active" data-page="0">1</button>
+        <button class="pagination__page" data-page="1">2</button>
+        <button class="pagination__page" data-page="2">3</button>
+        <button class="pagination__page" data-page="3">4</button>
+        <button class="pagination__page" data-page="4">5</button>
+      </div>
+      <button class="pagination__next">Next</button>
+    </div>
+    <script
+      type="module"
+      src="../assets/js/components/CharacterCard.js"></script>
+    <script type="module" src="./assets/js/main.js"></script>
+  </body>
+</html>

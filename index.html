@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elden Ring Lore & Database</title>
+
+    <link rel="stylesheet" href="/assets/css/pages/index.css" />
+
+    <script src="/assets/js/all.min.js" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <nav class="header__nav">
+            <div class="logo">
+              <a href="/">EldenRing</a>
+            </div>
+            <ul class="header__nav-links">
+              <li class="nav__link"><a href="/pages/guide.html">Guide</a></li>
+              <li class="nav__link"><a href="/pages/bosses.html">Bosses</a></li>
+              <li class="nav__link"><a href="/pages/tools.html">Tools</a></li>
+              <li class="nav__link">
+                <a href="/pages/arsenal.html">Arsenal</a>
+              </li>
+              <li class="nav__link"><a href="/pages/music.html">Music</a></li>
+            </ul>
+            <div class="header__social">
+              <button>Контакты</button>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <main class="main">
+        <video
+          class="main__video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto">
+          <source src="/assets/video/elden-test-main.mp4" type="video/mp4" />
+        </video>
+
+        <div class="main__overlay"></div>
+
+        <div class="container main__content">
+          <h2>Elden Ring Lore & Database</h2>
+          <span>Discover the mysteries of the Lands Between</span>
+          <a href="#" class="main__button">Shop now</a>
+        </div>
+        <div class="grace-switcher" aria-label="Выбор видео">
+          <button
+            class="grace-switcher__item active"
+            type="button"
+            data-video="elden-test-main.mp4"
+            aria-label="Вступление"
+            title="Вступление">
+            <span class="grace-switcher__symbol">✧</span>
+          </button>
+
+          <span class="grace-switcher__line"></span>
+
+          <button
+            class="grace-switcher__item"
+            type="button"
+            data-video="eldenfc3.mp4"
+            aria-label="Междуземье"
+            title="Междуземье">
+            <span class="grace-switcher__symbol">✥</span>
+          </button>
+
+          <span class="grace-switcher__line"></span>
+
+          <button
+            class="grace-switcher__item"
+            type="button"
+            data-video="eldenblue2.mp4"
+            aria-label="Бездна"
+            title="Бездна">
+            <span class="grace-switcher__symbol">✦</span>
+          </button>
+        </div>
+        <button
+          class="sound-toggle"
+          type="button"
+          aria-pressed="false"
+          aria-label="Включить звук">
+          <span class="sound-toggle__icon">♪</span>
+          <!-- <span class="sound-toggle__text">Включить звук</span> -->
+        </button>
+      </main>
+      <div class="aside"></div>
+      <div>test</div>
+    </div>
+    <script type="module" src="/assets/js/main.js"></script>
+  </body>
+</html>

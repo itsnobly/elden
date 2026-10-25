@@ -1,0 +1,33 @@
+/* _vars.css — переменные цветов и шрифтов.
+   Тема одна: чёрный и золото. Названия переменных (--gold-*) оставлены,
+   чтобы ничего не сломалось в JS и CSS.
+   --accent-rgb нужен, чтобы рамки и свечение брали тот же цвет. */
+
+:root,
+[data-theme] {
+  --bg-dark: #0a0907;
+  --bg-card: #12100d;
+  --border-dark: #2a2418;
+
+  --gold-primary: #d4af6a;
+  --gold-hover: #f6e3b0;
+  --accent-rgb: 212, 175, 106;
+
+  --gold-gradient: linear-gradient(
+    135deg,
+    #f6e3b0 0%,
+    #d4af6a 50%,
+    #8a6a2c 100%
+  );
+
+  --gold-glow: rgba(212, 175, 106, 0.3);
+  --gold-glow-intense:
+    0 0 20px rgba(246, 227, 176, 0.45), 0 0 8px rgba(212, 175, 106, 0.3);
+
+  --text-title: #f3ecd9;
+  --text-main: #efe8d8;
+  --text-muted: #b8ad95;
+
+  --font-headers: 'Cinzel', serif;
+  --font-body: 'Fraunces', serif;
+}

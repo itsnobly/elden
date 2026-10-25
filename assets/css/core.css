@@ -1,0 +1,131 @@
+/* core.css — Базовые системные стили и подключение шрифтов */
+
+/* --- Семья Cinzel --- */
+@font-face {
+  font-family: 'Cinzel';
+  src: url('../fonts/cinzel/Cinzel-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  src: url('../fonts/cinzel/Cinzel-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  src: url('../fonts/cinzel/Cinzel-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- Семья Fraunces --- */
+@font-face {
+  font-family: 'Fraunces';
+  src: url('../fonts/fraunces/Fraunces_72pt-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fraunces';
+  src: url('../fonts/fraunces/Fraunces_72pt-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: var(--font-body, 'Fraunces', serif);
+  cursor: url('../img/cursors/cur.cur'), auto;
+  /* cursor: url('../img/cursors/cursor.cur'), auto; */
+  background-color: var(--bg-dark, #070709);
+
+  /* Настройки фона (включить, когда понадобится) */
+  /* background-image: url(https://play.vsthemes.org/nova/1024576-1/fb0/0ecfb0bbf1622eb3685f6fb79b403dd5.webp?md5=9lZR-iJ-JDrrXxr-8cFoCQ&expires=1792765398);
+  background-position: top center; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+
+  color: var(--text-main, #f8fafc);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+body,
+.header,
+.main h1,
+.main h2,
+.main h3,
+.main span,
+.video-switcher__btn,
+.header__nav-links a,
+.logo a,
+.sound-toggle {
+  transition:
+    color 0.4s ease,
+    background-color 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-headers, 'Cinzel', serif);
+  color: var(--gold-primary, #f5d061);
+  letter-spacing: 1px;
+
+  transition: color 0.4s ease;
+}
+
+a {
+  color: var(--gold-primary, #ffd479);
+  transition:
+    color 0.2s ease,
+    text-shadow 0.2s ease;
+}
+
+a:hover {
+  color: var(--gold-hover, #fff3d1);
+  text-shadow: 0 0 8px var(--gold-glow, rgba(255, 212, 121, 0.4));
+}
+
+a,
+button,
+[role='button'],
+label,
+select,
+summary {
+  cursor: url('../img/cursors/pointer.cur'), pointer;
+}
+
+input,
+textarea {
+  cursor: text;
+}
+
+.gold-text {
+  color: var(--gold-primary, #ffd479) !important;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+}

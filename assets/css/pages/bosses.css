@@ -1,0 +1,218 @@
+@import '../reset.css';
+@import '../_vars.css';
+@import '../core.css';
+/* Карточки боссов */
+
+.bosses__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.boss-card {
+  position: relative;
+  min-height: 360px;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--bg-card);
+  border: 1px solid var(--border-dark);
+}
+
+.boss-card__image-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.boss-card__image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.boss-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to top,
+    rgba(10, 9, 7, 0.98) 0%,
+    rgba(10, 9, 7, 0.65) 35%,
+    rgba(10, 9, 7, 0.05) 100%
+  );
+  opacity: 0.25;
+  transition: opacity 0.35s ease;
+}
+
+.boss-card__content {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 24px 20px;
+  color: var(--text-main);
+  font-family: var(--font-body);
+  transform: translateY(calc(100% - 55px));
+  transition: transform 0.4s ease;
+}
+
+.boss-card__title {
+  margin: 0;
+  color: var(--text-title);
+  font-family: var(--font-headers);
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+.boss-card__description {
+  margin: 14px 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.boss-card__deaths {
+  display: block;
+  margin-top: 8px;
+  color: var(--gold-primary);
+  font-size: 0.85rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.boss-card__link {
+  display: inline-block;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--gold-primary);
+  color: var(--gold-primary);
+  font-family: var(--font-headers);
+  font-size: 0.8rem;
+  text-decoration: none;
+  opacity: 0;
+  transition:
+    color 0.25s ease,
+    opacity 0.3s ease;
+}
+
+.boss-card__link:hover {
+  color: var(--gold-hover);
+}
+
+.boss-card:hover .boss-card__image {
+  transform: scale(1.06);
+}
+
+.boss-card:hover::after {
+  opacity: 1;
+}
+
+.boss-card:hover .boss-card__content,
+.boss-card:focus-within .boss-card__content {
+  transform: translateY(0);
+}
+
+.boss-card:hover .boss-card__description,
+.boss-card:hover .boss-card__deaths,
+.boss-card:hover .boss-card__link,
+.boss-card:focus-within .boss-card__description,
+.boss-card:focus-within .boss-card__deaths,
+.boss-card:focus-within .boss-card__link {
+  opacity: 1;
+}
+
+/* Пагинация */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin: 48px 0;
+  font-family: var(--font-headers);
+}
+
+.pagination__pages {
+  display: flex;
+  gap: 8px;
+}
+
+.pagination button {
+  min-width: 42px;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-card);
+  color: var(--gold-primary);
+  font: inherit;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.pagination button:hover:not(:disabled),
+.pagination button.active {
+  border-color: var(--gold-primary);
+  background: var(--gold-primary);
+  color: var(--bg-dark);
+}
+
+.pagination button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+@media (max-width: 1024px) {
+  .bosses__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .bosses__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .boss-card {
+    min-height: 320px;
+  }
+
+  .boss-card__content {
+    transform: translateY(0);
+  }
+
+  .boss-card__description,
+  .boss-card__deaths,
+  .boss-card__link {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .bosses__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .boss-card {
+    min-height: 400px;
+  }
+
+  .pagination {
+    gap: 6px;
+  }
+
+  .pagination__pages {
+    gap: 4px;
+  }
+
+  .pagination button {
+    min-width: 34px;
+    height: 36px;
+    padding: 0 7px;
+    font-size: 0.75rem;
+  }
+}
