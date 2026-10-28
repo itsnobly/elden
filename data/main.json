@@ -1,0 +1,768 @@
+[
+  {
+    "id": "godrick-the-grafted",
+    "name_en": "Godrick the Grafted",
+    "region": "Limgrave",
+    "location": "Stormveil Castle",
+    "tier": "C",
+    "hp": 6080,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "bleed",
+        "frostbite"
+      ],
+      "immunity": []
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/godrick-the-grafted.webp",
+      "cutscene_youtube_id": "dQw4w9WgXcQ"
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Lord of All That is Golden",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Storm Assault",
+          "I Command Thee, Kneel!"
+        ]
+      },
+      {
+        "phase": 2,
+        "title_en": "Dragon Arm",
+        "trigger_hp_percent": 50,
+        "key_attacks": [
+          "Bear Witness!",
+          "Dragon Fire Sweep"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-grafted",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-of-the-grafted.webp"
+      },
+      {
+        "item_id": "godricks-great-rune",
+        "type": "great_rune",
+        "image": "/assets/img/items/godricks-great-rune.webp"
+      }
+    ]
+  },
+  {
+    "id": "rennala-queen-of-the-full-moon",
+    "name_en": "Rennala, Queen of the Full Moon",
+    "region": "Liurnia of the Lakes",
+    "location": "Raya Lucaria Academy",
+    "tier": "C",
+    "hp": 7578,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "physical",
+        "slash",
+        "pierce"
+      ],
+      "immunity": [
+        "magic_80_percent_resist"
+      ]
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/rennala-queen-of-the-full-moon.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Academy Library",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Books Launch",
+          "Chandeliers Drop"
+        ]
+      },
+      {
+        "phase": 2,
+        "title_en": "Full Moon Illusion",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Comet Azur",
+          "Full Moon",
+          "Summon Spirits"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-full-moon-queen",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-of-the-full-moon-queen.webp"
+      },
+      {
+        "item_id": "great-rune-of-the-unborn",
+        "type": "great_rune",
+        "image": "/assets/img/items/great-rune-of-the-unborn.webp"
+      }
+    ]
+  },
+  {
+    "id": "starscourge-radahn",
+    "name_en": "Starscourge Radahn",
+    "region": "Caelid",
+    "location": "Redmane Castle",
+    "tier": "A",
+    "hp": 9572,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "scarlet_rot",
+        "pierce"
+      ],
+      "immunity": []
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/starscourge-radahn.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Starscourge Bow & Blades",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Gravity Arrow",
+          "Rain of Arrows",
+          "Starscourge Slash"
+        ]
+      },
+      {
+        "phase": 2,
+        "title_en": "Meteor Crash",
+        "trigger_hp_percent": 50,
+        "key_attacks": [
+          "Meteor Fall",
+          "Gravitational Wave"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-starscourge",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-of-the-starscourge.webp"
+      },
+      {
+        "item_id": "radahns-great-rune",
+        "type": "great_rune",
+        "image": "/assets/img/items/radahns-great-rune.webp"
+      }
+    ]
+  },
+  {
+    "id": "morgott-the-omen-king",
+    "name_en": "Morgott, the Omen King",
+    "region": "Leyndell, Royal Capital",
+    "location": "Elden Throne",
+    "tier": "B",
+    "hp": 10399,
+    "stats": {
+      "parryable": true,
+      "weakness": [
+        "slash",
+        "lightning"
+      ],
+      "immunity": [
+        "holy_resistant"
+      ]
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/morgott-the-omen-king.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "The Omen King",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Holy Daggers Throw",
+          "Cursed Blood Slash",
+          "Sword Rain"
+        ]
+      },
+      {
+        "phase": 2,
+        "title_en": "Cursed Blood Eruption",
+        "trigger_hp_percent": 50,
+        "key_attacks": [
+          "Cursed Blood Charge",
+          "Flame Eruption"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-omen-king",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-of-the-omen-king.webp"
+      },
+      {
+        "item_id": "morgotts-great-rune",
+        "type": "great_rune",
+        "image": "/assets/img/items/morgotts-great-rune.webp"
+      }
+    ]
+  },
+  {
+    "id": "fire-giant",
+    "name_en": "Fire Giant",
+    "region": "Mountaintops of the Giants",
+    "location": "Flame Peak",
+    "tier": "A",
+    "hp": 12658,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "strike",
+        "slash",
+        "left_ankle"
+      ],
+      "immunity": [
+        "fire_resistant"
+      ]
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/fire-giant.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Limb Protection",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Snow Avalanche",
+          "Shield Slam",
+          "Fireball Launch"
+        ]
+      },
+      {
+        "phase": 2,
+        "title_en": "Fell God Awakened",
+        "trigger_hp_percent": 50,
+        "key_attacks": [
+          "Volcano Eruption",
+          "Rolling Attack",
+          "Eye Beam"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-fire-giant",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-of-the-fire-giant.webp"
+      }
+    ]
+  },
+  {
+    "id": "rykard-lord-of-blasphemy",
+    "name_en": "Rykard, Lord of Blasphemy",
+    "region": "Mt. Gelmir",
+    "location": "Volcano Manor",
+    "tier": "B",
+    "hp": 13919,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "serpent_hunter_spear",
+        "stagger"
+      ],
+      "immunity": [
+        "fire"
+      ]
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/rykard-lord-of-blasphemy.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "God-Devouring Serpent",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Magma Spits",
+          "Bite Combo"
+        ]
+      },
+      {
+        "phase": 2,
+        "title_en": "Rykard, Lord of Blasphemy",
+        "trigger_hp_percent": 50,
+        "key_attacks": [
+          "Blasphemous Rancor",
+          "Tectonic Sword Rain"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-blasphemous",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-of-the-blasphemous.webp"
+      }
+    ]
+  },
+  {
+    "id": "mohg-lord-of-blood",
+    "name_en": "Mohg, Lord of Blood",
+    "region": "Mohgwyn Dynasty Mausoleum",
+    "location": "Mohgwyn Palace",
+    "tier": "S",
+    "hp": 18393,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "shackle_mohg",
+        "bleed_resistant"
+      ],
+      "immunity": []
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/mohg-lord-of-blood.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Lord of Blood",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Bloodflame Slash",
+          "Bloodboon Throw"
+        ]
+      },
+      {
+        "phase": 2,
+        "title_en": "With Wings of Blood",
+        "trigger_hp_percent": 50,
+        "key_attacks": [
+          "Nihil Chant",
+          "Blood Rain Dash"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-blood-lord",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-of-the-blood-lord.webp"
+      },
+      {
+        "item_id": "mohgs-great-rune",
+        "type": "great_rune",
+        "image": "/assets/img/items/mohgs-great-rune.webp"
+      }
+    ]
+  },
+  {
+    "id": "maliketh-the-black-blade",
+    "name_en": "Maliketh, the Black Blade",
+    "region": "Crumbling Farum Azula",
+    "location": "Beside the Great Bridge",
+    "tier": "S",
+    "hp": 10620,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "blasphemous_claw",
+        "strike"
+      ],
+      "immunity": []
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/maliketh-the-black-blade.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Beast Clergyman",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Beast Claw",
+          "Stone of Gurranq"
+        ]
+      },
+      {
+        "phase": 2,
+        "title_en": "The Black Blade",
+        "trigger_hp_percent": 50,
+        "key_attacks": [
+          "Destined Death Wave",
+          "Red-Gold Slash"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-black-blade",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-of-the-black-blade.webp"
+      }
+    ]
+  },
+  {
+    "id": "godfrey-first-elden-lord",
+    "name_en": "Godfrey, First Elden Lord",
+    "region": "Leyndell, Ashen Capital",
+    "location": "Elden Throne",
+    "tier": "S",
+    "hp": 11993,
+    "stats": {
+      "parryable": true,
+      "weakness": [
+        "bleed",
+        "frostbite"
+      ],
+      "immunity": []
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/godfrey-first-elden-lord.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Godfrey, First Elden Lord",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Earthshaker Stomp",
+          "Axe Slash Wave"
+        ]
+      },
+      {
+        "phase": 2,
+        "title_en": "Hoarah Loux, Warrior",
+        "trigger_hp_percent": 50,
+        "key_attacks": [
+          "Earthshaker Grab",
+          "Wild Slam Combo"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-hoarah-loux",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-of-hoarah-loux.webp"
+      }
+    ]
+  },
+  {
+    "id": "radagon-elden-beast",
+    "name_en": "Radagon of the Golden Order & Elden Beast",
+    "region": "Elden Throne",
+    "location": "Radagon & Elden Beast Arena",
+    "tier": "S",
+    "hp": 22332,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "physical",
+        "fire"
+      ],
+      "immunity": [
+        "holy_absorb_healing"
+      ]
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/radagon-elden-beast.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Radagon of the Golden Order",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Golden Ground Slam",
+          "Triple Hammer Smash"
+        ]
+      },
+      {
+        "phase": 2,
+        "title_en": "Elden Beast",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Elden Stars",
+          "Golden Ring Leap"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-elden-beast",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-of-elden-beast.webp"
+      }
+    ]
+  },
+  {
+    "id": "malenia-blade-of-miquella",
+    "name_en": "Malenia, Blade of Miquella",
+    "region": "Miquella's Haligtree",
+    "location": "Elphael, Brace of the Haligtree",
+    "tier": "S",
+    "hp": 33251,
+    "stats": {
+      "parryable": true,
+      "weakness": [
+        "fire",
+        "bleed",
+        "frostbite"
+      ],
+      "immunity": [
+        "scarlet_rot"
+      ]
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/malenia-blade-of-miquella.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Blade of Miquella",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Waterfowl Dance",
+          "Phantom Slash"
+        ]
+      },
+      {
+        "phase": 2,
+        "title_en": "Goddess of Rot",
+        "trigger_hp_percent": 50,
+        "key_attacks": [
+          "Scarlet Aeonia",
+          "Rot Dive"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-rot-goddess",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-rot-goddess.webp"
+      },
+      {
+        "item_id": "malenias-great-rune",
+        "type": "great_rune",
+        "image": "/assets/img/items/great-rune-malenia.webp"
+      }
+    ]
+  },
+  {
+    "id": "dragonlord-placidusax",
+    "name_en": "Dragonlord Placidusax",
+    "region": "Crumbling Farum Azula",
+    "location": "Placidusax Arena (Through Time)",
+    "tier": "S",
+    "hp": 26668,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "physical",
+        "pierce"
+      ],
+      "immunity": [
+        "lightning_resistant"
+      ]
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/dragonlord-placidusax.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "The Dragonlord",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Golden Lightning Strike",
+          "Tail Swipe"
+        ]
+      },
+      {
+        "phase": 2,
+        "title_en": "Disappearing Storm",
+        "trigger_hp_percent": 50,
+        "key_attacks": [
+          "Placidusax's Ruin (Laser Beam)",
+          "Claw Dive"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-dragonlord",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-of-dragonlord.webp"
+      }
+    ]
+  },
+  {
+    "id": "lichdragon-fortissax",
+    "name_en": "Lichdragon Fortissax",
+    "region": "Deeproot Depths",
+    "location": "Prince of Death's Throne",
+    "tier": "B",
+    "hp": 13317,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "lightning",
+        "physical"
+      ],
+      "immunity": []
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/lichdragon-fortissax.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Ancient Dragon of Death",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Death Lightning Strike",
+          "Glaive Swipe"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-lichdragon",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-fortissax.webp"
+      }
+    ]
+  },
+  {
+    "id": "commander-niall",
+    "name_en": "Commander Niall",
+    "region": "Mountaintops of the Giants",
+    "location": "Castle Sol",
+    "tier": "A",
+    "hp": 13317,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "lightning",
+        "parry_limited"
+      ],
+      "immunity": []
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/commander-niall.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Phantom Guards",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Storm Wind Kick",
+          "Dual Sword Slash",
+          "Lightning Stomp"
+        ]
+      },
+      {
+        "phase": 2,
+        "title_en": "Storm Prosthesis",
+        "trigger_hp_percent": 50,
+        "key_attacks": [
+          "Frost Storm Rush",
+          "Ice Blade Combo"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "veterans-prosthesis",
+        "type": "weapon",
+        "image": "/assets/img/items/veterans-prosthesis.webp"
+      },
+      {
+        "item_id": "haligtree-secret-medallion-left",
+        "type": "quest_item",
+        "image": "/assets/img/items/medallion.webp"
+      }
+    ]
+  },
+  {
+    "id": "loretta-knight-of-the-haligtree",
+    "name_en": "Loretta, Knight of the Haligtree",
+    "region": "Miquella's Haligtree",
+    "location": "Haligtree Town",
+    "tier": "B",
+    "hp": 9761,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "physical",
+        "magic_resistant"
+      ],
+      "immunity": []
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/loretta-knight-of-the-haligtree.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Haligtree Guardian",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Greatbow Magic Arrow",
+          "Haligtree Slash",
+          "Carian Phalanx"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "lorettas-war-sickle",
+        "type": "weapon",
+        "image": "/assets/img/items/lorettas-war-sickle.webp"
+      },
+      {
+        "item_id": "lorettas-mastery",
+        "type": "spell",
+        "image": "/assets/img/items/lorettas-mastery.webp"
+      }
+    ]
+  }
+]

@@ -1,8 +1,10 @@
 /* _vars.css — переменные цветов и шрифтов.
-   Тема одна: чёрный и золото. Названия переменных (--gold-*) оставлены,
-   чтобы ничего не сломалось в JS и CSS.
+   Три темы по баннеру: 1 золото (по умолчанию), 2 алая (blood), 3 синяя (frost).
+   JS (hero-video.js) ставит <html data-theme="gold|blood|frost">.
+   Названия --gold-* оставлены, чтобы ничего не сломалось в JS и CSS.
    --accent-rgb нужен, чтобы рамки и свечение брали тот же цвет. */
 
+/* ---------- 1. Золото (база) ---------- */
 :root,
 [data-theme] {
   --bg-dark: #0a0907;
@@ -30,4 +32,69 @@
 
   --font-headers: 'Cinzel', serif;
   --font-body: 'Fraunces', serif;
+
+  /* кнопки с картинкой: фон-картинка перекрашивается фильтром под тему */
+  --btn-filter: none;
+  --btn-text: #1c1208;
+  --btn-border: #8a5a1c;
+}
+
+/* ---------- 2. Алая (Мессмер) ---------- */
+[data-theme='blood'] {
+  --bg-dark: #0a0505;
+  --bg-card: #130909;
+  --border-dark: #2e1212;
+
+  --gold-primary: #e01616;
+  --gold-hover: #ff5a4d;
+  --accent-rgb: 224, 22, 22;
+
+  --gold-gradient: linear-gradient(
+    135deg,
+    #ff7a6b 0%,
+    #e01616 50%,
+    #7a0000 100%
+  );
+
+  --gold-glow: rgba(224, 22, 22, 0.35);
+  --gold-glow-intense:
+    0 0 20px rgba(255, 90, 77, 0.45), 0 0 8px rgba(224, 22, 22, 0.35);
+
+  --text-title: #f7e9e6;
+  --text-main: #f1e3e0;
+  --text-muted: #b8a09c;
+
+  --btn-filter: hue-rotate(-40deg) saturate(2.2) brightness(0.7);
+  --btn-text: #fff1ee;
+  --btn-border: #5e0a0a;
+}
+
+/* ---------- 3. Синяя (Ранни) ---------- */
+[data-theme='frost'] {
+  --bg-dark: #060810;
+  --bg-card: #0b0f1a;
+  --border-dark: #1b2033;
+
+  --gold-primary: #8fb4ff;
+  --gold-hover: #c9dbff;
+  --accent-rgb: 143, 180, 255;
+
+  --gold-gradient: linear-gradient(
+    135deg,
+    #d6e4ff 0%,
+    #8fb4ff 50%,
+    #3d5fb0 100%
+  );
+
+  --gold-glow: rgba(143, 180, 255, 0.3);
+  --gold-glow-intense:
+    0 0 20px rgba(201, 219, 255, 0.45), 0 0 8px rgba(143, 180, 255, 0.3);
+
+  --text-title: #e6edfb;
+  --text-main: #dfe7f6;
+  --text-muted: #9aa6bf;
+
+  --btn-filter: hue-rotate(188deg) saturate(1.1) brightness(0.8);
+  --btn-text: #0b1020;
+  --btn-border: #26407a;
 }

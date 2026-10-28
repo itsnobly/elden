@@ -1,0 +1,634 @@
+[
+  {
+    "id": "astel-naturalborn-of-the-void",
+    "name_en": "Astel, Naturalborn of the Void",
+    "region": "Lake of Rot / Moonlight Altar",
+    "location": "Grand Cloister / Astel Arena",
+    "tier": "A",
+    "hp": 11205,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "strike",
+        "head_weakness"
+      ],
+      "immunity": [
+        "magic_resistance"
+      ]
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/astel-naturalborn-of-the-void.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Void Birth",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Nebula Explosion",
+          "Cosmic Laser Ray",
+          "Meteor Shower"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-naturalborn",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-astel.webp"
+      }
+    ]
+  },
+  {
+    "id": "regal-ancestor-spirit",
+    "name_en": "Regal Ancestor Spirit",
+    "region": "Nokron, Eternal City",
+    "location": "Hallowhorn Grounds",
+    "tier": "C",
+    "hp": 6595,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "fire",
+        "physical"
+      ],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/regal-ancestor-spirit.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Spirit of the Ancestor",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Spectral Fire Breath",
+          "Teleport Leap"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-regal-ancestor",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-regal-ancestor.webp"
+      }
+    ]
+  },
+  {
+    "id": "tree-sentinel",
+    "name_en": "Tree Sentinel",
+    "region": "Limgrave",
+    "location": "The First Step",
+    "tier": "B",
+    "hp": 2984,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "strike",
+        "lightning"
+      ],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/tree-sentinel.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Mounted Knight",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Halberd Charge",
+          "Shield Slam",
+          "Leaping Smash"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "golden-halberd",
+        "type": "weapon",
+        "image": "/assets/img/items/golden-halberd.webp"
+      },
+      {
+        "item_id": "ash-of-war-golden-vow",
+        "type": "ash_of_war",
+        "image": "/assets/img/items/ash-of-war-golden-vow.webp"
+      }
+    ]
+  },
+  {
+    "id": "flying-dragon-agheel",
+    "name_en": "Flying Dragon Agheel",
+    "region": "Limgrave",
+    "location": "Agheel Lake",
+    "tier": "B",
+    "hp": 3959,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "head_strike",
+        "pierce"
+      ],
+      "immunity": [
+        "fire_resistant"
+      ]
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/flying-dragon-agheel.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Lake Terror",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Flame Sweep",
+          "Tail Whip",
+          "Aerial Fire Bomb"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "dragon-heart",
+        "type": "material",
+        "image": "/assets/img/items/dragon-heart.webp"
+      }
+    ]
+  },
+  {
+    "id": "bloodhound-knight-darriwil",
+    "name_en": "Bloodhound Knight Darriwil",
+    "region": "Limgrave",
+    "location": "Forlorn Hound Evergaol",
+    "tier": "C",
+    "hp": 2042,
+    "stats": {
+      "parryable": true,
+      "weakness": [
+        "parry",
+        "stagger"
+      ],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/bloodhound-knight-darriwil.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Hound Agility",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Bloodhound Step Slash",
+          "Claw Swipe"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "bloodhound-fang",
+        "type": "weapon",
+        "image": "/assets/img/items/bloodhound-fang.webp"
+      }
+    ]
+  },
+  {
+    "id": "nights-cavalry",
+    "name_en": "Night's Cavalry",
+    "region": "Limgrave / Various Regions",
+    "location": "Aguheel Lake North (Bridge)",
+    "tier": "C",
+    "hp": 2420,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "horse_dismount",
+        "strike"
+      ],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/nights-cavalry.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Night Patrol",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Flail Sweep",
+          "Charge Attack"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "ash-of-war-Repeating-Thrust",
+        "type": "ash_of_war",
+        "image": "/assets/img/items/ash-of-war-repeating-thrust.webp"
+      }
+    ]
+  },
+  {
+    "id": "bell-bearing-hunter",
+    "name_en": "Bell Bearing Hunter",
+    "region": "Liurnia / Caelid / Altus",
+    "location": "Warmaster's Shack (Night)",
+    "tier": "A",
+    "hp": 4832,
+    "stats": {
+      "parryable": true,
+      "weakness": [
+        "parry",
+        "stagger"
+      ],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/bell-bearing-hunter.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Telekinetic Blade",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Shield Slam",
+          "Flying Sword Return",
+          "Ground Stab"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "bone-peddler-bell-bearing",
+        "type": "material",
+        "image": "/assets/img/items/bell-bearing.webp"
+      }
+    ]
+  },
+  {
+    "id": "magma-wyrm-makar",
+    "name_en": "Magma Wyrm Makar",
+    "region": "Liurnia / Altus Plateau",
+    "location": "Ruin-Strewn Precipice",
+    "tier": "B",
+    "hp": 7416,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "head_strike",
+        "physical"
+      ],
+      "immunity": [
+        "fire_resistant"
+      ]
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/magma-wyrm-makar.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Magma Crawl",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Magma Vomit",
+          "Sword Slam Combo",
+          "Lava Slide"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "magma-wyrms-scalesword",
+        "type": "weapon",
+        "image": "/assets/img/items/magma-wyrms-scalesword.webp"
+      },
+      {
+        "item_id": "dragon-heart",
+        "type": "material",
+        "image": "/assets/img/items/dragon-heart.webp"
+      }
+    ]
+  },
+  {
+    "id": "elemer-of-the-briar",
+    "name_en": "Elemer of the Briar",
+    "region": "Altus Plateau",
+    "location": "The Shaded Castle",
+    "tier": "B",
+    "hp": 5678,
+    "stats": {
+      "parryable": true,
+      "weakness": [
+        "parry",
+        "stagger"
+      ],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/elemer-of-the-briar.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Telekinetic Greatsword",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Floating Sword Spin",
+          "Shield Bash",
+          "Jumping Slam"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "marais-executioners-sword",
+        "type": "weapon",
+        "image": "/assets/img/items/marais-executioners-sword.webp"
+      },
+      {
+        "item_id": "briar-set",
+        "type": "armor",
+        "image": "/assets/img/items/briar-set.webp"
+      }
+    ]
+  },
+  {
+    "id": "commander-oneil",
+    "name_en": "Commander O'Neil",
+    "region": "Caelid",
+    "location": "Swamp of Aeonia",
+    "tier": "C",
+    "hp": 5304,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "fire",
+        "stagger"
+      ],
+      "immunity": [
+        "scarlet_rot"
+      ]
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/commander-oneil.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Swamp Commander",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Windmill Halberd Spin",
+          "Summon Soldiers",
+          "Rot Arrow Volley"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "veterans-prosthesis",
+        "type": "weapon",
+        "image": "/assets/img/items/veterans-prosthesis.webp"
+      },
+      {
+        "item_id": "unalloyed-gold-needle",
+        "type": "quest_item",
+        "image": "/assets/img/items/unalloyed-gold-needle.webp"
+      }
+    ]
+  },
+  {
+    "id": "eleonora-violet-bloody-finger",
+    "name_en": "Eleonora, Violet Bloody Finger",
+    "region": "Altus Plateau",
+    "location": "Second Church of Marika",
+    "tier": "B",
+    "hp": 3959,
+    "stats": {
+      "parryable": true,
+      "weakness": [
+        "parry",
+        "stagger"
+      ],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/eleonora-violet-bloody-finger.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Bloody Twirl",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Bloodblade Dance",
+          "Whirlwind Thrust"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "eleonoras-poleblade",
+        "type": "weapon",
+        "image": "/assets/img/items/eleonoras-poleblade.webp"
+      },
+      {
+        "item_id": "purifying-crystal-tear",
+        "type": "material",
+        "image": "/assets/img/items/crystal-tear.webp"
+      }
+    ]
+  },
+  {
+    "id": "black-knife-assassin",
+    "name_en": "Black Knife Assassin",
+    "region": "Liurnia / Altus",
+    "location": "Sage's Cave / Black Knife Catacombs",
+    "tier": "C",
+    "hp": 2104,
+    "stats": {
+      "parryable": true,
+      "weakness": [
+        "stagger",
+        "light_attacks"
+      ],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/black-knife-assassin.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Silent Stalker",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Assassin's Gambit Slash",
+          "Destined Death Slice"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "concealing-veil",
+        "type": "talisman",
+        "image": "/assets/img/items/talisman.webp"
+      }
+    ]
+  },
+  {
+    "id": "death-rite-bird",
+    "name_en": "Death Rite Bird",
+    "region": "Mountaintops of the Giants",
+    "location": "Castle Sol / Ordina Approaches",
+    "tier": "A",
+    "hp": 15699,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "holy",
+        "strike"
+      ],
+      "immunity": [
+        "status_effects"
+      ]
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/death-rite-bird.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Ghostflame Reaper",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Ghostflame Explosion",
+          "Beak Peck Combo",
+          "Sky Dive"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "deaths-poker",
+        "type": "weapon",
+        "image": "/assets/img/items/deaths-poker.webp"
+      }
+    ]
+  },
+  {
+    "id": "putrid-avatar",
+    "name_en": "Putrid Avatar",
+    "region": "Caelid / Haligtree",
+    "location": "Dragonbarrow / Minor Erdtree",
+    "tier": "B",
+    "hp": 8920,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "fire",
+        "head_strike"
+      ],
+      "immunity": [
+        "scarlet_rot"
+      ]
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/putrid-avatar.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Rotten Guardian",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Rot Slam",
+          "Golden Light Orbs",
+          "Pestilent Cloud"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "greenspill-crystal-tear",
+        "type": "material",
+        "image": "/assets/img/items/crystal-tear.webp"
+      }
+    ]
+  },
+  {
+    "id": "ulcerated-tree-spirit",
+    "name_en": "Ulcerated Tree Spirit",
+    "region": "Various Regions / Stormveil",
+    "location": "Stormveil Castle (Subterranean)",
+    "tier": "B",
+    "hp": 5234,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "fire",
+        "physical"
+      ],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/ulcerated-tree-spirit.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Root Slither",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Fire Breath Sweep",
+          "Tail Slam",
+          "Holy Roar Explosion"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "seed-bed-curse",
+        "type": "quest_item",
+        "image": "/assets/img/items/seedbed-curse.webp"
+      }
+    ]
+  }
+]

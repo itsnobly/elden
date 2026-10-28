@@ -1,0 +1,454 @@
+[
+  {
+    "id": "messmer-the-impaler",
+    "name_en": "Messmer the Impaler",
+    "region": "Land of Shadow",
+    "location": "Shadow Keep",
+    "tier": "S",
+    "hp": null,
+    "stats": {
+      "parryable": true,
+      "weakness": [],
+      "immunity": []
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/messmer-the-impaler.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Messmer the Impaler",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Flaming Spear Lunge",
+          "Messmer?s Assault"
+        ]
+      },
+      {
+        "phase": 2,
+        "title_en": "Base Serpent Messmer",
+        "trigger_hp_percent": 50,
+        "key_attacks": [
+          "Abyssal Serpent",
+          "Serpent Snakes"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-impaler",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-of-the-impaler.webp"
+      },
+      {
+        "item_id": "messmers-kindling",
+        "type": "key_item",
+        "image": "/assets/img/items/messmers-kindling.webp"
+      }
+    ],
+    "data_quality": {
+      "hp": "Not verified in the consulted public source; null is intentional.",
+      "stats": "Weaknesses and immunities were not verified; arrays are placeholders.",
+      "tier": "Provisional project rating."
+    }
+  },
+  {
+    "id": "divine-beast-dancing-lion",
+    "name_en": "Divine Beast Dancing Lion",
+    "region": "Gravesite Plain (Realm of Shadow)",
+    "location": "Belurat, Tower Settlement",
+    "tier": "A",
+    "hp": 22104,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "fire",
+        "frostbite"
+      ],
+      "immunity": [
+        "status_resistance"
+      ]
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/divine-beast-dancing-lion.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Dancing Beast",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Lightning Storm Roar",
+          "Frost Breath Sweep",
+          "Wind Bite Combo"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-dancing-lion",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-dancing-lion.webp"
+      }
+    ]
+  },
+  {
+    "id": "rellana-twin-moon-knight",
+    "name_en": "Rellana, Twin Moon Knight",
+    "region": "Scadu Altus (Realm of Shadow)",
+    "location": "Castle Ensis",
+    "tier": "S",
+    "hp": 24892,
+    "stats": {
+      "parryable": true,
+      "weakness": [
+        "parry",
+        "stagger"
+      ],
+      "immunity": []
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/rellana-twin-moon-knight.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Twin Blades",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Carian Greatsword Slash",
+          "Magic Glintblade Wall",
+          "Dual Blade Rush"
+        ]
+      },
+      {
+        "phase": 2,
+        "title_en": "Twin Moons Infusion",
+        "trigger_hp_percent": 50,
+        "key_attacks": [
+          "Twin Moons Ground Slam",
+          "Flame Wave Slash"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-twin-moon-knight",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-rellana.webp"
+      }
+    ]
+  },
+  {
+    "id": "commander-gaius",
+    "name_en": "Commander Gaius",
+    "region": "Scadu Altus (Realm of Shadow)",
+    "location": "Shadow Keep (Back Gate)",
+    "tier": "A",
+    "hp": 29810,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "bleed",
+        "frostbite"
+      ],
+      "immunity": []
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/commander-gaius.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Boar Charge",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Boar Charge Dash",
+          "Gravitational Spear Thrust",
+          "Rock Throw"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-boar-rider",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-gaius.webp"
+      }
+    ]
+  },
+  {
+    "id": "putrescent-knight",
+    "name_en": "Putrescent Knight",
+    "region": "The Cerulean Coast (Realm of Shadow)",
+    "location": "Fissure in the Stone Coffin",
+    "tier": "A",
+    "hp": 27412,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "holy",
+        "strike"
+      ],
+      "immunity": [
+        "status_effects"
+      ]
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/putrescent-knight.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Skeletal Ride",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Ghostflame Ring Wave",
+          "Cleaver Smash",
+          "Skeletal Charge"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-putrescence",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-putrescent.webp"
+      }
+    ]
+  },
+  {
+    "id": "metyr-mother-of-fingers",
+    "name_en": "Metyr, Mother of Fingers",
+    "region": "Cerulean Coast / Cathedral of Manus Metyr",
+    "location": "Hinterland (Finger Ruins)",
+    "tier": "A",
+    "hp": 31050,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "head_strike",
+        "magic_resistant"
+      ],
+      "immunity": []
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/metyr-mother-of-fingers.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Cosmic Mother",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Microcosm Laser",
+          "Finger Slam Combo",
+          "Void Beam"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-mother-of-fingers",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-metyr.webp"
+      }
+    ]
+  },
+  {
+    "id": "scadutree-avatar",
+    "name_en": "Scadutree Avatar",
+    "region": "Scadu Altus (Realm of Shadow)",
+    "location": "Church of the Bud",
+    "tier": "A",
+    "hp": 24102,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "fire",
+        "head_strike"
+      ],
+      "immunity": []
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/scadutree-avatar.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Triple Revival",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Spike Wave",
+          "Golden Light Barrage",
+          "Head Slam"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-shadow-sunflower",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-sunflower.webp"
+      }
+    ]
+  },
+  {
+    "id": "bayle-the-dread",
+    "name_en": "Bayle the Dread",
+    "region": "Jagged Peak (Realm of Shadow)",
+    "location": "Summit of Jagged Peak",
+    "tier": "S",
+    "hp": 34105,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "dragon-slayer-weapons",
+        "head_strike"
+      ],
+      "immunity": [
+        "fire"
+      ]
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/bayle-the-dread.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Dreadful Dragon",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Magma Breath Sweep",
+          "Wing Slam",
+          "Lightning Crimson Dive"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-dread",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-bayle.webp"
+      }
+    ]
+  },
+  {
+    "id": "midra-lord-of-frenzied-flame",
+    "name_en": "Midra, Lord of Frenzied Flame",
+    "region": "Abyssal Woods (Realm of Shadow)",
+    "location": "Midra's Manse",
+    "tier": "A",
+    "hp": 21890,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "physical",
+        "stagger"
+      ],
+      "immunity": [
+        "madness_resistance"
+      ]
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/midra-lord-of-frenzied-flame.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Midra, Cursed Man",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Cane Slash",
+          "Madness Orb"
+        ]
+      },
+      {
+        "phase": 2,
+        "title_en": "Lord of Frenzied Flame",
+        "trigger_hp_percent": 50,
+        "key_attacks": [
+          "Flame of Frenzy Beam",
+          "Head Orbit Slash"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-lord-of-frenzied-flame",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-midra.webp"
+      }
+    ]
+  },
+  {
+    "id": "promised-consort-radahn",
+    "name_en": "Promised Consort Radahn",
+    "region": "Enir-Ilim (Realm of Shadow)",
+    "location": "Divine Gate",
+    "tier": "S",
+    "hp": 37920,
+    "stats": {
+      "parryable": false,
+      "weakness": [
+        "shield_counter",
+        "bleed"
+      ],
+      "immunity": [
+        "holy_resistance"
+      ]
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/promised-consort-radahn.webp",
+      "cutscene_youtube_id": ""
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title_en": "Promised Consort",
+        "trigger_hp_percent": 100,
+        "key_attacks": [
+          "Gravity Slash",
+          "Cross Slash Combo",
+          "Meteor Leap"
+        ]
+      },
+      {
+        "phase": 2,
+        "title_en": "Consort of Miquella",
+        "trigger_hp_percent": 50,
+        "key_attacks": [
+          "Light Clone Barrage",
+          "Holy Ground Pillars",
+          "Grab (Steals Light)"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-a-god-and-a-lord",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-radahn-dlc.webp"
+      }
+    ]
+  }
+]

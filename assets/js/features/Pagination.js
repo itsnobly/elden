@@ -1,44 +1,52 @@
-import { getBosses } from '../modules/characters.js';
-import { createBossCard } from '../components/CharacterCard.js';
+// Страницы считаются от 0, на кнопках показываются от 1
 
-const paginationPages = document.querySelector('.pagination__pages');
-const prevButton = document.querySelector('.pagination__prev');
-const nextButton = document.querySelector('.pagination__next');
+function pageNumbers(current, total) {
+  if (total <= 7) return Array.from({ length: total }, (_, i) => i);
 
-let currentPage = 0;
-const totalPages = 5;
+  const near = new Set([0, current - 1, current, current + 1, total - 1]);
 
-async function paginationCard(page) {
-  try {
-    const bosses = await getBosses(page);
+  // в начале и в конце показываем сразу по четыре страницы
+  if (current < 3) [0, 1, 2, 3].forEach((page) => near.add(page));
+  if (current > total - 4) [4, 3, 2, 1].forEach((n) => near.add(total - n));
 
-    if (!bosses) return;
+  const wanted = [...near]
+    .filter((page) => page >= 0 && page < total)
+    .sort((a, b) => a - b);
 
-    createBossCard(bosses);
-    currentPage = page;
+  const result = [];
+  wanted.forEach((page, index) => {
+    if (index && page - wanted[index - 1] > 1) result.push('…');
+    result.push(page);
+  });
 
-    paginationPages.querySelectorAll('button').forEach((button) => {
-      button.classList.toggle('active', Number(button.dataset.page) === page);
-    });
-
-    prevButton.disabled = page === 0;
-    nextButton.disabled = page === totalPages - 1;
-  } catch (error) {
-    console.error(error);
-  }
+  return result;
 }
 
-paginationPages.addEventListener('click', (event) => {
-  const button = event.target.closest('[data-page]');
-  if (button) paginationCard(Number(button.dataset.page));
-});
+export function initPagination(container, onChange) {
+  container.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-page]');
 
-prevButton.addEventListener('click', () => {
-  if (currentPage > 0) paginationCard(currentPage - 1);
-});
+    if (button && !button.disabled) onChange(Number(button.dataset.page));
+  });
 
-nextButton.addEventListener('click', () => {
-  if (currentPage < totalPages - 1) paginationCard(currentPage + 1);
-});
+  return function render({ page, totalPages }) {
+    if (totalPages <= 1) {
+      container.innerHTML = '';
+      return;
+    }
 
-paginationCard(0);
+    const pages = pageNumbers(page, totalPages)
+      .map((item) =>
+        item === '…'
+          ? '<span class="pagination__dots">…</span>'
+          : `<button type="button" data-page="${item}" class="${item === page ? 'active' : ''}" ${item === page ? 'aria-current="page"' : ''}>${item + 1}</button>`,
+      )
+      .join('');
+
+    container.innerHTML = `
+      <button type="button" data-page="${page - 1}" aria-label="Назад" ${page === 0 ? 'disabled' : ''}>←</button>
+      <div class="pagination__pages">${pages}</div>
+      <button type="button" data-page="${page + 1}" aria-label="Вперёд" ${page === totalPages - 1 ? 'disabled' : ''}>→</button>
+    `;
+  };
+}

@@ -1,0 +1,554 @@
+[
+  {
+    "item_id": "remembrance-of-the-grafted",
+    "name_en": "Remembrance of the Grafted",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-of-the-grafted.webp",
+    "exchangeable_for": [
+      {
+        "name": "Axe of Godrick",
+        "type": "weapon"
+      },
+      {
+        "name": "Grafted Dragon",
+        "type": "weapon"
+      }
+    ]
+  },
+  {
+    "item_id": "godricks-great-rune",
+    "name_en": "Godrick's Great Rune",
+    "type": "great_rune",
+    "image": "/assets/img/items/godricks-great-rune.webp"
+  },
+  {
+    "item_id": "remembrance-of-the-full-moon-queen",
+    "name_en": "Remembrance of the Full Moon Queen",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-of-the-full-moon-queen.webp",
+    "exchangeable_for": [
+      {
+        "name": "Carian Regal Scepter",
+        "type": "weapon"
+      },
+      {
+        "name": "Rennala's Full Moon",
+        "type": "spell"
+      }
+    ]
+  },
+  {
+    "item_id": "great-rune-of-the-unborn",
+    "name_en": "Great Rune of the Unborn",
+    "type": "great_rune",
+    "image": "/assets/img/items/great-rune-of-the-unborn.webp"
+  },
+  {
+    "item_id": "remembrance-of-the-starscourge",
+    "name_en": "Remembrance of the Starscourge",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-of-the-starscourge.webp",
+    "exchangeable_for": [
+      {
+        "name": "Starscourge Greatsword",
+        "type": "weapon"
+      },
+      {
+        "name": "Lion Greatbow",
+        "type": "weapon"
+      }
+    ]
+  },
+  {
+    "item_id": "radahns-great-rune",
+    "name_en": "Radahn's Great Rune",
+    "type": "great_rune",
+    "image": "/assets/img/items/radahns-great-rune.webp"
+  },
+  {
+    "item_id": "remembrance-of-the-omen-king",
+    "name_en": "Remembrance of the Omen King",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-of-the-omen-king.webp",
+    "exchangeable_for": [
+      {
+        "name": "Morgott's Cursed Sword",
+        "type": "weapon"
+      },
+      {
+        "name": "Regal Omen Bairn",
+        "type": "tool"
+      }
+    ]
+  },
+  {
+    "item_id": "morgotts-great-rune",
+    "name_en": "Morgott's Great Rune",
+    "type": "great_rune",
+    "image": "/assets/img/items/morgotts-great-rune.webp"
+  },
+  {
+    "item_id": "remembrance-of-the-fire-giant",
+    "name_en": "Remembrance of the Fire Giant",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-of-the-fire-giant.webp",
+    "exchangeable_for": [
+      {
+        "name": "Giant's Red Braid",
+        "type": "weapon"
+      },
+      {
+        "name": "Burn, O Flame!",
+        "type": "incantation"
+      }
+    ]
+  },
+  {
+    "item_id": "remembrance-of-the-blasphemous",
+    "name_en": "Remembrance of the Blasphemous",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-of-the-blasphemous.webp",
+    "exchangeable_for": [
+      {
+        "name": "Blasphemous Blade",
+        "type": "weapon"
+      },
+      {
+        "name": "Rykard's Rancor",
+        "type": "spell"
+      }
+    ]
+  },
+  {
+    "item_id": "remembrance-of-the-blood-lord",
+    "name_en": "Remembrance of the Blood Lord",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-of-the-blood-lord.webp",
+    "exchangeable_for": [
+      {
+        "name": "Mohgwyn's Sacred Spear",
+        "type": "weapon"
+      },
+      {
+        "name": "Bloodboon",
+        "type": "incantation"
+      }
+    ]
+  },
+  {
+    "item_id": "mohgs-great-rune",
+    "name_en": "Mohg's Great Rune",
+    "type": "great_rune",
+    "image": "/assets/img/items/mohgs-great-rune.webp"
+  },
+  {
+    "item_id": "remembrance-of-the-black-blade",
+    "name_en": "Remembrance of the Black Blade",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-of-the-black-blade.webp",
+    "exchangeable_for": [
+      {
+        "name": "Maliketh's Black Blade",
+        "type": "weapon"
+      },
+      {
+        "name": "Black Blade",
+        "type": "incantation"
+      }
+    ]
+  },
+  {
+    "item_id": "remembrance-of-hoarah-loux",
+    "name_en": "Remembrance of Hoarah Loux",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-of-hoarah-loux.webp",
+    "exchangeable_for": [
+      {
+        "name": "Godfrey's Axe",
+        "type": "weapon"
+      },
+      {
+        "name": "Hoarah Loux's Earthshaker",
+        "type": "ash_of_war"
+      }
+    ]
+  },
+  {
+    "item_id": "remembrance-of-the-elden-beast",
+    "name_en": "Remembrance of the Elden Beast",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-of-elden-beast.webp",
+    "exchangeable_for": [
+      {
+        "name": "Marika's Hammer",
+        "type": "weapon"
+      },
+      {
+        "name": "Sacred Relic Sword",
+        "type": "weapon"
+      }
+    ]
+  },
+  {
+    "item_id": "remembrance-of-the-rot-goddess",
+    "name_en": "Remembrance of the Rot Goddess",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-rot-goddess.webp",
+    "exchangeable_for": [
+      {
+        "name": "Hand of Malenia",
+        "type": "weapon"
+      },
+      {
+        "name": "Scarlet Aeonia",
+        "type": "incantation"
+      }
+    ]
+  },
+  {
+    "item_id": "malenias-great-rune",
+    "name_en": "Malenia's Great Rune",
+    "type": "great_rune",
+    "image": "/assets/img/items/great-rune-malenia.webp"
+  },
+  {
+    "item_id": "remembrance-of-the-dragonlord",
+    "name_en": "Remembrance of the Dragonlord",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-of-dragonlord.webp",
+    "exchangeable_for": [
+      {
+        "name": "Placidusax's Ruin",
+        "type": "spell"
+      },
+      {
+        "name": "Dragon King's Cragblade",
+        "type": "weapon"
+      }
+    ]
+  },
+  {
+    "item_id": "remembrance-of-the-lichdragon",
+    "name_en": "Remembrance of the Lichdragon",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-fortissax.webp",
+    "exchangeable_for": [
+      {
+        "name": "Fortissax's Lightning Spear",
+        "type": "incantation"
+      },
+      {
+        "name": "Death Lightning",
+        "type": "incantation"
+      }
+    ]
+  },
+  {
+    "item_id": "veterans-prosthesis",
+    "name_en": "Veteran's Prosthesis",
+    "type": "weapon",
+    "image": "/assets/img/items/veterans-prosthesis.webp"
+  },
+  {
+    "item_id": "haligtree-secret-medallion-left",
+    "name_en": "Haligtree Secret Medallion (Left)",
+    "type": "quest_item",
+    "image": "/assets/img/items/medallion.webp"
+  },
+  {
+    "item_id": "lorettas-war-sickle",
+    "name_en": "Loretta's War Sickle",
+    "type": "weapon",
+    "image": "/assets/img/items/lorettas-war-sickle.webp"
+  },
+  {
+    "item_id": "lorettas-mastery",
+    "name_en": "Loretta's Mastery",
+    "type": "spell",
+    "image": "/assets/img/items/lorettas-mastery.webp"
+  },
+  {
+    "item_id": "remembrance-of-the-impaler",
+    "name_en": "Remembrance of the Impaler",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-of-the-impaler.webp"
+  },
+  {
+    "item_id": "messmers-kindling",
+    "name_en": "Messmer's Kindling",
+    "type": "key_item",
+    "image": "/assets/img/items/messmers-kindling.webp"
+  },
+  {
+    "item_id": "remembrance-of-the-dancing-lion",
+    "name_en": "Remembrance of the Dancing Lion",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-dancing-lion.webp",
+    "exchangeable_for": [
+      {
+        "name": "Enraged Divine Beast",
+        "type": "talisman"
+      },
+      {
+        "name": "Divine Beast Frost Stomp",
+        "type": "ash_of_war"
+      }
+    ]
+  },
+  {
+    "item_id": "remembrance-of-the-twin-moon-knight",
+    "name_en": "Remembrance of the Twin Moon Knight",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-rellana.webp",
+    "exchangeable_for": [
+      {
+        "name": "Rellana's Twin Blades",
+        "type": "weapon"
+      },
+      {
+        "name": "Rellana's Moons",
+        "type": "spell"
+      }
+    ]
+  },
+  {
+    "item_id": "remembrance-of-the-boar-rider",
+    "name_en": "Remembrance of the Boar Rider",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-gaius.webp",
+    "exchangeable_for": [
+      {
+        "name": "Blade of Stone",
+        "type": "spell"
+      },
+      {
+        "name": "Gaius's Greatshield",
+        "type": "shield"
+      }
+    ]
+  },
+  {
+    "item_id": "remembrance-of-putrescence",
+    "name_en": "Remembrance of Putrescence",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-putrescent.webp",
+    "exchangeable_for": [
+      {
+        "name": "Putrescence Cleaver",
+        "type": "weapon"
+      },
+      {
+        "name": "Vortex of Putrescence",
+        "type": "spell"
+      }
+    ]
+  },
+  {
+    "item_id": "remembrance-of-the-mother-of-fingers",
+    "name_en": "Remembrance of the Mother of Fingers",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-metyr.webp",
+    "exchangeable_for": [
+      {
+        "name": "Staff of the Great Beyond",
+        "type": "weapon"
+      },
+      {
+        "name": "Gazing Finger",
+        "type": "weapon"
+      }
+    ]
+  },
+  {
+    "item_id": "remembrance-of-the-shadow-sunflower",
+    "name_en": "Remembrance of the Shadow Sunflower",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-sunflower.webp",
+    "exchangeable_for": [
+      {
+        "name": "Shadow Sunflower Blossom",
+        "type": "weapon"
+      },
+      {
+        "name": "Land of Shadow",
+        "type": "incantation"
+      }
+    ]
+  },
+  {
+    "item_id": "remembrance-of-the-dread",
+    "name_en": "Remembrance of the Dread",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-bayle.webp",
+    "exchangeable_for": [
+      {
+        "name": "Bayle's Tyranny",
+        "type": "incantation"
+      },
+      {
+        "name": "Heart of Bayle",
+        "type": "material"
+      }
+    ]
+  },
+  {
+    "item_id": "remembrance-of-the-lord-of-frenzied-flame",
+    "name_en": "Remembrance of the Lord of Frenzied Flame",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-midra.webp",
+    "exchangeable_for": [
+      {
+        "name": "Midra's Flame of Frenzy",
+        "type": "spell"
+      },
+      {
+        "name": "Greatsword of Damnation",
+        "type": "weapon"
+      }
+    ]
+  },
+  {
+    "item_id": "remembrance-of-a-god-and-a-lord",
+    "name_en": "Remembrance of a God and a Lord",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-radahn-dlc.webp",
+    "exchangeable_for": [
+      {
+        "name": "Milady / Light of Miquella",
+        "type": "spell"
+      },
+      {
+        "name": "Greatsword of Radahn",
+        "type": "weapon"
+      }
+    ]
+  },
+  {
+    "item_id": "remembrance-of-the-naturalborn",
+    "name_en": "Remembrance of the Naturalborn",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-astel.webp",
+    "exchangeable_for": [
+      {
+        "name": "Bastard's Stars",
+        "type": "weapon"
+      },
+      {
+        "name": "Waves of Darkness",
+        "type": "ash_of_war"
+      }
+    ]
+  },
+  {
+    "item_id": "remembrance-of-the-regal-ancestor",
+    "name_en": "Remembrance of the Regal Ancestor",
+    "type": "remembrance",
+    "image": "/assets/img/items/remembrance-regal-ancestor.webp",
+    "exchangeable_for": [
+      {
+        "name": "Winged Greathorn",
+        "type": "weapon"
+      },
+      {
+        "name": "Ancestral Spirit's Horn",
+        "type": "talisman"
+      }
+    ]
+  },
+  {
+    "item_id": "golden-halberd",
+    "name_en": "Golden Halberd",
+    "type": "weapon",
+    "image": "/assets/img/items/golden-halberd.webp"
+  },
+  {
+    "item_id": "ash-of-war-golden-vow",
+    "name_en": "Ash of War: Golden Vow",
+    "type": "ash_of_war",
+    "image": "/assets/img/items/ash-of-war-golden-vow.webp"
+  },
+  {
+    "item_id": "dragon-heart",
+    "name_en": "Dragon Heart",
+    "type": "material",
+    "image": "/assets/img/items/dragon-heart.webp"
+  },
+  {
+    "item_id": "bloodhound-fang",
+    "name_en": "Bloodhound's Fang",
+    "type": "weapon",
+    "image": "/assets/img/items/bloodhound-fang.webp"
+  },
+  {
+    "item_id": "ash-of-war-Repeating-Thrust",
+    "name_en": "Ash of War: Repeating Thrust",
+    "type": "ash_of_war",
+    "image": "/assets/img/items/ash-of-war-repeating-thrust.webp"
+  },
+  {
+    "item_id": "bone-peddler-bell-bearing",
+    "name_en": "Bone Peddler's Bell Bearing",
+    "type": "material",
+    "image": "/assets/img/items/bell-bearing.webp"
+  },
+  {
+    "item_id": "magma-wyrms-scalesword",
+    "name_en": "Magma Wyrm's Scalesword",
+    "type": "weapon",
+    "image": "/assets/img/items/magma-wyrms-scalesword.webp"
+  },
+  {
+    "item_id": "marais-executioners-sword",
+    "name_en": "Marais Executioner's Sword",
+    "type": "weapon",
+    "image": "/assets/img/items/marais-executioners-sword.webp"
+  },
+  {
+    "item_id": "briar-set",
+    "name_en": "Briar Armor Set",
+    "type": "armor",
+    "image": "/assets/img/items/briar-set.webp"
+  },
+  {
+    "item_id": "unalloyed-gold-needle",
+    "name_en": "Unalloyed Gold Needle",
+    "type": "quest_item",
+    "image": "/assets/img/items/unalloyed-gold-needle.webp"
+  },
+  {
+    "item_id": "eleonoras-poleblade",
+    "name_en": "Eleonora's Poleblade",
+    "type": "weapon",
+    "image": "/assets/img/items/eleonoras-poleblade.webp"
+  },
+  {
+    "item_id": "purifying-crystal-tear",
+    "name_en": "Purifying Crystal Tear",
+    "type": "material",
+    "image": "/assets/img/items/crystal-tear.webp"
+  },
+  {
+    "item_id": "concealing-veil",
+    "name_en": "Concealing Veil",
+    "type": "talisman",
+    "image": "/assets/img/items/talisman.webp"
+  },
+  {
+    "item_id": "deaths-poker",
+    "name_en": "Death's Poker",
+    "type": "weapon",
+    "image": "/assets/img/items/deaths-poker.webp"
+  },
+  {
+    "item_id": "greenspill-crystal-tear",
+    "name_en": "Greenspill Crystal Tear",
+    "type": "material",
+    "image": "/assets/img/items/crystal-tear.webp"
+  },
+  {
+    "item_id": "seed-bed-curse",
+    "name_en": "Seedbed Curse",
+    "type": "quest_item",
+    "image": "/assets/img/items/seedbed-curse.webp"
+  }
+]

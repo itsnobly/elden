@@ -30,13 +30,22 @@ function updateSound() {
   soundToggle.setAttribute('aria-label', label);
 }
 
-// Переключение видео
-async function switchVideo(videoName) {
-  const newVideo = `${VIDEO_PATH}${videoName}`;
+// Ждём, пока новое видео покажет первый кадр (но не дольше 1.5 с),
+// чтобы оно не проявилось чёрным
+function waitForFrame() {
+  return new Promise((resolve) => {
+    const done = () => {
+      video.removeEventListener('loadeddata', done);
+      resolve();
+    };
 
-  // Не перезагружаем уже выбранное видео
-  if (video.src.endsWith(newVideo)) return;
+    video.addEventListener('loadeddata', done);
+    setTimeout(done, 1500);
+  });
+}
 
+// Всё, что меняется при переключении: видео, кнопки, тема
+async function applyVideo(videoName, newVideo) {
   const wasMuted = video.muted;
 
   video.src = newVideo;
@@ -55,6 +64,33 @@ async function switchVideo(videoName) {
   document.documentElement.dataset.theme = themes[videoName] || 'gold';
 
   updateSound();
+
+  await waitForFrame();
+}
+
+// Переключение видео вместе с темой.
+// Видео гаснет (0.3 с), пока под ним меняется видео, тема и кнопки,
+// и потом плавно проявляется. Это лёгкий эффект: страница целиком
+// не перерисовывается, поэтому ничего не лагает.
+async function switchVideo(videoName) {
+  const newVideo = `${VIDEO_PATH}${videoName}`;
+
+  // Не перезагружаем уже выбранное видео
+  if (video.src.endsWith(newVideo)) return;
+
+  const reduceMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)',
+  ).matches;
+
+  if (!reduceMotion) {
+    video.style.transition = 'opacity 0.3s ease';
+    video.style.opacity = '0';
+    await new Promise((resolve) => setTimeout(resolve, 300));
+  }
+
+  await applyVideo(videoName, newVideo);
+
+  video.style.opacity = '1';
 
   try {
     await video.play();

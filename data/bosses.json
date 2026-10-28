@@ -1,0 +1,2437 @@
+[
+  {
+    "id": "godrick-the-grafted",
+    "name": "Godrick the Grafted",
+    "title_ru": "Годрик Сторукий",
+    "region": "Limgrave",
+    "location": "Stormveil Castle",
+    "tier": "C",
+    "hp": 6080,
+    "stats": {
+      "parryable": false,
+      "weakness": ["bleed", "frostbite"],
+      "immunity": []
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/godrick-the-grafted.webp",
+      "animation": "/assets/video/bosses/godrick-the-grafted.mp4",
+      "cutscene_youtube_id": "dQw4w9WgXcQ"
+    },
+    "text": {
+      "short": "Правитель Замка Грозовой Завесы, приращивающий к своему телу конечности сильных воинов.",
+      "description": "Слабейший из полубогов-осколконосцев. В бою использует размашистые удары топором, магию ветра, а во второй фазе приращивает голову дракона.",
+      "lore": "Потомок Годфри и Марики. Из-за своей слабости сбежал из Лейнделла в женском платье во время Раскола и начал приращивать чужие конечности, чтобы обрести силу."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Lord of All That is Golden",
+        "trigger_hp_percent": 100,
+        "mechanics": "Атаки толкающим ветром, замахи топором, удар землей (сейсмическая волна).",
+        "key_attacks": ["Storm Assault", "I Command Thee, Kneel!"],
+        "tactics": "Перекатывайтесь сквозь комбо топора, атака отпрыгивает во время комбо ветров."
+      },
+      {
+        "phase": 2,
+        "title": "Dragon Arm",
+        "trigger_hp_percent": 50,
+        "mechanics": "Приращивает голову дракона. Добавляется огненный урон и струи пламени по площади.",
+        "key_attacks": ["Bear Witness!", "Dragon Fire Sweep"],
+        "tactics": "Во время анимации отрубания руки в начале фазы 2 вливайте максимальный урон."
+      }
+    ],
+    "tips": [
+      "Призыв Нефели Лукс перед ареной сильно отвлекает босса.",
+      "Огненный поток во второй фазе легко перепрыгнуть или оббежать слева."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-grafted",
+        "name": "Remembrance of the Grafted",
+        "name_ru": "Воспоминание о Сторуком",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-of-the-grafted.webp",
+        "exchangable_for": [
+          {
+            "name": "Axe of Godrick",
+            "type": "weapon"
+          },
+          {
+            "name": "Grafted Dragon",
+            "type": "weapon"
+          }
+        ]
+      },
+      {
+        "item_id": "godricks-great-rune",
+        "name": "Godrick's Great Rune",
+        "name_ru": "Великая руна Годрика",
+        "type": "great_rune",
+        "image": "/assets/img/items/godricks-great-rune.webp"
+      }
+    ]
+  },
+  {
+    "id": "rennala-queen-of-the-full-moon",
+    "name": "Rennala, Queen of the Full Moon",
+    "title_ru": "Реннала, Королева Полнолуния",
+    "region": "Liurnia of the Lakes",
+    "location": "Raya Lucaria Academy",
+    "tier": "C",
+    "hp": 7578,
+    "stats": {
+      "parryable": false,
+      "weakness": ["physical", "slash", "pierce"],
+      "immunity": ["magic_80_percent_resist"]
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/rennala-queen-of-the-full-moon.webp",
+      "animation": "/assets/video/bosses/rennala-queen-of-the-full-moon.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Глава Академии Райя Лукария и рода Кария, погруженная в печаль после ухода Радагона.",
+      "description": "Магический босс с двумя абсолютно разными фазами. Первая фаза — головоломка с ученицами, вторая — полноценная дуэль заклинателей в иллюзорном пространстве.",
+      "lore": "Королева Карии, великий астролог. Потеряла разум после того, как Радагон оставил её ради Марики, подарив ей Янтарь перерождения."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Academy Library",
+        "trigger_hp_percent": 100,
+        "mechanics": "Защищена магическим щитом. Нужно бить поющих учениц с золотой аурой, чтобы сбить щит.",
+        "key_attacks": ["Books Launch", "Chandeliers Drop"],
+        "tactics": "Быстро находите поющих студенток, сбивайте щит и наносите максимальный физический урон на земле."
+      },
+      {
+        "phase": 2,
+        "title": "Full Moon Illusion",
+        "trigger_hp_percent": 100,
+        "mechanics": "Иллюзия Рани. Реннала кастует мощные чары и призывает духов (великанов, дракона, ищеек).",
+        "key_attacks": ["Comet Azur", "Full Moon", "Summon Spirits"],
+        "tactics": "Сбивайте её заклинания быстрыми физическими атаками — у неё очень низкий баланс (poise)."
+      }
+    ],
+    "tips": [
+      "Магическое оружие и заклинания практически бесполезны (80% сопротивления).",
+      "Используйте быстрый физ. урон или кровотечение."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-full-moon-queen",
+        "name": "Remembrance of the Full Moon Queen",
+        "name_ru": "Воспоминание о Королеве Полнолуния",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-of-the-full-moon-queen.webp",
+        "exchangable_for": [
+          {
+            "name": "Carian Regal Scepter",
+            "type": "weapon"
+          },
+          {
+            "name": "Rennala's Full Moon",
+            "type": "spell"
+          }
+        ]
+      },
+      {
+        "item_id": "great-rune-of-the-unborn",
+        "name": "Great Rune of the Unborn",
+        "name_ru": "Руна Нерожденных",
+        "type": "great_rune",
+        "image": "/assets/img/items/great-rune-of-the-unborn.webp"
+      }
+    ]
+  },
+  {
+    "id": "starscourge-radahn",
+    "name": "Starscourge Radahn",
+    "title_ru": "Бич Звезд, Радан",
+    "region": "Caelid",
+    "location": "Redmane Castle",
+    "tier": "A",
+    "hp": 9572,
+    "stats": {
+      "parryable": false,
+      "weakness": ["scarlet_rot", "pierce"],
+      "immunity": []
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/starscourge-radahn.webp",
+      "animation": "/assets/video/bosses/starscourge-radahn.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Сильнейший генеральный полубог, сдерживающий само движение звезд силой гравитации.",
+      "description": "Масштабный фестивальный босс на огромной арене. Позволяет призывать десяток фантомов NPC прямо во время боя.",
+      "lore": "Сын Радагона и Реннали. Изучил магию гравитации, чтобы не расставаться со своим хилым конем Леонардом. Вступил в ничью с Маленией и сошел с ума от Красной Гнили."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Starscourge Bow & Blades",
+        "trigger_hp_percent": 100,
+        "mechanics": "Стреляет фиолетовыми стрелами гравитации издалека, затем вступает в конный бой с мечами.",
+        "key_attacks": ["Gravity Arrow", "Rain of Arrows", "Starscourge Slash"],
+        "tactics": "Уворачивайтесь от стрел с помощью укрытий (оружия фантомов) и постоянно перепризывайте павших NPC."
+      },
+      {
+        "phase": 2,
+        "title": "Meteor Crash",
+        "trigger_hp_percent": 50,
+        "mechanics": "Подлетает в небо и падает огненным метеоритом. Появляются 4 гравитационных астероида над головой.",
+        "key_attacks": ["Meteor Fall", "Gravitational Wave"],
+        "tactics": "Смотрите в небо, чтобы не попасть под метеорит. Когда вокруг него летают 4 камня, держитесь за спиной."
+      }
+    ],
+    "tips": [
+      "Гнилостное дыхание (Scarlet Rot) наносит ему урон в % от ХП и быстро убивает фазы.",
+      "Можно сражаться на лошади (Потоке), чтобы быстро добегать до знаков призыва."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-starscourge",
+        "name": "Remembrance of the Starscourge",
+        "name_ru": "Воспоминание о Биче Звезд",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-of-the-starscourge.webp",
+        "exchangable_for": [
+          {
+            "name": "Starscourge Greatsword",
+            "type": "weapon"
+          },
+          {
+            "name": "Lion Greatbow",
+            "type": "weapon"
+          }
+        ]
+      },
+      {
+        "item_id": "radahns-great-rune",
+        "name": "Radahn's Great Rune",
+        "name_ru": "Великая руна Радана",
+        "type": "great_rune",
+        "image": "/assets/img/items/radahns-great-rune.webp"
+      }
+    ]
+  },
+  {
+    "id": "morgott-the-omen-king",
+    "name": "Morgott, the Omen King",
+    "title_ru": "Морготт, Король Знамений",
+    "region": "Leyndell, Royal Capital",
+    "location": "Elden Throne",
+    "tier": "B",
+    "hp": 10399,
+    "stats": {
+      "parryable": true,
+      "weakness": ["slash", "lightning"],
+      "immunity": ["holy_resistant"]
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/morgott-the-omen-king.webp",
+      "animation": "/assets/video/bosses/morgott-the-omen-king.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Истинный правитель Лейнделла, защищающий Древо Эрд, несмотря на то, что родился проклятым Знамением.",
+      "description": "Улучшенная и более агрессивная версия Маргита. Использует проклятую кровь, святое оружие и огромную скорость комбо.",
+      "lore": "Сын Годфри и Марики. Был заточен в канализации из-за рогов Знамения, но единственный остался верен Древу Эрд и защищал столицу от остальных полубогов."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "The Omen King",
+        "trigger_hp_percent": 100,
+        "mechanics": "Меч, святые мечи-дождь с неба, метательные кинжалы и молот.",
+        "key_attacks": [
+          "Holy Daggers Throw",
+          "Cursed Blood Slash",
+          "Sword Rain"
+        ],
+        "tactics": "Не стойте под дождем из мечей. Используйте Оковы Маргита (Margit's Shackle) — они работают и на Морготта 2 раза за фазу 1."
+      },
+      {
+        "phase": 2,
+        "title": "Cursed Blood Eruption",
+        "trigger_hp_percent": 50,
+        "mechanics": "Взрыв кровавого пламени. Все атаки меча взрываются кровавой гнилью/огнем.",
+        "key_attacks": ["Cursed Blood Charge", "Flame Eruption"],
+        "tactics": "Отбегайте во время взрыва в начале фазы 2. Уклоняйтесь от захвата с кровавым клинком — он наносит огромный урон."
+      }
+    ],
+    "tips": [
+      "Оковы Маргита (Margit's Shackle) оглушают его в 1 фазе.",
+      "Призыв Мелины (знак возле тумана) сильно помогает сбалансировать агро."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-omen-king",
+        "name": "Remembrance of the Omen King",
+        "name_ru": "Воспоминание о Короле Знамений",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-of-the-omen-king.webp",
+        "exchangable_for": [
+          {
+            "name": "Morgott's Cursed Sword",
+            "type": "weapon"
+          },
+          {
+            "name": "Regal Omen Bairn",
+            "type": "tool"
+          }
+        ]
+      },
+      {
+        "item_id": "morgotts-great-rune",
+        "name": "Morgott's Great Rune",
+        "name_ru": "Великая руна Морготта",
+        "type": "great_rune",
+        "image": "/assets/img/items/morgotts-great-rune.webp"
+      }
+    ]
+  },
+  {
+    "id": "fire-giant",
+    "name": "Fire Giant",
+    "title_ru": "Огненный Великан",
+    "region": "Mountaintops of the Giants",
+    "location": "Flame Peak",
+    "tier": "A",
+    "hp": 12658,
+    "stats": {
+      "parryable": false,
+      "weakness": ["strike", "slash", "left_ankle"],
+      "immunity": ["fire_resistant"]
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/fire-giant.webp",
+      "animation": "/assets/video/bosses/fire-giant.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Последний выживший из расы Великанов, обреченный вечно охранять Пламя Великанов.",
+      "description": "Огромный босс с огромным запасом здоровья и АОЕ-атаками. Бой проходит на конях или пешком у его ног.",
+      "lore": "Гигант, проклятый королевой Марикой после войны с великанами, чтобы хранить огонь Кузницы, способный сжечь Древо Эрд."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Limb Protection",
+        "trigger_hp_percent": 100,
+        "mechanics": "Использует гигантский щит-крышку. Слабое место — левая нога в путлище.",
+        "key_attacks": ["Snow Avalanche", "Shield Slam", "Fireball Launch"],
+        "tactics": "Сразу садитесь на Потока, сближайтесь и бейте по путлищу на ЛЕВОЙ лодыжке, пока оно не порвется."
+      },
+      {
+        "phase": 2,
+        "title": "Fell God Awakened",
+        "trigger_hp_percent": 50,
+        "mechanics": "Отрывает себе ногу, принося ее в жертву Огненному Богу на груди. Переходит в партер.",
+        "key_attacks": ["Volcano Eruption", "Rolling Attack", "Eye Beam"],
+        "tactics": "Слабое место перемещается на глаза на груди и руки. Безопаснее всего бить по пяткам сзади."
+      }
+    ],
+    "tips": [
+      "Обязательно атакуйте ЛЕВУЮ ногу в 1 фазе — урон туда увеличен в 2 раза.",
+      "Процентный урон (Кровотечение, Обморожение, Чёрное Пламя) — лучший выбор из-за гигантского запаса ХП."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-fire-giant",
+        "name": "Remembrance of the Fire Giant",
+        "name_ru": "Воспоминание об Огненном Великане",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-of-the-fire-giant.webp",
+        "exchangable_for": [
+          {
+            "name": "Giant's Red Braid",
+            "type": "weapon"
+          },
+          {
+            "name": "Burn, O Flame!",
+            "type": "incantation"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rykard-lord-of-blasphemy",
+    "name": "Rykard, Lord of Blasphemy",
+    "title_ru": "Рикард, Лорд Богохульства",
+    "region": "Mt. Gelmir",
+    "location": "Volcano Manor",
+    "tier": "B",
+    "hp": 13919,
+    "stats": {
+      "parryable": false,
+      "weakness": ["serpent_hunter_spear", "stagger"],
+      "immunity": ["fire"]
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/rykard-lord-of-blasphemy.webp",
+      "animation": "/assets/video/bosses/rykard-lord-of-blasphemy.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Один из полубогов, скормивший себя богохульному змею в вулканическом поместье.",
+      "description": "Уникальный босс-гимельк, похожий на битву с Йормом из Dark Souls 3. На арене обязательно нужно подобрать специальное копье «Охотник на змей», которое наносит колоссальный урон на расстоянии.",
+      "lore": "Сын Радагона и Реннали, преданный судье и законам Золотого Порядка. Возглавил мятеж против Древа Эрд и позволил змею пожрать себя ради обретения богохульной силы."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "God-Devouring Serpent",
+        "trigger_hp_percent": 100,
+        "mechanics": "Гигантский змей извергает лаву и кусает игрока вблизи.",
+        "key_attacks": ["Magma Spits", "Bite Combo"],
+        "tactics": "Используйте тяжелые атаки копья «Охотник на змей» (даже без прокачки), чтобы сбивать змея с ног."
+      },
+      {
+        "phase": 2,
+        "title": "Rykard, Lord of Blasphemy",
+        "trigger_hp_percent": 50,
+        "mechanics": "Из пасти змея появляется сам Рикард с мечом из человеческих лиц, вызывая кровавые взрывы и шторм из душ.",
+        "key_attacks": ["Blasphemous Rancor", "Tectonic Sword Rain"],
+        "tactics": "Продолжайте спамить силовыми атаками копья. Удерживайте дистанцию от потоков лавы."
+      }
+    ],
+    "tips": [
+      "Оружие «Охотник на змей» работает исключительно на этой арене и увеличивает радиус атак ветром.",
+      "Защита от огня и талисманы на защиту от магии/физики сильно упрощают бой."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-blasphemous",
+        "name": "Remembrance of the Blasphemous",
+        "name_ru": "Воспоминание о Богохульнике",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-of-the-blasphemous.webp",
+        "exchangable_for": [
+          {
+            "name": "Blasphemous Blade",
+            "type": "weapon"
+          },
+          {
+            "name": "Rykard's Rancor",
+            "type": "spell"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mohg-lord-of-blood",
+    "name": "Mohg, Lord of Blood",
+    "title_ru": "Мог, Повелитель Крови",
+    "region": "Mohgwyn Dynasty Mausoleum",
+    "location": "Mohgwyn Palace",
+    "tier": "impossible",
+    "hp": 18393,
+    "stats": {
+      "parryable": false,
+      "weakness": ["shackle_mohg", "bleed_resistant"],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/mohg-lord-of-blood.webp",
+      "animation": "/assets/video/bosses/mohg-lord-of-blood.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Основатель династии Могвин, воспитывающий молодого бога Микеллу в кровавом коконе.",
+      "description": "Один из сложнейших эндгейм-боссов. Оперирует проклятой кровью, накладывает кровотечение сквозь перекаты и заставляет игрока терять здоровье во время перехода во вторую фазу.",
+      "lore": "Брат-близнец Морготта, также рожденный в подземельях Знамением. Нашел формулу кровавой магии Внеземной Матери Огня и похитил Микеллу, мечтая стать его супругом в новой династии."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Lord of Blood",
+        "trigger_hp_percent": 100,
+        "mechanics": "Размашистые удары трезубцем, лужи кровавого пламени на полу, наложение меток крови.",
+        "key_attacks": ["Bloodflame Slash", "Bloodboon Throw"],
+        "tactics": "Следите за лужами крови под ногами — они наносят урон при нахождении в них. Уворачивайтесь от сгустков огня."
+      },
+      {
+        "phase": 2,
+        "title": "With Wings of Blood",
+        "trigger_hp_percent": 50,
+        "mechanics": "Выращивает крылья, кричит три раза «Tres, Duo, Unus», нанося неизбежный урон и исцеляя себя.",
+        "key_attacks": ["Nihil Chant", "Blood Rain Dash"],
+        "tactics": "Используйте слезу «Очищающая кристальная слеза» в фляге с чудесным снадобьем перед началом счета, чтобы нейтрализовать урон от атаки Nihil."
+      }
+    ],
+    "tips": [
+      "Оковы Мога (Mohg's Shackle) позволяют приковать его к полу в 1-й фазе до 2 раз.",
+      "Кольцо Микеллы (предмет от Юры/Елены) можно надеть заранее, чтобы оглушить его перед началом боя."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-blood-lord",
+        "name": "Remembrance of the Blood Lord",
+        "name_ru": "Воспоминание о Повелителе Крови",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-of-the-blood-lord.webp",
+        "exchangable_for": [
+          {
+            "name": "Mohgwyn's Sacred Spear",
+            "type": "weapon"
+          },
+          {
+            "name": "Bloodboon",
+            "type": "incantation"
+          }
+        ]
+      },
+      {
+        "item_id": "mohgs-great-rune",
+        "name": "Mohg's Great Rune",
+        "name_ru": "Великая руна Мога",
+        "type": "great_rune",
+        "image": "/assets/img/items/mohgs-great-rune.webp"
+      }
+    ]
+  },
+  {
+    "id": "maliketh-the-black-blade",
+    "name": "Maliketh, the Black Blade",
+    "title_ru": "Маликет, Черный Клинок",
+    "region": "Crumbling Farum Azula",
+    "location": "Beside the Great Bridge",
+    "tier": "impossible",
+    "hp": 10620,
+    "stats": {
+      "parryable": false,
+      "weakness": ["blasphemous_claw", "strike"],
+      "immunity": []
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/maliketh-the-black-blade.webp",
+      "animation": "/assets/video/bosses/maliketh-the-black-blade.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "5": "Один из самых быстрых и смертоносных боссов игры. Во второй фазе его атаки срезают максимальный запас здоровья и вешают эффект непрерывного горения.",
+      "short": "Верный полубог-зверолюд королевы Марики, которому доверили хранить в себе саму Смерть (Destined Death).",
+      "lore": "Сводный брат Марики. Именно он предал и запечатал «Обреченную Смерть», из-за чего в мире воцарилось бессмертие, но в конце игры вынужден искупить свою ошибку."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Beast Clergyman",
+        "trigger_hp_percent": 100,
+        "mechanics": "Агрессивный зверь с кинжалом и камнями, швыряющий валуны и бьющий лапами.",
+        "key_attacks": ["Beast Claw", "Stone of Gurranq"],
+        "tactics": "Держитесь ближе к нему и перекатывайтесь под правую руку. На половине ХП он трансформируется."
+      },
+      {
+        "phase": 2,
+        "title": "The Black Blade",
+        "trigger_hp_percent": 50,
+        "mechanics": "Достает гигантский черный меч, прыгает по колоннам и выпускает волны посмертного урона.",
+        "key_attacks": ["Destined Death Wave", "Red-Gold Slash"],
+        "tactics": "Используйте предмет «Богохульный коготь» (Blasphemous Claw), чтобы парировать его золотые светящиеся атаки в полете и оглушить."
+      }
+    ],
+    "tips": [
+      "Колонны на арене блокируют часть дальнобойных атак во 2-й фазе, но учтите: они разрушаются от ударов босса.",
+      "Оружие с физическим уроном и высоким показателем баланса позволяет сбивать его комбо."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-black-blade",
+        "name": "Remembrance of the Black Blade",
+        "name_ru": "Воспоминание о Черном Клинке",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-of-the-black-blade.webp",
+        "exchangable_for": [
+          {
+            "name": "Maliketh's Black Blade",
+            "type": "weapon"
+          },
+          {
+            "name": "Black Blade",
+            "type": "incantation"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "godfrey-first-elden-lord",
+    "name": "Godfrey, First Elden Lord (Hoarah Loux)",
+    "title_ru": "Годфри, Первый владыка Элдена / Хоара Лукс",
+    "region": "Leyndell, Ashen Capital",
+    "location": "Elden Throne",
+    "tier": "impossible",
+    "hp": 11993,
+    "stats": {
+      "parryable": true,
+      "weakness": ["bleed", "frostbite"],
+      "immunity": []
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/godfrey-first-elden-lord.webp",
+      "animation": "/assets/video/bosses/godfrey-first-elden-lord.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "3": "Эпическая дуэль один на один. Первая фаза — благородный рыцарь с топором и ручным львом, вторая — чистый рукопашный бой без оружия в стиле реслинга.",
+      "short": "Первый муж королевы Марики, великий варварский вождь, сбросивший свой титул ради честного боя.",
+      "lore": "Бывший предводитель кланов Годфри, ставший первым Элден-лордом. После того как его «благодать исчезла», был изгнан из земель и стал первым Погасшим."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Godfrey, First Elden Lord",
+        "trigger_hp_percent": 100,
+        "mechanics": "Мощные удары топором, топот ногами, вызывающий сейсмические волны по всей арене.",
+        "key_attacks": ["Earthshaker Stomp", "Axe Slash Wave"],
+        "tactics": "ПОСТОЯННО подпрыгивайте при его ударах ногами о землю — волны урона перепрыгиваются в воздухе."
+      },
+      {
+        "phase": 2,
+        "title": "Hoarah Loux, Warrior",
+        "trigger_hp_percent": 50,
+        "mechanics": "Убивает своего верного льва Сереншу, сбрасывает доспехи и переходит в режим захватов и бросков.",
+        "key_attacks": ["Earthshaker Grab", "Wild Slam Combo"],
+        "tactics": "Не пытайтесь блокировать его захваты щитом — они игнорируют защиту. Вовремя делайте перекаты назад."
+      }
+    ],
+    "tips": [
+      "Прыжки вместо перекатов спасают от ударных волн по полу в обеих фазах.",
+      "Наличие дальнобойной магии или лука облегчает наказание босса после его затяжных бросков."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-hoarah-loux",
+        "name": "Remembrance of Hoarah Loux",
+        "name_ru": "Воспоминание о Хоара Луксе",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-of-hoarah-loux.webp",
+        "exchangable_for": [
+          {
+            "name": "Godfrey's Axe",
+            "type": "weapon"
+          },
+          {
+            "name": "Hoarah Loux's Earthshaker",
+            "type": "ash_of_war"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "radagon-elden-beast",
+    "name": "Radagon of the Golden Order & Elden Beast",
+    "title_ru": "Радагон Золотого Порядка и Зверь Элдена",
+    "region": "Elden Throne",
+    "location": "Radagon & Elden Beast Arena",
+    "tier": "impossible",
+    "hp": 22332,
+    "stats": {
+      "parryable": false,
+      "weakness": ["physical", "fire"],
+      "immunity": ["holy_absorb_healing"]
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/radagon-elden-beast.webp",
+      "animation": "/assets/video/bosses/radagon-elden-beast.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Финальный двойной босс игры: божественный воитель Золотого Порядка и воплощение самого Внеземного Сосуда.",
+      "description": "Сначала предстоит дуэль с Радагоном, владеющим молотом и силой света, а сразу после него — бой с космическим Зверем в водном пространстве.",
+      "lore": "Радагон — это вторая половина королевы Марики. Зверь Элдена — космический паразит-вассал Высшей Воли, упавший на Землю в золотой метеоритной жиле."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Radagon of the Golden Order",
+        "trigger_hp_percent": 100,
+        "mechanics": "Бьет молотом с золотым свечением, телепортируется, выпускает световые копья.",
+        "key_attacks": ["Golden Ground Slam", "Triple Hammer Smash"],
+        "tactics": "У Радагона высокий приоритет прерывания ваших атак. Держите среднюю дистанцию и наказывайте после тройного удара молотом."
+      },
+      {
+        "phase": 2,
+        "title": "Elden Beast",
+        "trigger_hp_percent": 100,
+        "mechanics": "Огромный космический змей плавает по воде, стреляет золотыми мечами и создает кольца света.",
+        "key_attacks": ["Elden Stars", "Golden Ring Leap"],
+        "tactics": "Бегите сквозь золотые кольца во время атаки кольцами. Держитесь у него за спиной или под брюхом."
+      }
+    ],
+    "tips": [
+      "Оба босса обладают огромным сопротивлением к Святому урону (и лечатся от него), используйте физическое или огненное оружие.",
+      "Сохраните побольше банок здоровья и маны на фазу Зверя Элдена, так как между боссами нет отдыха."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-elden-beast",
+        "name": "Remembrance of the Elden Beast",
+        "name_ru": "Воспоминание о Звере Элдена",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-of-elden-beast.webp",
+        "exchangable_for": [
+          {
+            "name": "Marika's Hammer",
+            "type": "weapon"
+          },
+          {
+            "name": "Sacred Relic Sword",
+            "type": "weapon"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "malenia-blade-of-miquella",
+    "name": "Malenia, Blade of Miquella",
+    "title_ru": "Маления, Клинок Микеллы",
+    "region": "Miquella's Haligtree",
+    "location": "Elphael, Brace of the Haligtree",
+    "tier": "impossible",
+    "hp": 33251,
+    "stats": {
+      "parryable": true,
+      "weakness": ["fire", "bleed", "frostbite"],
+      "immunity": ["scarlet_rot"]
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/malenia-blade-of-miquella.webp",
+      "animation": "/assets/video/bosses/malenia-blade-of-miquella.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Легендарная не знавшая поражений воительница, пораженная Священной Гнилью.",
+      "description": "Один из сложнейших опциональных боссов в игре. Исцеляет здоровье при каждом ударе по игроку и обладает смертоносной комбо-атакой 'Танец Водяной Лилии'.",
+      "lore": "Дочь Марики и Радагона, сестра-близнец Микеллы. Воевала с Раданом в Раскол, высвободив силу алой гнили."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Blade of Miquella",
+        "trigger_hp_percent": 100,
+        "mechanics": "Агрессивный ближний бой, вампиризм от каждого удара по персонажу или щиту.",
+        "key_attacks": ["Waterfowl Dance", "Phantom Slash"],
+        "tactics": "Убегайте от первых двух серий Водяной Лилии, перекатывайтесь под третью."
+      },
+      {
+        "phase": 2,
+        "title": "Goddess of Rot",
+        "trigger_hp_percent": 50,
+        "mechanics": "Принимает форму крылатой богини гнили, атаки накладывают Красную Гниль.",
+        "key_attacks": ["Scarlet Aeonia", "Rot Dive"],
+        "tactics": "Бегите под цветок во время атаки бутоном, наказывайте издалека."
+      }
+    ],
+    "tips": [
+      "Замораживающие горшки (Freezing Pot) сбивают «Танец Водяной Лилии» прямо во время подготовки.",
+      "Оружие с высоким уроном баланса (поиза) не дает ей выйти из оглушения."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-rot-goddess",
+        "name": "Remembrance of the Rot Goddess",
+        "name_ru": "Воспоминание о Богине Гнили",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-rot-goddess.webp",
+        "exchangable_for": [
+          {
+            "name": "Hand of Malenia",
+            "type": "weapon"
+          },
+          {
+            "name": "Scarlet Aeonia",
+            "type": "incantation"
+          }
+        ]
+      },
+      {
+        "item_id": "malenias-great-rune",
+        "name": "Malenia's Great Rune",
+        "name_ru": "Великая руна Малении",
+        "type": "great_rune",
+        "image": "/assets/img/items/great-rune-malenia.webp"
+      }
+    ]
+  },
+  {
+    "id": "dragonlord-placidusax",
+    "name": "Dragonlord Placidusax",
+    "title_ru": "Драконий владыка Плацидусакс",
+    "region": "Crumbling Farum Azula",
+    "location": "Placidusax Arena (Through Time)",
+    "tier": "impossible",
+    "hp": 26668,
+    "stats": {
+      "parryable": false,
+      "weakness": ["physical", "pierce"],
+      "immunity": ["lightning_resistant"]
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/dragonlord-placidusax.webp",
+      "animation": "/assets/video/bosses/dragonlord-placidusax.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Древний двуглавый дракон, обитающий вне времени в руинах Фарум Азулы.",
+      "description": "Скрытый эпический босс. Управляет золотой молнией, огнем и исчезает в буре, совершая молниеносные атаки-падения.",
+      "lore": "Бывший Эльден-Лорд до прихода Золотого Порядка, ожидающий возвращения своего божества в заброшенном средоточии времени."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "The Dragonlord",
+        "trigger_hp_percent": 100,
+        "mechanics": "Удары хвостом, огненное дыхание, удары красными молниями.",
+        "key_attacks": ["Golden Lightning Strike", "Tail Swipe"],
+        "tactics": "Бейте по хвосту или ногам, уворачивайтесь от площадных молний."
+      },
+      {
+        "phase": 2,
+        "title": "Disappearing Storm",
+        "trigger_hp_percent": 50,
+        "mechanics": "Исчезает из реальности, превращаясь в тучу, и стремительно атакует из воздуха.",
+        "key_attacks": ["Placidusax's Ruin (Laser Beam)", "Claw Dive"],
+        "tactics": "Следите за туманом на арене. Во время лазерной атаки забегайте ему за спину со стороны голов."
+      }
+    ],
+    "tips": [
+      "Защита от стихийного (молнии и огонь) урона сильно повышает выживаемость.",
+      "Использование дальнобойных заклинаний или Пепла Войны облегчает вторую половину боя."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-dragonlord",
+        "name": "Remembrance of the Dragonlord",
+        "name_ru": "Воспоминание о Драконьем владыке",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-of-dragonlord.webp",
+        "exchangable_for": [
+          {
+            "name": "Placidusax's Ruin",
+            "type": "spell"
+          },
+          {
+            "name": "Dragon King's Cragblade",
+            "type": "weapon"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "lichdragon-fortissax",
+    "name": "Lichdragon Fortissax",
+    "title_ru": "Костяной дракон Фортисакс",
+    "region": "Deeproot Depths",
+    "location": "Prince of Death's Throne",
+    "tier": "B",
+    "hp": 13317,
+    "stats": {
+      "parryable": false,
+      "weakness": ["lightning", "physical"],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/lichdragon-fortissax.webp",
+      "animation": "/assets/video/bosses/lichdragon-fortissax.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "3": "Босс доступен в рамках квестовой линии Фии. Использует уникальные молнии культа Древних Драконов и накладывает Смертельное проклятие.",
+      "short": "Древний дракон, сражавшийся с проклятием Смерти внутри тела Годвина.",
+      "lore": "Друг принца Годвина Золотого, который попытался излечить его душу от посмертного проклятия, но сам оказался заражен."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Ancient Dragon of Death",
+        "trigger_hp_percent": 100,
+        "mechanics": "Удары черными молниями, создание туч смерти вокруг игрока.",
+        "key_attacks": ["Death Lightning Strike", "Glaive Swipe"],
+        "tactics": "Не стойте в зонах с красными метками молний. Держитесь у задних лап или крыльев."
+      }
+    ],
+    "tips": [
+      "Талисманы на защиту от молний и святости очень эффективны.",
+      "Призыв фантомов или праха помогает отвлекать внимание дракона."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-lichdragon",
+        "name": "Remembrance of the Lichdragon",
+        "name_ru": "Воспоминание о Костяном драконе",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-fortissax.webp",
+        "exchangable_for": [
+          {
+            "name": "Fortissax's Lightning Spear",
+            "type": "incantation"
+          },
+          {
+            "name": "Death Lightning",
+            "type": "incantation"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "astel-naturalborn-of-the-void",
+    "name": "Astel, Naturalborn of the Void",
+    "title_ru": "Астель, Рожденный Бездной",
+    "region": "Lake of Rot / Moonlight Altar",
+    "location": "Grand Cloister / Astel Arena",
+    "tier": "A",
+    "hp": 11205,
+    "stats": {
+      "parryable": false,
+      "weakness": ["strike", "head_weakness"],
+      "immunity": ["magic_resistance"]
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/astel-naturalborn-of-the-void.webp",
+      "animation": "/assets/video/bosses/astel-naturalborn-of-the-void.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Космическое насекомое-чудовище, прилетевшее на Золотом метеорите и уничтожившее Вечный город.",
+      "description": "Странный босс с гравитационными атаками, лазерами и звездными волнами. Доступен в конце цепочки квестов Ренни.",
+      "lore": "Порождение космоса, лишившее Вечный город Нохрон его неба и звезд."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Void Birth",
+        "trigger_hp_percent": 100,
+        "mechanics": "Гравитационные волны, захваты клешнями, лучи света и метеориты.",
+        "key_attacks": [
+          "Nebula Explosion",
+          "Cosmic Laser Ray",
+          "Meteor Shower"
+        ],
+        "tactics": "Бейте его по голове, когда он опускает ее после атак. Уворачивайтесь от лазера в стороны."
+      }
+    ],
+    "tips": [
+      "Оружие ближнего боя с вертикальными атаками позволяет доставать до его головы.",
+      "Защита от магии снижает урон от его звездных лучей."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-naturalborn",
+        "name": "Remembrance of the Naturalborn",
+        "name_ru": "Воспоминание о Рожденном Бездной",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-astel.webp",
+        "exchangable_for": [
+          {
+            "name": "Bastard's Stars",
+            "type": "weapon"
+          },
+          {
+            "name": "Waves of Darkness",
+            "type": "ash_of_war"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "regal-ancestor-spirit",
+    "name": "Regal Ancestor Spirit",
+    "title_ru": "Царственный дух сородича",
+    "region": "Nokron, Eternal City",
+    "location": "Hallowhorn Grounds",
+    "tier": "C",
+    "hp": 6595,
+    "stats": {
+      "parryable": false,
+      "weakness": ["fire", "physical"],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/regal-ancestor-spirit.webp",
+      "animation": "/assets/video/bosses/regal-ancestor-spirit.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Призрачный сородич руин, воплощение духа природы Нокрона.",
+      "description": "Эфирный и грациозный босс, способный исцелять себя за счет поглощения духов мелких животных на арене.",
+      "lore": "Почитаемое древнее божество подземных жителей, олицетворяющее круговорот жизни и возрождения."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Spirit of the Ancestor",
+        "trigger_hp_percent": 100,
+        "mechanics": "Прыжки, магическое пламя, исцеление за счет призрачных оленей и кроликов.",
+        "key_attacks": ["Spectral Fire Breath", "Teleport Leap"],
+        "tactics": "Быстро атакуйте босса, когда он начинает светиться зеленым и поглощать духов — это прерывает его исцеление."
+      }
+    ],
+    "tips": [
+      "Босс имеет невысокий запас здоровья, поэтому высокий урон по площади быстро завершает бой."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-regal-ancestor",
+        "name": "Remembrance of the Regal Ancestor",
+        "name_ru": "Воспоминание о Царственном сородиче",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-regal-ancestor.webp",
+        "exchangable_for": [
+          {
+            "name": "Winged Greathorn",
+            "type": "weapon"
+          },
+          {
+            "name": "Ancestral Spirit's Horn",
+            "type": "talisman"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tree-sentinel",
+    "name": "Tree Sentinel",
+    "title_ru": "Древесный страж",
+    "region": "Limgrave",
+    "location": "The First Step",
+    "tier": "B",
+    "hp": 2984,
+    "stats": {
+      "parryable": false,
+      "weakness": ["strike", "lightning"],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/tree-sentinel.webp",
+      "animation": "/assets/video/bosses/tree-sentinel.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Элитный конный рыцарь Золотого Порядка, встречающий игроков у самых ворот открытого мира.",
+      "description": "Первый серьезный противник для новичков. Обладает тяжелой алебардой, щитом с отражением магии и огромной мобильностью на коне.",
+      "lore": "Стражи столицы Лейнделл, патрулирующие дороги у подножия Древа Эрд и карающие нарушителей порядка."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Mounted Knight",
+        "trigger_hp_percent": 100,
+        "mechanics": "Таранит на коне, совершает круговые удары алебардой и падает сверху с оглушением.",
+        "key_attacks": ["Halberd Charge", "Shield Slam", "Leaping Smash"],
+        "tactics": "Сражайтесь верхом на Потоке, совершая удары на ходу и отступая, либо переждите ранние уровни и вернитесь позже."
+      }
+    ],
+    "tips": [
+      "Босса можно полностью обойти по кустам и вернуться к нему после прокачки оружия.",
+      "Оружие с дробящим уроном наносит ему повышенный урон по броне."
+    ],
+    "rewards": [
+      {
+        "item_id": "golden-halberd",
+        "name": "Golden Halberd",
+        "name_ru": "Золотая алебарда",
+        "type": "weapon",
+        "image": "/assets/img/items/golden-halberd.webp"
+      },
+      {
+        "item_id": "ash-of-war-golden-vow",
+        "name": "Ash of War: Golden Vow",
+        "name_ru": "Пепел войны: Золотой обет",
+        "type": "ash_of_war",
+        "image": "/assets/img/items/ash-of-war-golden-vow.webp"
+      }
+    ]
+  },
+  {
+    "id": "flying-dragon-agheel",
+    "name": "Flying Dragon Agheel",
+    "title_ru": "Летучий дракон Агил",
+    "region": "Limgrave",
+    "location": "Agheel Lake",
+    "tier": "B",
+    "hp": 3959,
+    "stats": {
+      "parryable": false,
+      "weakness": ["head_strike", "pierce"],
+      "immunity": ["fire_resistant"]
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/flying-dragon-agheel.webp",
+      "animation": "/assets/video/bosses/flying-dragon-agheel.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Огромный дракон, обитающий на мелководье озера Замогилья и сжигающий всех зевак.",
+      "description": "Классический драконий босс открытого мира. Атакует огненным дыханием, хвостом и стремительными полетами.",
+      "lore": "Древние крылатые ящеры, населявшие Междуземье до падения Древа Эрд и поклонявшиеся силам стихий."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Lake Terror",
+        "trigger_hp_percent": 100,
+        "mechanics": "Огненное дыхание по земле, взмахи крыльями, удары лапами и хвостом.",
+        "key_attacks": ["Flame Sweep", "Tail Whip", "Aerial Fire Bomb"],
+        "tactics": "Сражайтесь верхом на Потоке. Подъезжайте к голове, когда он опускает ее после вдоха огня, наносите 1-2 удара и отскакивайте."
+      }
+    ],
+    "tips": [
+      "Удары по голове наносят наибольший урон и быстрее оглушают дракона.",
+      "Во время воздушного огненного захода отъезжайте в сторону или прячьтесь за руинами."
+    ],
+    "rewards": [
+      {
+        "item_id": "dragon-heart",
+        "name": "Dragon Heart",
+        "name_ru": "Сердце дракона",
+        "type": "material",
+        "image": "/assets/img/items/dragon-heart.webp"
+      }
+    ]
+  },
+  {
+    "id": "bloodhound-knight-darriwil",
+    "name": "Bloodhound Knight Darriwil",
+    "title_ru": "Рыцарь ищейки Дарривил",
+    "region": "Limgrave",
+    "location": "Forlorn Hound Evergaol",
+    "tier": "C",
+    "hp": 2042,
+    "stats": {
+      "parryable": true,
+      "weakness": ["parry", "stagger"],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/bloodhound-knight-darriwil.webp",
+      "animation": "/assets/video/bosses/bloodhound-knight-darriwil.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Проворный убийца с изогнутым клинком, заключенный в тюремную темницу вечного заточения.",
+      "description": "Очень агрессивный босс, использующий телепортацию, прыжки и накладывающий кровотечение.",
+      "lore": "Элитные наемники, передвигающиеся на четвереньках и преданно служащие своим хозяевам до конца."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Hound Agility",
+        "trigger_hp_percent": 100,
+        "mechanics": "Серии быстрых режущих ударов, невидимые рывки и прыжки с уступа.",
+        "key_attacks": ["Bloodhound Step Slash", "Claw Swipe"],
+        "tactics": "Уворачивайтесь перекатом вперед и вправо. Обязательно призовите воина Блайда (если начали его квест) — он сильно упрощает бой."
+      }
+    ],
+    "tips": [
+      "Парирование щитом значительно облегчает победу, если выучить тайминги его атак.",
+      "Оружие с большим уроном по балансу сбивает его прыжки."
+    ],
+    "rewards": [
+      {
+        "item_id": "bloodhound-fang",
+        "name": "Bloodhound's Fang",
+        "name_ru": "Клык ищейки",
+        "type": "weapon",
+        "image": "/assets/img/items/bloodhound-fang.webp"
+      }
+    ]
+  },
+  {
+    "id": "nights-cavalry",
+    "name": "Night's Cavalry",
+    "title_ru": "Кавалерия ночи",
+    "region": "Limgrave / Various Regions",
+    "location": "Aguheel Lake North (Bridge)",
+    "tier": "C",
+    "hp": 2420,
+    "stats": {
+      "parryable": false,
+      "weakness": ["horse_dismount", "strike"],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/nights-cavalry.webp",
+      "animation": "/assets/video/bosses/nights-cavalry.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Мрачный всадник в черных доспехах, патрулирующий дороги исключительно по ночам.",
+      "description": "Конный противник с цепом или алебардой. Если убить коня, всадник временно остается пешим, но становится опаснее в ближнем бою.",
+      "lore": "Теневые рыцари Морготта, наводящие ужас на ночные дороги всего Междуземья."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Night Patrol",
+        "trigger_hp_percent": 100,
+        "mechanics": "Таранит игрока, размахивает цепом на цепи, перепрыгивает препятствия.",
+        "key_attacks": ["Flail Sweep", "Charge Attack"],
+        "tactics": "Используйте Потока, бейте коня всадника, чтобы сбросить его на землю, а затем наносите урон в падении."
+      }
+    ],
+    "tips": [
+      "Босс появляется только в темное время суток (можно перекрутить время у костра).",
+      "Скрытное прохождение позволяет нанести мощный первый удар в спину."
+    ],
+    "rewards": [
+      {
+        "item_id": "ash-of-war-Repeating-Thrust",
+        "name": "Ash of War: Repeating Thrust",
+        "name_ru": "Пепел войны: Град ударов",
+        "type": "ash_of_war",
+        "image": "/assets/img/items/ash-of-war-repeating-thrust.webp"
+      }
+    ]
+  },
+  {
+    "id": "bell-bearing-hunter",
+    "name": "Bell Bearing Hunter",
+    "title_ru": "Охотник за сборочными колоколами",
+    "region": "Liurnia / Caelid / Altus",
+    "location": "Warmaster's Shack (Night)",
+    "tier": "A",
+    "hp": 4832,
+    "stats": {
+      "parryable": true,
+      "weakness": ["parry", "stagger"],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/bell-bearing-hunter.webp",
+      "animation": "/assets/video/bosses/bell-bearing-hunter.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "3": "Смертоносный мастер телекинетического боя, управляющий мечом на расстоянии в стиле Ситора из Star Wars.",
+      "short": "Опасный скрытый босс, заменяющий мирных торговцев в лачугах при наступлении ночи.",
+      "lore": "Охотники за колокольчиками павших торговцев, собирающие реликвии для обеспечения монополии на товары."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Telekinetic Blade",
+        "trigger_hp_percent": 100,
+        "mechanics": "Медленные шаги, мощные удары щитом вблизи и мгновенные телекинетические броски меча издалека.",
+        "key_attacks": ["Shield Slam", "Flying Sword Return", "Ground Stab"],
+        "tactics": "Держите среднюю или ближнюю дистанцию. Не убегайте далеко, иначе меч будет наносить огромный урон в полете."
+      }
+    ],
+    "tips": [
+      "Парирование щитом полностью ломает этого босса — три удачных парирования завершают бой.",
+      "Необходимо отдохнуть у костра и дождаться ночи, чтобы торговец исчез и появился босс."
+    ],
+    "rewards": [
+      {
+        "item_id": "bone-peddler-bell-bearing",
+        "name": "Bone Peddler's Bell Bearing",
+        "name_ru": "Сфера торговца костями",
+        "type": "material",
+        "image": "/assets/img/items/bell-bearing.webp"
+      }
+    ]
+  },
+  {
+    "id": "magma-wyrm-makar",
+    "name": "Magma Wyrm Makar",
+    "title_ru": "Магмовый змей Макар",
+    "region": "Liurnia / Altus Plateau",
+    "location": "Ruin-Strewn Precipice",
+    "tier": "B",
+    "hp": 7416,
+    "stats": {
+      "parryable": false,
+      "weakness": ["head_strike", "physical"],
+      "immunity": ["fire_resistant"]
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/magma-wyrm-makar.webp",
+      "animation": "/assets/video/bosses/magma-wyrm-makar.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Огромный дракоподобный ящер, заплывший в лаву и преграждающий путь на плато Альтус.",
+      "description": "Массивный босс, который передвигается на задних лапах и на коленях, оставляя за собой лужи горячей магмы.",
+      "lore": "Драконы или люди, злоупотреблявшие силой драконьих сердец и постепенно деградировавшие до состояния чешуйчатых змеев."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Magma Crawl",
+        "trigger_hp_percent": 100,
+        "mechanics": "Размахи чешуйчатым мечом, извержение лавы изо рта, ползание по арене.",
+        "key_attacks": ["Magma Vomit", "Sword Slam Combo", "Lava Slide"],
+        "tactics": "Держитесь сбоку от его головы или перед ней. Постоянно отбегайте от луж лавы, чтобы не терять здоровье на ровном месте."
+      }
+    ],
+    "tips": [
+      "Призыв напарника-NPC (Трагос Великий Рог) у входа отвлекает босса и позволяет бить в спину.",
+      "Удары по голове наносят повышенный урон и могут сбить босса с ног."
+    ],
+    "rewards": [
+      {
+        "item_id": "magma-wyrms-scalesword",
+        "name": "Magma Wyrm's Scalesword",
+        "name_ru": "Чешуйчатый меч магмового змея",
+        "type": "weapon",
+        "image": "/assets/img/items/magma-wyrms-scalesword.webp"
+      },
+      {
+        "item_id": "dragon-heart",
+        "name": "Dragon Heart",
+        "name_ru": "Сердце дракона",
+        "type": "material",
+        "image": "/assets/img/items/dragon-heart.webp"
+      }
+    ]
+  },
+  {
+    "id": "elemer-of-the-briar",
+    "name": "Elemer of the Briar",
+    "title_ru": "Элемер из Шипов",
+    "region": "Altus Plateau",
+    "location": "The Shaded Castle",
+    "tier": "B",
+    "hp": 5678,
+    "stats": {
+      "parryable": true,
+      "weakness": ["parry", "stagger"],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/elemer-of-the-briar.webp",
+      "animation": "/assets/video/bosses/elemer-of-the-briar.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Грозный мародер в шипастых доспехах, использующий телекинез для управления огромным мечом.",
+      "description": "Человеческий босс с невероятно агрессивными комбо-атаками ближнего боя и способностью притягивать меч издалека.",
+      "lore": "Серийный убийца и преступник, известный под прозвищем «Борющийся со скверной», ставший хозяином Затененного Замка."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Telekinetic Greatsword",
+        "trigger_hp_percent": 100,
+        "mechanics": "Размахи мечом, удары щитом, телекинетические круговые атаки клинком по всей арене.",
+        "key_attacks": ["Floating Sword Spin", "Shield Bash", "Jumping Slam"],
+        "tactics": "Уворачивайтесь в стороны при вращении летающего меча. Парирование щитом работает превосходно."
+      }
+    ],
+    "tips": [
+      "Не отходите слишком далеко, иначе меч начнет атаковать самонаводящимися ударами.",
+      "Оружие с быстрым физическим уроном сбивает его шкалу баланса."
+    ],
+    "rewards": [
+      {
+        "item_id": "marais-executioners-sword",
+        "name": "Marais Executioner's Sword",
+        "name_ru": "Меч палача Мараеса",
+        "type": "weapon",
+        "image": "/assets/img/items/marais-executioners-sword.webp"
+      },
+      {
+        "item_id": "briar-set",
+        "name": "Briar Armor Set",
+        "name_ru": "Комплект шипов",
+        "type": "armor",
+        "image": "/assets/img/items/briar-set.webp"
+      }
+    ]
+  },
+  {
+    "id": "commander-oneil",
+    "name": "Commander O'Neil",
+    "title_ru": "Командир О'Нил",
+    "region": "Caelid",
+    "location": "Swamp of Aeonia",
+    "tier": "C",
+    "hp": 5304,
+    "stats": {
+      "parryable": false,
+      "weakness": ["fire", "stagger"],
+      "immunity": ["scarlet_rot"]
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/commander-oneil.webp",
+      "animation": "/assets/video/bosses/commander-oneil.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Ветеран армии Малении, управляющий призрачными солдатами посреди алого болота Эонии.",
+      "description": "Владеет массивным алебардовым мечом и накладывает баффы на своих призрачных солдат, вызывая гниль.",
+      "lore": "Командир подразделения, оставшегося в Каелиде после битвы с Раданом и поддерживающего тлеющую гниль."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Swamp Commander",
+        "trigger_hp_percent": 100,
+        "mechanics": "Призывает призрачных лучников и мечников, раскручивает алебарду с ветряной волной.",
+        "key_attacks": [
+          "Windmill Halberd Spin",
+          "Summon Soldiers",
+          "Rot Arrow Volley"
+        ],
+        "tactics": "Сначала быстро расправьтесь с призванными солдатами на безопасном расстоянии, а затем переключайтесь на самого командира."
+      }
+    ],
+    "tips": [
+      "Сражение верхом на Потоке позволяет легко маневрировать по болоту и избегать атак.",
+      "Огонь наносит ему дополнительный урон."
+    ],
+    "rewards": [
+      {
+        "item_id": "veterans-prosthesis",
+        "name": "Veteran's Prosthesis",
+        "name_ru": "Протез ветерана",
+        "type": "weapon",
+        "image": "/assets/img/items/veterans-prosthesis.webp"
+      },
+      {
+        "item_id": "unalloyed-gold-needle",
+        "name": "Unalloyed Gold Needle",
+        "name_ru": "Игла из чистейшего золота",
+        "type": "quest_item",
+        "image": "/assets/img/items/unalloyed-gold-needle.webp"
+      }
+    ]
+  },
+  {
+    "id": "commander-niall",
+    "name": "Commander Niall",
+    "title_ru": "Командир Найлл",
+    "region": "Mountaintops of the Giants",
+    "location": "Castle Sol",
+    "tier": "A",
+    "hp": 13317,
+    "stats": {
+      "parryable": false,
+      "weakness": ["lightning", "parry_limited"],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/commander-niall.webp",
+      "animation": "/assets/video/bosses/commander-niall.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Одноногий ветеран в заснеженном Замке Сол, призывающий двух фантомных рыцарей.",
+      "description": "Сложный эндгейм-босс. Вооружен протезом-мечом и ледяными бурями, наносящими огромный урон по площади.",
+      "lore": "Командир северного форпоста, охраняющий тайный медальон для доступа к Священному Древу."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Phantom Guards",
+        "trigger_hp_percent": 100,
+        "mechanics": "Призывает двух рыцарей с щитами и мечами. Сам покрывает ногу ледяным вихрем.",
+        "key_attacks": [
+          "Storm Wind Kick",
+          "Dual Sword Slash",
+          "Lightning Stomp"
+        ],
+        "tactics": "Сфокусируйтесь на быстром уничтожении двух призывных рыцарей в начале боя, пока Найлл медленно приближается."
+      },
+      {
+        "phase": 2,
+        "title": "Storm Prosthesis",
+        "trigger_hp_percent": 50,
+        "mechanics": "Когда у рыцарей падает здоровье (или они погибают), Найлл начинает использовать ледяные удары ногой и штормовые рывки.",
+        "key_attacks": ["Frost Storm Rush", "Ice Blade Combo"],
+        "tactics": "Уворачивайтесь назад от его ледяных ударов ногой и наносите 1-2 удара после его прыжков."
+      }
+    ],
+    "tips": [
+      "Чары «Очарование ветром» или аналогичные методы могут временно обратить его фантомов против него самого.",
+      "Талисманы на защиту от холода и физического урона обязательны."
+    ],
+    "rewards": [
+      {
+        "item_id": "veterans-prosthesis",
+        "name": "Veteran's Prosthesis",
+        "name_ru": "Протез ветерана",
+        "type": "weapon",
+        "image": "/assets/img/items/veterans-prosthesis.webp"
+      },
+      {
+        "item_id": "haligtree-secret-medallion-left",
+        "name": "Haligtree Secret Medallion (Left)",
+        "name_ru": "Тайный медальон Священного Древа (левая часть)",
+        "type": "quest_item",
+        "image": "/assets/img/items/medallion.webp"
+      }
+    ]
+  },
+  {
+    "id": "loretta-knight-of-the-haligtree",
+    "name": "Loretta, Knight of the Haligtree",
+    "title_ru": "Лоретта, Рыцарь Священного Древа",
+    "region": "Miquella's Haligtree",
+    "location": "Haligtree Town",
+    "tier": "B",
+    "hp": 9761,
+    "stats": {
+      "parryable": false,
+      "weakness": ["physical", "magic_resistant"],
+      "immunity": []
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/loretta-knight-of-the-haligtree.webp",
+      "animation": "/assets/video/bosses/loretta-knight-of-the-haligtree.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Царственный рыцарь на призрачном коне, охраняющий подступы к убежищу Микеллы.",
+      "description": "Усиленная версия призрачной Лоретты из поместья Кария. Использует мощные магические стрелы Большого лука и алебарду.",
+      "lore": "Бывший рыцарь Карии, покинувший королевство вместе с полуальбиносами в поисках безопасного убежища у Священного Древа."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Haligtree Guardian",
+        "trigger_hp_percent": 100,
+        "mechanics": "Стреляет магическими стрелами с верховой езды, совершает рубящие удары алебардой с золотистым свечением.",
+        "key_attacks": [
+          "Greatbow Magic Arrow",
+          "Haligtree Slash",
+          "Carian Phalanx"
+        ],
+        "tactics": "Уворачивайтесь от магических стрел перекатом в момент их вылета. Держитесь ближе к лошади, чтобы сокращать дистанцию."
+      }
+    ],
+    "tips": [
+      "Атаки ближнего боя щитом или парирование некоторых выпадов облегчают бой.",
+      "Защитная магия от магии снижает урон от ее стрел."
+    ],
+    "rewards": [
+      {
+        "item_id": "lorettas-war-sickle",
+        "name": "Loretta's War Sickle",
+        "name_ru": "Боевой серп Лоретты",
+        "type": "weapon",
+        "image": "/assets/img/items/lorettas-war-sickle.webp"
+      },
+      {
+        "item_id": "lorettas-mastery",
+        "name": "Loretta's Mastery",
+        "name_ru": "Мастерство Лоретты",
+        "type": "spell",
+        "image": "/assets/img/items/lorettas-mastery.webp"
+      }
+    ]
+  },
+  {
+    "id": "eleonora-violet-bloody-finger",
+    "name": "Eleonora, Violet Bloody Finger",
+    "title_ru": "Элеонора, Фиолетовый кровавый палец",
+    "region": "Altus Plateau",
+    "location": "Second Church of Marika",
+    "tier": "B",
+    "hp": 3959,
+    "stats": {
+      "parryable": true,
+      "weakness": ["parry", "stagger"],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/eleonora-violet-bloody-finger.webp",
+      "animation": "/assets/video/bosses/eleonora-violet-bloody-finger.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Опасный Кровавый Палец, владеющий элегантным двуручным клинком Нагината.",
+      "description": "NPC-захватчик с невероятно быстрыми акробатическими комбо-атаками, накладывающими кровотечение с каждым ударом.",
+      "lore": "Последовательница Мога, получившая в свое распоряжение мощное кровоточащее оружие и стремящаяся истреблять других Погасших."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Bloody Twirl",
+        "trigger_hp_percent": 100,
+        "mechanics": "Серии вихревых ударов нагинатой с перекатами и кровавыми вспышками.",
+        "key_attacks": ["Bloodblade Dance", "Whirlwind Thrust"],
+        "tactics": "Не пытайтесь атаковать ее в лоб во время серии вращений. Уклоняйтесь назад, а затем наказывайте тяжелым ударом."
+      }
+    ],
+    "tips": [
+      "При выполнении квеста Юры (Yura) вы можете получить помощь в битве, либо сразиться с ней в одиночку.",
+      "Оружие с высоким уроном баланса прерывает ее акробатические анимации."
+    ],
+    "rewards": [
+      {
+        "item_id": "eleonoras-poleblade",
+        "name": "Eleonora's Poleblade",
+        "name_ru": "Нагинаты Элеоноры",
+        "type": "weapon",
+        "image": "/assets/img/items/eleonoras-poleblade.webp"
+      },
+      {
+        "item_id": "purifying-crystal-tear",
+        "name": "Purifying Crystal Tear",
+        "name_ru": "Очищающая кристальная слеза",
+        "type": "material",
+        "image": "/assets/img/items/crystal-tear.webp"
+      }
+    ]
+  },
+  {
+    "id": "black-knife-assassin",
+    "name": "Black Knife Assassin",
+    "title_ru": "Убийца из Черных Ножей",
+    "region": "Liurnia / Altus",
+    "location": "Sage's Cave / Black Knife Catacombs",
+    "tier": "C",
+    "hp": 2104,
+    "stats": {
+      "parryable": true,
+      "weakness": ["stagger", "light_attacks"],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/black-knife-assassin.webp",
+      "animation": "/assets/video/bosses/black-knife-assassin.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Скрытная женщина-убийца в доспехах из Черных Ножей, вооруженная кинжалом со свойством посмертной траты здоровья.",
+      "description": "Проворный мини-босс подземелий, использующий невидимость и смертоносный навык уменьшения здоровья.",
+      "lore": "Группа женщин-нулевых из Нумиса, совершивших убийство Годвина Золотого в ночь знаков."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Silent Stalker",
+        "trigger_hp_percent": 100,
+        "mechanics": "Растворяется в воздухе, совершает стремительные прыжки сзади и бросает кинжалы.",
+        "key_attacks": ["Assassin's Gambit Slash", "Destined Death Slice"],
+        "tactics": "Следите за звуками шагов и легким силуэтом мерцания воздуха. Используйте факел «Око расследования», чтобы сделать ее видимой."
+      }
+    ],
+    "tips": [
+      "Призыв любого праха отвлекает ее внимание и не дает ей использовать скрытность.",
+      "Оружие с широким радиусом поражения помогает задеть ее во время невидимых маневров."
+    ],
+    "rewards": [
+      {
+        "item_id": "concealing-veil",
+        "name": "Concealing Veil",
+        "name_ru": "Скрывающая вуаль",
+        "type": "talisman",
+        "image": "/assets/img/items/talisman.webp"
+      }
+    ]
+  },
+  {
+    "id": "death-rite-bird",
+    "name": "Death Rite Bird",
+    "title_ru": "Птица ритуала смерти",
+    "region": "Mountaintops of the Giants",
+    "location": "Castle Sol / Ordina Approaches",
+    "tier": "A",
+    "hp": 15699,
+    "stats": {
+      "parryable": false,
+      "weakness": ["holy", "strike"],
+      "immunity": ["status_effects"]
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/death-rite-bird.webp",
+      "animation": "/assets/video/bosses/death-rite-bird.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Жуткая гигантская птица с человеческим череповатым лицом, управляющая черным пламенем смерти.",
+      "description": "Один из сложнейших полевых ночных боссов эндгейма. Наносит колоссальный урон призрачным огнем.",
+      "lore": "Птицы-жрецы древнего культа смерти, провожавшие души умерших в подземный мир до установления Золотого Порядка."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Ghostflame Reaper",
+        "trigger_hp_percent": 100,
+        "mechanics": "Бьет клювом, крыльями, взмахивает посохом и изрыгает лужи призрачного синего пламени.",
+        "key_attacks": ["Ghostflame Explosion", "Beak Peck Combo", "Sky Dive"],
+        "tactics": "Святое оружие (например, заклинания или молитвы порядка) наносит ей чудовищный урон. Не стойте в синем пламени на земле."
+      }
+    ],
+    "tips": [
+      "Использование священных масел и оружия со святым уроном сокращает бой вдвое.",
+      "Сражение верхом на Потоке позволяет быстро выходить из зоны поражения черного пламени."
+    ],
+    "rewards": [
+      {
+        "item_id": "deaths-poker",
+        "name": "Death's Poker",
+        "name_ru": "Кочерга смерти",
+        "type": "weapon",
+        "image": "/assets/img/items/deaths-poker.webp"
+      }
+    ]
+  },
+  {
+    "id": "putrid-avatar",
+    "name": "Putrid Avatar",
+    "title_ru": "Гниющий аватар",
+    "region": "Caelid / Haligtree",
+    "location": "Dragonbarrow / Minor Erdtree",
+    "tier": "B",
+    "hp": 8920,
+    "stats": {
+      "parryable": false,
+      "weakness": ["fire", "head_strike"],
+      "immunity": ["scarlet_rot"]
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/putrid-avatar.webp",
+      "animation": "/assets/video/bosses/putrid-avatar.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Искаженный аватаром гнили страж Малого Древа Эрд, покрытый язвами и спорами.",
+      "description": "Усиленная версия стандартного Аватара Древа. Размахивает огромным посохом и выпускает снаряды алой гнили.",
+      "lore": "Воплощения воли Древа Эрд, подвергшиеся разложению и заражению Алой гнилью после Раскола."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Rotten Guardian",
+        "trigger_hp_percent": 100,
+        "mechanics": "Удары посохом с прыжка, падение на землю, испускание лучей света и облаков гнили.",
+        "key_attacks": ["Rot Slam", "Golden Light Orbs", "Pestilent Cloud"],
+        "tactics": "Оббегайте его во время каста золотых сфер света — они будут преследовать вас. Бейте по ногам или бокам."
+      }
+    ],
+    "tips": [
+      "Огонь наносит ему значительно больше урона, чем обычные физические атаки.",
+      "Пилюли от гнили (Preserving Boluses) должны быть под рукой на панели быстрого доступа."
+    ],
+    "rewards": [
+      {
+        "item_id": "greenspill-crystal-tear",
+        "name": "Greenspill Crystal Tear",
+        "name_ru": "Зеленокапельная кристальная слеза",
+        "type": "material",
+        "image": "/assets/img/items/crystal-tear.webp"
+      }
+    ]
+  },
+  {
+    "id": "ulcerated-tree-spirit",
+    "name": "Ulcerated Tree Spirit",
+    "title_ru": "Язвенный древесный дух",
+    "region": "Various Regions / Stormveil",
+    "location": "Stormveil Castle (Subterranean)",
+    "tier": "B",
+    "hp": 5234,
+    "stats": {
+      "parryable": false,
+      "weakness": ["fire", "physical"],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/ulcerated-tree-spirit.webp",
+      "animation": "/assets/video/bosses/ulcerated-tree-spirit.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Извивающийся змееподобный дух дерева, состоящий из корней, плоти и огненного дыхания.",
+      "description": "Очень подвижный и хаотичный босс с огромным количеством анимаций извивания, заполняющий тесные арены.",
+      "lore": "Древние духи корней Древа Эрд, искаженные скверной и выброшенные на поверхность."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Root Slither",
+        "trigger_hp_percent": 100,
+        "mechanics": "Ползание, удары хвостом, извержение огня изо рта и масштабный взрыв святой энергии.",
+        "key_attacks": [
+          "Fire Breath Sweep",
+          "Tail Slam",
+          "Holy Roar Explosion"
+        ],
+        "tactics": "Держитесь вплотную к его боку или под брюхом. Большинство широких атак пролетают над головой, если находиться близко."
+      }
+    ],
+    "tips": [
+      "Арена часто бывает тесной, поэтому следите за положением камеры, чтобы не застрять в текстурах.",
+      "Огненные заклинания и жиросжигающие масла наносят ему повышенный урон."
+    ],
+    "rewards": [
+      {
+        "item_id": "seed-bed-curse",
+        "name": "Seedbed Curse",
+        "name_ru": "Проклятие посерневшего ложа",
+        "type": "quest_item",
+        "image": "/assets/img/items/seedbed-curse.webp"
+      }
+    ]
+  },
+  {
+    "id": "divine-beast-dancing-lion",
+    "name": "Divine Beast Dancing Lion",
+    "title_ru": "Божественный зверь — Танцующий лев",
+    "dlc": true,
+    "region": "Gravesite Plain (Realm of Shadow)",
+    "location": "Belurat, Tower Settlement",
+    "tier": "A",
+    "hp": 22104,
+    "stats": {
+      "parryable": false,
+      "weakness": ["fire", "frostbite"],
+      "immunity": ["status_resistance"]
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/divine-beast-dancing-lion.webp",
+      "animation": "/assets/video/bosses/divine-beast-dancing-lion.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Огромный мифический зверь под управлением танцоров в традиционных одеждах рогатых.",
+      "description": "Хаотичный и акробатичный босс, меняющий стихии в ходе боя (лед, молния, ветер, святость) и управляющий камерой за счет извивающихся движений.",
+      "lore": "Воплощение божественного духа, которому поклонялись жители башни Белюрат до прихода Золотого Порядка."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Dancing Beast",
+        "trigger_hp_percent": 100,
+        "mechanics": "Резкие кусающие выпады, прыжки по арене, смена стихийных атак (ветер, лед, молния).",
+        "key_attacks": [
+          "Lightning Storm Roar",
+          "Frost Breath Sweep",
+          "Wind Bite Combo"
+        ],
+        "tactics": "Следите за сменой цвета маски и частиц вокруг зверя — это указывает на тип стихии, к которой нужно подготовить защиту."
+      }
+    ],
+    "tips": [
+      "Призыв управляемого праха или NPC (например, Старейшины) помогает разделить агро.",
+      "Огонь и обморожение наносят ему повышенный урон в течение всего боя."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-dancing-lion",
+        "name": "Remembrance of the Dancing Lion",
+        "name_ru": "Воспоминание о Танцующем льве",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-dancing-lion.webp",
+        "exchangable_for": [
+          {
+            "name": "Enraged Divine Beast",
+            "type": "talisman"
+          },
+          {
+            "name": "Divine Beast Frost Stomp",
+            "type": "ash_of_war"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rellana-twin-moon-knight",
+    "name": "Rellana, Twin Moon Knight",
+    "title_ru": "Реллана, Рыцарь Лун-Близнецов",
+    "dlc": true,
+    "region": "Scadu Altus (Realm of Shadow)",
+    "location": "Castle Ensis",
+    "tier": "impossible",
+    "hp": 24892,
+    "stats": {
+      "parryable": true,
+      "weakness": ["parry", "stagger"],
+      "immunity": []
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/rellana-twin-moon-knight.webp",
+      "animation": "/assets/video/bosses/rellana-twin-moon-knight.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Сестра Ренналы, отказавшаяся от карианского титула ради служения Месмеру в Царстве Тейн.",
+      "description": "Невероятно бычий и смертоносный мечник с двумя клинками (магия луны и пламя). Устраивает масштабные световые шоу с волнами лун во второй фазе.",
+      "lore": "Покинула академию Райя Лукария по собственной воле, последовав за Месмером и влюбившись в его огненный крестовый поход."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Twin Blades",
+        "trigger_hp_percent": 100,
+        "mechanics": "Комбинированные удары парными мечами, магические выпады клинков Карии.",
+        "key_attacks": [
+          "Carian Greatsword Slash",
+          "Magic Glintblade Wall",
+          "Dual Blade Rush"
+        ],
+        "tactics": "Уворачивайтесь строго перекатом вперед и вправо. Парирование щитом позволяет сбить её темп, если выучить тайминги."
+      },
+      {
+        "phase": 2,
+        "title": "Twin Moons Infusion",
+        "trigger_hp_percent": 50,
+        "mechanics": "Окрашивает клинки в магию и огонь, подпрыгивает и обрушивает на арену две гигантские луны.",
+        "key_attacks": ["Twin Moons Ground Slam", "Flame Wave Slash"],
+        "tactics": "Во время атаки двумя лунами подпрыгивайте над каждой ударной волной в точности так же, как на битве с Годфри."
+      }
+    ],
+    "tips": [
+      "Талисманы на защиту от магии и огня обязательны, так как ее комбо совмещают оба типа урона.",
+      "Использование пепла войны с защитным баффом сильно повышает выживаемость."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-twin-moon-knight",
+        "name": "Remembrance of the Twin Moon Knight",
+        "name_ru": "Воспоминание о Рыцаре Лун-Близнецов",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-rellana.webp",
+        "exchangable_for": [
+          {
+            "name": "Rellana's Twin Blades",
+            "type": "weapon"
+          },
+          {
+            "name": "Rellana's Moons",
+            "type": "spell"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "commander-gaius",
+    "name": "Commander Gaius",
+    "title_ru": "Командир Гайус",
+    "dlc": true,
+    "region": "Scadu Altus (Realm of Shadow)",
+    "location": "Shadow Keep (Back Gate)",
+    "tier": "A",
+    "hp": 29810,
+    "stats": {
+      "parryable": false,
+      "weakness": ["bleed", "frostbite"],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/commander-gaius.webp",
+      "animation": "/assets/video/bosses/commander-gaius.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "5": "Очень агрессивный босс с быстрыми рывками на кабане, гравитационными заклинаниями и широким радиусом атак.",
+      "short": "Грозный конный военачальник на гигантском вепре, старый друг Радана со времен обучения у алабастров.",
+      "lore": "Альбинос по происхождению, разделявший детские годы тренировок вместе с генералом Раданом."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Boar Charge",
+        "trigger_hp_percent": 100,
+        "mechanics": "Таранит игрока на свинье, наносит удары копьем с гравитационным усилением.",
+        "key_attacks": [
+          "Boar Charge Dash",
+          "Gravitational Spear Thrust",
+          "Rock Throw"
+        ],
+        "tactics": "Следите за его знаменитым тараном в начале боя — от него нужно уворачиваться в самый последний микросекундный момент перекатом."
+      }
+    ],
+    "tips": [
+      "Призыв праха помогает отвлекать его внимание во время его затяжных разворотов на арене.",
+      "Статусные эффекты (Кровотечение) эффективны против его крупного запаса здоровья."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-boar-rider",
+        "name": "Remembrance of the Boar Rider",
+        "name_ru": "Воспоминание о всаднике на вепре",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-gaius.webp",
+        "exchangable_for": [
+          {
+            "name": "Blade of Stone",
+            "type": "spell"
+          },
+          {
+            "name": "Gaius's Greatshield",
+            "type": "shield"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "putrescent-knight",
+    "name": "Putrescent Knight",
+    "title_ru": "Гниющий рыцарь",
+    "dlc": true,
+    "region": "The Cerulean Coast (Realm of Shadow)",
+    "location": "Fissure in the Stone Coffin",
+    "tier": "A",
+    "hp": 27412,
+    "stats": {
+      "parryable": false,
+      "weakness": ["holy", "strike"],
+      "immunity": ["status_effects"]
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/putrescent-knight.webp",
+      "animation": "/assets/video/bosses/putrescent-knight.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Останки рыцаря, сброшенные в пучину погребальных каменных гробов и ожившие в виде костяного конного монстра.",
+      "description": "Странный и жуткий босс, скачущий на коне из костей и бьющий огромным изогнутым тесаком с призрачным синим пламенем.",
+      "lore": "Воин, чей прах и снаряжение были выброшены в подземную расщетину во время чисток в Царстве Тейн."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Skeletal Ride",
+        "trigger_hp_percent": 100,
+        "mechanics": "Бросает коня вперед, совершает резкие развороты, пускает волны призрачного пламени по кругу.",
+        "key_attacks": [
+          "Ghostflame Ring Wave",
+          "Cleaver Smash",
+          "Skeletal Charge"
+        ],
+        "tactics": "Перепрыгивайте через вращающиеся волны призрачного пламени на полу точно так же, как от ударных волн."
+      }
+    ],
+    "tips": [
+      "Святое оружие наносит ему критический урон.",
+      "Держитесь ближе к его левому боку во время атак тесаком."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-putrescence",
+        "name": "Remembrance of Putrescence",
+        "name_ru": "Воспоминание о тлении",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-putrescent.webp",
+        "exchangable_for": [
+          {
+            "name": "Putrescence Cleaver",
+            "type": "weapon"
+          },
+          {
+            "name": "Vortex of Putrescence",
+            "type": "spell"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "metyr-mother-of-fingers",
+    "name": "Metyr, Mother of Fingers",
+    "title_ru": "Метир, Мать Пальцев",
+    "dlc": true,
+    "region": "Cerulean Coast / Cathedral of Manus Metyr",
+    "location": "Hinterland (Finger Ruins)",
+    "tier": "A",
+    "hp": 31050,
+    "stats": {
+      "parryable": false,
+      "weakness": ["head_strike", "magic_resistant"],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/metyr-mother-of-fingers.webp",
+      "animation": "/assets/video/bosses/metyr-mother-of-fingers.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Первое создание Высшей Воли, космическое существо в виде гигантского уродливого скопления пальцев.",
+      "description": "Скрытый эндгейм-босс DLC. Использует лазеры из микрокосмоса, удары пальцами и выпускает мини-пальцы-черви.",
+      "lore": "Пальцеобразное божество, от которого произошли все пальцы-чтецы в Междуземье, однако давно потерявшее связь с космосом."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Cosmic Mother",
+        "trigger_hp_percent": 100,
+        "mechanics": "Бьет пальцами по земле, выпускает лазерные лучи со звездами, кружится в вихре.",
+        "key_attacks": ["Microcosm Laser", "Finger Slam Combo", "Void Beam"],
+        "tactics": "Бегите вбок от лазера во время катка микрокосмоса. Бейте ее по центральному лицу-желудку."
+      }
+    ],
+    "tips": [
+      "Защита от магии снижает урон от ее звездных лучей.",
+      "Высокий физический урон в ближнем бою позволяет быстро прервать ее касты."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-mother-of-fingers",
+        "name": "Remembrance of the Mother of Fingers",
+        "name_ru": "Воспоминание о Матери Пальцев",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-metyr.webp",
+        "exchangable_for": [
+          {
+            "name": "Staff of the Great Beyond",
+            "type": "weapon"
+          },
+          {
+            "name": "Gazing Finger",
+            "type": "weapon"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "scadutree-avatar",
+    "name": "Scadutree Avatar",
+    "title_ru": "Аватар Древа Упадка",
+    "dlc": true,
+    "region": "Scadu Altus (Realm of Shadow)",
+    "location": "Church of the Bud",
+    "tier": "A",
+    "hp": 24102,
+    "stats": {
+      "parryable": false,
+      "weakness": ["fire", "head_strike"],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/scadutree-avatar.webp",
+      "animation": "/assets/video/bosses/scadutree-avatar.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Воплощение темного Древа Упадка, состоящее из сплетенных ветвей и светящейся головы-цветка.",
+      "description": "Босс, с которым придется сразиться в три последовательные полоски здоровья (возрождается после каждого уничтожения). Уязвим к огню.",
+      "lore": "Паразитическая сущность, питающаяся скорбью и тенями в глубинах Царства Тейн."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Triple Revival",
+        "trigger_hp_percent": 100,
+        "mechanics": "Бьет головой о землю, швыряет шипы и золотые сферы света, пускает волны шипов по полу.",
+        "key_attacks": ["Spike Wave", "Golden Light Barrage", "Head Slam"],
+        "tactics": "Бейте в центральную голову-цветок — это ее слабое место, наносящее наибольший урон здоровью."
+      }
+    ],
+    "tips": [
+      "Огненное оружие и заклинания наносят ей колоссальный урон из-за деревянной природы.",
+      "После опустошения полоски здоровья обязательно подбегайте к голове и наносите критический удар, чтобы снять большой кусок ХП при возрождении."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-shadow-sunflower",
+        "name": "Remembrance of the Shadow Sunflower",
+        "name_ru": "Воспоминание о теневом подсолнухе",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-sunflower.webp",
+        "exchangable_for": [
+          {
+            "name": "Shadow Sunflower Blossom",
+            "type": "weapon"
+          },
+          {
+            "name": "Land of Shadow",
+            "type": "incantation"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bayle-the-dread",
+    "name": "Bayle the Dread",
+    "title_ru": "Бейл Ужасный",
+    "dlc": true,
+    "region": "Jagged Peak (Realm of Shadow)",
+    "location": "Summit of Jagged Peak",
+    "tier": "impossible",
+    "hp": 34105,
+    "stats": {
+      "parryable": false,
+      "weakness": ["dragon-slayer-weapons", "head_strike"],
+      "immunity": ["fire"]
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/bayle-the-dread.webp",
+      "animation": "/assets/video/bosses/bayle-the-dread.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Древний однокрылый архидракон, извергающий пламя драконьей скверны на вершине Зубчатого Пика.",
+      "description": "Эпический скрытый босс DLC. Сражение проходит на вершине горы при поддержке выжившего охотника на драконов Игона.",
+      "lore": "Главный враг Плацидусакса, откусивший ему головы в древней битве и ставший проклятием всех драконов."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Dreadful Dragon",
+        "trigger_hp_percent": 100,
+        "mechanics": "Атакует культями крыльев, изрыгает лаву и красное пламя, бьет хвостом.",
+        "key_attacks": [
+          "Magma Breath Sweep",
+          "Wing Slam",
+          "Lightning Crimson Dive"
+        ],
+        "tactics": "Соблюдайте среднюю дистанцию и бейте по голове. Не забывайте призывать Игона у входа на арену для его уникальной озвучки и отвлечения внимания."
+      }
+    ],
+    "tips": [
+      "Оружие из категории «Охотник на драконов» наносит ему на 20% больше урона.",
+      "Откат от его лавовых луж требует быстрых перекатов вбок."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-dread",
+        "name": "Remembrance of the Dread",
+        "name_ru": "Воспоминание об Ужасном",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-bayle.webp",
+        "exchangable_for": [
+          {
+            "name": "Bayle's Tyranny",
+            "type": "incantation"
+          },
+          {
+            "name": "Heart of Bayle",
+            "type": "material"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "midra-lord-of-frenzied-flame",
+    "name": "Midra, Lord of Frenzied Flame",
+    "title_ru": "Мидра, Лорд Яростного Пламени",
+    "dlc": true,
+    "region": "Abyssal Woods (Realm of Shadow)",
+    "location": "Midra's Manse",
+    "tier": "A",
+    "hp": 21890,
+    "stats": {
+      "parryable": false,
+      "weakness": ["physical", "stagger"],
+      "immunity": ["madness_resistance"]
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/midra-lord-of-frenzied-flame.webp",
+      "animation": "/assets/video/bosses/midra-lord-of-frenzied-flame.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Безумный старец в заброшенном особняке, чья голова превратилась в горящий шар Яростного Пламени.",
+      "description": "Атмосферный босс с мечом-тростью в первой фазе и ужасающей трансформацией головы-солнца во второй.",
+      "lore": "Бывший придворный ученый, подвергшийся жестоким пыткам за попытку обуздать силу Яростного Пламени."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Midra, Cursed Man",
+        "trigger_hp_percent": 100,
+        "mechanics": "Медленные удары мечом-тростью, запуск лучей безумия.",
+        "key_attacks": ["Cane Slash", "Madness Orb"],
+        "tactics": "Легко парируется или сбивается с ног тяжелыми атаками."
+      },
+      {
+        "phase": 2,
+        "title": "Lord of Frenzied Flame",
+        "trigger_hp_percent": 50,
+        "mechanics": "Срывает с себя голову, обнажая сферу безумного пламени, покрывая всю арену желтым огнем.",
+        "key_attacks": ["Flame of Frenzy Beam", "Head Orbit Slash"],
+        "tactics": "Следите за шкалой безумия (Madness). При ее заполнении вы мгновенно теряете большую часть здоровья."
+      }
+    ],
+    "tips": [
+      "Талисманы и одежда с высокой защитой от безумия обязательны.",
+      "Пилюли успокоения (Clarifying Boluses) сбрасывают накопившееся безумие."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-the-lord-of-frenzied-flame",
+        "name": "Remembrance of the Lord of Frenzied Flame",
+        "name_ru": "Воспоминание о Лорде Яростного Пламени",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-midra.webp",
+        "exchangable_for": [
+          {
+            "name": "Midra's Flame of Frenzy",
+            "type": "spell"
+          },
+          {
+            "name": "Greatsword of Damnation",
+            "type": "weapon"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "promised-consort-radahn",
+    "name": "Promised Consort Radahn",
+    "title_ru": "Радан, Обещанный Консорт",
+    "dlc": true,
+    "region": "Enir-Ilim (Realm of Shadow)",
+    "location": "Divine Gate",
+    "tier": "impossible",
+    "hp": 37920,
+    "stats": {
+      "parryable": false,
+      "weakness": ["shield_counter", "bleed"],
+      "immunity": ["holy_resistance"]
+    },
+    "optional": false,
+    "media": {
+      "image": "/assets/img/bosses/promised-consort-radahn.webp",
+      "animation": "/assets/video/bosses/promised-consort-radahn.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Финальный босс дополнения: воскресший генерал Радан в расцвете сил в качестве консорта бога Микеллы.",
+      "description": "Сложнейший босс во всей игре. Обладает бешеной скоростью комбо, огромным уроном и второй фазой со световыми клонами Микеллы.",
+      "lore": "Душа Радана была помещена в тело Мога по плану Микеллы, чтобы стать божественным супругом в новой эпохе милосердия."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Promised Consort",
+        "trigger_hp_percent": 100,
+        "mechanics": "Два огромных меча, гравитационные рывки, удары ногами и перекаты.",
+        "key_attacks": ["Gravity Slash", "Cross Slash Combo", "Meteor Leap"],
+        "tactics": "Использование тяжелого щита с 100% защитой от физического урона — один из самых надежных способов пережить его комбо."
+      },
+      {
+        "phase": 2,
+        "title": "Consort of Miquella",
+        "trigger_hp_percent": 50,
+        "mechanics": "Микелла усаживается ему на спину, добавляя к каждой атаке световые клоны и лучи света.",
+        "key_attacks": [
+          "Light Clone Barrage",
+          "Holy Ground Pillars",
+          "Grab (Steals Light)"
+        ],
+        "tactics": "Уворачивайтесь вбок от световых клонов, которые летят сразу после каждого удара мечом. Избегайте захвата Микеллы."
+      }
+    ],
+    "tips": [
+      "Защита от святого урона (талисманы, баффы) критически важна во второй фазе.",
+      "Великая руна Микеллы или специальный предмет помогают защититься от его смертельного захвата."
+    ],
+    "rewards": [
+      {
+        "item_id": "remembrance-of-a-god-and-a-lord",
+        "name": "Remembrance of a God and a Lord",
+        "name_ru": "Воспоминание о боге и владыке",
+        "type": "remembrance",
+        "image": "/assets/img/items/remembrance-radahn-dlc.webp",
+        "exchangable_for": [
+          {
+            "name": "Milady / Light of Miquella",
+            "type": "spell"
+          },
+          {
+            "name": "Greatsword of Radahn",
+            "type": "weapon"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "metyr-mother-of-fingers-alt",
+    "name": "Count Ymir, Mother's High Priest",
+    "title_ru": "Граф Имир, Верховный жрец Матери",
+    "dlc": true,
+    "region": "Cathedral of Manus Metyr",
+    "location": "Cathedral Throne",
+    "tier": "B",
+    "hp": 14200,
+    "stats": {
+      "parryable": false,
+      "weakness": ["physical", "stagger"],
+      "immunity": []
+    },
+    "optional": true,
+    "media": {
+      "image": "/assets/img/bosses/count-ymir.webp",
+      "animation": "/assets/video/bosses/count-ymir.mp4",
+      "cutscene_youtube_id": ""
+    },
+    "text": {
+      "short": "Священник собора Манус Метир, проводящий тайные ритуалы с пальцами.",
+      "description": "Человеческий босс, который вызывает пальцеобразных червей и кастует мощные гравитационные и звездные чары прямо из кресла.",
+      "lore": "Главный жрец, разочаровавшийся в испорченности пальцев и решивший породить новую мать."
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "title": "High Priest",
+        "trigger_hp_percent": 100,
+        "mechanics": "Призыв мини-пальцев, каст звездных чар, удары посохом.",
+        "key_attacks": ["Glintstone Finger Ray", "Summon Fingercreepers"],
+        "tactics": "Сначала уничтожьте призывных пальцев на арене, затем переключитесь на Имира."
+      }
+    ],
+    "tips": [
+      "Прерывайте его затяжные заклинания быстрыми атаками ближнего боя."
+    ],
+    "rewards": [
+      {
+        "item_id": "high-priest-robe",
+        "name": "High Priest Set",
+        "name_ru": "Комплект Верховного жреца",
+        "type": "armor",
+        "image": "/assets/img/items/armor.webp"
+      }
+    ]
+  }
+]

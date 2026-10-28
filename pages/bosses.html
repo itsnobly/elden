@@ -3,44 +3,89 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../assets/css/pages/bosses.css" />
-
-    <title>Elden Ring — Bosses</title>
+    <meta
+      name="description"
+      content="Browse Elden Ring bosses by category, region, and location."
+    />
+    <title>Bosses — Elden Ring</title>
+    <link rel="stylesheet" href="/assets/css/pages/bosses.css" />
   </head>
-
   <body>
-    <section class="bosses">
-      <div class="container">
-        <div class="bosses__header">
-          <span class="bosses__eyebrow">THE LANDS BETWEEN</span>
-
-          <h2 class="bosses__title">Legends of the Lands Between</h2>
-
-          <p class="bosses__subtitle">
-            Face the legends that stand between you and the Elden Throne.
-            Discover their stories and uncover the secrets they guard.
-          </p>
-        </div>
-
-        <div class="bosses__grid">
-          <!-- Карточки появятся здесь через JavaScript -->
-        </div>
-      </div>
-    </section>
-    <div class="pagination">
-      <button class="pagination__prev" disabled>Previous</button>
-      <div class="pagination__pages">
-        <button class="pagination__page active" data-page="0">1</button>
-        <button class="pagination__page" data-page="1">2</button>
-        <button class="pagination__page" data-page="2">3</button>
-        <button class="pagination__page" data-page="3">4</button>
-        <button class="pagination__page" data-page="4">5</button>
-      </div>
-      <button class="pagination__next">Next</button>
+    <div class="page-loader" id="page-loader" role="status" aria-label="Loading boss data">
+      <img
+        class="page-loader__bonfire"
+        src="/assets/video/load/bonfire.gif"
+        alt=""
+      />
     </div>
-    <script
-      type="module"
-      src="../assets/js/components/CharacterCard.js"></script>
-    <script type="module" src="./assets/js/main.js"></script>
+
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <nav class="header__nav" aria-label="Main navigation">
+            <div class="logo"><a href="/">EldenRing</a></div>
+            <ul class="header__nav-links">
+              <li class="nav__link"><a href="/pages/guide.html">Guide</a></li>
+              <li class="nav__link"><a href="/pages/bosses.html" aria-current="page">Bosses</a></li>
+              <li class="nav__link"><a href="/pages/tools.html">Tools</a></li>
+              <li class="nav__link"><a href="/pages/music.html">Music</a></li>
+            </ul>
+            <div class="header__social">
+              <button id="boss-contact-button" type="button">Contact</button>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <main class="bosses">
+        <div class="container">
+          <header class="bosses__head">
+            <p class="bosses__eyebrow" id="boss-page-eyebrow">The Lands Between &amp; the Land of Shadow</p>
+            <h1 class="bosses__title" id="boss-page-title">Bosses</h1>
+            <p class="bosses__subtitle" id="boss-page-subtitle">
+              Browse every encounter by category, region, and location.
+            </p>
+          </header>
+
+          <nav class="bosses__categories" id="boss-categories" aria-label="Boss categories"></nav>
+          <nav class="bosses__tiers" id="boss-tiers" aria-label="Filter by difficulty"></nav>
+          <p class="bosses__tier-note" id="boss-tier-note"></p>
+
+          <section class="bosses__toolbar" aria-label="Search and filters">
+            <label class="sr-only" for="boss-search">Search bosses</label>
+            <input id="boss-search" type="search" placeholder="Search bosses, regions, rewards..." />
+            <div class="bosses__location-filter">
+              <label class="sr-only" for="boss-location">Filter by location</label>
+              <input id="boss-location" type="search" role="combobox" aria-autocomplete="list" aria-controls="boss-locations" aria-expanded="false" placeholder="Search locations..." />
+              <div class="bosses__location-options" id="boss-locations" role="listbox" hidden></div>
+            </div>
+            <button type="button" id="boss-reset">Reset</button>
+            <p class="bosses__count" id="boss-count" aria-live="polite"></p>
+          </section>
+
+          <div class="bosses__message" id="boss-message" hidden></div>
+          <div id="boss-results" aria-live="polite"></div>
+          <nav class="pagination" id="boss-pagination" aria-label="Boss pages"></nav>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">Elden Ring Boss Compendium</div>
+      </footer>
+    </div>
+
+    <dialog class="boss-modal" id="boss-modal" aria-labelledby="boss-modal-title">
+      <div class="boss-modal__inner">
+        <button class="boss-modal__close" type="button" data-close-modal aria-label="Close details">
+          &times;
+        </button>
+        <div class="boss-modal__media" role="img" aria-label="Boss artwork placeholder">
+          <div class="boss-card__placeholder" aria-hidden="true">✦</div>
+        </div>
+        <div class="boss-modal__body" id="boss-modal-body"></div>
+      </div>
+    </dialog>
+
+    <script type="module" src="/assets/js/features/bosses-page.js"></script>
   </body>
 </html>

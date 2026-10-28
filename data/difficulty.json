@@ -1,0 +1,162 @@
+{
+  "godrick-the-grafted": {
+    "en": "Readable axe combos and generous recovery windows make him a manageable early-game skill check.",
+    "ru": "Понятные серии ударов топором и долгие паузы после атак делают его посильной проверкой навыков в начале игры."
+  },
+  "rennala-queen-of-the-full-moon": {
+    "en": "The first phase is a simple setup; her second phase has dangerous magic but low poise and limited close-range pressure.",
+    "ru": "Первая фаза скорее подготовительная; во второй опасная магия сочетается с низкой стойкостью и слабым давлением вблизи."
+  },
+  "starscourge-radahn": {
+    "en": "A large health pool, punishing ranged attacks, and erratic movement make the fight demanding, though summons can ease the pressure.",
+    "ru": "Большой запас здоровья, опасные дальние атаки и резкие перемещения усложняют бой, хотя призывы заметно помогают."
+  },
+  "morgott-the-omen-king": {
+    "en": "Fast, varied combos demand timing, but his modest durability and clear recovery windows keep the fight fair.",
+    "ru": "Быстрые разнообразные серии требуют хорошего тайминга, но умеренное здоровье и заметные паузы делают бой честным."
+  },
+  "fire-giant": {
+    "en": "His huge health pool and arena-wide fire attacks make the encounter long and punish mistakes, despite a predictable moveset.",
+    "ru": "Огромный запас здоровья и огненные атаки на большой площади затягивают бой и наказывают за ошибки, хотя движения предсказуемы."
+  },
+  "rykard-lord-of-blasphemy": {
+    "en": "The required Serpent-Hunter weapon turns the spectacle into a forgiving fight with readable attacks.",
+    "ru": "Обязательное копьё Змееборца превращает зрелищный бой в сравнительно простой поединок с понятными атаками."
+  },
+  "mohg-lord-of-blood": {
+    "en": "Bloodflame pressure, a punishing phase transition, and delayed area attacks demand preparation and precise timing.",
+    "ru": "Кровавое пламя, болезненный переход между фазами и отложенные атаки по площади требуют подготовки и точного тайминга."
+  },
+  "maliketh-the-black-blade": {
+    "en": "Relentless mobility, short punish windows, and attacks that reduce maximum HP leave little room for mistakes.",
+    "ru": "Постоянные перемещения, короткие окна для ответа и атаки, снижающие максимум здоровья, почти не оставляют права на ошибку."
+  },
+  "godfrey-first-elden-lord": {
+    "en": "Two durable phases combine broad stomps with relentless grapples; the second phase heavily tests dodge timing.",
+    "ru": "В двух стойких фазах широкие удары по земле сменяются непрерывными захватами; вторая фаза строго проверяет тайминг уклонений."
+  },
+  "radagon-elden-beast": {
+    "en": "A demanding two-boss finale combines delayed holy bursts with a long second health bar and little time to recover.",
+    "ru": "Финал из двух боссов соединяет отложенные священные взрывы с длинной второй полосой здоровья и короткими передышками."
+  },
+  "malenia-blade-of-miquella": {
+    "en": "Waterfowl Dance, two lethal phases, and healing on every hit make consistency essential even when attacks are blocked.",
+    "ru": "Танец водоплавающей птицы, две смертельно опасные фазы и лечение от каждого попадания требуют безошибочной игры даже при блоке."
+  },
+  "dragonlord-placidusax": {
+    "en": "A large arena-spanning moveset mixes sudden teleport attacks with heavy area damage and strict punish windows.",
+    "ru": "Атаки через всю арену сочетаются с внезапными телепортациями, мощным уроном по площади и короткими окнами для ответа."
+  },
+  "lichdragon-fortissax": {
+    "en": "Lightning zones and a large hitbox can overwhelm at close range, but his slower patterns are learnable.",
+    "ru": "Молнии по арене и крупная зона поражения опасны вблизи, но более медленные паттерны можно изучить."
+  },
+  "commander-niall": {
+    "en": "Summoned knights create early pressure, followed by broad frost and lightning attacks with deliberate wind-ups.",
+    "ru": "Призванные рыцари создают давление в начале, затем следуют широкие ледяные и молниевые атаки с заметной подготовкой."
+  },
+  "loretta-knight-of-the-haligtree": {
+    "en": "A mix of glintstone projectiles and mounted melee attacks asks for flexible defense, but her patterns are consistent.",
+    "ru": "Сочетание магических снарядов и атак верхом требует гибкой защиты, но её паттерны достаточно последовательны."
+  },
+  "messmer-the-impaler": {
+    "en": "Rapid spear strings, fiery area attacks, and an aggressive serpent phase leave very short recovery windows.",
+    "ru": "Быстрые серии копьём, огонь по площади и агрессивная фаза со змеями оставляют очень короткие окна для атаки."
+  },
+  "divine-beast-dancing-lion": {
+    "en": "Unusual camera movement and shifting elemental attacks are disorienting, but the boss has clear openings after combos.",
+    "ru": "Необычная работа камеры и смена стихий сбивают с толку, но после серий у босса остаются заметные окна."
+  },
+  "rellana-twin-moon-knight": {
+    "en": "Long dual-sword combos, fast transitions, and a dangerous moon attack demand precise spacing and repeated practice.",
+    "ru": "Длинные серии парными клинками, быстрые переходы и опасная лунная атака требуют точной дистанции и практики."
+  },
+  "commander-gaius": {
+    "en": "A fast mounted charge with awkward tracking and relentless follow-ups makes safe healing and positioning difficult.",
+    "ru": "Быстрый натиск верхом с неудобным наведением и продолжениями атак затрудняет лечение и удержание позиции."
+  },
+  "putrescent-knight": {
+    "en": "The separated rider and mount, delayed charges, and cold flame attacks make reads tricky but become predictable with practice.",
+    "ru": "Раздельные атаки всадника и коня, задержанные наскоки и холодное пламя усложняют чтение движений, но паттерны изучаемы."
+  },
+  "metyr-mother-of-fingers": {
+    "en": "Large area attacks and sudden beam bursts punish poor spacing, while her size and recovery animations keep tells visible.",
+    "ru": "Масштабные атаки и внезапные лучи наказывают за неверную дистанцию, но размеры босса и анимации делают замахи заметными."
+  },
+  "scadutree-avatar": {
+    "en": "Several health phases and thorn attacks test endurance, though head hits reward careful aim with large damage.",
+    "ru": "Несколько полос здоровья и атаки шипами проверяют выносливость, но попадания по голове вознаграждают точность большим уроном."
+  },
+  "bayle-the-dread": {
+    "en": "A huge health pool, aggressive aerial fire and lightning, and sweeping attacks make this a demanding endurance fight.",
+    "ru": "Огромный запас здоровья, воздушные атаки огнём и молнией и широкие замахи превращают бой в тяжёлую проверку выносливости."
+  },
+  "midra-lord-of-frenzied-flame": {
+    "en": "Delayed flame bursts and sudden frenzy attacks are dangerous, but his measured pace gives attentive players room to respond.",
+    "ru": "Отложенные вспышки пламени и внезапные атаки безумием опасны, но размеренный темп оставляет время на реакцию."
+  },
+  "promised-consort-radahn": {
+    "en": "Relentless multi-hit strings, arena-wide light effects, and punishing follow-ups make the final phase exceptionally unforgiving.",
+    "ru": "Непрерывные многоударные серии, вспышки света по всей арене и жёсткие продолжения делают финальную фазу крайне беспощадной."
+  },
+  "astel-naturalborn-of-the-void": {
+    "en": "Long-range magic, sudden grabs, and teleport attacks punish inattention, but his large size exposes clear weak points.",
+    "ru": "Дальняя магия, внезапные захваты и телепортации наказывают за невнимательность, но крупный силуэт открывает уязвимые места."
+  },
+  "regal-ancestor-spirit": {
+    "en": "Slow, clearly telegraphed attacks and generous recovery make this a forgiving encounter.",
+    "ru": "Медленные, хорошо заметные атаки и долгие паузы делают этот бой снисходительным к ошибкам."
+  },
+  "tree-sentinel": {
+    "en": "A durable opponent with hard-hitting mounted swings, but a compact moveset and clear tells reward patience.",
+    "ru": "Выносливый противник с сильными атаками верхом, однако небольшой набор понятных приёмов вознаграждает терпение."
+  },
+  "flying-dragon-agheel": {
+    "en": "Fire breath and wide sweeps are dangerous in the open, while mounted movement makes spacing and punish windows manageable.",
+    "ru": "Огненное дыхание и широкие замахи опасны на открытом месте, но верхом проще контролировать дистанцию и окна для атаки."
+  },
+  "bloodhound-knight-darriwil": {
+    "en": "Fast lunges can catch new players, but low health and a short, learnable moveset keep the duel brief.",
+    "ru": "Быстрые выпады могут застать врасплох, но небольшой запас здоровья и короткий набор изучаемых атак сокращают бой."
+  },
+  "nights-cavalry": {
+    "en": "Mounted reach and punishing night-time encounters demand patience, but the rider can be separated from the horse.",
+    "ru": "Дальность атак верхом и встреча только ночью требуют терпения, но всадника можно сбросить с коня."
+  },
+  "bell-bearing-hunter": {
+    "en": "Long-range telekinetic weapon attacks and tight punish windows punish careless healing and panic rolls.",
+    "ru": "Дальнобойные телекинетические атаки и короткие окна для ответа наказывают за поспешное лечение и перекаты."
+  },
+  "magma-wyrm-makar": {
+    "en": "Magma trails restrict movement and the charge covers distance, but his slow turns create reliable openings.",
+    "ru": "Следы магмы ограничивают движение, а наскок быстро сокращает дистанцию, но медленные развороты оставляют удобные окна."
+  },
+  "elemer-of-the-briar": {
+    "en": "Telekinetic sword swings reach far and hit hard, though the arena is small and his attacks are consistent.",
+    "ru": "Телекинетические удары мечом достают издалека и больно бьют, но арена мала, а атаки повторяются."
+  },
+  "commander-oneil": {
+    "en": "Summons and scarlet rot add pressure, but the open arena and slow, telegraphed attacks make control possible.",
+    "ru": "Призывы и алая гниль усиливают давление, но открытая арена и медленные заметные атаки позволяют контролировать бой."
+  },
+  "eleonora-violet-bloody-finger": {
+    "en": "Quick twinblade strings and bloodflame punish close-range mistakes, but her modest health limits the encounter.",
+    "ru": "Быстрые серии парными клинками и кровавое пламя наказывают за ошибки вблизи, но запас здоровья у неё невелик."
+  },
+  "black-knife-assassin": {
+    "en": "High mobility and evasive movement make clean hits tricky, but low durability keeps the fight short.",
+    "ru": "Высокая подвижность и уклонения мешают попадать, но низкая выносливость противника делает бой коротким."
+  },
+  "death-rite-bird": {
+    "en": "Deadly ghostflame and wide area attacks are especially dangerous at night, with a notable weakness to holy damage.",
+    "ru": "Смертоносное призрачное пламя и широкие атаки особенно опасны ночью, но босс уязвим к священному урону."
+  },
+  "putrid-avatar": {
+    "en": "Scarlet rot and heavy branch swings can punish mistakes, but the familiar Avatar moveset is easy to recognize.",
+    "ru": "Алая гниль и тяжёлые удары ветвями наказывают за ошибки, но знакомый набор атак Аватара легко распознать."
+  },
+  "ulcerated-tree-spirit": {
+    "en": "Erratic lunges and a large hitbox are hard to read in cramped arenas, but the attack patterns repeat.",
+    "ru": "Резкие броски и крупный хитбокс трудно читать в тесных аренах, но последовательности атак повторяются."
+  }
+}
