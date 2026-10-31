@@ -6,6 +6,8 @@
     <title>Elden Ring Lore & Database</title>
 
     <link rel="stylesheet" href="/assets/css/pages/index.css" />
+    <link rel="stylesheet" href="/assets/css/components/modal.css" />
+    <link rel="stylesheet" href="/assets/css/components/social-games.css" />
 
     <script src="/assets/js/all.min.js" defer></script>
   </head>
@@ -25,7 +27,7 @@
               <li class="nav__link"><a href="/pages/music.html">Music</a></li>
             </ul>
             <div class="header__social">
-              <button>Контакты</button>
+              <button id="open__modal">Contact</button>
             </div>
           </nav>
         </div>
@@ -46,7 +48,7 @@
         <div class="container main__content">
           <h2>Elden Ring Lore & Database</h2>
           <span>Discover the mysteries of the Lands Between</span>
-          <a href="#" class="main__button">Shop now</a>
+          <a href="#" class="main__button" id="open-game-modal">Shop now</a>
         </div>
         <div class="grace-switcher" aria-label="Выбор видео">
           <button
@@ -89,9 +91,162 @@
           <!-- <span class="sound-toggle__text">Включить звук</span> -->
         </button>
       </main>
-      <div class="aside"></div>
-      <div>test</div>
+      <!-- Секция с текстом слева и плеером справа -->
+      <!-- Секция с текстом лора и плеером -->
+      <section class="lore-player-section">
+        <div class="container lore-player-container">
+          <!-- Левая колонка: Текст -->
+          <div class="lore-player-text">
+            <h2 class="lore-player-title">The Golden Order is broken</h2>
+
+            <p>
+              Arise, faded soul! The Lands Between await their lord. May grace
+              lead you to the Elden Ring.
+            </p>
+
+            <p>
+              ELDEN RING is a fantasy action RPG from FromSoftware Inc. and
+              BANDAI NAMCO Entertainment Inc. It is, to date, FromSoftware’s
+              most ambitious project, set in a world filled with mystery and
+              danger.
+            </p>
+
+            <p>
+              In the Lands Between, the realm of Queen Marika the Eternal, the
+              great Elden Ring—the source of the Erdtree’s power—was shattered.
+              Before long, Marika’s offspring, the demigods, claimed the shards
+              of the Elden Ring: the Great Runes. Yet, this newfound power
+              corrupted the Queen’s children, leading them to wage a war known
+              as the Shattering. And so, the Greater Will forsook them.
+            </p>
+
+            <p>
+              Now, however, grace guides the Tarnished—those deprived of golden
+              grace and exiled from the Lands Between. You, the living dead who
+              lost your grace long ago, set forth for the Lands Between,
+              crossing the misty sea, and stand before the Elden Ring.
+            </p>
+          </div>
+
+          <!-- Правая колонка: Плеер с постером -->
+          <div class="trailer-card" id="trailerCard">
+            <div class="youtube-crop-wrapper">
+              <iframe
+                id="ytPlayer"
+                src="https://www.youtube.com/embed/W8CLHZf-Ak0?enablejsapi=1&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1"
+                title="Elden Ring Trailer"
+                allow="autoplay">
+              </iframe>
+            </div>
+
+            <!-- Постер-заглушка поверх плеера -->
+            <img
+              src="https://img.youtube.com/vi/W8CLHZf-Ak0/maxresdefault.jpg"
+              alt="Trailer Poster"
+              class="trailer-poster"
+              id="trailerPoster" />
+
+            <!-- Кастомная кнопка Play -->
+            <button
+              class="play-btn"
+              id="playBtn"
+              type="button"
+              aria-label="Воспроизвести">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- modal -->
+    <div class="modal" id="modal">
+      <div class="modal_dialog">
+        <div class="modal_content">
+          <button class="modal__close" id="modal__close-btn">&times;</button>
+          <form action="#">
+            <div class="modal_title">
+              We will get in touch with you as soon as possible!
+            </div>
+
+            <input
+              required
+              class="modal_input"
+              id="modal_input_form__title"
+              name="name"
+              type="text"
+              placeholder="Your name" />
+
+            <input
+              required
+              class="modal_input"
+              id="modal_input_form__number"
+              name="phone"
+              type="tel"
+              placeholder="Your phone number" />
+
+            <button class="btn btn_dark btn_min" id="modal__post_form">
+              Call us back
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game modal -->
+    <div class="modal" id="game-modal">
+      <div class="modal_dialog">
+        <div class="modal_content">
+          <button
+            class="modal__close"
+            id="game-modal-close"
+            type="button"
+            aria-label="Close">
+            &times;
+          </button>
+
+          <div class="modal_title">WHERE TO BUY & PLAY</div>
+
+          <div class="game-links">
+            <a
+              href="https://store.steampowered.com/app/1245620/ELDEN_RING/"
+              target="_blank"
+              rel="noopener noreferrer">
+              <span>Steam</span>
+              <span>Buy Elden Ring →</span>
+            </a>
+
+            <a
+              href="https://store.playstation.com/"
+              target="_blank"
+              rel="noopener noreferrer">
+              <span>PlayStation Store</span>
+              <span>Visit store →</span>
+            </a>
+
+            <a
+              href="https://www.xbox.com/games/store/elden-ring/"
+              target="_blank"
+              rel="noopener noreferrer">
+              <span>Xbox</span>
+              <span>View game →</span>
+            </a>
+
+            <a
+              href="https://store.epicgames.com/"
+              target="_blank"
+              rel="noopener noreferrer">
+              <span>Epic Games Store</span>
+              <span>Visit store →</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
     <script type="module" src="/assets/js/main.js"></script>
+    <script type="module" src="/assets/js/components/play.js"></script>
+    <script src="/assets/js/components/modal.js"></script>
   </body>
 </html>

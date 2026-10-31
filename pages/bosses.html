@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Browse Elden Ring bosses by category, region, and location."
-    />
-    <title>Bosses — Elden Ring</title>
+      content="Browse Elden Ring bosses by category, region, and location." />
     <link rel="stylesheet" href="/assets/css/pages/bosses.css" />
+    <link rel="stylesheet" href="/assets/css/components/modal.css" />
+    <title>Bosses — Elden Ring</title>
   </head>
   <body>
-    <div class="page-loader" id="page-loader" role="status" aria-label="Loading boss data">
+    <div
+      class="page-loader"
+      id="page-loader"
+      role="status"
+      aria-label="Loading boss data">
       <img
         class="page-loader__bonfire"
         src="/assets/video/load/bonfire.gif"
-        alt=""
-      />
+        alt="" />
     </div>
 
     <div class="wrapper">
@@ -26,12 +29,14 @@
             <div class="logo"><a href="/">EldenRing</a></div>
             <ul class="header__nav-links">
               <li class="nav__link"><a href="/pages/guide.html">Guide</a></li>
-              <li class="nav__link"><a href="/pages/bosses.html" aria-current="page">Bosses</a></li>
+              <li class="nav__link">
+                <a href="/pages/bosses.html" aria-current="page">Bosses</a>
+              </li>
               <li class="nav__link"><a href="/pages/tools.html">Tools</a></li>
               <li class="nav__link"><a href="/pages/music.html">Music</a></li>
             </ul>
             <div class="header__social">
-              <button id="boss-contact-button" type="button">Contact</button>
+              <button id="open__modal" type="button">Contact</button>
             </div>
           </nav>
         </div>
@@ -40,24 +45,48 @@
       <main class="bosses">
         <div class="container">
           <header class="bosses__head">
-            <p class="bosses__eyebrow" id="boss-page-eyebrow">The Lands Between &amp; the Land of Shadow</p>
+            <p class="bosses__eyebrow" id="boss-page-eyebrow">
+              The Lands Between &amp; the Land of Shadow
+            </p>
             <h1 class="bosses__title" id="boss-page-title">Bosses</h1>
             <p class="bosses__subtitle" id="boss-page-subtitle">
               Browse every encounter by category, region, and location.
             </p>
           </header>
 
-          <nav class="bosses__categories" id="boss-categories" aria-label="Boss categories"></nav>
-          <nav class="bosses__tiers" id="boss-tiers" aria-label="Filter by difficulty"></nav>
+          <nav
+            class="bosses__categories"
+            id="boss-categories"
+            aria-label="Boss categories"></nav>
+          <nav
+            class="bosses__tiers"
+            id="boss-tiers"
+            aria-label="Filter by difficulty"></nav>
           <p class="bosses__tier-note" id="boss-tier-note"></p>
 
           <section class="bosses__toolbar" aria-label="Search and filters">
             <label class="sr-only" for="boss-search">Search bosses</label>
-            <input id="boss-search" type="search" placeholder="Search bosses, regions, rewards..." />
+            <input
+              id="boss-search"
+              type="search"
+              placeholder="Search bosses, regions, rewards..." />
             <div class="bosses__location-filter">
-              <label class="sr-only" for="boss-location">Filter by location</label>
-              <input id="boss-location" type="search" role="combobox" aria-autocomplete="list" aria-controls="boss-locations" aria-expanded="false" placeholder="Search locations..." />
-              <div class="bosses__location-options" id="boss-locations" role="listbox" hidden></div>
+              <label class="sr-only" for="boss-location"
+                >Filter by location</label
+              >
+              <input
+                id="boss-location"
+                type="search"
+                role="combobox"
+                aria-autocomplete="list"
+                aria-controls="boss-locations"
+                aria-expanded="false"
+                placeholder="Search locations..." />
+              <div
+                class="bosses__location-options"
+                id="boss-locations"
+                role="listbox"
+                hidden></div>
             </div>
             <button type="button" id="boss-reset">Reset</button>
             <p class="bosses__count" id="boss-count" aria-live="polite"></p>
@@ -65,7 +94,10 @@
 
           <div class="bosses__message" id="boss-message" hidden></div>
           <div id="boss-results" aria-live="polite"></div>
-          <nav class="pagination" id="boss-pagination" aria-label="Boss pages"></nav>
+          <nav
+            class="pagination"
+            id="boss-pagination"
+            aria-label="Boss pages"></nav>
         </div>
       </main>
 
@@ -74,18 +106,61 @@
       </footer>
     </div>
 
-    <dialog class="boss-modal" id="boss-modal" aria-labelledby="boss-modal-title">
+    <dialog
+      class="boss-modal"
+      id="boss-modal"
+      aria-labelledby="boss-modal-title">
       <div class="boss-modal__inner">
-        <button class="boss-modal__close" type="button" data-close-modal aria-label="Close details">
+        <button
+          class="boss-modal__close"
+          type="button"
+          data-close-modal
+          aria-label="Close details">
           &times;
         </button>
-        <div class="boss-modal__media" role="img" aria-label="Boss artwork placeholder">
+        <div
+          class="boss-modal__media"
+          role="img"
+          aria-label="Boss artwork placeholder">
           <div class="boss-card__placeholder" aria-hidden="true">✦</div>
         </div>
         <div class="boss-modal__body" id="boss-modal-body"></div>
       </div>
     </dialog>
+    <!-- modal -->
+    <div class="modal" id="modal">
+      <div class="modal_dialog">
+        <div class="modal_content">
+          <button class="modal__close" id="modal__close-btn">&times;</button>
+          <form action="#">
+            <div class="modal_title">
+              We will get in touch with you as soon as possible!
+            </div>
 
+            <input
+              required
+              class="modal_input"
+              id="modal_input_form__title"
+              name="name"
+              type="text"
+              placeholder="Your name" />
+
+            <input
+              required
+              class="modal_input"
+              id="modal_input_form__number"
+              name="phone"
+              type="tel"
+              placeholder="Your phone number" />
+
+            <button class="btn btn_dark btn_min" id="modal__post_form">
+              Call us back
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/assets/js/features/bosses-page.js"></script>
   </body>
+  <script src="/assets/js/components/modal.js"></script>
 </html>

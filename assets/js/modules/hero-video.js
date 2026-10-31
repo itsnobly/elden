@@ -15,7 +15,27 @@ const themes = {
   'eldenblue2.mp4': 'frost',
 };
 
+const STORAGE_KEY = 'er:banner';
+
 let isManuallySelected = false;
+
+// Запоминаем выбранный баннер в браузере, чтобы при следующем заходе он остался
+function saveBanner(videoName) {
+  try {
+    localStorage.setItem(STORAGE_KEY, videoName);
+  } catch {
+    // приватный режим: просто не запомнится
+  }
+}
+
+function readBanner() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    return videos.includes(saved) ? saved : null;
+  } catch {
+    return null;
+  }
+}
 
 // Обновление кнопки звука
 function updateSound() {
@@ -110,6 +130,7 @@ video.addEventListener('ended', () => {
 videoButtons.forEach((button) => {
   button.addEventListener('click', () => {
     isManuallySelected = true;
+    saveBanner(button.dataset.video);
     switchVideo(button.dataset.video);
   });
 });
@@ -135,3 +156,13 @@ soundToggle.addEventListener('click', async () => {
 // Начальная настройка
 video.loop = false;
 updateSound();
+
+// Если пользователь раньше выбрал баннер, сразу включаем его без заставки и анимации
+const savedBanner = readBanner();
+
+if (savedBanner && savedBanner !== videos[0]) {
+  isManuallySelected = true;
+  applyVideo(savedBanner, `${VIDEO_PATH}${savedBanner}`).then(() => {
+    video.play().catch(() => {});
+  });
+}

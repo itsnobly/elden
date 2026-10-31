@@ -21,9 +21,9 @@
 
 .logo a {
   display: block;
-  line-height: 0;
+  font-family: var(--font-headers);
   font-size: 24px;
-  font-family: var(--text-main);
+  line-height: 1.2;
 }
 
 .logo__img {
@@ -46,7 +46,7 @@
   position: relative;
   padding: 6px 0;
   color: var(--text-main);
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-headers);
   font-size: 13px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -89,7 +89,7 @@
     no-repeat;
   color: var(--btn-text);
   filter: var(--btn-filter);
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-headers);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.16em;

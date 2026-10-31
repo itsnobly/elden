@@ -1,9 +1,9 @@
 /* core.css — Базовые системные стили и подключение шрифтов */
 
-/* --- Семья Cinzel --- */
+/* --- Семья Cinzel (Заголовки в стиле Souls-like) --- */
 @font-face {
   font-family: 'Cinzel';
-  src: url('../fonts/cinzel/Cinzel-Regular.ttf') format('truetype');
+  src: url('../fonts/cinzel/cinzel_regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -19,38 +19,59 @@
 
 @font-face {
   font-family: 'Cinzel';
-  src: url('../fonts/cinzel/Cinzel-Bold.ttf') format('truetype');
+  src: url('../fonts/cinzel/cinzel_bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
-/* --- Семья Fraunces --- */
+/* --- Семья Cormorant Garamond (Основной внутриигровой текст) --- */
 @font-face {
-  font-family: 'Fraunces';
-  src: url('../fonts/fraunces/Fraunces_72pt-Regular.ttf') format('truetype');
+  font-family: 'Cormorant Garamond';
+  src: url('../fonts/Garamond/CormorantGaramond-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Fraunces';
-  src: url('../fonts/fraunces/Fraunces_72pt-Bold.ttf') format('truetype');
-  font-weight: 700;
+  font-family: 'Cormorant Garamond';
+  src: url('../fonts/Garamond/CormorantGaramond-SemiBold.ttf')
+    format('truetype');
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('../fonts/Garamond/CormorantGaramond-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+html {
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
 body {
-  font-family: var(--font-body, 'Fraunces', serif);
+  overflow-y: visible;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+body {
+  font-family: var(--font-body, 'Lora', serif);
   cursor: url('../img/cursors/cur.cur'), auto;
-  /* cursor: url('../img/cursors/cursor.cur'), auto; */
   background-color: var(--bg-dark, #070709);
 
-  /* Настройки фона (включить, когда понадобится) */
-  /* background-image: url(https://play.vsthemes.org/nova/1024576-1/fb0/0ecfb0bbf1622eb3685f6fb79b403dd5.webp?md5=9lZR-iJ-JDrrXxr-8cFoCQ&expires=1792765398);
-  background-position: top center; */
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -60,6 +81,13 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
+
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 body,
 .header,
@@ -77,13 +105,14 @@ body,
     border-color 0.4s ease,
     box-shadow 0.4s ease;
 }
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-headers, 'Cinzel', serif);
+  font-family: var(--font-headers, 'Forum', serif);
   color: var(--gold-primary, #f5d061);
   letter-spacing: 1px;
 
@@ -102,13 +131,38 @@ a:hover {
   text-shadow: 0 0 8px var(--gold-glow, rgba(255, 212, 121, 0.4));
 }
 
+/* Курсор-указатель для всего кликабельного.
+   Не пиши cursor: pointer в других файлах: он перебьёт этот курсор.
+   Для новых кликабельных блоков просто добавь их класс сюда. */
 a,
 button,
 [role='button'],
 label,
 select,
-summary {
+summary,
+.boss-card:not(.boss-card--skeleton),
+.boss-entry__artwork {
   cursor: url('../img/cursors/pointer.cur'), pointer;
+}
+.modal {
+  cursor: url('../img/cursors/cur.cur'), auto;
+}
+
+.modal button,
+.modal a,
+.modal [role='button'] {
+  cursor: url('../img/cursors/pointer.cur'), pointer;
+}
+
+.modal input,
+.modal textarea {
+  cursor: text;
+}
+.trailer-card,
+.trailer-card *,
+.trailer-poster,
+.play-btn {
+  cursor: url('../img/cursors/pointer.cur'), pointer !important;
 }
 
 input,
@@ -125,6 +179,7 @@ textarea {
   margin: 0 auto;
   padding: 0 20px;
 }
+
 .wrapper {
   width: 100%;
   min-height: 100vh;

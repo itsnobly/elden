@@ -48,7 +48,7 @@
 .main h2 {
   max-width: 800px;
   margin-bottom: 26px;
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-headers);
   font-size: clamp(32px, 4.6vw, 64px);
   font-weight: 600;
   line-height: 1.2;
@@ -98,7 +98,7 @@
     no-repeat;
   color: var(--btn-text);
   filter: var(--btn-filter);
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-headers);
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -160,7 +160,7 @@
 
   border: 1px solid rgba(var(--accent-rgb), 0.3);
 
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-headers);
   font-size: 16px;
 
   transition: 0.3s ease;
@@ -327,5 +327,182 @@
     bottom: 84px;
     width: 40px;
     height: 40px;
+  }
+}
+/* ---------- Секция «Золотой порядок сломлен» ---------- */
+
+.lore-player-section {
+  position: relative;
+  padding: 120px 0;
+  background-color: var(--bg-dark);
+}
+
+/* тонкая линия-разделитель сверху */
+.lore-player-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(720px, 80%);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(var(--accent-rgb), 0.5),
+    transparent
+  );
+}
+
+.lore-player-container {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: 72px;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Левая колонка — текст */
+.lore-player-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 560px; /* ~60 знаков в строке: так удобно читать */
+}
+
+.lore-player-title {
+  margin: 0 0 12px;
+  font-family: var(--font-headers);
+  font-size: clamp(30px, 3.4vw, 46px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* тонкая линия под заголовком, как на баннере */
+.lore-player-title::after {
+  content: '';
+  display: block;
+  width: 140px;
+  height: 1px;
+  margin-top: 22px;
+  background: linear-gradient(90deg, var(--gold-primary), transparent);
+}
+
+.lore-player-text p {
+  margin: 0;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+/* первый абзац — слоган: крупнее, светлее, с линией слева */
+.lore-player-text p:first-of-type {
+  padding-left: 22px;
+  border-left: 2px solid var(--gold-primary);
+  color: var(--text-title);
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  line-height: 1.55;
+}
+
+/* Правая колонка — плеер */
+.trailer-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(var(--accent-rgb), 0.6);
+  box-shadow: 0 0 40px rgba(var(--accent-rgb), 0.18);
+  background: var(--bg-card);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.trailer-card:hover {
+  box-shadow: 0 0 55px rgba(var(--accent-rgb), 0.32);
+}
+
+/* Обрезка интерфейса YouTube: iframe увеличен и вылезает за рамку */
+.youtube-crop-wrapper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.youtube-crop-wrapper iframe {
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 120%;
+  height: 140%;
+  border: none;
+}
+
+.trailer-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+  transition: opacity 0.4s ease;
+}
+
+/* Кнопка Play */
+.play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  transform: translate(-50%, -50%);
+  border: 2px solid var(--gold-primary);
+  border-radius: 50%;
+  background: rgba(10, 9, 7, 0.85);
+  color: var(--gold-primary);
+  box-shadow: 0 0 20px var(--gold-glow);
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.play-btn svg {
+  width: 30px;
+  height: 30px;
+  margin-left: 3px;
+  fill: currentColor;
+}
+
+.trailer-card:hover .play-btn {
+  background: var(--gold-primary);
+  color: var(--bg-dark);
+  box-shadow: var(--gold-glow-intense);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+/* Планшеты и телефоны: одна колонка */
+@media (max-width: 992px) {
+  .lore-player-section {
+    padding: 80px 0;
+  }
+
+  .lore-player-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .lore-player-text {
+    max-width: none;
   }
 }

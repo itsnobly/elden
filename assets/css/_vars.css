@@ -31,7 +31,7 @@
   --text-muted: #b8ad95;
 
   --font-headers: 'Cinzel', serif;
-  --font-body: 'Fraunces', serif;
+  --font-body: 'Cormorant Garamond', serif;
 
   /* кнопки с картинкой: фон-картинка перекрашивается фильтром под тему */
   --btn-filter: none;
@@ -46,7 +46,7 @@
   --border-dark: #2e1212;
 
   --gold-primary: #e01616;
-  --gold-hover: #ff5a4d;
+  --gold-hover: #d83024;
   --accent-rgb: 224, 22, 22;
 
   --gold-gradient: linear-gradient(

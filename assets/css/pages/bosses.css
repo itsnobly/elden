@@ -41,7 +41,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 20px;
+  margin: 0 0 28px;
 }
 
 .bosses__category,
@@ -49,15 +49,18 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  min-height: 42px;
+  min-height: 44px;
   padding: 8px 14px;
   border: 1px solid var(--border-dark);
   background: var(--bg-card);
   color: var(--text-muted);
   font-family: var(--font-headers);
-  font-size: 0.84rem;
-  letter-spacing: 0.04em;
-  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
 }
 
 .bosses__category:hover,
@@ -107,6 +110,13 @@
   gap: 12px;
   margin-bottom: 28px;
   scroll-margin-top: 90px;
+  position: sticky;
+  top: 12px;
+  z-index: 3;
+  padding: 10px;
+  border: 1px solid var(--border-dark);
+  background: rgba(10, 9, 7, 0.94);
+  backdrop-filter: blur(12px);
 }
 
 .bosses__toolbar input,
@@ -201,6 +211,7 @@
 }
 
 .bosses__message {
+  min-height: 140px;
   padding: 60px 0;
   color: var(--text-muted);
   text-align: center;
@@ -312,7 +323,11 @@
   justify-items: center;
   gap: 12px;
   background:
-    radial-gradient(circle at 50% 40%, rgba(var(--accent-rgb), 0.22), transparent 55%),
+    radial-gradient(
+      circle at 50% 40%,
+      rgba(var(--accent-rgb), 0.22),
+      transparent 55%
+    ),
     linear-gradient(145deg, #211d16, #0d0c0a 72%);
   color: var(--gold-primary);
 }
@@ -458,7 +473,6 @@
   isolation: isolate;
   background: var(--bg-card);
   border: 1px solid var(--border-dark);
-  cursor: pointer;
   animation: card-in 0.5s ease both;
   animation-delay: calc(var(--i, 0) * 35ms);
   transition:
@@ -1067,7 +1081,9 @@
   justify-items: center;
   background: var(--bg-dark);
   color: var(--gold-primary);
-  transition: opacity 0.2s ease, visibility 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
 }
 
 .page-loader.is-hidden {
@@ -1111,29 +1127,6 @@
   text-transform: uppercase;
 }
 
-.bosses__categories {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin: 0 0 28px;
-}
-
-.bosses__category {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 44px;
-  padding: 8px 14px;
-  border: 1px solid var(--border-dark);
-  background: var(--bg-card);
-  color: var(--text-muted);
-  font-family: var(--font-headers);
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
-}
-
 .bosses__category:hover,
 .bosses__category.is-active {
   border-color: var(--gold-primary);
@@ -1153,16 +1146,6 @@
   border: 1px solid var(--border-dark);
   border-radius: 50%;
   font-size: 0.72rem;
-}
-
-.bosses__toolbar {
-  position: sticky;
-  top: 12px;
-  z-index: 3;
-  padding: 10px;
-  border: 1px solid var(--border-dark);
-  background: rgba(10, 9, 7, 0.94);
-  backdrop-filter: blur(12px);
 }
 
 .bosses__toolbar select {
@@ -1212,10 +1195,6 @@
   margin: 4px 0 0;
   color: var(--text-main);
   font-size: 0.86rem;
-}
-
-.bosses__message {
-  min-height: 140px;
 }
 
 .boss-modal__media .boss-card__placeholder {
