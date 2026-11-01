@@ -1,7 +1,4 @@
-@import '../reset.css';
-@import '../_vars.css';
-@import '../core.css';
-@import '../components/header.css';
+@import '../base.css';
 
 /* шапка — та же, что на главной */
 

@@ -1,0 +1,73 @@
+{
+  "slides": [
+    {
+      "id": "limgrave",
+      "title": "Limgrave",
+      "tag": "Starting region",
+      "text": "Green hills under the shadow of the Erdtree. The first place the Tarnished sees, and the gentlest. Do not let that fool you.",
+      "image": "",
+      "symbol": "✧"
+    },
+    {
+      "id": "liurnia",
+      "title": "Liurnia of the Lakes",
+      "tag": "Academy of Raya Lucaria",
+      "text": "Flooded ruins, drifting mist and the sorcerers of the Academy. A land of quiet water and sharp glintstone.",
+      "image": "",
+      "symbol": "✥"
+    },
+    {
+      "id": "caelid",
+      "title": "Caelid",
+      "tag": "The Scarlet Rot",
+      "text": "A battlefield turned wasteland. The crimson sky hangs over rot-eaten ground, and everything here wants you gone.",
+      "image": "",
+      "symbol": "✦"
+    },
+    {
+      "id": "altus",
+      "title": "Altus Plateau",
+      "tag": "Road to the capital",
+      "text": "Golden fields, crystal cliffs and the road that leads to Leyndell, the Royal Capital.",
+      "image": "",
+      "symbol": "❖"
+    },
+    {
+      "id": "mountaintops",
+      "title": "Mountaintops of the Giants",
+      "tag": "Land of snow and fire",
+      "text": "A frozen peak at the edge of the world, where the Fire Giant keeps his old watch over the Forge of the Giants.",
+      "image": "",
+      "symbol": "✺"
+    }
+  ],
+  "expansions": [
+    {
+      "id": "base",
+      "title": "Elden Ring",
+      "tag": "Base game",
+      "date": "Feb 25, 2022",
+      "text": "The open world of the Lands Between, from Limgrave to the Elden Throne. Over a hundred hours of bosses, dungeons and secrets.",
+      "image": "",
+      "accent": "gold"
+    },
+    {
+      "id": "sote",
+      "title": "Shadow of the Erdtree",
+      "tag": "Expansion",
+      "date": "Jun 21, 2024",
+      "text": "A new realm behind the Mohgwyn Palace: the Land of Shadow, with new weapons, spells, bosses and a long hidden story.",
+      "image": "",
+      "accent": "blood"
+    },
+    {
+      "id": "nightreign",
+      "title": "Elden Ring Nightreign",
+      "tag": "Spin-off",
+      "date": "May 30, 2025",
+      "text": "A separate co-op action game set in the same world. Short expeditions, a closing night, and a boss at the end of each run.",
+      "image": "",
+      "accent": "frost"
+    }
+  ]
+}

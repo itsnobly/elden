@@ -1,9 +1,6 @@
 /* index.css — Сборщик стилей и стили главной страницы */
 
-@import '../reset.css';
-@import '../_vars.css';
-@import '../core.css';
-@import '../components/header.css';
+@import '../base.css';
 .main {
   position: relative;
   isolation: isolate;
@@ -505,4 +502,105 @@
   .lore-player-text {
     max-width: none;
   }
+}
+
+/* бегущая лента */
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+  background: rgba(0, 0, 0, 0.6);
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 14px 0;
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 35s linear infinite;
+}
+
+.marquee__track:hover {
+  animation-play-state: paused;
+}
+
+.marquee__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 24px;
+  white-space: nowrap;
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  color: #c8b68d;
+}
+
+.marquee__quote {
+  font-style: italic;
+  color: #e2d9c5;
+}
+
+.marquee__author {
+  font-weight: 600;
+  color: #d4af37;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.marquee__divider {
+  color: rgba(212, 175, 55, 0.4);
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* кнопку скролла решил сделать тут */
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  background-color: var(--bg-card);
+  color: var(--gold-primary);
+  border: 1px solid var(--border-dark);
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.scroll-top--show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top:hover {
+  border-color: var(--gold-primary);
+  color: var(--gold-hover);
+  box-shadow: 0 0 12px var(--gold-glow);
+  transform: translateY(-3px);
 }

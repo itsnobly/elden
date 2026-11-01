@@ -1,0 +1,196 @@
+/* features-video.css — блок «Ключевые особенности»: видео в золотых рамках, зигзаг.
+   Цвета берутся из _vars.css, поэтому блок следует теме (gold / blood / frost).
+   Все классы с префиксом kf-, чтобы не пересекаться с остальными стилями.
+   cursor тут не задаём: это делает core.css. */
+
+.kf {
+  position: relative;
+  padding: 100px 0;
+  background:
+    linear-gradient(
+      180deg,
+      var(--bg-dark) 0%,
+      rgba(10, 9, 7, 0.78) 15%,
+      rgba(10, 9, 7, 0.78) 85%,
+      var(--bg-dark) 100%
+    ),
+    url('../../img/images/EldenBackg.webp') center / cover no-repeat fixed;
+}
+
+.kf__title {
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  margin-bottom: 64px;
+}
+
+.kf__item {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 56px;
+}
+
+.kf__item + .kf__item {
+  margin-top: 96px;
+}
+
+/* чётные блоки зеркалим: видео справа */
+.kf__item:nth-of-type(even) .kf__frame {
+  order: 2;
+}
+
+/* ---------- Рамка с видео ---------- */
+.kf__frame {
+  position: relative;
+  padding: 10px;
+  border: 1px solid var(--gold-primary);
+  background: rgba(10, 9, 7, 0.7);
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.7),
+    0 0 40px rgba(var(--accent-rgb), 0.1);
+}
+
+/* тонкая внутренняя линия */
+.kf__frame::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  z-index: 2;
+  border: 1px solid rgba(var(--accent-rgb), 0.45);
+  pointer-events: none;
+}
+
+/* угловые скобки */
+.kf__frame::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  z-index: 3;
+  pointer-events: none;
+  --c: var(--gold-primary);
+  --k: 34px; /* длина угловой скобки; на телефоне уменьшаем */
+  background:
+    linear-gradient(var(--c), var(--c)) top left / var(--k) 2px,
+    linear-gradient(var(--c), var(--c)) top left / 2px var(--k),
+    linear-gradient(var(--c), var(--c)) top right / var(--k) 2px,
+    linear-gradient(var(--c), var(--c)) top right / 2px var(--k),
+    linear-gradient(var(--c), var(--c)) bottom left / var(--k) 2px,
+    linear-gradient(var(--c), var(--c)) bottom left / 2px var(--k),
+    linear-gradient(var(--c), var(--c)) bottom right / var(--k) 2px,
+    linear-gradient(var(--c), var(--c)) bottom right / 2px var(--k);
+  background-repeat: no-repeat;
+}
+
+.kf__video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #0a0907;
+}
+
+/* ---------- Плашка и текст ---------- */
+.kf__plate {
+  display: inline-block;
+  margin: 0 0 24px;
+  padding: 14px 30px;
+  font-family: var(--font-headers, 'Cinzel', serif);
+  font-size: clamp(1.1rem, 1.9vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #1c1208;
+  -webkit-text-fill-color: #1c1208;
+  background: var(--gold-gradient);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.kf__text p {
+  font-size: 1.25rem;
+  color: var(--text-main);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.9);
+}
+
+.kf__text p + p {
+  margin-top: 16px;
+}
+
+/* ---------- Появление при скролле ---------- */
+.kf__item {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.kf__item.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 900px) {
+  .kf {
+    padding: 70px 0;
+    background-attachment: scroll;
+  }
+  .kf__item {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .kf__item:nth-of-type(even) .kf__frame {
+    order: 0;
+  }
+  .kf__item + .kf__item {
+    margin-top: 64px;
+  }
+  .kf__title {
+    margin-bottom: 40px;
+  }
+  /* плашка на всю ширину текста, текст по центру */
+  .kf__plate {
+    display: block;
+    margin-bottom: 18px;
+    padding: 12px 20px;
+    text-align: center;
+  }
+  .kf__text p {
+    font-size: 1.15rem;
+  }
+}
+
+/* ---------- Телефоны ---------- */
+@media (max-width: 520px) {
+  .kf {
+    padding: 56px 0;
+    overflow-x: clip; /* скобки выступают за рамку на 5px: не даём появиться горизонтальному скроллу */
+  }
+  .kf__item + .kf__item {
+    margin-top: 52px;
+  }
+  .kf__frame {
+    padding: 7px;
+  }
+  .kf__frame::before {
+    inset: 3px;
+  }
+  .kf__frame::after {
+    inset: -4px;
+    --k: 22px; /* скобки покороче */
+  }
+  .kf__plate {
+    font-size: 1.05rem;
+    padding: 11px 16px;
+  }
+  .kf__text p {
+    font-size: 1.08rem;
+    line-height: 1.55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kf__item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -4,34 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Elden Ring Lore & Database</title>
-
     <link rel="stylesheet" href="/assets/css/pages/index.css" />
     <link rel="stylesheet" href="/assets/css/components/modal.css" />
     <link rel="stylesheet" href="/assets/css/components/social-games.css" />
-
+    <link rel="stylesheet" href="/assets/css/components/features-video.css" />
     <script src="/assets/js/all.min.js" defer></script>
   </head>
   <body>
     <div class="wrapper">
-      <header class="header">
-        <div class="container">
-          <nav class="header__nav">
-            <div class="logo">
-              <a href="/">EldenRing</a>
-            </div>
-            <ul class="header__nav-links">
-              <li class="nav__link"><a href="/pages/guide.html">Guide</a></li>
-              <li class="nav__link"><a href="/pages/bosses.html">Bosses</a></li>
-              <li class="nav__link"><a href="/pages/tools.html">Tools</a></li>
-
-              <li class="nav__link"><a href="/pages/music.html">Music</a></li>
-            </ul>
-            <div class="header__social">
-              <button id="open__modal">Contact</button>
-            </div>
-          </nav>
-        </div>
-      </header>
+      {{> header }}
       <main class="main">
         <video
           class="main__video"
@@ -42,9 +23,7 @@
           preload="auto">
           <source src="/assets/video/elden-test-main.mp4" type="video/mp4" />
         </video>
-
         <div class="main__overlay"></div>
-
         <div class="container main__content">
           <h2>Elden Ring Lore & Database</h2>
           <span>Discover the mysteries of the Lands Between</span>
@@ -59,9 +38,7 @@
             title="Вступление">
             <span class="grace-switcher__symbol">✧</span>
           </button>
-
           <span class="grace-switcher__line"></span>
-
           <button
             class="grace-switcher__item"
             type="button"
@@ -70,9 +47,7 @@
             title="Междуземье">
             <span class="grace-switcher__symbol">✥</span>
           </button>
-
           <span class="grace-switcher__line"></span>
-
           <button
             class="grace-switcher__item"
             type="button"
@@ -91,26 +66,22 @@
           <!-- <span class="sound-toggle__text">Включить звук</span> -->
         </button>
       </main>
-      <!-- Секция с текстом слева и плеером справа -->
       <!-- Секция с текстом лора и плеером -->
       <section class="lore-player-section">
         <div class="container lore-player-container">
           <!-- Левая колонка: Текст -->
           <div class="lore-player-text">
             <h2 class="lore-player-title">The Golden Order is broken</h2>
-
             <p>
               Arise, faded soul! The Lands Between await their lord. May grace
               lead you to the Elden Ring.
             </p>
-
             <p>
               ELDEN RING is a fantasy action RPG from FromSoftware Inc. and
               BANDAI NAMCO Entertainment Inc. It is, to date, FromSoftware’s
               most ambitious project, set in a world filled with mystery and
               danger.
             </p>
-
             <p>
               In the Lands Between, the realm of Queen Marika the Eternal, the
               great Elden Ring—the source of the Erdtree’s power—was shattered.
@@ -119,7 +90,6 @@
               corrupted the Queen’s children, leading them to wage a war known
               as the Shattering. And so, the Greater Will forsook them.
             </p>
-
             <p>
               Now, however, grace guides the Tarnished—those deprived of golden
               grace and exiled from the Lands Between. You, the living dead who
@@ -127,7 +97,6 @@
               crossing the misty sea, and stand before the Elden Ring.
             </p>
           </div>
-
           <!-- Правая колонка: Плеер с постером -->
           <div class="trailer-card" id="trailerCard">
             <div class="youtube-crop-wrapper">
@@ -138,14 +107,12 @@
                 allow="autoplay">
               </iframe>
             </div>
-
             <!-- Постер-заглушка поверх плеера -->
             <img
               src="https://img.youtube.com/vi/W8CLHZf-Ak0/maxresdefault.jpg"
               alt="Trailer Poster"
               class="trailer-poster"
               id="trailerPoster" />
-
             <!-- Кастомная кнопка Play -->
             <button
               class="play-btn"
@@ -160,91 +127,121 @@
         </div>
       </section>
     </div>
-
-    <!-- modal -->
-    <div class="modal" id="modal">
-      <div class="modal_dialog">
-        <div class="modal_content">
-          <button class="modal__close" id="modal__close-btn">&times;</button>
-          <form action="#">
-            <div class="modal_title">
-              We will get in touch with you as soon as possible!
-            </div>
-
-            <input
-              required
-              class="modal_input"
-              id="modal_input_form__title"
-              name="name"
-              type="text"
-              placeholder="Your name" />
-
-            <input
-              required
-              class="modal_input"
-              id="modal_input_form__number"
-              name="phone"
-              type="tel"
-              placeholder="Your phone number" />
-
-            <button class="btn btn_dark btn_min" id="modal__post_form">
-              Call us back
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <!-- Game modal -->
-    <div class="modal" id="game-modal">
-      <div class="modal_dialog">
-        <div class="modal_content">
-          <button
-            class="modal__close"
-            id="game-modal-close"
-            type="button"
-            aria-label="Close">
-            &times;
-          </button>
-
-          <div class="modal_title">WHERE TO BUY & PLAY</div>
-
-          <div class="game-links">
-            <a
-              href="https://store.steampowered.com/app/1245620/ELDEN_RING/"
-              target="_blank"
-              rel="noopener noreferrer">
-              <span>Steam</span>
-              <span>Buy Elden Ring →</span>
-            </a>
-
-            <a
-              href="https://store.playstation.com/"
-              target="_blank"
-              rel="noopener noreferrer">
-              <span>PlayStation Store</span>
-              <span>Visit store →</span>
-            </a>
-
-            <a
-              href="https://www.xbox.com/games/store/elden-ring/"
-              target="_blank"
-              rel="noopener noreferrer">
-              <span>Xbox</span>
-              <span>View game →</span>
-            </a>
-
-            <a
-              href="https://store.epicgames.com/"
-              target="_blank"
-              rel="noopener noreferrer">
-              <span>Epic Games Store</span>
-              <span>Visit store →</span>
-            </a>
+    <!-- блок с  -->
+    <!-- следующий блок с информацией о игра -->
+    <section class="kf" id="key-features">
+      <div class="container">
+        <!-- <h2 class="kf__title">Key features</h2> -->
+        <article class="kf__item">
+          <div class="kf__frame">
+            <video
+              class="kf__video"
+              muted
+              loop
+              playsinline
+              preload="none"
+              data-src="/assets/video/elden1pvp.mp4"></video>
           </div>
-        </div>
+          <div class="kf__text">
+            <h3 class="kf__plate">PVP & Duels</h3>
+            <p>
+              Step into the arenas of the Lands Between and test your combat
+              prowess against fellow Tarnished. Engage in honor-bound duels,
+              chaotic multi-player invasions, or tactical team fights where
+              every mistake could cost your life.
+            </p>
+            <p>
+              Master precise parry windows, optimize your stat distribution, and
+              combine devastating Ashes of War with high-tier incantations to
+              claim victory over your opponents.
+            </p>
+          </div>
+        </article>
+        <article class="kf__item">
+          <div class="kf__frame">
+            <video
+              class="kf__video"
+              muted
+              loop
+              playsinline
+              preload="none"
+              data-src="/assets/video/elden3.mp4"></video>
+          </div>
+          <div class="kf__text">
+            <h3 class="kf__plate">Exploring the Lands Between</h3>
+            <p>
+              Journey across vast landscapes filled with hidden dungeons,
+              towering legacy castles, and forgotten ruins. Every horizon holds
+              secrets, rare artifacts, and ancient lore waiting to be uncovered.
+            </p>
+            <p>
+              Traverse diverse biomes on horseback, discover hidden passages,
+              and chart your own path through a seamless world full of wonder
+              and danger.
+            </p>
+          </div>
+        </article>
+        <article class="kf__item">
+          <div class="kf__frame">
+            <video
+              class="kf__video"
+              muted
+              loop
+              playsinline
+              preload="none"
+              data-src="/assets/video/elden4.webm"></video>
+          </div>
+          <div class="kf__text">
+            <h3 class="kf__plate">Secrets of the Open World</h3>
+            <p>
+              Unveil mysterious underground rivers, catacombs guarded by traps,
+              and optional encounters that challenge even seasoned adventurers.
+              The world rewards curiosity at every turn.
+            </p>
+            <p>
+              Interact with enigmatic NPCs, follow intricate questlines, and
+              gather rare crafting materials as you uncover the history of the
+              Shattering.
+            </p>
+          </div>
+        </article>
+        <!-- <article class="kf__item"> <div class="kf__frame"> <video class="kf__video" muted loop playsinline preload="none" data-src="/assets/video/eldenfc3.mp4"></video> </div> <div class="kf__text"> <h3 class="kf__plate">Demigods and bosses</h3> <p>Short text about this video.</p> </div> </article> -->
+        <article class="kf__item">
+          <div class="kf__frame">
+            <video
+              class="kf__video"
+              muted
+              loop
+              playsinline
+              preload="none"
+              data-src="/assets/video/locationElden.mp4"></video>
+          </div>
+          <div class="kf__text">
+            <h3 class="kf__plate">Vast & Diverse Realms</h3>
+            <p>
+              Journey through breathtaking landscapes, from the golden light of
+              Limgrave and the academy-crested waters of Liurnia to the crimson
+              wasteland of Caelid. Every region has its own distinct identity,
+              dynamic weather, and captivating atmosphere.
+            </p>
+            <p>
+              Discover majestic architecture, sprawling subterranean worlds, and
+              quiet vistas that showcase the unforgettable scale and beauty of
+              the Lands Between.
+            </p>
+          </div>
+        </article>
       </div>
+    </section>
+    <div class="marquee">
+      <div class="marquee__track" id="marquee-track"></div>
     </div>
+    {{> footer }} {{> modal }} {{> game-modal }}
+    <script
+      type="module"
+      src="/assets/js/components/features-video.js"></script>
+    <script type="module" src="/assets/js/components/quotes.js"></script>
+    <script type="module" src="/assets/js/components/nav-current.js"></script>
     <script type="module" src="/assets/js/main.js"></script>
     <script type="module" src="/assets/js/components/play.js"></script>
     <script src="/assets/js/components/modal.js"></script>

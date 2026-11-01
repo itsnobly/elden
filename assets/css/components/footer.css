@@ -1,0 +1,100 @@
+.footer {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  border-top: 1px solid var(--border-dark);
+  /* Увеличили отступы сверху и снизу, чтобы блок выглядел свободнее */
+  padding: 80px 0 40px;
+  font-family: var(--font-body);
+  position: relative;
+  z-index: 10;
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer__inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+@media (max-width: 900px) {
+  .footer__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 580px) {
+  .footer__inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+.footer__title {
+  font-family: var(--font-headers);
+  color: var(--text-title);
+  font-size: 22px;
+  margin-bottom: 18px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.footer__subtitle {
+  font-family: var(--font-headers);
+  color: var(--gold-primary);
+  font-size: 18px;
+  margin-bottom: 18px;
+  letter-spacing: 0.05em;
+}
+
+.footer__text {
+  color: var(--text-muted);
+  font-size: 17px;
+  line-height: 1.7; /* Сделали межстрочный интервал чуть шире */
+}
+
+.footer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px; /* Увеличили расстояние между ссылками в списке */
+}
+
+.footer__link {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition:
+    color 0.3s ease,
+    text-shadow 0.3s ease;
+  font-size: 17px;
+}
+
+.footer__link:hover {
+  color: var(--gold-hover);
+  text-shadow: 0 0 8px var(--gold-glow);
+}
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 35px;
+  font-size: 15px;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer__note {
+  font-size: 13px;
+  opacity: 0.7;
+}
