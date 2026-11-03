@@ -19,11 +19,11 @@
             muted
             loop
             playsinline
-            preload="none"
+            preload="metadata"
             poster="/assets/img/images/radaganBAck.webp"></video>
           <div class="main__overlay"></div>
           <div class="container main__content">
-            <h2>Elden Ring Lore & Database</h2>
+            <h2>Elden Ring Lore &amp; Database</h2>
             <span>Discover the mysteries of the Lands Between</span>
             <a href="#" class="main__button" id="open-game-modal">Shop now</a>
           </div>
@@ -244,9 +244,11 @@
               <div class="youtube-crop-wrapper">
                 <iframe
                   id="ytPlayer"
-                  src="https://www.youtube.com/embed/W8CLHZf-Ak0?enablejsapi=1&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1"
+                  src="about:blank"
+                  data-src="https://www.youtube-nocookie.com/embed/W8CLHZf-Ak0"
                   title="Elden Ring Trailer"
-                  allow="autoplay">
+                  loading="lazy"
+                  allow="autoplay; encrypted-media; picture-in-picture">
                 </iframe>
               </div>
               <!-- Постер-заглушка поверх плеера -->
@@ -254,7 +256,8 @@
                 src="https://img.youtube.com/vi/W8CLHZf-Ak0/maxresdefault.jpg"
                 alt="Trailer Poster"
                 class="trailer-poster"
-                id="trailerPoster" />
+                id="trailerPoster"
+                loading="lazy" />
               <!-- Кастомная кнопка Play -->
               <button
                 class="play-btn"

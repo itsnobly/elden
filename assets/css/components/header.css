@@ -20,16 +20,18 @@
 }
 
 .logo a {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-headers);
   font-size: 24px;
   line-height: 1.2;
+  text-decoration: none;
 }
 
-.logo__img {
-  display: block;
-  height: 36px;
-  width: auto;
+.logo__text {
+  color: var(--gold-primary);
+  white-space: nowrap;
 }
 
 .header__nav-links {

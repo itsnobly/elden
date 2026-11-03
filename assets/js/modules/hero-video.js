@@ -3,7 +3,7 @@
 * Запускается из features/home-page.js при каждом заходе на главную.
 */
 export function initHero() {
-  const video = document.querySelector('.main__video');
+  let video = document.querySelector('.main__video');
   const videoButtons = document.querySelectorAll('.grace-switcher__item');
 
   const soundToggle = document.querySelector('.sound-toggle');
@@ -12,9 +12,22 @@ export function initHero() {
 
   if (!video || !soundToggle) return; // страница без баннера
 
+  let standbyVideo;
+  let videoRequest = 0;
+  let cancelPendingLoad = null;
+
+  standbyVideo = video.cloneNode(false);
+  standbyVideo.removeAttribute('poster');
+  standbyVideo.removeAttribute('src');
+  standbyVideo.muted = true;
+  standbyVideo.setAttribute('aria-hidden', 'true');
+  standbyVideo.classList.add('is-hidden');
+  video.parentElement.insertBefore(standbyVideo, video.nextSibling);
+
   const VIDEO_PATH = '/assets/video/';
 
-  const videos = ['eldenfc3.mp4', 'eldenblue2.mp4'];
+  const videos = ['eldenfc3.mp4', 'elden-test-main.mp4', 'eldenblue2.mp4'];
+  const automaticNextVideo = 'eldenblue2.mp4';
   const themes = {
     'elden-test-main.mp4': 'gold',
     'eldenfc3.mp4': 'blood',
@@ -24,6 +37,7 @@ export function initHero() {
   const STORAGE_KEY = 'er:banner';
 
   let isManuallySelected = false;
+  let isActive = true;
 
   // Запоминаем выбранный баннер в браузере, чтобы при следующем заходе он остался
   function saveBanner(videoName) {
@@ -56,33 +70,7 @@ export function initHero() {
     soundToggle.setAttribute('aria-label', label);
   }
 
-  // Ждём, пока новое видео покажет первый кадр (но не дольше 1.5 с),
-  // чтобы оно не проявилось чёрным
-  function waitForFrame() {
-    return new Promise((resolve) => {
-      const done = () => {
-        video.removeEventListener('loadeddata', done);
-        resolve();
-      };
-
-      video.addEventListener('loadeddata', done);
-      setTimeout(done, 1500);
-    });
-  }
-
-  // Всё, что меняется при переключении: видео, кнопки, тема
-  async function applyVideo(videoName, newVideo) {
-    const wasMuted = video.muted;
-
-    video.src = newVideo;
-    video.muted = wasMuted;
-
-    // Первое видео — заставка, остальные зациклены
-    video.loop = videoName !== videos[0];
-
-    video.load();
-
-    // Обновляем активную кнопку
+  function updateVideoSelection(videoName) {
     videoButtons.forEach((button) => {
       button.classList.toggle('active', button.dataset.video === videoName);
     });
@@ -90,57 +78,99 @@ export function initHero() {
     document.documentElement.dataset.theme = themes[videoName] || 'gold';
 
     updateSound();
-
-    await waitForFrame();
   }
 
-  // Переключение видео вместе с темой.
-  // Видео гаснет (0.3 с), пока под ним меняется видео, тема и кнопки,
-  // и потом плавно проявляется. Это лёгкий эффект: страница целиком
-  // не перерисовывается, поэтому ничего не лагает.
+  function waitForFrame(candidate) {
+    return new Promise((resolve, reject) => {
+      const finish = (error) => {
+        candidate.removeEventListener('loadeddata', onLoaded);
+        candidate.removeEventListener('error', onError);
+        if (cancelPendingLoad === cancel) cancelPendingLoad = null;
+        if (error) reject(error);
+        else resolve();
+      };
+      const onLoaded = () => finish();
+      const onError = () => finish(new Error(`Failed to load video: ${candidate.currentSrc}`));
+      const cancel = () => finish();
+
+      if (candidate.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+        resolve();
+        return;
+      }
+
+      cancelPendingLoad = cancel;
+      candidate.addEventListener('loadeddata', onLoaded, { once: true });
+      candidate.addEventListener('error', onError, { once: true });
+    });
+  }
+
   async function switchVideo(videoName) {
     const newVideo = `${VIDEO_PATH}${videoName}`;
-
-    // Не перезагружаем уже выбранное видео
     if (video.src.endsWith(newVideo)) return;
+    const request = ++videoRequest;
+    cancelPendingLoad?.();
 
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (!reduceMotion) {
-      video.style.transition = 'opacity 0.3s ease';
-      video.style.opacity = '0';
-      await new Promise((resolve) => setTimeout(resolve, 300));
-    }
-
-    await applyVideo(videoName, newVideo);
-
-    video.style.opacity = '1';
+    const candidate = standbyVideo;
+    candidate.pause();
+    candidate.muted = video.muted;
+    candidate.loop = videoName !== videos[0];
+    candidate.classList.add('is-hidden');
+    candidate.src = newVideo;
+    const frameReady = waitForFrame(candidate);
+    candidate.load();
 
     try {
-      await video.play();
+      await frameReady;
+      if (!isActive || request !== videoRequest) return;
+      candidate.muted = video.muted;
+      await candidate.play();
     } catch (error) {
-      console.error('Не удалось воспроизвести видео:', error);
+      if (
+        request === videoRequest &&
+        error.name !== 'AbortError' &&
+        error.name !== 'NotAllowedError'
+      ) {
+        console.error('Не удалось воспроизвести видео:', error);
+      }
+      return;
     }
+
+    if (!isActive || request !== videoRequest) {
+      candidate.pause();
+      return;
+    }
+
+    const previousVideo = video;
+    previousVideo.removeEventListener('ended', onEnded);
+    video = candidate;
+    standbyVideo = previousVideo;
+    video.addEventListener('ended', onEnded);
+    updateVideoSelection(videoName);
+    video.classList.remove('is-hidden');
+    standbyVideo.classList.add('is-hidden');
+    standbyVideo.pause();
   }
 
   // Автоматическое переключение после заставки
-  video.addEventListener('ended', () => {
+  const onEnded = () => {
     if (isManuallySelected) return;
 
-    switchVideo(videos[1]);
-  });
+    void switchVideo(automaticNextVideo);
+  };
+  video.addEventListener('ended', onEnded);
 
   // Ручное переключение видео
+  const onVideoButtonClick = (event) => {
+    isManuallySelected = true;
+    saveBanner(event.currentTarget.dataset.video);
+    void switchVideo(event.currentTarget.dataset.video);
+  };
   videoButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      isManuallySelected = true;
-      saveBanner(button.dataset.video);
-      switchVideo(button.dataset.video);
-    });
+    button.addEventListener('click', onVideoButtonClick);
   });
 
   // Включение и выключение звука
-  soundToggle.addEventListener('click', async () => {
+  const onSoundToggle = async () => {
     if (video.muted) {
       video.muted = false;
 
@@ -148,40 +178,42 @@ export function initHero() {
         await video.play();
       } catch (error) {
         video.muted = true;
-        console.error('Не удалось включить звук:', error);
+        if (error.name !== 'AbortError' && error.name !== 'NotAllowedError') {
+          console.error('Не удалось включить звук:', error);
+        }
       }
     } else {
       video.muted = true;
     }
 
     updateSound();
-  });
-
-  // Видео подключается после первого отображения страницы, чтобы не задерживать контент.
-  video.loop = false;
-  updateSound();
+  };
+  soundToggle.addEventListener('click', onSoundToggle);
 
   const savedBanner = readBanner();
   if (savedBanner) isManuallySelected = savedBanner !== videos[0];
   const initialVideo = savedBanner ?? videos[0];
-  const startVideo = () => {
-    applyVideo(initialVideo, `${VIDEO_PATH}${initialVideo}`).then(() => {
-      video.play().catch((error) => {
-        if (error.name !== 'NotAllowedError') {
-          console.error('Не удалось воспроизвести видео:', error);
-        }
-      });
-    });
-  };
-  const idleHandle = 'requestIdleCallback' in window
-    ? window.requestIdleCallback(startVideo, { timeout: 2000 })
-    : null;
-  const fallbackTimer = idleHandle === null ? window.setTimeout(startVideo, 1200) : null;
+  video.loop = initialVideo !== videos[0];
+  video.src = `${VIDEO_PATH}${initialVideo}`;
+  video.load();
+  updateVideoSelection(initialVideo);
+  video.play().catch((error) => {
+    if (error.name !== 'AbortError' && error.name !== 'NotAllowedError') {
+      console.error('Не удалось воспроизвести видео:', error);
+    }
+  });
 
   // при уходе с главной видео обязательно ставим на паузу (иначе играет звук)
   return () => {
-    if (idleHandle !== null) window.cancelIdleCallback(idleHandle);
-    if (fallbackTimer !== null) window.clearTimeout(fallbackTimer);
+    isActive = false;
+    videoRequest += 1;
+    cancelPendingLoad?.();
+    video.removeEventListener('ended', onEnded);
+    videoButtons.forEach((button) => {
+      button.removeEventListener('click', onVideoButtonClick);
+    });
+    soundToggle.removeEventListener('click', onSoundToggle);
     video.pause();
+    standbyVideo.pause();
   };
 }

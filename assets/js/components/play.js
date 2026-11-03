@@ -10,12 +10,10 @@ export function initPlay() {
 
   let isPlaying = false;
 
-  // Получаем базовый URL iframe без параметров автозапуска
-  const baseUrl = iframe.src.split('?')[0];
-  const params =
-    '?enablejsapi=1&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1';
+  const baseUrl = iframe.dataset.src;
+  const params = '?controls=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1';
 
-  trailerCard.addEventListener('click', () => {
+  const onClick = () => {
     isPlaying = !isPlaying;
 
     // Постер и кнопка Play: прячем при запуске, возвращаем при остановке
@@ -25,7 +23,14 @@ export function initPlay() {
     }
     if (playBtn) playBtn.style.display = isPlaying ? 'none' : 'flex';
 
-    // Перезагрузка iframe полностью сбрасывает видео
-    iframe.src = baseUrl + params + (isPlaying ? '&autoplay=1' : '');
-  });
+    iframe.src = isPlaying
+      ? `${baseUrl}${params}&autoplay=1`
+      : 'about:blank';
+  };
+  trailerCard.addEventListener('click', onClick);
+
+  return () => {
+    trailerCard.removeEventListener('click', onClick);
+    iframe.src = 'about:blank';
+  };
 }
