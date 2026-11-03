@@ -10,6 +10,12 @@ export function initFeatures() {
   const items = document.querySelectorAll('.kf__item');
   const observers = [];
 
+  videos.forEach((video) => {
+    video.muted = true;
+    video.defaultMuted = true;
+    video.setAttribute('muted', '');
+  });
+
   /* Появление блоков */
   if ('IntersectionObserver' in window && !reduceMotion) {
     const reveal = new IntersectionObserver(
@@ -55,14 +61,17 @@ export function initFeatures() {
           if (entry.isIntersecting) {
             loadVideo(video);
             if (reduceMotion) return;
-            // play() может быть отклонён (экономия батареи и т.п.): тихо игнорируем
-            video.play().catch(() => {});
+            video.play().catch((error) => {
+              if (error.name !== 'AbortError' && error.name !== 'NotAllowedError') {
+                console.error('Не удалось воспроизвести видео карточки:', error);
+              }
+            });
           } else {
             video.pause();
           }
         });
       },
-      { rootMargin: '0px', threshold: 0.45 },
+      { rootMargin: '0px', threshold: 0 },
     );
 
     videos.forEach((v) => {
