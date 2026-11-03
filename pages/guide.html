@@ -3,64 +3,521 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/assets/css/components/modal.css" />
-
-    <title>Document</title>
+    <meta
+      name="description"
+      content="Elden Ring guides for classes, progression, NPC quests, endings, and builds." />
+    {{> theme }}
+    <link rel="stylesheet" href="/assets/css/base.css" />
+    <title>Guides — Elden Ring</title>
   </head>
   <body>
     <div class="wrapper">
-      <header class="header">
-        <div class="container">
-          <nav class="header__nav" aria-label="Main navigation">
-            <div class="logo"><a href="/">EldenRing</a></div>
-            <ul class="header__nav-links">
-              <li class="nav__link"><a href="/pages/guide.html">Guide</a></li>
-              <li class="nav__link">
-                <a href="/pages/bosses.html" aria-current="page">Bosses</a>
-              </li>
-              <li class="nav__link"><a href="/pages/tools.html">Tools</a></li>
-              <li class="nav__link"><a href="/pages/music.html">Music</a></li>
-            </ul>
-            <div class="header__social">
-              <button id="open__modal" type="button">Contact</button>
+      {{> header }}
+
+      <div id="page" data-page="guide">
+        <main class="guide-page">
+          <section class="guide-hero">
+            <div class="container">
+              <p class="guide-hero__eyebrow">Knowledge for the Tarnished</p>
+              <h1 class="guide-hero__title">Guides</h1>
+              <p class="guide-hero__intro">
+                Find your starting class, plan a route through the Lands
+                Between, follow NPC stories, and shape a build for your journey.
+              </p>
+              <a class="guide-hero__link" href="#guide-categories">
+                Explore the guides <span aria-hidden="true">↓</span>
+              </a>
+              <a class="guide-hero__link" href="#class-quiz">
+                Take the class quiz <span aria-hidden="true">↗</span>
+              </a>
+              <a class="guide-hero__link" href="#regions">
+                Regional guide <span aria-hidden="true">↘</span>
+              </a>
             </div>
-          </nav>
-        </div>
-      </header>
-    </div>
-    <!-- modal -->
-    <div class="modal" id="modal">
-      <div class="modal_dialog">
-        <div class="modal_content">
-          <button class="modal__close" id="modal__close-btn">&times;</button>
-          <form action="#">
-            <div class="modal_title">
-              We will get in touch with you as soon as possible!
+            <img
+              class="guide-hero__character"
+              src="/assets/img/images/maleniya.webp"
+              alt=""
+              aria-hidden="true"
+              fetchpriority="high" />
+          </section>
+
+          <section class="guide-section container" id="guide-categories">
+            <div class="guide-section__heading">
+              <p class="guide-section__eyebrow">Choose your path</p>
+              <h2>Guide library</h2>
+              <p class="guide-quiz-entry">
+                Not sure which class fits? <a href="#class-quiz">Take the 12-question class quiz</a>.
+              </p>
             </div>
+            <div class="guide-grid">
+              <a class="guide-card guide-card--accent guide-card--quiz" href="#class-quiz">
+                <img
+                  class="guide-card__art"
+                  src="/assets/img/images/libBacg/classElden-removebg-preview.png"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy" />
+                <span class="guide-card__number">01</span>
+                <h3>Class quiz</h3>
+                <p>
+                  Answer 12 questions to find a starting class that matches
+                  your playstyle.
+                </p>
+                <span class="guide-card__action"
+                  >Take the quiz <span aria-hidden="true">↗</span></span
+                >
+              </a>
+              <a class="guide-card guide-card--classes" href="/pages/guide/classes.html">
+                <img
+                  class="guide-card__art"
+                  src="/assets/img/images/nonBackg/maleniaBack-removebg-preview.png"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy" />
+                <span class="guide-card__number">02</span>
+                <h3>Classes</h3>
+                <p>
+                  Compare starting attributes, find a class that fits your
+                  playstyle, and open its detailed stat breakdown.
+                </p>
+                <span class="guide-card__action"
+                  >Browse classes <span aria-hidden="true">↗</span></span
+                >
+              </a>
+              <a class="guide-card" href="#walkthrough">
+                <img
+                  class="guide-card__art guide-card__art--scene"
+                  src="/assets/img/images/radanBack.webp"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy" />
+                <span class="guide-card__number">03</span>
+                <h3>Walkthrough</h3>
+                <p>
+                  Keep track of major milestones, optional areas, and useful
+                  stops as you explore.
+                </p>
+                <span class="guide-card__action"
+                  >View overview <span aria-hidden="true">↓</span></span
+                >
+              </a>
+              <a class="guide-card guide-card--quests" href="#npc-quests">
+                <img
+                  class="guide-card__art"
+                  src="/assets/img/images/libBacg/npcElden.webp"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy" />
+                <span class="guide-card__number">04</span>
+                <h3>NPC quests</h3>
+                <p>
+                  Follow character questlines and keep an eye on steps that can
+                  be easy to miss.
+                </p>
+                <span class="guide-card__action"
+                  >View overview <span aria-hidden="true">↓</span></span
+                >
+              </a>
+              <a class="guide-card guide-card--endings" href="#endings">
+                <img
+                  class="guide-card__art"
+                  src="/assets/img/images/libBacg/endElden-removebg-preview.png"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy" />
+                <span class="guide-card__number">05</span>
+                <h3>Endings</h3>
+                <p>
+                  Learn how major choices and completed questlines can shape the
+                  conclusion of your journey.
+                </p>
+                <span class="guide-card__action"
+                  >View overview <span aria-hidden="true">↓</span></span
+                >
+              </a>
+              <a
+                class="guide-card guide-card--accent"
+                href="#builds">
+                <img
+                  class="guide-card__art"
+                  src="/assets/img/images/libBacg/buildElden-removebg-preview.png"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy" />
+                <span class="guide-card__number">06</span>
+                <h3>Builds</h3>
+                <p>
+                  Start with a class and adjust all eight attributes in the
+                  build planner.
+                </p>
+                <span class="guide-card__action"
+                  >Build basics <span aria-hidden="true">↓</span></span
+                >
+              </a>
+            </div>
+          </section>
 
-            <input
-              required
-              class="modal_input"
-              id="modal_input_form__title"
-              name="name"
-              type="text"
-              placeholder="Your name" />
+          <section
+            class="class-quiz guide-section container"
+            id="class-quiz"
+            data-class-quiz
+            aria-labelledby="class-quiz-title"></section>
 
-            <input
-              required
-              class="modal_input"
-              id="modal_input_form__number"
-              name="phone"
-              type="tel"
-              placeholder="Your phone number" />
+          <section class="guide-notes guide-notes--route" id="walkthrough">
+            <div class="container">
+              <div class="guide-content-heading">
+                <div>
+                  <p class="guide-section__eyebrow">A route, not a checklist</p>
+                  <h2>Walkthrough</h2>
+                </div>
+                <p>
+                  Follow the main path, but explore side regions before each
+                  major turning point. Recommended levels are flexible: weapon
+                  upgrades and your own comfort matter just as much.
+                </p>
+              </div>
+              <div class="guide-route-grid">
+                <article class="guide-route">
+                  <span class="guide-content__step">01 · LIMGRAVE</span>
+                  <h3>Find your footing</h3>
+                  <p>
+                    Activate Gatefront's Site of Grace to meet Melina and
+                    receive Torrent. Collect the Limgrave map, visit the
+                    Church of Elleh, and use the Stormveil gate route to reach
+                    Margit.
+                  </p>
+                  <ul>
+                    <li>Optional early detour: Weeping Peninsula and Castle Morne.</li>
+                    <li>Defeat Margit, then explore Stormveil Castle for its shortcuts and loot.</li>
+                    <li>Suggested range: level 20–30; upgrade your weapon before the castle.</li>
+                  </ul>
+                </article>
+                <article class="guide-route">
+                  <span class="guide-content__step">02 · LIURNIA</span>
+                  <h3>Reach the Academy</h3>
+                  <p>
+                    Enter Liurnia through Stormveil or take the cliff path
+                    around it. Find the Academy Glintstone Key west of Raya
+                    Lucaria, then defeat Rennala to unlock rebirth.
+                  </p>
+                  <ul>
+                    <li>Explore Caria Manor and the Three Sisters to begin Ranni's quest.</li>
+                    <li>Raya Lucaria is the next major Great Rune route.</li>
+                    <li>Suggested range: level 40–60.</li>
+                  </ul>
+                </article>
+                <article class="guide-route">
+                  <span class="guide-content__step">03 · CAELID</span>
+                  <h3>Attend the festival</h3>
+                  <p>
+                    Caelid is dangerous early. Prepare for Scarlet Rot, then
+                    challenge Starscourge Radahn at Redmane Castle when ready.
+                    His defeat opens the way to Nokron.
+                  </p>
+                  <ul>
+                    <li>Continue Ranni's quest in Nokron to obtain the Fingerslayer Blade.</li>
+                    <li>Use Flame, Cleanse Me or boluses for Rot-heavy areas.</li>
+                    <li>Suggested range: level 60–80.</li>
+                  </ul>
+                </article>
+                <article class="guide-route">
+                  <span class="guide-content__step">04 · ALTUS &amp; GELMIR</span>
+                  <h3>Approach the capital</h3>
+                  <p>
+                    Reach Altus with both Dectus Medallion halves or through
+                    the Ruin-Strewn Precipice. Explore Mt. Gelmir and Volcano
+                    Manor before entering Leyndell.
+                  </p>
+                  <ul>
+                    <li>Volcano Manor contracts are optional; Rykard can be defeated without completing all of them.</li>
+                    <li>Collect Golden Seeds and Sacred Tears while crossing Altus.</li>
+                    <li>Suggested range: level 70–100.</li>
+                  </ul>
+                </article>
+                <article class="guide-route">
+                  <span class="guide-content__step">05 · LEYNDELL</span>
+                  <h3>Claim the capital</h3>
+                  <p>
+                    Enter Leyndell after claiming two Great Runes. Defeat
+                    Morgott to receive the Rold Medallion and gain access to
+                    the Mountaintops.
+                  </p>
+                  <ul>
+                    <li>Explore the Royal Capital before the final boss of Crumbling Farum Azula changes it.</li>
+                    <li>Finish capital pickups and NPC conversations you do not want to miss.</li>
+                    <li>Suggested range: level 90–110.</li>
+                  </ul>
+                </article>
+                <article class="guide-route">
+                  <span class="guide-content__step">06 · MOUNTAINTOPS</span>
+                  <h3>Decide what to finish</h3>
+                  <p>
+                    Cross the Forbidden Lands to the Mountaintops and defeat
+                    the Fire Giant. Before using the Forge, finish any
+                    remaining Leyndell exploration and side quests.
+                  </p>
+                  <ul>
+                    <li>Haligtree is an optional, high-difficulty endgame area; find both Secret Medallion halves.</li>
+                    <li>Using the Forge advances the story; Maliketh later transforms the capital.</li>
+                    <li>Suggested range: level 100–130.</li>
+                  </ul>
+                </article>
+                <article class="guide-route">
+                  <span class="guide-content__step">07 · FARUM AZULA</span>
+                  <h3>Face the final path</h3>
+                  <p>
+                    Complete Crumbling Farum Azula and defeat Maliketh. Return
+                    to the changed capital and make your way through the final
+                    encounters.
+                  </p>
+                  <ul>
+                    <li>Finish remaining quests and collectables before defeating Maliketh.</li>
+                    <li>After the final boss, choose an available ending interaction.</li>
+                    <li>Suggested range: level 120–150 with a well-upgraded weapon.</li>
+                  </ul>
+                </article>
+              </div>
+              <p class="guide-callout">
+                <strong>Before moving on:</strong> Major story events can move
+                NPCs and alter Leyndell. If a quest matters to you, exhaust
+                dialogue, revisit the character's last location, and complete
+                the quest before the Forge/Maliketh milestones.
+              </p>
+            </div>
+          </section>
 
-            <button class="btn btn_dark btn_min" id="modal__post_form">
-              Call us back
-            </button>
-          </form>
-        </div>
+          <section class="guide-section guide-notes guide-notes--shade" id="regions">
+            <div class="container">
+              <div class="guide-content-heading">
+                <div>
+                  <p class="guide-section__eyebrow">The Lands Between &amp; the Land of Shadow</p>
+                  <h2>Regions of the Lands Between</h2>
+                </div>
+                <p>
+                  Explore regions, major bosses, and their notable boss rewards.
+                  Boss rewards shown here; this is not a complete list of regional loot.
+                </p>
+              </div>
+              <div class="guide-region-grid" data-guide-regions aria-live="polite"></div>
+            </div>
+          </section>
+
+          <section class="guide-section guide-notes" id="npc-quests">
+            <div class="container">
+              <div class="guide-content-heading">
+                <div>
+                  <p class="guide-section__eyebrow">
+                    Stories across the Lands Between
+                  </p>
+                  <h2>NPC quests</h2>
+                </div>
+                <p>
+                  Characters move after key events. Talk until dialogue repeats,
+                  then check the next listed location. Spoiler details are in
+                  the expandable cards.
+                </p>
+              </div>
+              <div class="guide-quest-grid">
+                <details class="guide-quest" name="guide-quests-left" open>
+                  <summary>
+                    <span class="guide-content__step">ENDING · RANNI</span>
+                    <strong>Ranni the Witch</strong>
+                    <span>Caria Manor · Nokron · Ainsel River</span>
+                  </summary>
+                  <ol>
+                    <li>Meet Ranni at Ranni's Rise after clearing Caria Manor; agree to serve her.</li>
+                    <li>Speak with Blaidd, Iji, and Seluvis at the tower, then meet Blaidd in Siofra River.</li>
+                    <li>Defeat Radahn; enter the crater in Limgrave and retrieve the Fingerslayer Blade from Nokron.</li>
+                    <li>Give the blade to Ranni. Continue through Renna's Rise, Ainsel River, Nokstella, and the Lake of Rot.</li>
+                    <li>Defeat Astel, use the Dark Moon Ring at the Cathedral of Manus Celes, and finish her quest.</li>
+                    <li>After the final boss, use Ranni's blue summon sign to choose her ending.</li>
+                  </ol>
+                </details>
+                <details class="guide-quest" name="guide-quests-right">
+                  <summary>
+                    <span class="guide-content__step">ENDING · FIA</span>
+                    <strong>Fia, Deathbed Companion</strong>
+                    <span>Roundtable Hold · Deeproot Depths</span>
+                  </summary>
+                  <ol>
+                    <li>Accept Fia's embrace at the Roundtable Hold and exhaust her dialogue.</li>
+                    <li>Give D the Weathered Dagger when Fia offers it; reload the Hold and find the aftermath.</li>
+                    <li>Progress through Ranni's quest until you can obtain the Cursemark of Death.</li>
+                    <li>Reach Deeproot Depths, speak to Fia, and defeat the champions.</li>
+                    <li>Give Fia the Cursemark of Death and enter her dream to defeat Lichdragon Fortissax.</li>
+                    <li>Collect the Mending Rune of the Death-Prince; use it after the final boss for the Duskborn ending.</li>
+                  </ol>
+                </details>
+                <details class="guide-quest" name="guide-quests-left">
+                  <summary>
+                    <span class="guide-content__step">ENDING · DUNG EATER</span>
+                    <strong>Loathsome Dung Eater</strong>
+                    <span>Roundtable Hold · Leyndell sewers · Outer moat</span>
+                  </summary>
+                  <ol>
+                    <li>After reaching Altus, find his apparition at the Roundtable Hold and show him a Seedbed Curse to receive the Sewer-Gaol Key.</li>
+                    <li>Use the key to reach his cell in the Subterranean Shunning-Grounds beneath Leyndell. Speak to him and choose to release him.</li>
+                    <li>Read his message at the Roundtable Hold, then meet and defeat his invasion at the outer moat in Leyndell.</li>
+                    <li>Return to his cell and give him five Seedbed Curses, found across areas including Leyndell, Volcano Manor, and Elphael.</li>
+                    <li>Collect the Mending Rune of the Fell Curse from him; use it after the final boss for the Blessing of Despair ending.</li>
+                  </ol>
+                </details>
+                <details class="guide-quest" name="guide-quests-right">
+                  <summary>
+                    <span class="guide-content__step">QUEST · MILLICENT</span>
+                    <strong>Millicent</strong>
+                    <span>Caelid · Altus · Mountaintops · Haligtree</span>
+                  </summary>
+                  <ol>
+                    <li>Speak to Gowry in his shack, retrieve the Unalloyed Gold Needle from Commander O'Neil, and have it repaired.</li>
+                    <li>Give the needle to Millicent at the Church of the Plague; reload and speak with her again.</li>
+                    <li>Meet her at Gowry's Shack, then at the Erdtree-Gazing Hill after she leaves the church.</li>
+                    <li>Give her the Valkyrie's Prosthesis in the Shaded Castle; speak to her at Windmill Village after defeating the Godskin Apostle.</li>
+                    <li>Talk to her at the Ancient Snow Valley Ruins and then at the Prayer Room in Elphael.</li>
+                    <li>After defeating the Ulcerated Tree Spirit in Elphael, choose the gold sign to assist her. Return to the pool afterward to recover the Unalloyed Gold Needle; use it to obtain Miquella's Needle for a late-game ending safeguard.</li>
+                  </ol>
+                </details>
+                <details class="guide-quest" name="guide-quests-left">
+                  <summary>
+                    <span class="guide-content__step">QUEST · ALEXANDER</span>
+                    <strong>Iron Fist Alexander</strong>
+                    <span>Limgrave · Gael Tunnel · Caelid · Farum Azula</span>
+                  </summary>
+                  <ol>
+                    <li>Free Alexander from the ground north of Agheel Lake; speak with him after helping.</li>
+                    <li>Meet him in Gael Tunnel and at the Radahn Festival. Speak with him after the battle.</li>
+                    <li>Find him in the lava near Fort Laiedd on Mt. Gelmir.</li>
+                    <li>Use an Oil Pot to free him in the Mountaintops, then speak with him.</li>
+                    <li>Meet him in Crumbling Farum Azula and accept his duel. His shard rewards skill-focused builds.</li>
+                  </ol>
+                </details>
+                <details class="guide-quest" name="guide-quests-right">
+                  <summary>
+                    <span class="guide-content__step">ENDING · VARRE</span>
+                    <strong>White Mask Varre</strong>
+                    <span>The First Step · Rose Church · Mohgwyn Palace</span>
+                  </summary>
+                  <ol>
+                    <li>Speak with Varre at The First Step, then again at Rose Church in Liurnia.</li>
+                    <li>Complete three invasions with his fingers; victories are not required. Offline alternative: defeat Magnus the Beast Claw at Writheblood Ruins using his red summon sign.</li>
+                    <li>Soak the Lord of Blood's Favor in a maiden's blood, then return to Varre.</li>
+                    <li>Accept the Pureblood Knight's Medal to reach Mohgwyn Palace early.</li>
+                    <li>Complete his invasion sign near the mausoleum and speak with him for his quest rewards.</li>
+                  </ol>
+                </details>
+                <details class="guide-quest">
+                  <summary>
+                    <span class="guide-content__step">ENDING · GOLDMASK</span>
+                    <strong>Brother Corhyn &amp; Goldmask</strong>
+                    <span>Altus Plateau · Leyndell · Mountaintops</span>
+                  </summary>
+                  <ol>
+                    <li>After reaching Altus, find Corhyn there and meet the silent Goldmask on the Forest-Spanning Greatbridge.</li>
+                    <li>Speak to both, then meet them near the colosseum in Leyndell.</li>
+                    <li>Learn Law of Regression (requires 37 Intelligence) and cast it at the statue message in the capital; report the revelation to Goldmask.</li>
+                    <li>After the Forge, find them in the Mountaintops and later in the changed capital.</li>
+                    <li>Collect the Mending Rune of Perfect Order from Goldmask's body and use it after the final boss for that ending.</li>
+                  </ol>
+                </details>
+              </div>
+            </div>
+          </section>
+
+          <section class="guide-notes guide-notes--shade" id="endings">
+            <div class="container">
+              <div class="guide-content-heading">
+                <div>
+                  <p class="guide-section__eyebrow">Choices leave their mark</p>
+                  <h2>Endings</h2>
+                </div>
+                <p>
+                  There are six ending outcomes: the default choice, three
+                  Mending Rune variations, Ranni's path, and the Frenzied
+                  Flame. Complete the relevant quest before the final battle.
+                </p>
+              </div>
+              <div class="guide-ending-grid">
+                <article class="guide-ending">
+                  <span class="guide-content__step">DEFAULT</span>
+                  <h3>Age of Fracture</h3>
+                  <p>Defeat the final boss and choose “Mend the Elden Ring.” No optional ending quest is required.</p>
+                </article>
+                <article class="guide-ending">
+                  <span class="guide-content__step">FIA</span>
+                  <h3>Age of the Duskborn</h3>
+                  <p>Complete Fia's quest and use the Mending Rune of the Death-Prince at the end.</p>
+                </article>
+                <article class="guide-ending">
+                  <span class="guide-content__step">GOLDMASK</span>
+                  <h3>Age of Order</h3>
+                  <p>Complete Corhyn and Goldmask's quest, including the Law of Regression clue, then use the Mending Rune of Perfect Order.</p>
+                </article>
+                <article class="guide-ending">
+                  <span class="guide-content__step">DUNG EATER</span>
+                  <h3>Blessing of Despair</h3>
+                  <p>Complete the Dung Eater's quest by giving him five Seedbed Curses; use the Mending Rune of the Fell Curse.</p>
+                </article>
+                <article class="guide-ending">
+                  <span class="guide-content__step">RANNI</span>
+                  <h3>Age of the Stars</h3>
+                  <p>Finish Ranni's quest. After the final boss, interact with her blue summon sign instead of the Elden Ring.</p>
+                </article>
+                <article class="guide-ending guide-ending--warning">
+                  <span class="guide-content__step">MISSABLE CHOICE</span>
+                  <h3>Lord of Frenzied Flame</h3>
+                  <p>Meet the Three Fingers beneath Leyndell. This locks other endings unless you complete Millicent's quest, obtain Miquella's Needle, and use it in Dragonlord Placidusax's arena.</p>
+                </article>
+              </div>
+              <p class="guide-callout">
+                <strong>Keep your options open:</strong> Do not accept the
+                Three Fingers' embrace until you are sure. The other five
+                endings can remain available together; after the final battle,
+                choose only one for this playthrough.
+              </p>
+            </div>
+          </section>
+
+          <section class="guide-section container guide-builds" id="builds">
+            <div class="guide-content-heading">
+              <div>
+                <p class="guide-section__eyebrow">Build with a purpose</p>
+                <h2>Build basics</h2>
+              </div>
+              <p>
+                A reliable build starts with survivability, a weapon you enjoy,
+                and enough attributes to use it. Tune the exact numbers in the
+                planner.
+              </p>
+            </div>
+            <div class="guide-build-grid">
+              <article>
+                <h3>Stay alive first</h3>
+                <p>Vigor is valuable on every build. Many players aim for about 40 by midgame and 60 by endgame; treat these as useful targets, not rules.</p>
+              </article>
+              <article>
+                <h3>Upgrade your weapon</h3>
+                <p>Early weapon upgrades often add more damage than spreading levels across several offensive stats. Find smithing stones and improve one main weapon.</p>
+              </article>
+              <article>
+                <h3>Choose one main damage stat</h3>
+                <p>Meet weapon requirements first, then focus Strength, Dexterity, Intelligence, Faith, or Arcane according to its scaling and your playstyle.</p>
+              </article>
+              <article>
+                <h3>Keep a medium load</h3>
+                <p>Stay below 70% equip load for a medium roll. Endurance raises stamina and maximum equip load, so invest when armor or weapons make you heavy.</p>
+              </article>
+            </div>
+            <a class="guide-build-link" href="/pages/tools/tools.html">Open the build planner <span aria-hidden="true">↗</span></a>
+          </section>
+        </main>
       </div>
+
+      {{> footer }}
     </div>
+
+    {{> modal }} {{> game-modal }}
+
+    <script type="module" src="/assets/js/main.js"></script>
   </body>
-  <script src="/assets/js/components/modal.js"></script>
 </html>

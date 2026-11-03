@@ -25,28 +25,44 @@
 <script>
   (function () {
     var root = document.documentElement;
+    var failed = new WeakSet();
+    var links;
+    var started = false;
     var ready = function () {
       root.classList.add('is-ready');
     };
-
-    document.addEventListener('DOMContentLoaded', function () {
-      var pending = [].slice
-        .call(document.querySelectorAll('link[rel="stylesheet"]'))
-        .filter(function (link) {
-          return !link.sheet;
-        });
-      var left = pending.length;
-      if (!left) return ready();
-      pending.forEach(function (link) {
-        var done = function () {
-          if (--left === 0) ready();
-        };
-        link.addEventListener('load', done);
-        link.addEventListener('error', done);
+    var check = function () {
+      if (!links) return;
+      var pending = links.some(function (link) {
+        return !link.sheet && !failed.has(link);
       });
-    });
+      if (pending) {
+        setTimeout(check, 50);
+      } else {
+        ready();
+      }
+    };
 
-    // страховка: если что-то пошло не так, через 2.5 с страница всё равно покажется
-    setTimeout(ready, 2500);
+    document.addEventListener(
+      'error',
+      function (event) {
+        var link = event.target;
+        if (link && link.tagName === 'LINK' && link.rel === 'stylesheet') {
+          failed.add(link);
+          check();
+        }
+      },
+      true,
+    );
+
+    var start = function () {
+      if (started || document.readyState === 'loading') return;
+      started = true;
+      links = [].slice
+        .call(document.querySelectorAll('link[rel="stylesheet"]'));
+      check();
+    };
+    document.addEventListener('readystatechange', start);
+    start();
   })();
 </script>

@@ -552,7 +552,7 @@
         "name": "Remembrance of the Black Blade",
         "name_ru": "Воспоминание о Черном Клинке",
         "type": "remembrance",
-        "image": "/assets/img/items/remembrance-of-the-black-blade.webp",
+        "image": "https://eldenring.fanapis.com/images/items/17f698f3aadl0i2038pwv566m3ddrj.png",
         "exchangable_for": [
           {
             "name": "Maliketh's Black Blade",

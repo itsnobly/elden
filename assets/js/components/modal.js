@@ -4,15 +4,31 @@
 const modal = document.getElementById('modal');
 const modalClose = document.getElementById('modal__close-btn');
 const open = document.getElementById('open__modal');
+const gameModal = document.getElementById('game-modal');
+const gameClose = document.getElementById('game-modal-close');
 
-const openModal = () => {
-  modal?.classList.add('open__modal-active');
-  document.body.style.overflow = 'hidden';
+const anyModalOpen = () =>
+  modal?.classList.contains('open__modal-active') ||
+  gameModal?.classList.contains('open__modal-active');
+
+const syncBodyScroll = () => {
+  document.body.style.overflow = anyModalOpen() ? 'hidden' : '';
 };
 
 const closeModal = () => {
   modal?.classList.remove('open__modal-active');
-  document.body.style.overflow = '';
+  syncBodyScroll();
+};
+
+const closeSocialLinks = () => {
+  gameModal?.classList.remove('open__modal-active');
+  syncBodyScroll();
+};
+
+const openModal = () => {
+  gameModal?.classList.remove('open__modal-active');
+  modal?.classList.add('open__modal-active');
+  syncBodyScroll();
 };
 
 open?.addEventListener('click', openModal);
@@ -24,39 +40,15 @@ modal?.addEventListener('click', (event) => {
   }
 });
 
-// Открытие при прокрутке до конца страницы
-const handleScroll = () => {
-  const scrollY = Math.ceil(window.scrollY + window.innerHeight);
-  const heightEnd = document.documentElement.scrollHeight;
-
-  if (scrollY >= heightEnd - 10) {
-    openModal();
-    window.removeEventListener('scroll', handleScroll);
-  }
-};
-
-window.addEventListener('scroll', handleScroll);
-
-// Открытие через 10 секунд
-setTimeout(openModal, 10000);
-
-// game-modal
-const gameModal = document.getElementById('game-modal');
-const gameClose = document.getElementById('game-modal-close');
-
 const openSocialLinks = () => {
+  modal?.classList.remove('open__modal-active');
   gameModal?.classList.add('open__modal-active');
-  document.body.style.overflow = 'hidden';
-};
-
-const closeSocialLinks = () => {
-  gameModal?.classList.remove('open__modal-active');
-  document.body.style.overflow = '';
+  syncBodyScroll();
 };
 
 // «Shop now» живёт внутри #page, поэтому ловим клик на документе
 document.addEventListener('click', (event) => {
-  if (!event.target.closest('#open-game-modal')) return;
+  if (!(event.target instanceof Element) || !event.target.closest('#open-game-modal')) return;
   event.preventDefault();
   openSocialLinks();
 });
@@ -67,4 +59,10 @@ gameModal?.addEventListener('click', (event) => {
   if (event.target === gameModal) {
     closeSocialLinks();
   }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Escape') return;
+  closeModal();
+  closeSocialLinks();
 });

@@ -2,6 +2,7 @@
   {
     "id": "margit-01",
     "character": "Margit, the Fell Omen",
+    "character_ru": "Маргит, Ужасное знамение",
     "quote_en": "Foul Tarnished, in search of the Elden Ring. Emboldened by the flame of ambition.",
     "quote_ru": "Запятнанная тварь в поисках Кольца Элден. Воодушевлённая пламенем амбиций.",
     "category": "boss"
@@ -9,6 +10,7 @@
   {
     "id": "margit-02",
     "character": "Margit, the Fell Omen",
+    "character_ru": "Маргит, Ужасное знамение",
     "quote_en": "Put these foolish ambitions to rest.",
     "quote_ru": "Покончи со своими глупыми амбициями.",
     "category": "boss"
@@ -16,6 +18,7 @@
   {
     "id": "varre-01",
     "character": "White-Mask Varre",
+    "character_ru": "Варрэ в Белой Маске",
     "quote_en": "Feel free to go off and die in a ditch somewhere.",
     "quote_ru": "Можешь со спокойной душой отправиться сдыхать в какую-нибудь канаву.",
     "category": "npc"
@@ -23,6 +26,7 @@
   {
     "id": "malenia-01",
     "character": "Malenia, Blade of Miquella",
+    "character_ru": "Маления, Клинок Микеллы",
     "quote_en": "I am Malenia, Blade of Miquella. And I have never known defeat.",
     "quote_ru": "Я — Маления, Клинок Микеллы. И я никогда не ведала поражения.",
     "category": "boss"
@@ -30,6 +34,7 @@
   {
     "id": "godfrey-01",
     "character": "Godfrey, First Elden Lord",
+    "character_ru": "Годфри, Первый лорд Элдена",
     "quote_en": "I've given thee courtesy enough. Now I fight as Hoarah Loux, Warrior!",
     "quote_ru": "Я проявил достаточно уважения. Теперь я сражаюсь как Хоара Лукс, Воин!",
     "category": "boss"
@@ -37,6 +42,7 @@
   {
     "id": "maliketh-01",
     "character": "Maliketh, the Black Blade",
+    "character_ru": "Маликет, Чёрный Клинок",
     "quote_en": "O, Death. Become my blade once more.",
     "quote_ru": "О, Смерть. Стань моим клинком вновь.",
     "category": "boss"
@@ -44,6 +50,7 @@
   {
     "id": "rykard-01",
     "character": "Rykard, Lord of Blasphemy",
+    "character_ru": "Рикард, Повелитель богохульства",
     "quote_en": "TOGETHAAAR WE WILL DEVOUR THE VERY GODS!",
     "quote_ru": "ВМЕСТЕ МЫ ПОЖРЁМ САМИХ БОГОВ!",
     "category": "boss"
@@ -51,6 +58,7 @@
   {
     "id": "ranni-01",
     "character": "Ranni the Witch",
+    "character_ru": "Ведьма Ренни",
     "quote_en": "Upon my name as Ranni the Witch. I will not allow thee to tarnish the stars.",
     "quote_ru": "Именем Ведьмы Рэнни. Я не позволю тебе осквернить звёзды.",
     "category": "npc"
@@ -58,6 +66,7 @@
   {
     "id": "radahn-01",
     "character": "Starscourge Radahn",
+    "character_ru": "Радан, бич звёзд",
     "quote_en": "The Red Lion's roar echoes across the battlefield.",
     "quote_ru": "Рык Красного Льва эхом отзывается по всему полю боя.",
     "category": "lore"
@@ -65,6 +74,7 @@
   {
     "id": "messages-01",
     "character": "Tarnished Message",
+    "character_ru": "Послание Погасшего",
     "quote_en": "Behold, dog!",
     "quote_ru": "Узреть, собака!",
     "category": "meme"
@@ -72,6 +82,7 @@
   {
     "id": "messages-02",
     "character": "Tarnished Message",
+    "character_ru": "Послание Погасшего",
     "quote_en": "Try finger, but hole.",
     "quote_ru": "Попробуй палец, но дыра.",
     "category": "meme"
@@ -79,6 +90,7 @@
   {
     "id": "intro-01",
     "character": "Narrator",
+    "character_ru": "Рассказчик",
     "quote_en": "Arise now, ye Tarnished! Ye dead, who yet live!",
     "quote_ru": "Восстаньте же, Запятнанные! Мертвецы, что всё ещё живы!",
     "category": "lore"

@@ -7,6 +7,8 @@
 import { loadBosses, tierOf, locationKey, TIERS } from '../modules/characters.js';
 import { escapeHtml, normalizeText } from '../utils/html.js';
 import { t, getLang } from '../utils/i18n.js';
+import { localizeBossText } from '../utils/boss-localization.js';
+import { changeDeaths, getDeaths } from '../utils/deaths.js';
 
 const PAGE_SIZE = 12;
 const state = { category: 'all', tier: '', location: '', query: '', page: 0 };
@@ -73,7 +75,10 @@ function filter(withTier = true) {
 }
 
 const bossName = (boss) => (getLang() === 'ru' ? (data.ru(boss.id).name ?? boss.name_en) : boss.name_en);
-const placeOf = (boss) => `${boss.region ?? t('unknown')} — ${boss.location ?? t('unknown')}`;
+const placeOf = (boss) => {
+  const lang = getLang();
+  return `${localizeBossText(boss.region ?? t('unknown'), lang)} — ${localizeBossText(boss.location ?? t('unknown'), lang)}`;
+};
 
 // ---------- отрисовка кусочков ----------
 
@@ -147,9 +152,10 @@ function cardHtml(boss) {
   const lang = getLang();
   const reason = data.difficulty[boss.id]?.[lang] ?? '';
   const image = boss.media?.image;
+  const deaths = getDeaths(boss.id);
   const href = `/pages/bosses/boss.html?id=${encodeURIComponent(boss.id)}`;
   return `
-    <article class="boss-entry">
+    <article class="boss-entry${deaths ? ' has-deaths' : ''}" data-boss-id="${escapeHtml(boss.id)}">
       <a class="boss-entry__artwork" href="${href}" aria-label="${escapeHtml(`${t('details')}: ${bossName(boss)}`)}">
         <span class="boss-entry__placeholder" aria-hidden="true"><span class="boss-entry__placeholder-mark">✦</span></span>
         ${image ? `<img class="boss-entry__image" src="${escapeHtml(image)}" alt="" loading="lazy" decoding="async" />` : ''}
@@ -165,6 +171,12 @@ function cardHtml(boss) {
         <div class="boss-entry__actions">
           <button class="boss-entry__filter" type="button" data-tier-filter="${tier}">${escapeHtml(t('difficulty'))} ${tier}</button>
           <a class="boss-entry__details" href="${href}">${escapeHtml(t('details'))}</a>
+        </div>
+        <div class="boss-death-counter boss-entry__deaths" data-death-counter>
+          <span class="boss-death-counter__label">${escapeHtml(t('Deaths'))}</span>
+          <button type="button" data-death-change="-1" aria-label="${escapeHtml(t('Remove one death'))}" ${deaths ? '' : 'disabled'}>−</button>
+          <output data-deaths-for="${escapeHtml(boss.id)}" aria-live="polite">${deaths}</output>
+          <button type="button" data-death-change="1" aria-label="${escapeHtml(t('Add one death'))}">+</button>
         </div>
       </div>
     </article>`;
@@ -258,6 +270,12 @@ function bind() {
   };
   on(refs.tiers, 'click', tierClick);
   on(refs.results, 'click', tierClick);
+  on(refs.results, 'click', (event) => {
+    const button = event.target.closest('[data-death-change]');
+    if (!button) return;
+    const id = button.closest('[data-boss-id]')?.dataset.bossId;
+    if (id) changeDeaths(id, Number(button.dataset.deathChange));
+  });
 
   // поиск с небольшой задержкой, чтобы не перерисовывать на каждую букву
   on(refs.search, 'input', () => {

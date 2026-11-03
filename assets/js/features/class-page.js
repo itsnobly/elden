@@ -17,16 +17,20 @@ const BAR_MAX = 25;
 let data;
 let root;
 let slug;
+let fromQuiz = false;
 let cleanups = [];
 
 const href = (id) => `/pages/guide/class.html?id=${encodeURIComponent(id)}`;
 
 function render() {
   const c = data.bySlug.get(slug);
+  const quizBackLink = fromQuiz
+    ? `<a class="class-page__quiz-back" href="/pages/guide.html#class-quiz">${escapeHtml(label('backToQuiz'))}</a>`
+    : '';
   if (!c) {
     document.title = label('pageTitle');
     root.innerHTML = `<section class="classes"><div class="container">
-      <p class="class-page__top"><a class="class-page__back" href="/pages/guide/classes.html">${escapeHtml(label('back'))}</a></p>
+      <p class="class-page__top"><a class="class-page__back" href="/pages/guide/classes.html">${escapeHtml(label('back'))}</a>${quizBackLink}</p>
       <p class="classes__message">${escapeHtml(label('notFound'))}</p></div></section>`;
     return;
   }
@@ -40,7 +44,7 @@ function render() {
   root.innerHTML = `
     <article class="class-page">
       <div class="container">
-        <p class="class-page__top"><a class="class-page__back" href="/pages/guide/classes.html">${escapeHtml(label('back'))}</a></p>
+        <p class="class-page__top"><a class="class-page__back" href="/pages/guide/classes.html">${escapeHtml(label('back'))}</a>${quizBackLink}</p>
 
         <div class="class-page__layout">
           <div class="class-page__art">
@@ -73,7 +77,7 @@ function render() {
               ).join('')}
             </div>
 
-            <a class="class-page__cta" href="/pages/tools/tools.html?class=${encodeURIComponent(c.slug)}">${escapeHtml(label('build'))}</a>
+            <a class="class-page__cta" href="/pages/tools/tools.html?class=${encodeURIComponent(c.slug)}${fromQuiz ? '&from=quiz' : ''}">${escapeHtml(label('build'))}</a>
           </div>
         </div>
 
@@ -96,6 +100,7 @@ async function build(container) {
   data = await loadClasses();
   root = container;
   slug = new URLSearchParams(location.search).get('id');
+  fromQuiz = new URLSearchParams(location.search).get('from') === 'quiz';
   render();
 
   const onError = (event) => {

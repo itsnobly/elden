@@ -145,7 +145,7 @@
     "item_id": "remembrance-of-the-black-blade",
     "name_en": "Remembrance of the Black Blade",
     "type": "remembrance",
-    "image": "/assets/img/items/remembrance-of-the-black-blade.webp",
+    "image": "https://eldenring.fanapis.com/images/items/17f698f3aadl0i2038pwv566m3ddrj.png",
     "exchangeable_for": [
       {
         "name": "Maliketh's Black Blade",

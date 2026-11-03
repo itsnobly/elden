@@ -7,8 +7,8 @@
  *     текущего. Шапка, футер, модалки и тема не перерисовываются.
  *  2. У каждого #page есть data-page="home | bosses | boss". По этому имени
  *     подгружается JS страницы: mount(page) при входе, unmount() при уходе.
- *  3. CSS страницы подключается из её <head>; стили предыдущей страницы
- *     выключаются, поэтому страницы не мешают друг другу.
+ *  3. Все страницы используют общий render-blocking stylesheet; если страница
+ *     добавляет отдельные стили, роутер ждёт их до замены содержимого.
  *  4. Адрес меняется через history.pushState, «назад/вперёд» работают,
  *     положение прокрутки запоминается.
  *  5. Если страницы нет в списке (guide, music...) или что-то пошло не так —
@@ -28,10 +28,14 @@ const pages = {
   classes: () => import('./features/classes-page.js'),
   class: () => import('./features/class-page.js'),
   planner: () => import('./features/planner-page.js'),
+  guide: () => import('./features/guide-page.js'),
+  database: () => import('./features/database-page.js'),
+  music: () => import('./features/music-page.js'),
 };
 
 const docCache = new Map(); // адрес -> промис с разобранным HTML
 const sheets = new Map(); // href -> <link rel="stylesheet">
+const sheetLoads = new Map(); // href -> промис загрузки таблицы стилей
 let current = null; // модуль открытой страницы
 let token = 0; // номер последнего перехода: устаревшие результаты игнорируем
 let navigating = false;
@@ -75,15 +79,53 @@ function loadSheets(doc) {
   );
   const waits = [];
   for (const href of wanted) {
+    if (sheetLoads.has(href)) {
+      waits.push(sheetLoads.get(href));
+      continue;
+    }
     if (sheets.has(href)) continue;
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = href;
-    waits.push(
-      new Promise((resolve) => (link.onload = link.onerror = resolve)),
+
+    const addSheet = () => {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+
+      const ready = new Promise((resolve, reject) => {
+        link.addEventListener('load', resolve, { once: true });
+        link.addEventListener(
+          'error',
+          () => {
+            sheets.delete(href);
+            sheetLoads.delete(href);
+            link.remove();
+            reject(new Error(`Failed to load stylesheet: ${href}`));
+          },
+          { once: true },
+        );
+        sheets.set(href, link);
+        document.head.append(link);
+      });
+      sheetLoads.set(href, ready);
+      ready.then(
+        () => {
+          if (sheetLoads.get(href) === ready) sheetLoads.delete(href);
+        },
+        () => {},
+      );
+      return ready;
+    };
+
+    const loading = addSheet();
+    sheetLoads.set(href, loading);
+    loading.then(
+      () => {
+        if (sheetLoads.get(href) === loading) sheetLoads.delete(href);
+      },
+      () => {
+        if (sheetLoads.get(href) === loading) sheetLoads.delete(href);
+      },
     );
-    document.head.append(link);
-    sheets.set(href, link);
+    waits.push(loading);
   }
   return Promise.all(waits).then(() => new Set(wanted));
 }
@@ -120,6 +162,10 @@ async function navigate(url, { push = true, scrollY = 0 } = {}) {
     markNav();
 
     await mod.mount(fresh);
+    if (url.hash) {
+      const target = document.getElementById(url.hash.slice(1));
+      target?.scrollIntoView();
+    }
   } catch (error) {
     console.error(error);
     if (id === token) location.href = url.href; // запасной вариант: обычный переход
@@ -177,6 +223,16 @@ export async function startRouter() {
   registerSheets();
 
   document.addEventListener('click', onClick);
+  document.addEventListener('click', (event) => {
+    const menu = document.querySelector('.nav__link--dropdown details');
+    if (menu?.open && !menu.contains(event.target)) menu.open = false;
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      const menu = document.querySelector('.nav__link--dropdown details');
+      if (menu) menu.open = false;
+    }
+  });
   document.addEventListener('mouseover', (event) => {
     const link = event.target.closest?.('a[href]');
     if (link) prefetchLink(link);

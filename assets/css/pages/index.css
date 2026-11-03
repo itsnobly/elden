@@ -1,6 +1,5 @@
 /* index.css — Сборщик стилей и стили главной страницы */
 
-@import '../base.css';
 .main {
   position: relative;
   isolation: isolate;
@@ -324,6 +323,215 @@
     bottom: 84px;
     width: 40px;
     height: 40px;
+  }
+}
+
+.release-showcase {
+  padding: clamp(42px, 6vw, 72px) 0;
+  border-bottom: 1px solid var(--border-dark);
+  background:
+    radial-gradient(ellipse at 50% 0, rgba(var(--accent-rgb), 0.06), transparent 65%),
+    var(--bg-dark);
+}
+
+.release-showcase__eyebrow {
+  margin-bottom: 16px;
+  color: var(--gold-primary);
+  font-family: var(--font-headers);
+  font-size: 0.76rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.release-carousel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-card);
+  touch-action: pan-y;
+}
+
+.release-carousel__track {
+  display: grid;
+}
+
+.release-carousel__slide {
+  position: relative;
+  isolation: isolate;
+  grid-area: 1 / 1;
+  display: flex;
+  min-height: clamp(270px, 30vw, 360px);
+  align-items: center;
+  overflow: hidden;
+  padding: clamp(30px, 5vw, 64px);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(14px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease,
+    visibility 0.45s;
+}
+
+.release-carousel__slide.is-active {
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.release-carousel__image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+}
+
+.release-carousel__slide::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgba(8, 7, 6, 0.97) 0%,
+    rgba(8, 7, 6, 0.84) 42%,
+    rgba(8, 7, 6, 0.3) 100%
+  );
+  content: '';
+}
+
+.release-carousel__content {
+  max-width: min(590px, 68%);
+}
+
+.release-carousel__tag {
+  color: var(--gold-primary);
+  font-family: var(--font-headers);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.release-carousel__title {
+  margin: 12px 0;
+  color: var(--text-title);
+  font-family: var(--font-headers);
+  font-size: clamp(1.7rem, 3.8vw, 3rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.release-carousel__content p {
+  max-width: 54ch;
+  color: var(--text-muted);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.65;
+}
+
+.release-carousel__controls {
+  position: absolute;
+  right: clamp(20px, 4vw, 48px);
+  bottom: 24px;
+  left: clamp(30px, 5vw, 64px);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.release-carousel__dots,
+.release-carousel__arrows {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.release-carousel__dot {
+  width: 24px;
+  height: 3px;
+  padding: 0;
+  border: 0;
+  background: rgba(var(--accent-rgb), 0.35);
+  transition:
+    width 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.release-carousel__dot.is-active {
+  width: 40px;
+  background: var(--gold-primary);
+}
+
+.release-carousel__arrow {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid rgba(var(--accent-rgb), 0.45);
+  background: rgba(8, 7, 6, 0.6);
+  color: var(--gold-primary);
+  font-size: 1.1rem;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.release-carousel__arrow:hover,
+.release-carousel__arrow:focus-visible {
+  border-color: var(--gold-primary);
+  background: var(--gold-primary);
+  color: var(--bg-dark);
+}
+
+.release-carousel__dot:focus-visible {
+  outline: 2px solid var(--gold-primary);
+  outline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+  .release-carousel__slide {
+    min-height: 330px;
+    align-items: flex-start;
+    padding: 34px 24px 88px;
+  }
+
+  .release-carousel__image {
+    object-position: 58% center;
+  }
+
+  .release-carousel__slide::before {
+    background: linear-gradient(
+      90deg,
+      rgba(8, 7, 6, 0.94),
+      rgba(8, 7, 6, 0.72) 70%,
+      rgba(8, 7, 6, 0.5)
+    );
+  }
+
+  .release-carousel__content {
+    max-width: 100%;
+  }
+
+  .release-carousel__controls {
+    right: 20px;
+    bottom: 18px;
+    left: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .release-carousel__slide,
+  .release-carousel__dot,
+  .release-carousel__arrow {
+    transition: none;
   }
 }
 /* ---------- Секция «Золотой порядок сломлен» ---------- */

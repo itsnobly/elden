@@ -36,6 +36,7 @@ const TEXT = {
     loadError: 'Could not load classes. Check your connection and try again.',
     retry: 'Retry',
     pageTitle: 'Build planner — Elden Ring',
+    backToQuiz: '← Back to class quiz',
   },
   ru: {
     title: 'Планировщик билда',
@@ -58,6 +59,7 @@ const TEXT = {
       'Не удалось загрузить классы. Проверь соединение и попробуй снова.',
     retry: 'Повторить',
     pageTitle: 'Планировщик билда — Elden Ring',
+    backToQuiz: '← Вернуться к тесту',
   },
 };
 const tx = (key) => TEXT[getLang()][key];
@@ -84,6 +86,7 @@ const clamp = (n, min, max) =>
 let data;
 let root;
 let state; // { slug, stats }
+let fromQuiz = false;
 let cleanups = [];
 
 function save() {
@@ -143,6 +146,7 @@ function shell() {
     <section class="planner">
       <div class="container">
         <header class="planner__head">
+          ${fromQuiz ? `<a class="planner__quiz-back" href="/pages/guide.html#class-quiz">${escapeHtml(tx('backToQuiz'))}</a>` : ''}
           <p class="planner__eyebrow" data-t="eyebrow"></p>
           <h1 class="planner__title" data-t="title"></h1>
           <p class="planner__subtitle" data-t="subtitle"></p>
@@ -300,6 +304,7 @@ function bind() {
 async function build(container) {
   data = await loadClasses();
   root = container;
+  fromQuiz = new URLSearchParams(location.search).get('from') === 'quiz';
   root.innerHTML = shell();
   refs = Object.fromEntries(
     [...root.querySelectorAll('[data-ref]')].map((el) => [el.dataset.ref, el]),

@@ -1,5 +1,3 @@
-@import '../base.css';
-
 /* classes.css — страницы классов (список и один класс).
    Все цвета из переменных темы, поэтому следуют за баннером. */
 
@@ -283,6 +281,20 @@
   font-size: 0.85rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+.class-page__quiz-back {
+  margin-left: 20px;
+  color: var(--gold-primary);
+  font-family: var(--font-headers);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.class-page__quiz-back:hover {
+  color: var(--gold-hover);
 }
 
 .class-page__layout {

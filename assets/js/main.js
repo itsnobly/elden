@@ -5,6 +5,8 @@
  */
 import './components/modal.js';
 import './modules/up.js';
+import { initSiteLocalization } from './utils/i18n.js';
 import { startRouter } from './router.js';
 
+initSiteLocalization();
 startRouter();

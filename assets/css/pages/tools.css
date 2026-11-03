@@ -44,6 +44,21 @@
   text-align: center;
 }
 
+.planner__quiz-back {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--gold-primary);
+  font-family: var(--font-headers);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.planner__quiz-back:hover {
+  color: var(--gold-hover);
+}
+
 .planner__eyebrow {
   margin-bottom: 12px;
   color: var(--gold-primary);

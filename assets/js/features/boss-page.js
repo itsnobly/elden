@@ -6,6 +6,8 @@
 import { loadBosses, tierOf, videoIdOf } from '../modules/characters.js';
 import { escapeHtml } from '../utils/html.js';
 import { t, getLang, statLabel } from '../utils/i18n.js';
+import { localizeBossText } from '../utils/boss-localization.js';
+import { changeDeaths, getDeaths } from '../utils/deaths.js';
 
 let data;
 let root;
@@ -41,6 +43,7 @@ function render() {
   const category = data.categoryOf.get(boss.id);
   const reason = data.difficulty[boss.id]?.[lang] ?? '';
   const videoId = videoIdOf(boss);
+  const deaths = getDeaths(boss.id);
 
   // соседние боссы в том же порядке, что и в списке
   const index = data.sorted.findIndex((entry) => entry.id === boss.id);
@@ -53,18 +56,19 @@ function render() {
     return `
       <li class="boss-page__phase">
         <h3>${escapeHtml(title)}</h3>
-        ${ruMode && phase.title_en ? `<p class="boss-page__phase-sub">${escapeHtml(phase.title_en)}</p>` : ''}
+        ${ruMode && phase.title_en ? `<p class="boss-page__phase-sub">${escapeHtml(localizeBossText(phase.title_en, lang))}</p>` : ''}
         ${ruMode && tr.mechanics ? `<p>${escapeHtml(tr.mechanics)}</p>` : ''}
         ${ruMode && tr.tactics ? `<p><strong>${escapeHtml(t('strategy'))}:</strong> ${escapeHtml(tr.tactics)}</p>` : ''}
-        ${phase.key_attacks?.length ? `<p><strong>${escapeHtml(t('attacks'))}:</strong> ${phase.key_attacks.map(escapeHtml).join(', ')}</p>` : ''}
+        ${phase.key_attacks?.length ? `<p><strong>${escapeHtml(t('attacks'))}:</strong> ${phase.key_attacks.map((attack) => escapeHtml(localizeBossText(attack, lang))).join(', ')}</p>` : ''}
       </li>`;
   });
 
   const rewards = (boss.rewards ?? []).map((reward) => {
-    const type = data.itemType(reward).replaceAll('_', ' ');
+    const type = t(data.itemType(reward).replaceAll('_', ' '));
     return `
       <li class="boss-page__reward">
         <span class="boss-page__reward-img">
+          <span class="boss-page__reward-mark" aria-hidden="true">✦</span>
           ${reward.image ? `<img src="${escapeHtml(reward.image)}" alt="" loading="lazy" decoding="async" />` : ''}
         </span>
         <span>${escapeHtml(data.itemName(reward, lang))}${type ? ` <small>${escapeHtml(type)}</small>` : ''}</span>
@@ -73,8 +77,8 @@ function render() {
 
   const facts = [
     [t('category'), category ? t(category.label) : '—'],
-    [t('region'), escapeHtml(boss.region ?? t('unknown'))],
-    [t('location'), escapeHtml(boss.location ?? t('unknown'))],
+    [t('region'), escapeHtml(localizeBossText(boss.region ?? t('unknown'), lang))],
+    [t('location'), escapeHtml(localizeBossText(boss.location ?? t('unknown'), lang))],
     ['HP', boss.hp == null ? escapeHtml(t('notConfirmed')) : escapeHtml(boss.hp.toLocaleString(ruMode ? 'ru-RU' : 'en-US'))],
     [t('parry'), boss.stats?.parryable == null ? '—' : escapeHtml(boss.stats.parryable ? t('yes') : t('no'))],
     [t('weakTo'), chips(boss.stats?.weakness)],
@@ -84,7 +88,7 @@ function render() {
 
   document.title = `${name} — Elden Ring`;
   root.innerHTML = `
-    <article class="boss-page">
+    <article class="boss-page" data-boss-id="${escapeHtml(boss.id)}">
       <div class="container">
         <div class="boss-page__top">
           <a class="boss-page__back" href="/pages/bosses/bosses.html">${escapeHtml(t('back'))}</a>
@@ -101,12 +105,17 @@ function render() {
 
           <div class="boss-page__body">
             <h1 class="boss-page__title">${escapeHtml(name)}</h1>
-            ${ruMode ? `<p class="boss-page__en">${escapeHtml(boss.name_en)}</p>` : ''}
             ${ruMode && ru.short ? `<p class="boss-page__lead">${escapeHtml(ru.short)}</p>` : ''}
 
             <dl class="boss-page__facts">
               ${facts.map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${value}</dd></div>`).join('')}
             </dl>
+            <div class="boss-death-counter boss-page__death-counter" data-death-counter>
+              <span class="boss-death-counter__label">${escapeHtml(t('Deaths'))}</span>
+              <button type="button" data-death-change="-1" aria-label="${escapeHtml(t('Remove one death'))}" ${deaths ? '' : 'disabled'}>−</button>
+              <output data-deaths-for="${escapeHtml(boss.id)}" aria-live="polite">${deaths}</output>
+              <button type="button" data-death-change="1" aria-label="${escapeHtml(t('Add one death'))}">+</button>
+            </div>
 
             ${reason ? `<p class="boss-page__reason"><strong>${escapeHtml(t('whyTier'))} (${tier}):</strong> ${escapeHtml(reason)}</p>` : ''}
             ${ruMode && ru.description ? `<p>${escapeHtml(ru.description)}</p>` : ''}
@@ -148,6 +157,12 @@ async function build(container) {
 
   // Видео подгружается только по клику: страница остаётся лёгкой
   on(root, 'click', (event) => {
+    const deathButton = event.target.closest('[data-death-change]');
+    if (deathButton && root.contains(deathButton)) {
+      changeDeaths(bossId, Number(deathButton.dataset.deathChange));
+      return;
+    }
+
     const button = event.target.closest('[data-video]');
     if (!button) return;
     const frame = document.createElement('iframe');

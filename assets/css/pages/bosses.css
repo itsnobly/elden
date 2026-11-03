@@ -464,6 +464,63 @@
   color: var(--gold-hover);
 }
 
+.boss-death-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.boss-death-counter__label {
+  margin-right: 4px;
+  color: var(--gold-primary);
+  font-family: var(--font-headers);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.boss-death-counter button {
+  display: inline-grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-dark);
+  color: var(--gold-primary);
+  cursor: pointer;
+}
+
+.boss-death-counter button:hover:not(:disabled) {
+  border-color: var(--gold-primary);
+  background: rgba(var(--accent-rgb), 0.1);
+}
+
+.boss-death-counter button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.boss-death-counter output {
+  min-width: 1.5em;
+  color: var(--text-main);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.boss-entry__deaths {
+  justify-content: flex-end;
+  margin-top: 9px;
+}
+
+.boss-page__death-counter {
+  margin: 0 0 22px;
+  padding: 10px 14px;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-card);
+}
+
 /* ===== Пагинация ===== */
 
 .pagination {
@@ -920,6 +977,7 @@
 }
 
 .boss-page__reward-img {
+  position: relative;
   display: grid;
   flex: 0 0 48px;
   width: 48px;
@@ -929,7 +987,14 @@
   background: var(--bg-dark);
 }
 
+.boss-page__reward-mark {
+  color: var(--gold-primary);
+  font-size: 1.4rem;
+}
+
 .boss-page__reward-img img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;

@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Elden Ring Lore & Database</title>
-    <link rel="stylesheet" href="/assets/css/pages/index.css" />
-    <link rel="stylesheet" href="/assets/css/components/modal.css" />
-    <link rel="stylesheet" href="/assets/css/components/social-games.css" />
-    <link rel="stylesheet" href="/assets/css/components/features-video.css" />
+    <link rel="stylesheet" href="/assets/css/base.css" />
     <script src="/assets/js/all.min.js" defer></script>
     {{> theme }}
   </head>
@@ -70,6 +67,148 @@
             <!-- <span class="sound-toggle__text">Включить звук</span> -->
           </button>
         </main>
+        <section class="release-showcase" aria-label="More from Elden Ring">
+          <div class="container">
+            <p class="release-showcase__eyebrow">Beyond the Lands Between</p>
+            <div
+              class="release-carousel"
+              data-release-carousel
+              role="region"
+              aria-roledescription="carousel"
+              aria-label="Elden Ring games and expansions">
+              <div class="release-carousel__track">
+                <article
+                  class="release-carousel__slide is-active"
+                  data-release-slide
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label="1 of 4">
+                  <img
+                    class="release-carousel__image"
+                    src="/assets/img/images/elden-ring-shadow-of-the-erdtree.jpg"
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy" />
+                  <div class="release-carousel__content">
+                    <span class="release-carousel__tag">Expansion</span>
+                    <h2 class="release-carousel__title">Shadow of the Erdtree</h2>
+                    <p>
+                      Enter the Land of Shadow and follow Miquella's trail
+                      through a new world of secrets, formidable enemies, and
+                      legendary battles.
+                    </p>
+                  </div>
+                </article>
+                <article
+                  class="release-carousel__slide"
+                  data-release-slide
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label="2 of 4"
+                  aria-hidden="true">
+                  <img
+                    class="release-carousel__image"
+                    src="/assets/img/images/nightTering.jpg"
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy" />
+                  <div class="release-carousel__content">
+                    <span class="release-carousel__tag">Co-op action adventure</span>
+                    <h2 class="release-carousel__title">Elden Ring Nightreign</h2>
+                    <p>
+                      Join other Nightfarers, survive the encroaching night,
+                      and face a new threat in a standalone adventure.
+                    </p>
+                  </div>
+                </article>
+                <article
+                  class="release-carousel__slide"
+                  data-release-slide
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label="3 of 4"
+                  aria-hidden="true">
+                  <img
+                    class="release-carousel__image"
+                    src="/assets/img/images/dlcTarnished.jpg"
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy" />
+                  <div class="release-carousel__content">
+                    <span class="release-carousel__tag">Shadow of the Erdtree</span>
+                    <h2 class="release-carousel__title">Tarnished of the Land of Shadow</h2>
+                    <p>
+                      Follow Miquella's path, uncover the secrets of the new
+                      realm, and face the warriors drawn into its shadow.
+                    </p>
+                  </div>
+                </article>
+                <article
+                  class="release-carousel__slide"
+                  data-release-slide
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label="4 of 4"
+                  aria-hidden="true">
+                  <img
+                    class="release-carousel__image"
+                    src="/assets/img/images/pvpEldenDlc.jpg"
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy" />
+                  <div class="release-carousel__content">
+                    <span class="release-carousel__tag">Combat &amp; community</span>
+                    <h2 class="release-carousel__title">PvP &amp; Duels</h2>
+                    <p>
+                      Challenge fellow Tarnished, test your build, and prove
+                      your skill in the Lands Between.
+                    </p>
+                  </div>
+                </article>
+              </div>
+              <div class="release-carousel__controls">
+                <div
+                  class="release-carousel__dots"
+                  role="group"
+                  aria-label="Choose a featured game">
+                  <button
+                    class="release-carousel__dot is-active"
+                    type="button"
+                    data-slide-to="0"
+                    aria-label="Show Shadow of the Erdtree"
+                    aria-current="true"></button>
+                  <button
+                    class="release-carousel__dot"
+                    type="button"
+                    data-slide-to="1"
+                    aria-label="Show Elden Ring Nightreign"></button>
+                  <button
+                    class="release-carousel__dot"
+                    type="button"
+                    data-slide-to="2"
+                    aria-label="Show Tarnished of the Land of Shadow"></button>
+                  <button
+                    class="release-carousel__dot"
+                    type="button"
+                    data-slide-to="3"
+                    aria-label="Show PvP and Duels"></button>
+                </div>
+                <div class="release-carousel__arrows">
+                  <button
+                    class="release-carousel__arrow"
+                    type="button"
+                    data-slide-action="previous"
+                    aria-label="Previous featured game">←</button>
+                  <button
+                    class="release-carousel__arrow"
+                    type="button"
+                    data-slide-action="next"
+                    aria-label="Next featured game">→</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <!-- Секция с текстом лора и плеером -->
         <section class="lore-player-section">
           <div class="container lore-player-container">

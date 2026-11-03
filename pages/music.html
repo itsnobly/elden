@@ -3,64 +3,141 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/assets/css/components/modal.css" />
-
-    <title>Document</title>
+    <meta
+      name="description"
+      content="Explore Elden Ring and Shadow of the Erdtree soundtrack themes by region and boss." />
+    {{> theme }}
+    <link rel="stylesheet" href="/assets/css/base.css" />
+    <title>Music — Elden Ring</title>
   </head>
   <body>
     <div class="wrapper">
-      <header class="header">
-        <div class="container">
-          <nav class="header__nav" aria-label="Main navigation">
-            <div class="logo"><a href="/">EldenRing</a></div>
-            <ul class="header__nav-links">
-              <li class="nav__link"><a href="/pages/guide.html">Guide</a></li>
-              <li class="nav__link">
-                <a href="/pages/bosses.html" aria-current="page">Bosses</a>
-              </li>
-              <li class="nav__link"><a href="/pages/tools.html">Tools</a></li>
-              <li class="nav__link"><a href="/pages/music.html">Music</a></li>
-            </ul>
-            <div class="header__social">
-              <button id="open__modal" type="button">Contact</button>
+      {{> header }}
+
+      <div id="page" data-page="music">
+        <main class="music-page">
+          <section class="music-hero">
+            <div class="container music-hero__inner">
+              <p class="music-eyebrow" data-music-text="eyebrow">A sound beyond the fog</p>
+              <h1 data-music-text="title">Music of the Lands Between</h1>
+              <p class="music-hero__intro" data-music-text="intro">
+                Listen to both official soundtracks on this page, or browse
+                memorable themes from the Lands Between.
+              </p>
+              <a class="music-hero__link" href="#players" data-music-text="explore">
+                Listen to the full soundtracks <span aria-hidden="true">↓</span>
+              </a>
             </div>
-          </nav>
-        </div>
-      </header>
-    </div>
-    <!-- modal -->
-    <div class="modal" id="modal">
-      <div class="modal_dialog">
-        <div class="modal_content">
-          <button class="modal__close" id="modal__close-btn">&times;</button>
-          <form action="#">
-            <div class="modal_title">
-              We will get in touch with you as soon as possible!
+          </section>
+
+          <section class="music-listen" id="players">
+            <div class="container music-listen__players">
+              <p class="music-eyebrow" data-music-text="playersEyebrow">Listen on this site</p>
+              <h2 data-music-text="playersTitle">Official soundtrack players</h2>
+              <p class="music-listen__player-note" data-music-text="playerNote">
+                Play both official albums here through Deezer. Playback options depend on your region and Deezer account.
+              </p>
+              <div class="music-player-grid">
+                <article class="music-player">
+                  <h3 data-music-text="baseAlbum">ELDEN RING ORIGINAL SOUND TRACK</h3>
+                  <iframe
+                    src="https://widget.deezer.com/widget/dark/album/351595207"
+                    title="Elden Ring Original Sound Track — Deezer player"
+                    data-music-title="basePlayerTitle"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="encrypted-media; clipboard-write"></iframe>
+                </article>
+                <article class="music-player">
+                  <h3 data-music-text="dlcAlbum">ELDEN RING SHADOW OF THE ERDTREE ORIGINAL SOUND TRACK</h3>
+                  <iframe
+                    src="https://widget.deezer.com/widget/dark/album/666654501"
+                    title="Shadow of the Erdtree Original Sound Track — Deezer player"
+                    data-music-title="dlcPlayerTitle"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="encrypted-media; clipboard-write"></iframe>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="container music-library" id="soundtracks">
+            <div class="music-library__heading">
+              <div>
+                <p class="music-eyebrow" data-music-text="libraryEyebrow">The official score</p>
+                <h2 data-music-text="libraryTitle">Soundtrack library</h2>
+                <p data-music-text="libraryIntro">
+                  Browse themes by mood, region, or encounter. Streaming opens
+                  the selected track search on YouTube Music or Spotify.
+                </p>
+              </div>
+              <label class="music-search">
+                <span data-music-text="searchLabel">Search themes</span>
+                <input
+                  type="search"
+                  data-music-search
+                  placeholder="Search by track or location"
+                  data-music-placeholder="searchPlaceholder"
+                  autocomplete="off" />
+              </label>
             </div>
 
-            <input
-              required
-              class="modal_input"
-              id="modal_input_form__title"
-              name="name"
-              type="text"
-              placeholder="Your name" />
+            <div class="music-filters" role="group" aria-label="Soundtrack filters" data-music-aria="filters">
+              <button type="button" class="is-active" data-music-filter="all" data-music-text="filterAll">All themes</button>
+              <button type="button" data-music-filter="base" data-music-text="filterBase">Elden Ring</button>
+              <button type="button" data-music-filter="dlc" data-music-text="filterDlc">Shadow of the Erdtree</button>
+              <button type="button" data-music-filter="world" data-music-text="filterWorld">World &amp; rest</button>
+              <button type="button" data-music-filter="boss" data-music-text="filterBoss">Boss themes</button>
+            </div>
 
-            <input
-              required
-              class="modal_input"
-              id="modal_input_form__number"
-              name="phone"
-              type="tel"
-              placeholder="Your phone number" />
+            <p class="music-results" data-music-results role="status" aria-live="polite"></p>
+            <div class="music-track-grid" data-music-tracks></div>
+            <p class="music-empty" data-music-empty hidden data-music-text="empty">
+              No soundtrack themes match your search.
+            </p>
 
-            <button class="btn btn_dark btn_min" id="modal__post_form">
-              Call us back
-            </button>
-          </form>
-        </div>
+            <aside class="music-note">
+              <span class="music-note__mark" aria-hidden="true">♪</span>
+              <p data-music-text="note">
+                Music is streamed by the linked services; this fan page does
+                not host copyrighted audio. Availability may vary by region.
+              </p>
+            </aside>
+          </section>
+
+          <section class="music-listen">
+            <div class="container music-listen__inner">
+              <div>
+                <p class="music-eyebrow" data-music-text="listenEyebrow">Listen your way</p>
+                <h2 data-music-text="listenTitle">Take the journey with you</h2>
+                <p data-music-text="listenText">
+                  Open the full soundtrack catalog on your preferred streaming
+                  service to discover complete albums and official releases.
+                </p>
+              </div>
+              <div class="music-listen__links">
+                <a
+                  href="https://music.youtube.com/search?q=ELDEN%20RING%20Original%20Soundtrack"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-music-text="youtube">Find on YouTube Music <span aria-hidden="true">↗</span></a>
+                <a
+                  href="https://open.spotify.com/search/Elden%20Ring%20Original%20Soundtrack"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-music-text="spotify">Find on Spotify <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </section>
+        </main>
       </div>
+
+      {{> footer }}
     </div>
+
+    {{> modal }} {{> game-modal }}
+
+    <script type="module" src="/assets/js/main.js"></script>
   </body>
-  <script src="/assets/js/components/modal.js"></script>
 </html>

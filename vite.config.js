@@ -42,15 +42,14 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(projectRoot, 'index.html'),
-        bosses: resolve(projectRoot, 'pages/bosses.html'),
-        // Если у вас есть другие страницы в pages/, добавьте их сюда тоже:
+        bosses: resolve(projectRoot, 'pages/bosses/bosses.html'),
+        boss: resolve(projectRoot, 'pages/bosses/boss.html'),
+        classes: resolve(projectRoot, 'pages/guide/classes.html'),
+        class: resolve(projectRoot, 'pages/guide/class.html'),
+        tools: resolve(projectRoot, 'pages/tools/tools.html'),
         arsenal: resolve(projectRoot, 'pages/arsenal.html'),
         guide: resolve(projectRoot, 'pages/guide.html'),
         music: resolve(projectRoot, 'pages/music.html'),
-        tools: resolve(projectRoot, 'pages/tools.html'),
-        main: resolve(projectRoot, 'index.html'),
-        bosses: resolve(projectRoot, 'pages/bosses/bosses.html'),
-        boss: resolve(projectRoot, 'pages/bosses/boss.html'),
       },
     },
   },

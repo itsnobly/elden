@@ -3,65 +3,196 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/assets/css/components/modal.css" />
-
-    <title>Document</title>
+    <meta
+      name="description"
+      content="Browse the Elden Ring database: weapons, armor, talismans, spells, Ashes of War, and items." />
+    {{> theme }}
+    <link rel="stylesheet" href="/assets/css/base.css" />
+    <title>Database — Elden Ring</title>
   </head>
   <body>
     <div class="wrapper">
-      <header class="header">
-        <div class="container">
-          <nav class="header__nav" aria-label="Main navigation">
-            <div class="logo"><a href="/">EldenRing</a></div>
-            <ul class="header__nav-links">
-              <li class="nav__link"><a href="/pages/guide.html">Guide</a></li>
-              <li class="nav__link">
-                <a href="/pages/bosses.html" aria-current="page">Bosses</a>
-              </li>
-              <li class="nav__link"><a href="/pages/tools.html">Tools</a></li>
-              <li class="nav__link"><a href="/pages/music.html">Music</a></li>
-            </ul>
-            <div class="header__social">
-              <button id="open__modal" type="button">Contact</button>
+      {{> header }}
+
+      <div id="page" data-page="database">
+        <main class="database-page">
+          <section class="database-hero">
+            <div class="container">
+              <p class="database-hero__eyebrow">The Lands Between, catalogued</p>
+              <h1>Database</h1>
+              <p>
+                Explore armaments, armor, magic, and treasures — or open the
+                interactive map to plan your next journey.
+              </p>
             </div>
-          </nav>
-        </div>
-      </header>
-    </div>
-    <!-- modal -->
-    <div class="modal" id="modal">
-      <div class="modal_dialog">
-        <div class="modal_content">
-          <button class="modal__close" id="modal__close-btn">&times;</button>
-          <form action="#">
-            <div class="modal_title">
-              We will get in touch with you as soon as possible!
+          </section>
+
+          <section class="container database-browser" aria-label="Database">
+            <nav class="database-tabs" aria-label="Database categories">
+              <a href="#weapons">Weapons</a>
+              <a href="#armor">Armor</a>
+              <a href="#talismans">Talismans</a>
+              <a href="#spells">Spells</a>
+              <a href="#ashes-of-war">Ashes of War</a>
+              <a href="#items">Items</a>
+              <a href="#map">Interactive Map</a>
+            </nav>
+
+            <section class="database-panel" id="weapons" data-db-category="weapons" aria-labelledby="weapons-title">
+              <div class="database-panel__heading">
+                <div>
+                  <p class="database-panel__eyebrow">Armaments</p>
+                  <h2 id="weapons-title">Weapons</h2>
+                  <p>Swords, axes, bows, seals, and more. Compare weapon classes, requirements, and attack values.</p>
+                </div>
+                <div class="database-panel__filters">
+                  <label class="database-search database-type-filter">
+                    <span>Weapon type</span>
+                    <select data-database-type-filter>
+                      <option value="all">All weapon types</option>
+                    </select>
+                  </label>
+                  <label class="database-search">
+                    <span>Search loaded weapons</span>
+                    <input type="search" data-database-search placeholder="e.g. katana" autocomplete="off" />
+                  </label>
+                </div>
+              </div>
+              <p class="database-status" data-database-status role="status" aria-live="polite"></p>
+              <div class="database-items" data-database-items></div>
+              <button class="database-load-more" type="button" data-database-more hidden>Load more weapons</button>
+            </section>
+
+            <section class="database-panel" id="armor" data-db-category="armor" aria-labelledby="armor-title" hidden>
+              <div class="database-panel__heading">
+                <div>
+                  <p class="database-panel__eyebrow">Protection</p>
+                  <h2 id="armor-title">Armor</h2>
+                  <p>Helms, chest pieces, gauntlets, and greaves with weight, poise, and damage negation.</p>
+                </div>
+                <label class="database-search">
+                  <span>Search loaded armor</span>
+                  <input type="search" data-database-search placeholder="e.g. knight" autocomplete="off" />
+                </label>
+              </div>
+              <p class="database-status" data-database-status role="status" aria-live="polite"></p>
+              <div class="database-items" data-database-items></div>
+              <button class="database-load-more" type="button" data-database-more hidden>Load more armor</button>
+            </section>
+
+            <section class="database-panel" id="talismans" data-db-category="talismans" aria-labelledby="talismans-title" hidden>
+              <div class="database-panel__heading">
+                <div>
+                  <p class="database-panel__eyebrow">Charms &amp; keepsakes</p>
+                  <h2 id="talismans-title">Talismans</h2>
+                  <p>Discover passive effects that strengthen your defenses, attributes, and combat style.</p>
+                </div>
+                <label class="database-search">
+                  <span>Search loaded talismans</span>
+                  <input type="search" data-database-search placeholder="e.g. Arsenal" autocomplete="off" />
+                </label>
+              </div>
+              <p class="database-status" data-database-status role="status" aria-live="polite"></p>
+              <div class="database-items" data-database-items></div>
+              <button class="database-load-more" type="button" data-database-more hidden>Load more talismans</button>
+            </section>
+
+            <section class="database-panel" id="spells" data-db-category="spells" aria-labelledby="spells-title" hidden>
+              <div class="database-panel__heading">
+                <div>
+                  <p class="database-panel__eyebrow">Sorceries &amp; incantations</p>
+                  <h2 id="spells-title">Spells</h2>
+                  <p>Browse magic by school, FP cost, memory slots, and required attributes.</p>
+                </div>
+                <label class="database-search">
+                  <span>Search loaded spells</span>
+                  <input type="search" data-database-search placeholder="e.g. lightning" autocomplete="off" />
+                </label>
+              </div>
+              <p class="database-status" data-database-status role="status" aria-live="polite"></p>
+              <div class="database-items" data-database-items></div>
+              <button class="database-load-more" type="button" data-database-more hidden>Load more spells</button>
+            </section>
+
+            <section class="database-panel" id="ashes-of-war" data-db-category="ashes" aria-labelledby="ashes-title" hidden>
+              <div class="database-panel__heading">
+                <div>
+                  <p class="database-panel__eyebrow">Skills &amp; affinities</p>
+                  <h2 id="ashes-title">Ashes of War</h2>
+                  <p>Review weapon skills and affinities to shape an armament around your build.</p>
+                </div>
+                <label class="database-search">
+                  <span>Search loaded Ashes of War</span>
+                  <input type="search" data-database-search placeholder="e.g. Charge" autocomplete="off" />
+                </label>
+              </div>
+              <p class="database-status" data-database-status role="status" aria-live="polite"></p>
+              <div class="database-items" data-database-items></div>
+              <button class="database-load-more" type="button" data-database-more hidden>Load more Ashes of War</button>
+            </section>
+
+            <section class="database-panel" id="items" data-db-category="items" aria-labelledby="items-title" hidden>
+              <div class="database-panel__heading">
+                <div>
+                  <p class="database-panel__eyebrow">Tools &amp; treasures</p>
+                  <h2 id="items-title">Items</h2>
+                  <p>Consumables, key items, crafting tools, and discoveries found throughout the Lands Between.</p>
+                </div>
+                <label class="database-search">
+                  <span>Search loaded items</span>
+                  <input type="search" data-database-search placeholder="e.g. Rune" autocomplete="off" />
+                </label>
+              </div>
+              <p class="database-status" data-database-status role="status" aria-live="polite"></p>
+              <div class="database-items" data-database-items></div>
+              <button class="database-load-more" type="button" data-database-more hidden>Load more items</button>
+            </section>
+
+            <section class="database-panel database-map" id="map" aria-labelledby="map-title" hidden>
+              <div class="database-panel__heading">
+                <div>
+                  <p class="database-panel__eyebrow">Chart your journey</p>
+                  <h2 id="map-title">Interactive Map</h2>
+                  <p>Explore regions, Sites of Grace, bosses, quests, equipment, and other points of interest.</p>
+                </div>
+                <a class="database-map__external" href="https://mapgenie.io/elden-ring/maps/the-lands-between" target="_blank" rel="noopener noreferrer">Open full map ↗</a>
+              </div>
+              <div class="database-map__frame">
+                <iframe
+                  src="https://mapgenie.io/elden-ring/maps/the-lands-between?embed=light"
+                  title="Elden Ring interactive map by MapGenie"
+                  loading="lazy"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen></iframe>
+              </div>
+              <p class="database-attribution">
+                Interactive map provided by <a href="https://mapgenie.io/elden-ring/maps/the-lands-between" target="_blank" rel="noopener noreferrer">MapGenie</a>.
+              </p>
+            </section>
+          </section>
+
+          <p class="database-attribution container">
+            Catalog data provided by the <a href="https://eldenring.fanapis.com/" target="_blank" rel="noopener noreferrer">Elden Ring Fan API</a>.
+          </p>
+
+          <details class="database-help">
+            <summary aria-label="About the database" title="About the database">?</summary>
+            <div class="database-help__panel">
+              <p class="database-panel__eyebrow">Field notes</p>
+              <h2>How to use this database</h2>
+              <p>Choose a category above or from the Database menu. Search filters the entries already loaded; use “Load more” to bring in additional entries.</p>
+              <p>Weapon and armor values are base-game reference stats. Spell requirements show the minimum attributes needed to cast them. Ashes of War list their skill and affinity.</p>
+              <p>The map is hosted by MapGenie. Catalog information comes from the Elden Ring Fan API and may contain community-maintained errors.</p>
             </div>
-
-            <input
-              required
-              class="modal_input"
-              id="modal_input_form__title"
-              name="name"
-              type="text"
-              placeholder="Your name" />
-
-            <input
-              required
-              class="modal_input"
-              id="modal_input_form__number"
-              name="phone"
-              type="tel"
-              placeholder="Your phone number" />
-
-            <button class="btn btn_dark btn_min" id="modal__post_form">
-              Call us back
-            </button>
-          </form>
-        </div>
+          </details>
+        </main>
       </div>
+
+      {{> footer }}
     </div>
-    <script src="/assets/js/components/modal.js"></script>
+
+    {{> modal }} {{> game-modal }}
+
+    <script type="module" src="/assets/js/main.js"></script>
   </body>
-  <script src="/assets/js/components/modal.js"></script>
 </html>
