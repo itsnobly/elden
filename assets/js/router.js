@@ -140,6 +140,7 @@ function applySheets(wanted) {
 async function navigate(url, { push = true, scrollY = 0 } = {}) {
   const id = ++token;
   navigating = true;
+  document.documentElement.classList.add('is-routing');
 
   try {
     const doc = await fetchDoc(url);
@@ -170,7 +171,10 @@ async function navigate(url, { push = true, scrollY = 0 } = {}) {
     console.error(error);
     if (id === token) location.href = url.href; // запасной вариант: обычный переход
   } finally {
-    if (id === token) navigating = false;
+    if (id === token) {
+      navigating = false;
+      document.documentElement.classList.remove('is-routing');
+    }
   }
 }
 

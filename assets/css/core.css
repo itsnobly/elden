@@ -120,33 +120,31 @@ a:hover {
   text-shadow: 0 0 8px var(--gold-glow, rgba(255, 212, 121, 0.4));
 }
 
-/* Курсор-указатель для всего кликабельного.
-   Не пиши cursor: pointer в других файлах: он перебьёт этот курсор.
-   Для новых кликабельных блоков просто добавь их класс сюда. */
+/* Use the custom cursor across interactive controls, including their contents. */
 a,
+a *,
 button,
+button *,
 [role='button'],
+[role='button'] *,
+[role='link'],
+[role='link'] *,
 label,
 select,
 summary,
+summary *,
+[onclick],
+[onclick] *,
+input[type='button'],
+input[type='submit'],
+input[type='reset'],
+input[type='image'],
+input[type='checkbox'],
+input[type='radio'],
 .boss-card:not(.boss-card--skeleton),
-.boss-entry__artwork {
-  cursor: url('../img/cursors/pointer.cur'), pointer !important;
-}
-.modal {
-  cursor: url('../img/cursors/cur.cur'), auto !important;
-}
-
-.modal button,
-.modal a,
-.modal [role='button'] {
-  cursor: url('../img/cursors/pointer.cur'), pointer !important;
-}
-
-.modal input,
-.modal textarea {
-  cursor: text;
-}
+.boss-entry__artwork,
+.database-item__summary,
+.scroll-top,
 .trailer-card,
 .trailer-card *,
 .trailer-poster,
@@ -154,9 +152,34 @@ summary,
   cursor: url('../img/cursors/pointer.cur'), pointer !important;
 }
 
-input,
-textarea {
-  cursor: text;
+input:not([type]),
+input[type='text'],
+input[type='search'],
+input[type='email'],
+input[type='password'],
+input[type='tel'],
+input[type='url'],
+input[type='number'],
+textarea,
+[contenteditable='true'],
+[role='textbox'] {
+  cursor: url('../img/cursors/eldentext.cur') 15 15, text !important;
+}
+
+html.is-routing,
+html.is-routing *,
+html[data-cursor='wait'],
+html[data-cursor='wait'] * {
+  cursor: url('../img/cursors/eldenwait.ani'), progress !important;
+}
+
+html[data-cursor='busy'],
+html[data-cursor='busy'] *,
+[aria-busy='true'],
+[aria-busy='true'] *,
+[data-cursor='busy'],
+[data-cursor='busy'] * {
+  cursor: url('../img/cursors/eldenbusy.ani'), wait !important;
 }
 
 .gold-text {
