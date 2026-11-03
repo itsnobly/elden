@@ -36,8 +36,13 @@ export function initHero() {
   const STORAGE_KEY = 'er:banner';
 
   let isActive = true;
+  let isHeroVisible = !('IntersectionObserver' in window);
+  let videoStarted = false;
+  let startWhenVisible = false;
   let idleHandle = null;
   let startupTimer = null;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const saveData = navigator.connection?.saveData === true;
 
   const cancelStartup = () => {
     if (idleHandle !== null) window.cancelIdleCallback(idleHandle);
@@ -87,6 +92,33 @@ export function initHero() {
     updateSound();
   }
 
+  function playHeroVideo() {
+    if (!isActive || !isHeroVisible || document.hidden || !video.src || !video.paused) return;
+    video.play().catch((error) => {
+      if (error.name !== 'AbortError' && error.name !== 'NotAllowedError') {
+        console.error('Не удалось воспроизвести видео:', error);
+      }
+    });
+  }
+
+  const onHeroVisibilityChange = (entries) => {
+    const entry = entries[entries.length - 1];
+    isHeroVisible = entry.isIntersecting && entry.intersectionRatio >= 0.1;
+
+    if (isHeroVisible) {
+      if (startWhenVisible) startVideo();
+      else playHeroVideo();
+    } else {
+      video.pause();
+      standbyVideo.pause();
+    }
+  };
+  const heroObserver =
+    'IntersectionObserver' in window
+      ? new IntersectionObserver(onHeroVisibilityChange, { threshold: 0.1 })
+      : null;
+  heroObserver?.observe(video.parentElement);
+
   function waitForFrame(candidate) {
     return new Promise((resolve, reject) => {
       const finish = (error) => {
@@ -131,7 +163,7 @@ export function initHero() {
       await frameReady;
       if (!isActive || request !== videoRequest) return;
       candidate.muted = video.muted;
-      await candidate.play();
+      if (isHeroVisible && !document.hidden) await candidate.play();
     } catch (error) {
       if (
         request === videoRequest &&
@@ -172,7 +204,7 @@ export function initHero() {
       video.muted = false;
 
       try {
-        await video.play();
+        if (isHeroVisible && !document.hidden) await video.play();
       } catch (error) {
         video.muted = true;
         if (error.name !== 'AbortError' && error.name !== 'NotAllowedError') {
@@ -191,21 +223,25 @@ export function initHero() {
   const initialVideo = savedBanner ?? videos[0];
   video.loop = true;
   updateVideoSelection(initialVideo);
-  const startVideo = () => {
+  function startVideo() {
     idleHandle = null;
     startupTimer = null;
-    if (!isActive) return;
+    if (!isActive || document.hidden) return;
+    if (!isHeroVisible) {
+      startWhenVisible = true;
+      return;
+    }
+    startWhenVisible = false;
+    if (videoStarted) {
+      playHeroVideo();
+      return;
+    }
+    videoStarted = true;
     video.src = `${VIDEO_PATH}${initialVideo}`;
     video.load();
-    video.play().catch((error) => {
-      if (error.name !== 'AbortError' && error.name !== 'NotAllowedError') {
-        console.error('Не удалось воспроизвести видео:', error);
-      }
-    });
-  };
+    playHeroVideo();
+  }
 
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const saveData = navigator.connection?.saveData === true;
   if (!reduceMotion && !saveData) {
     startupTimer = window.setTimeout(() => {
       startupTimer = null;
@@ -217,12 +253,23 @@ export function initHero() {
     }, 800);
   }
 
-  // при уходе с главной видео обязательно ставим на паузу (иначе играет звук)
+  const onDocumentVisibilityChange = () => {
+    if (document.hidden) {
+      video.pause();
+      standbyVideo.pause();
+    } else {
+      playHeroVideo();
+    }
+  };
+  document.addEventListener('visibilitychange', onDocumentVisibilityChange);
+
   return () => {
     isActive = false;
     videoRequest += 1;
     cancelStartup();
     cancelPendingLoad?.();
+    heroObserver?.disconnect();
+    document.removeEventListener('visibilitychange', onDocumentVisibilityChange);
     videoButtons.forEach((button) => {
       button.removeEventListener('click', onVideoButtonClick);
     });

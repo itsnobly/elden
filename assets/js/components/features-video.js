@@ -35,7 +35,7 @@ export function initFeatures() {
     items.forEach((n) => n.classList.add('is-visible'));
   }
 
-  /* Подключаем видео только когда пользователь действительно до него доскроллил. */
+  /* Подключаем видео чуть заранее, чтобы оно успело загрузиться до появления в кадре. */
   function loadVideo(video) {
     if (video.dataset.loaded) return;
     const src = video.dataset.src;
@@ -45,9 +45,18 @@ export function initFeatures() {
     video.load();
   }
 
+  let activeVideo = null;
+  function pauseVideo(video) {
+    video.pause();
+    if (activeVideo === video) activeVideo = null;
+  }
+
   function playVideo(video) {
-    if (reduceMotion || !video.dataset.loaded || !video.paused) return;
+    if (reduceMotion || !video.dataset.loaded || !video.paused || activeVideo === video) return;
+    if (activeVideo) activeVideo.pause();
+    activeVideo = video;
     video.play().catch((error) => {
+      if (activeVideo === video) activeVideo = null;
       if (error.name !== 'AbortError' && error.name !== 'NotAllowedError') {
         console.error('Не удалось воспроизвести видео карточки:', error);
       }
@@ -80,7 +89,7 @@ export function initFeatures() {
         });
       },
       {
-        rootMargin: navigator.connection?.saveData ? '0px' : '350px 0px',
+        rootMargin: navigator.connection?.saveData ? '0px' : '200px 0px',
         threshold: 0,
       },
     );
@@ -92,7 +101,7 @@ export function initFeatures() {
           if (entry.isIntersecting && entry.intersectionRatio >= 0.35 && !reduceMotion) {
             playVideo(video);
           } else {
-            video.pause();
+            pauseVideo(video);
           }
         });
       },
@@ -113,13 +122,26 @@ export function initFeatures() {
 
   // если вкладку свернули — пауза, вернулись — продолжит наблюдатель при следующем скролле
   const onVisibility = () => {
-    if (document.hidden) videos.forEach((v) => v.pause());
+    if (document.hidden) {
+      videos.forEach(pauseVideo);
+      return;
+    }
+
+    videos.forEach((video) => {
+      const bounds = video.getBoundingClientRect();
+      const visibleHeight = Math.max(
+        0,
+        Math.min(bounds.bottom, window.innerHeight) - Math.max(bounds.top, 0),
+      );
+      if (bounds.height && visibleHeight / bounds.height >= 0.35) playVideo(video);
+      else pauseVideo(video);
+    });
   };
   document.addEventListener('visibilitychange', onVisibility);
 
   return () => {
     observers.forEach((observer) => observer.disconnect());
     document.removeEventListener('visibilitychange', onVisibility);
-    videos.forEach((v) => v.pause());
+    videos.forEach(pauseVideo);
   };
 }
