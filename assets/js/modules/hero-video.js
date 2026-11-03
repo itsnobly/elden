@@ -38,6 +38,15 @@ export function initHero() {
 
   let isManuallySelected = false;
   let isActive = true;
+  let idleHandle = null;
+  let startupTimer = null;
+
+  const cancelStartup = () => {
+    if (idleHandle !== null) window.cancelIdleCallback(idleHandle);
+    if (startupTimer !== null) window.clearTimeout(startupTimer);
+    idleHandle = null;
+    startupTimer = null;
+  };
 
   // Запоминаем выбранный баннер в браузере, чтобы при следующем заходе он остался
   function saveBanner(videoName) {
@@ -107,6 +116,7 @@ export function initHero() {
   async function switchVideo(videoName) {
     const newVideo = `${VIDEO_PATH}${videoName}`;
     if (video.src.endsWith(newVideo)) return;
+    cancelStartup();
     const request = ++videoRequest;
     cancelPendingLoad?.();
 
@@ -194,19 +204,38 @@ export function initHero() {
   if (savedBanner) isManuallySelected = savedBanner !== videos[0];
   const initialVideo = savedBanner ?? videos[0];
   video.loop = initialVideo !== videos[0];
-  video.src = `${VIDEO_PATH}${initialVideo}`;
-  video.load();
   updateVideoSelection(initialVideo);
-  video.play().catch((error) => {
-    if (error.name !== 'AbortError' && error.name !== 'NotAllowedError') {
-      console.error('Не удалось воспроизвести видео:', error);
-    }
-  });
+  const startVideo = () => {
+    idleHandle = null;
+    startupTimer = null;
+    if (!isActive || isManuallySelected) return;
+    video.src = `${VIDEO_PATH}${initialVideo}`;
+    video.load();
+    video.play().catch((error) => {
+      if (error.name !== 'AbortError' && error.name !== 'NotAllowedError') {
+        console.error('Не удалось воспроизвести видео:', error);
+      }
+    });
+  };
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const saveData = navigator.connection?.saveData === true;
+  if (!reduceMotion && !saveData) {
+    startupTimer = window.setTimeout(() => {
+      startupTimer = null;
+      if ('requestIdleCallback' in window) {
+        idleHandle = window.requestIdleCallback(startVideo, { timeout: 1500 });
+      } else {
+        startVideo();
+      }
+    }, 800);
+  }
 
   // при уходе с главной видео обязательно ставим на паузу (иначе играет звук)
   return () => {
     isActive = false;
     videoRequest += 1;
+    cancelStartup();
     cancelPendingLoad?.();
     video.removeEventListener('ended', onEnded);
     videoButtons.forEach((button) => {

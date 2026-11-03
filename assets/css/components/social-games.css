@@ -52,11 +52,11 @@
 }
 
 .game-links a:nth-child(2)::after {
-  background-image: url('../../img/images/playstation.png');
+  background-image: url('../../img/images/playstation.webp');
 }
 
 .game-links a:nth-child(3)::after {
-  background-image: url('../../img/images/xbox.png');
+  background-image: url('../../img/images/xbox.webp');
 }
 
 .game-links a:nth-child(4)::after {

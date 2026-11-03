@@ -29,7 +29,7 @@ export function initFeatures() {
     items.forEach((n) => n.classList.add('is-visible'));
   }
 
-  /* Подгрузка: ставим src только когда видео подъехало ближе чем на 400px */
+  /* Подключаем видео только когда пользователь действительно до него доскроллил. */
   function loadVideo(video) {
     if (video.dataset.loaded) return;
     const src = video.dataset.src;
@@ -48,25 +48,13 @@ export function initFeatures() {
   }
 
   if ('IntersectionObserver' in window) {
-    const preload = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            loadVideo(entry.target);
-            preload.unobserve(entry.target);
-          }
-        });
-      },
-      { rootMargin: '400px 0px' },
-    );
-
     const playback = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           const video = entry.target;
-          if (reduceMotion) return;
           if (entry.isIntersecting) {
             loadVideo(video);
+            if (reduceMotion) return;
             // play() может быть отклонён (экономия батареи и т.п.): тихо игнорируем
             video.play().catch(() => {});
           } else {
@@ -74,16 +62,18 @@ export function initFeatures() {
           }
         });
       },
-      { threshold: 0.45 },
+      { rootMargin: '0px', threshold: 0.45 },
     );
 
     videos.forEach((v) => {
-      preload.observe(v);
       playback.observe(v);
     });
-    observers.push(preload, playback);
+    observers.push(playback);
   } else {
-    videos.forEach(loadVideo);
+    videos.forEach((video) => {
+      video.controls = true;
+      loadVideo(video);
+    });
   }
 
   // если вкладку свернули — пауза, вернулись — продолжит наблюдатель при следующем скролле

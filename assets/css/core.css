@@ -3,7 +3,7 @@
 /* --- Семья Cinzel (Заголовки в стиле Souls-like) --- */
 @font-face {
   font-family: 'Cinzel';
-  src: url('../fonts/cinzel/cinzel_regular.ttf') format('truetype');
+  src: url('../fonts/cinzel/cinzel_regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: 'Cinzel';
-  src: url('../fonts/cinzel/Cinzel-SemiBold.ttf') format('truetype');
+  src: url('../fonts/cinzel/Cinzel-SemiBold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -19,7 +19,7 @@
 
 @font-face {
   font-family: 'Cinzel';
-  src: url('../fonts/cinzel/cinzel_bold.ttf') format('truetype');
+  src: url('../fonts/cinzel/cinzel_bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -28,7 +28,7 @@
 /* --- Семья Cormorant Garamond (Основной внутриигровой текст) --- */
 @font-face {
   font-family: 'Cormorant Garamond';
-  src: url('../fonts/Garamond/CormorantGaramond-Regular.ttf') format('truetype');
+  src: url('../fonts/Garamond/CormorantGaramond-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -36,8 +36,8 @@
 
 @font-face {
   font-family: 'Cormorant Garamond';
-  src: url('../fonts/Garamond/CormorantGaramond-SemiBold.ttf')
-    format('truetype');
+  src: url('../fonts/Garamond/CormorantGaramond-SemiBold.woff2')
+    format('woff2');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -45,7 +45,7 @@
 
 @font-face {
   font-family: 'Cormorant Garamond';
-  src: url('../fonts/Garamond/CormorantGaramond-Bold.ttf') format('truetype');
+  src: url('../fonts/Garamond/CormorantGaramond-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;

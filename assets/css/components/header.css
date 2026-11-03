@@ -210,7 +210,7 @@
   padding: 9px 22px;
   border: 1px solid var(--btn-border);
   border-radius: 3px;
-  background: #d99a45 url('../../img/images/btn-bg.png') center / cover
+  background: #d99a45 url('../../img/images/btn-bg.webp') center / cover
     no-repeat;
   color: var(--btn-text);
   filter: var(--btn-filter);

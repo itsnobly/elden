@@ -13,8 +13,8 @@
  *     положение прокрутки запоминается.
  *  5. Если страницы нет в списке (guide, music...) или что-то пошло не так —
  *     обычный переход, сайт не ломается.
- *  6. Страницы и данные боссов подгружаются заранее: при наведении на ссылку
- *     и когда браузер свободен.
+ *  6. Страницы подгружаются по наведению/нажатию на ссылку; данные страницы —
+ *     только когда пользователь действительно открывает её.
  *
  * Новая страница: в HTML оберни содержимое в <div id="page" data-page="имя">
  * и добавь строку с именем в pages ниже.
@@ -204,20 +204,12 @@ function onClick(event) {
   navigate(url);
 }
 
-// ---------- заранее подгружаем страницы и данные ----------
+// ---------- подготавливаем переход по явному намерению пользователя ----------
 
 function prefetchLink(link) {
   const url = new URL(link.href, location.href);
   if (url.origin === location.origin && isPageUrl(url))
     fetchDoc(url).catch(() => {});
-}
-
-function warmUp() {
-  document
-    .querySelectorAll('.header a[href], .footer a[href]')
-    .forEach(prefetchLink);
-  pages.bosses().catch(() => {});
-  import('./modules/characters.js').then((m) => m.loadBosses()).catch(() => {});
 }
 
 // ---------- запуск ----------
@@ -279,6 +271,4 @@ export async function startRouter() {
     current = await loadPage();
     await current.mount(page);
   }
-
-  (window.requestIdleCallback ?? ((fn) => setTimeout(fn, 800)))(warmUp);
 }
