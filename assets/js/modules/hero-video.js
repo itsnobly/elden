@@ -27,7 +27,6 @@ export function initHero() {
   const VIDEO_PATH = '/assets/video/';
 
   const videos = ['eldenfc3.mp4', 'elden-test-main.mp4', 'eldenblue2.mp4'];
-  const automaticNextVideo = 'eldenblue2.mp4';
   const themes = {
     'elden-test-main.mp4': 'gold',
     'eldenfc3.mp4': 'blood',
@@ -36,7 +35,6 @@ export function initHero() {
 
   const STORAGE_KEY = 'er:banner';
 
-  let isManuallySelected = false;
   let isActive = true;
   let idleHandle = null;
   let startupTimer = null;
@@ -123,7 +121,7 @@ export function initHero() {
     const candidate = standbyVideo;
     candidate.pause();
     candidate.muted = video.muted;
-    candidate.loop = videoName !== videos[0];
+    candidate.loop = true;
     candidate.classList.add('is-hidden');
     candidate.src = newVideo;
     const frameReady = waitForFrame(candidate);
@@ -151,27 +149,16 @@ export function initHero() {
     }
 
     const previousVideo = video;
-    previousVideo.removeEventListener('ended', onEnded);
     video = candidate;
     standbyVideo = previousVideo;
-    video.addEventListener('ended', onEnded);
     updateVideoSelection(videoName);
     video.classList.remove('is-hidden');
     standbyVideo.classList.add('is-hidden');
     standbyVideo.pause();
   }
 
-  // Автоматическое переключение после заставки
-  const onEnded = () => {
-    if (isManuallySelected) return;
-
-    void switchVideo(automaticNextVideo);
-  };
-  video.addEventListener('ended', onEnded);
-
   // Ручное переключение видео
   const onVideoButtonClick = (event) => {
-    isManuallySelected = true;
     saveBanner(event.currentTarget.dataset.video);
     void switchVideo(event.currentTarget.dataset.video);
   };
@@ -201,14 +188,13 @@ export function initHero() {
   soundToggle.addEventListener('click', onSoundToggle);
 
   const savedBanner = readBanner();
-  if (savedBanner) isManuallySelected = savedBanner !== videos[0];
   const initialVideo = savedBanner ?? videos[0];
-  video.loop = initialVideo !== videos[0];
+  video.loop = true;
   updateVideoSelection(initialVideo);
   const startVideo = () => {
     idleHandle = null;
     startupTimer = null;
-    if (!isActive || isManuallySelected) return;
+    if (!isActive) return;
     video.src = `${VIDEO_PATH}${initialVideo}`;
     video.load();
     video.play().catch((error) => {
@@ -237,7 +223,6 @@ export function initHero() {
     videoRequest += 1;
     cancelStartup();
     cancelPendingLoad?.();
-    video.removeEventListener('ended', onEnded);
     videoButtons.forEach((button) => {
       button.removeEventListener('click', onVideoButtonClick);
     });

@@ -45,6 +45,15 @@ export function initFeatures() {
     video.load();
   }
 
+  function playVideo(video) {
+    if (reduceMotion || !video.dataset.loaded || !video.paused) return;
+    video.play().catch((error) => {
+      if (error.name !== 'AbortError' && error.name !== 'NotAllowedError') {
+        console.error('Не удалось воспроизвести видео карточки:', error);
+      }
+    });
+  }
+
   /* Если пользователь просит меньше анимации — не запускаем сами, даём кнопки управления */
   if (reduceMotion) {
     videos.forEach((v) => {
@@ -54,30 +63,47 @@ export function initFeatures() {
   }
 
   if ('IntersectionObserver' in window) {
+    const preload = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const video = entry.target;
+          loadVideo(video);
+          preload.unobserve(video);
+
+          const bounds = video.getBoundingClientRect();
+          const visibleHeight = Math.max(
+            0,
+            Math.min(bounds.bottom, window.innerHeight) - Math.max(bounds.top, 0),
+          );
+          if (bounds.height && visibleHeight / bounds.height >= 0.35) playVideo(video);
+        });
+      },
+      {
+        rootMargin: navigator.connection?.saveData ? '0px' : '350px 0px',
+        threshold: 0,
+      },
+    );
+
     const playback = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           const video = entry.target;
-          if (entry.isIntersecting) {
-            loadVideo(video);
-            if (reduceMotion) return;
-            video.play().catch((error) => {
-              if (error.name !== 'AbortError' && error.name !== 'NotAllowedError') {
-                console.error('Не удалось воспроизвести видео карточки:', error);
-              }
-            });
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.35 && !reduceMotion) {
+            playVideo(video);
           } else {
             video.pause();
           }
         });
       },
-      { rootMargin: '0px', threshold: 0 },
+      { threshold: 0.35 },
     );
 
-    videos.forEach((v) => {
-      playback.observe(v);
+    videos.forEach((video) => {
+      preload.observe(video);
+      playback.observe(video);
     });
-    observers.push(playback);
+    observers.push(preload, playback);
   } else {
     videos.forEach((video) => {
       video.controls = true;
