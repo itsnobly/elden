@@ -14,7 +14,8 @@ export function initHero() {
 
   const VIDEO_PATH = '/assets/video/';
 
-  const videos = ['elden-test-main.mp4', 'eldenfc3.mp4', 'eldenblue2.mp4'];
+  const videos = ['eldenfc3.mp4', 'eldenblue2.mp4'];
+  const selectableVideos = [...videos, 'elden-test-main.mp4'];
 
   const themes = {
     'elden-test-main.mp4': 'gold',
@@ -38,7 +39,7 @@ export function initHero() {
   function readBanner() {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      return videos.includes(saved) ? saved : null;
+      return selectableVideos.includes(saved) ? saved : null;
     } catch {
       return null;
     }
@@ -158,21 +159,31 @@ export function initHero() {
     updateSound();
   });
 
-  // Начальная настройка
+  // Видео подключается после первого отображения страницы, чтобы не задерживать контент.
   video.loop = false;
   updateSound();
 
-  // Если пользователь раньше выбрал баннер, сразу включаем его без заставки и анимации
   const savedBanner = readBanner();
-
-  if (savedBanner && savedBanner !== videos[0]) {
-    isManuallySelected = true;
-    applyVideo(savedBanner, `${VIDEO_PATH}${savedBanner}`).then(() => {
-      video.play().catch(() => {});
+  if (savedBanner) isManuallySelected = savedBanner !== videos[0];
+  const initialVideo = savedBanner ?? videos[0];
+  const startVideo = () => {
+    applyVideo(initialVideo, `${VIDEO_PATH}${initialVideo}`).then(() => {
+      video.play().catch((error) => {
+        if (error.name !== 'NotAllowedError') {
+          console.error('Не удалось воспроизвести видео:', error);
+        }
+      });
     });
-  }
-
+  };
+  const idleHandle = 'requestIdleCallback' in window
+    ? window.requestIdleCallback(startVideo, { timeout: 2000 })
+    : null;
+  const fallbackTimer = idleHandle === null ? window.setTimeout(startVideo, 1200) : null;
 
   // при уходе с главной видео обязательно ставим на паузу (иначе играет звук)
-  return () => video.pause();
+  return () => {
+    if (idleHandle !== null) window.cancelIdleCallback(idleHandle);
+    if (fallbackTimer !== null) window.clearTimeout(fallbackTimer);
+    video.pause();
+  };
 }

@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Elden Ring Lore & Database</title>
     <link rel="stylesheet" href="/assets/css/base.css" />
-    <script src="/assets/js/all.min.js" defer></script>
     {{> theme }}
   </head>
   <body>
@@ -17,13 +16,11 @@
         <main class="main">
           <video
             class="main__video"
-            autoplay
             muted
             loop
             playsinline
-            preload="auto">
-            <source src="/assets/video/elden-test-main.mp4" type="video/mp4" />
-          </video>
+            preload="none"
+            poster="/assets/img/images/radaganBAck.png"></video>
           <div class="main__overlay"></div>
           <div class="container main__content">
             <h2>Elden Ring Lore & Database</h2>
@@ -34,18 +31,18 @@
             <button
               class="grace-switcher__item active"
               type="button"
-              data-video="elden-test-main.mp4"
-              aria-label="Вступление"
-              title="Вступление">
+              data-video="eldenfc3.mp4"
+              aria-label="Междуземье"
+              title="Междуземье">
               <span class="grace-switcher__symbol">✧</span>
             </button>
             <span class="grace-switcher__line"></span>
             <button
               class="grace-switcher__item"
               type="button"
-              data-video="eldenfc3.mp4"
-              aria-label="Междуземье"
-              title="Междуземье">
+              data-video="elden-test-main.mp4"
+              aria-label="Заставка"
+              title="Заставка">
               <span class="grace-switcher__symbol">✥</span>
             </button>
             <span class="grace-switcher__line"></span>
