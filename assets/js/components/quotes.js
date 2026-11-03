@@ -1,4 +1,5 @@
-async function initMarquee() {
+// quotes.js — бегущая лента с цитатами. initQuotes() вызывается при заходе на главную.
+export async function initQuotes() {
   const track = document.getElementById('marquee-track');
   if (!track) return;
 
@@ -24,5 +25,3 @@ async function initMarquee() {
     console.error('Ошибка загрузки цитат:', error);
   }
 }
-
-document.addEventListener('DOMContentLoaded', initMarquee);

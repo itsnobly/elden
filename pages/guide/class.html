@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Elden Ring class: starting stats and who it suits." />
+    {{> theme }}
+    <link rel="stylesheet" href="/assets/css/base.css" />
+    <link rel="stylesheet" href="/assets/css/pages/classes.css" />
+    <title>Class — Elden Ring</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      {{> header }}
+
+      <!-- router подменяет только этот блок; страницу целиком строит JS -->
+      <div id="page" data-page="class">
+        <div
+          class="page-loader"
+          id="page-loader"
+          role="status"
+          aria-label="Loading">
+          <img
+            class="page-loader__bonfire"
+            src="/assets/video/load/bonfire.gif"
+            alt="" />
+        </div>
+        <main id="class-root"></main>
+      </div>
+
+      {{> footer }}
+    </div>
+
+    {{> modal }} {{> game-modal }}
+
+    <script type="module" src="/assets/js/main.js"></script>
+  </body>
+</html>

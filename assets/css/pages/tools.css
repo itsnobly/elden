@@ -1,0 +1,315 @@
+/* tools.css — страницы инструментов (планировщик билда). Цвета из темы. */
+
+/* лоадер */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  background: var(--bg-dark);
+  visibility: hidden;
+  opacity: 0;
+  animation: loader-show 0.2s ease 0.4s forwards;
+}
+
+.page-loader.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  animation: none;
+}
+
+.page-loader__bonfire {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+@keyframes loader-show {
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+/* шапка страницы */
+.planner {
+  padding: 56px 0 24px;
+}
+
+.planner__head {
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+.planner__eyebrow {
+  margin-bottom: 12px;
+  color: var(--gold-primary);
+  font-family: var(--font-headers);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.planner__title {
+  margin-bottom: 10px;
+  font-size: clamp(28px, 4vw, 44px);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.planner__subtitle {
+  color: var(--text-muted);
+}
+
+/* две колонки: настройка слева, итог справа */
+.planner__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(280px, 2fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.planner__main h2,
+.planner__card h2 {
+  margin: 0 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-dark);
+  font-size: 1.05rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.planner__main h2:not(:first-child) {
+  margin-top: 32px;
+}
+
+/* выбор класса */
+.planner__classes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.planner__chip {
+  min-height: 42px;
+  padding: 8px 16px;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  font-family: var(--font-headers);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.planner__chip:hover,
+.planner__chip.is-active {
+  border-color: var(--gold-primary);
+  color: var(--gold-primary);
+}
+
+.planner__chip.is-active {
+  background: rgba(var(--accent-rgb), 0.1);
+}
+
+/* строки характеристик */
+.planner__stats {
+  display: grid;
+  gap: 8px;
+}
+
+.planner__row {
+  display: grid;
+  grid-template-columns: 130px 1fr 38px 64px 38px;
+  align-items: center;
+  gap: 10px;
+}
+
+.planner__label {
+  color: var(--text-main);
+}
+
+.planner__bar {
+  height: 8px;
+  overflow: hidden;
+  background: var(--border-dark);
+}
+
+.planner__bar i {
+  display: block;
+  height: 100%;
+  background: var(--gold-primary);
+  box-shadow: 0 0 8px var(--gold-glow);
+  transition: width 0.2s ease;
+}
+
+.planner__row button {
+  height: 38px;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-card);
+  color: var(--gold-primary);
+  font-size: 1.2rem;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.planner__row button:hover:not(:disabled) {
+  border-color: var(--gold-primary);
+  background: rgba(var(--accent-rgb), 0.12);
+}
+
+.planner__row button:disabled {
+  opacity: 0.3;
+}
+
+.planner__row input,
+.planner__calc input {
+  height: 38px;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-card);
+  color: var(--text-title);
+  font-family: var(--font-headers);
+  text-align: center;
+}
+
+.planner__row input:focus,
+.planner__calc input:focus {
+  outline: none;
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 10px var(--gold-glow);
+}
+
+/* правая колонка */
+.planner__side {
+  position: sticky;
+  top: 90px;
+  display: grid;
+  gap: 18px;
+}
+
+.planner__card {
+  padding: 22px;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-card);
+}
+
+.planner__big {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.planner__big b {
+  color: var(--gold-primary);
+  font-family: var(--font-headers);
+  font-size: 2.6rem;
+  font-weight: 400;
+  text-shadow: 0 0 18px var(--gold-glow);
+}
+
+.planner__big--small {
+  margin: 14px 0 0;
+}
+
+.planner__big--small b {
+  font-size: 1.6rem;
+}
+
+.planner__facts {
+  display: grid;
+  gap: 0;
+  margin: 0 0 18px;
+}
+
+.planner__facts > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.planner__facts dt {
+  color: var(--text-muted);
+}
+
+.planner__facts dd {
+  margin: 0;
+  color: var(--text-title);
+}
+
+.planner__reset {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid var(--gold-primary);
+  background: none;
+  color: var(--gold-primary);
+  font-family: var(--font-headers);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background 0.2s ease;
+}
+
+.planner__reset:hover {
+  background: rgba(var(--accent-rgb), 0.12);
+}
+
+.planner__hint {
+  margin: 0 0 14px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.planner__calc {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.planner__calc label {
+  display: grid;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.planner__calc input {
+  width: 100%;
+}
+
+.planner__message {
+  padding: 40px 0;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* адаптив */
+@media (max-width: 900px) {
+  .planner__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .planner__side {
+    position: static;
+  }
+}
+
+@media (max-width: 480px) {
+  .planner__row {
+    grid-template-columns: 96px 1fr 36px 56px 36px;
+    gap: 6px;
+  }
+}

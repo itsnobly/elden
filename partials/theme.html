@@ -1,0 +1,52 @@
+<script>
+  // Тема по сохранённому баннеру (до отрисовки, без мигания)
+  try {
+    var banner = localStorage.getItem('er:banner');
+    var theme = { 'eldenfc3.mp4': 'blood', 'eldenblue2.mp4': 'frost' }[banner];
+    if (theme) document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+
+  // Страница при полной загрузке всегда открывается сверху
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+</script>
+
+<!-- Пока стили не загрузились, страница скрыта: не видно «голого» HTML -->
+<style>
+  html {
+    background: #0a0907;
+  }
+  html:not(.is-ready) body {
+    opacity: 0;
+  }
+  body {
+    transition: opacity 0.2s ease;
+  }
+</style>
+<script>
+  (function () {
+    var root = document.documentElement;
+    var ready = function () {
+      root.classList.add('is-ready');
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var pending = [].slice
+        .call(document.querySelectorAll('link[rel="stylesheet"]'))
+        .filter(function (link) {
+          return !link.sheet;
+        });
+      var left = pending.length;
+      if (!left) return ready();
+      pending.forEach(function (link) {
+        var done = function () {
+          if (--left === 0) ready();
+        };
+        link.addEventListener('load', done);
+        link.addEventListener('error', done);
+      });
+    });
+
+    // страховка: если что-то пошло не так, через 2.5 с страница всё равно покажется
+    setTimeout(ready, 2500);
+  })();
+</script>

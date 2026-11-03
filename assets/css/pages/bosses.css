@@ -1,5 +1,3 @@
-@import '../base.css';
-
 /* шапка — та же, что на главной */
 
 .logo__img {
@@ -112,7 +110,7 @@
   z-index: 3;
   padding: 10px;
   border: 1px solid var(--border-dark);
-  background: rgba(10, 9, 7, 0.94);
+  background: color-mix(in srgb, var(--bg-dark) 94%, transparent);
   backdrop-filter: blur(12px);
 }
 
@@ -325,7 +323,11 @@
       rgba(var(--accent-rgb), 0.22),
       transparent 55%
     ),
-    linear-gradient(145deg, #211d16, #0d0c0a 72%);
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--gold-primary) 9%, var(--bg-card)),
+      var(--bg-dark) 72%
+    );
   color: var(--gold-primary);
 }
 
@@ -340,10 +342,10 @@
   z-index: 1;
   background: linear-gradient(
     to top,
-    rgba(8, 7, 6, 0.96) 0%,
-    rgba(8, 7, 6, 0.66) 28%,
-    rgba(8, 7, 6, 0.08) 72%,
-    rgba(8, 7, 6, 0.22) 100%
+    color-mix(in srgb, var(--bg-dark) 96%, transparent) 0%,
+    color-mix(in srgb, var(--bg-dark) 66%, transparent) 28%,
+    color-mix(in srgb, var(--bg-dark) 8%, transparent) 72%,
+    color-mix(in srgb, var(--bg-dark) 22%, transparent) 100%
   );
   pointer-events: none;
 }
@@ -359,7 +361,7 @@
   place-items: center;
   border: 1px solid var(--gold-primary);
   border-radius: 50%;
-  background: rgba(10, 9, 7, 0.78);
+  background: color-mix(in srgb, var(--bg-dark) 78%, transparent);
   color: var(--gold-primary);
   font-family: var(--font-headers);
   font-size: 1.2rem;
@@ -368,7 +370,7 @@
 
 .boss-entry__name {
   display: block;
-  color: #fff;
+  color: var(--text-title);
   font-family: var(--font-headers);
   font-size: clamp(1rem, 1.2vw, 1.2rem);
   line-height: 1.35;
@@ -388,7 +390,7 @@
 .boss-entry__location {
   display: -webkit-box;
   overflow: hidden;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--text-muted);
   font-size: 0.8rem;
   line-height: 1.45;
   -webkit-box-orient: vertical;
@@ -422,7 +424,7 @@
   display: -webkit-box;
   overflow: hidden;
   margin: 0 0 10px;
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--text-main);
   font-size: 0.88rem;
   line-height: 1.55;
   -webkit-box-orient: vertical;
@@ -460,479 +462,6 @@
 
 .boss-entry__details:hover {
   color: var(--gold-hover);
-}
-
-.boss-card {
-  position: relative;
-  aspect-ratio: 3 / 4;
-  min-height: 340px;
-  overflow: hidden;
-  isolation: isolate;
-  background: var(--bg-card);
-  border: 1px solid var(--border-dark);
-  animation: card-in 0.5s ease both;
-  animation-delay: calc(var(--i, 0) * 35ms);
-  transition:
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-.boss-card:hover,
-.boss-card:focus-visible {
-  border-color: rgba(var(--accent-rgb), 0.6);
-  box-shadow: 0 0 22px var(--gold-glow);
-  outline: none;
-}
-
-@keyframes card-in {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-}
-
-/* Картинка во всю карточку */
-
-.boss-card__image-wrapper {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  overflow: hidden;
-}
-
-/* Блик по картинке при наведении */
-.boss-card__image-wrapper::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    110deg,
-    transparent 35%,
-    rgba(var(--accent-rgb), 0.18) 50%,
-    transparent 65%
-  );
-  transform: translateX(-120%);
-  pointer-events: none;
-}
-
-.boss-card:hover .boss-card__image-wrapper::after {
-  transform: translateX(120%);
-  transition: transform 0.9s ease;
-}
-
-/* Если картинки нет или она не загрузилась */
-.boss-card__placeholder {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  align-content: center;
-  gap: 14px;
-  place-items: center;
-  background:
-    radial-gradient(
-      circle at 50% 40%,
-      rgba(var(--accent-rgb), 0.18),
-      transparent 60%
-    ),
-    var(--bg-card);
-  color: rgba(var(--accent-rgb), 0.5);
-  font-size: 64px;
-}
-
-.boss-card__difficulty-label {
-  color: var(--text-muted);
-  font-family: var(--font-headers);
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.boss-card__difficulty-value {
-  display: grid;
-  width: 92px;
-  height: 92px;
-  place-items: center;
-  border: 1px solid rgba(var(--accent-rgb), 0.65);
-  border-radius: 50%;
-  background: rgba(10, 9, 7, 0.72);
-  color: var(--gold-primary);
-  font-family: var(--font-headers);
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-shadow: 0 0 18px var(--gold-glow);
-}
-
-/* Затемнение снизу, чтобы читался текст */
-.boss-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(
-    to top,
-    rgba(10, 9, 7, 0.98) 0%,
-    rgba(10, 9, 7, 0.7) 40%,
-    rgba(10, 9, 7, 0.05) 100%
-  );
-  opacity: 0.45;
-  transition: opacity 0.35s ease;
-}
-
-.boss-card:hover::after,
-.boss-card:focus-within::after {
-  opacity: 1;
-}
-
-/* Значок смертей в углу, виден если они есть */
-.boss-card__badge {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  padding: 4px 10px;
-  border: 1px solid rgba(var(--accent-rgb), 0.4);
-  border-radius: 999px;
-  background: rgba(10, 9, 7, 0.7);
-  color: var(--gold-primary);
-  font-size: 0.8rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.boss-card.has-deaths .boss-card__badge {
-  opacity: 1;
-}
-
-.boss-card:hover .boss-card__badge {
-  opacity: 0;
-}
-
-/* Текст: название всегда, остальное при наведении */
-
-.boss-card__content {
-  position: absolute;
-  inset: auto 0 0;
-  padding: 20px;
-  color: var(--text-main);
-  font-family: var(--font-body);
-}
-
-.boss-card__title {
-  margin: 0;
-  color: var(--text-title);
-  font-family: var(--font-headers);
-  font-size: 1.1rem;
-  line-height: 1.35;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-}
-
-.boss-card__more {
-  display: grid;
-  grid-template-rows: 0fr;
-  opacity: 0;
-  transition:
-    grid-template-rows 0.4s ease,
-    opacity 0.3s ease;
-}
-
-.boss-card__more > div {
-  min-height: 0;
-  overflow: hidden;
-}
-
-.boss-card:hover .boss-card__more,
-.boss-card:focus-within .boss-card__more {
-  grid-template-rows: 1fr;
-  opacity: 1;
-}
-
-.boss-card__region {
-  display: block;
-  margin-top: 6px;
-  color: var(--gold-primary);
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-/* Счётчик смертей */
-
-.boss-card__deaths {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 12px;
-}
-
-.boss-card__deaths-label {
-  margin-right: auto;
-  color: var(--text-muted);
-  font-size: 0.85rem;
-}
-
-.boss-card__deaths button {
-  width: 28px;
-  height: 28px;
-  border: 1px solid rgba(var(--accent-rgb), 0.5);
-  border-radius: 50%;
-  background: rgba(10, 9, 7, 0.6);
-  color: var(--gold-primary);
-  font-size: 1rem;
-  line-height: 1;
-  transition:
-    background 0.25s ease,
-    color 0.25s ease;
-}
-
-.boss-card__deaths button:hover {
-  background: var(--gold-primary);
-  color: var(--bg-dark);
-}
-
-.boss-card__deaths output {
-  min-width: 24px;
-  color: var(--text-title);
-  font-family: var(--font-headers);
-  text-align: center;
-}
-
-.boss-card__description {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  margin: 12px 0;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  line-height: 1.55;
-}
-
-.boss-card__link {
-  padding: 0 0 4px;
-  border: 0;
-  border-bottom: 1px solid var(--gold-primary);
-  background: none;
-  color: var(--gold-primary);
-  font-family: var(--font-headers);
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  transition: color 0.25s ease;
-}
-
-.boss-card__link:hover {
-  color: var(--gold-hover);
-}
-
-/* Скелетон, пока грузится */
-
-.boss-card--skeleton {
-  cursor: default;
-  background: linear-gradient(
-    100deg,
-    var(--bg-card) 30%,
-    #1a1710 50%,
-    var(--bg-card) 70%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.4s linear infinite;
-}
-
-.boss-card--skeleton::after {
-  display: none;
-}
-
-@keyframes shimmer {
-  to {
-    background-position: -200% 0;
-  }
-}
-
-/* ===== Окно с подробностями ===== */
-
-.modal-open {
-  overflow: hidden;
-}
-
-.boss-modal {
-  width: min(960px, 94vw);
-  max-height: 90vh;
-  padding: 0;
-  border: 1px solid rgba(var(--accent-rgb), 0.45);
-  background: var(--bg-dark);
-  color: var(--text-main);
-  box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
-  animation: modal-in 0.3s ease;
-}
-
-.boss-modal::backdrop {
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(4px);
-}
-
-@keyframes modal-in {
-  from {
-    opacity: 0;
-    transform: translateY(14px) scale(0.98);
-  }
-}
-
-.boss-modal__inner {
-  position: relative;
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  max-height: 90vh;
-}
-
-.boss-modal__close {
-  position: absolute;
-  top: 10px;
-  right: 14px;
-  z-index: 2;
-  width: 36px;
-  height: 36px;
-  border: 0;
-  background: none;
-  color: var(--gold-primary);
-  font-size: 28px;
-  line-height: 1;
-}
-
-.boss-modal__close:hover {
-  color: var(--gold-hover);
-}
-
-.boss-modal__media {
-  position: relative;
-  min-height: 320px;
-  background: var(--bg-card);
-}
-
-.boss-modal__body {
-  padding: 32px 28px;
-  overflow-y: auto;
-}
-
-.boss-modal__title {
-  margin-bottom: 14px;
-  padding-right: 30px;
-  font-size: 1.5rem;
-}
-
-.boss-modal__deaths {
-  max-width: 260px;
-  margin: 0 0 22px;
-}
-
-.boss-modal__tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin-bottom: 18px;
-  border-bottom: 1px solid var(--border-dark);
-}
-
-.boss-modal__tabs button {
-  padding: 10px 16px;
-  border: 0;
-  border-bottom: 2px solid transparent;
-  background: none;
-  color: var(--text-muted);
-  font-family: var(--font-headers);
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  transition:
-    color 0.25s ease,
-    border-color 0.25s ease;
-}
-
-.boss-modal__tabs button:hover,
-.boss-modal__tabs button.active {
-  border-bottom-color: var(--gold-primary);
-  color: var(--gold-primary);
-}
-
-.boss-modal__panel p {
-  margin-bottom: 14px;
-  line-height: 1.7;
-}
-
-.boss-modal__facts {
-  display: grid;
-  gap: 8px;
-  margin: 0 0 16px;
-}
-
-.boss-modal__facts div {
-  display: flex;
-  gap: 12px;
-}
-
-.boss-modal__facts dt {
-  min-width: 90px;
-  color: var(--text-muted);
-}
-
-.boss-modal__facts dd {
-  margin: 0;
-}
-
-.boss-modal__difficulty-reason {
-  margin: 0 0 20px;
-  color: var(--text-muted);
-  line-height: 1.65;
-}
-
-.boss-modal__difficulty-reason strong {
-  color: var(--gold-primary);
-}
-
-.boss-modal__audio {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 16px;
-}
-
-.boss-modal__audio audio {
-  flex: 1;
-  height: 36px;
-}
-
-.boss-modal__lore {
-  color: var(--text-muted);
-  font-style: italic;
-}
-
-.boss-modal__list {
-  margin: 0;
-  padding-left: 20px;
-  line-height: 1.8;
-}
-
-.boss-modal__list li::marker {
-  color: var(--gold-primary);
-}
-
-.boss-modal__phases {
-  margin: 0;
-  padding-left: 22px;
-}
-
-.boss-modal__phases li {
-  margin-bottom: 16px;
-}
-
-.boss-modal__phases li::marker {
-  color: var(--gold-primary);
-  font-family: var(--font-headers);
-}
-
-.boss-modal__phases h4 {
-  margin-bottom: 4px;
-  color: var(--gold-hover);
-  font-size: 1rem;
 }
 
 /* ===== Пагинация ===== */
@@ -1001,74 +530,6 @@
   text-align: center;
 }
 
-/* ===== Адаптив ===== */
-
-@media (max-width: 1024px) {
-  .bosses__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
-  .bosses__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .boss-modal__inner {
-    grid-template-columns: 1fr;
-    overflow-y: auto;
-  }
-
-  .boss-modal__media {
-    min-height: 220px;
-  }
-
-  .boss-modal__body {
-    overflow: visible;
-  }
-
-  .bosses__toolbar > input,
-  .bosses__location-filter {
-    flex-basis: 100%;
-  }
-
-  .bosses__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-  }
-
-  .boss-entry {
-    min-height: 360px;
-  }
-
-  .boss-entry__more {
-    max-height: calc(55% - 88px);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .boss-entry__reason {
-    -webkit-line-clamp: 2;
-  }
-}
-
-/* На телефонах и планшетах нет наведения: показываем всё сразу */
-@media (hover: none) {
-  .boss-card::after {
-    opacity: 1;
-  }
-
-  .boss-card__more {
-    grid-template-rows: 1fr;
-    opacity: 1;
-  }
-
-  .boss-entry__more {
-    opacity: 1;
-    pointer-events: auto;
-  }
-}
-
 .page-loader {
   position: fixed;
   inset: 0;
@@ -1078,15 +539,25 @@
   justify-items: center;
   background: var(--bg-dark);
   color: var(--gold-primary);
-  transition:
-    opacity 0.2s ease,
-    visibility 0.2s ease;
+  /* Лоадер скрыт и появляется только если загрузка длится дольше 0.4 с,
+     поэтому при быстрых переходах между страницами он не мелькает. */
+  visibility: hidden;
+  opacity: 0;
+  animation: loader-show 0.2s ease 0.4s forwards;
+}
+
+@keyframes loader-show {
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 .page-loader.is-hidden {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+  animation: none;
 }
 
 .page-loader__bonfire {
@@ -1135,6 +606,7 @@
 }
 
 .bosses__category-count,
+.bosses__tier-count,
 .bosses__location-count {
   display: inline-grid;
   min-width: 24px;
@@ -1181,42 +653,6 @@
   color: var(--text-muted);
 }
 
-.boss-card__name-ru,
-.boss-modal__name-ru {
-  margin: 5px 0 0;
-  color: var(--gold-hover);
-  font-size: 0.88rem;
-}
-
-.boss-card__location {
-  margin: 4px 0 0;
-  color: var(--text-main);
-  font-size: 0.86rem;
-}
-
-.boss-modal__media .boss-card__placeholder {
-  z-index: 0;
-}
-
-.boss-modal__body h3 {
-  margin: 22px 0 10px;
-  color: var(--gold-primary);
-  font-family: var(--font-headers);
-  font-size: 1rem;
-}
-
-.boss-modal__facts {
-  margin-top: 20px;
-}
-
-.boss-modal__facts dt {
-  flex: 0 0 90px;
-}
-
-.boss-modal__facts dd {
-  overflow-wrap: anywhere;
-}
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -1227,17 +663,385 @@
   clip-path: inset(50%);
 }
 
+/* ===== Переключатель языка ===== */
+
+.bosses__head {
+  position: relative;
+}
+
+.bosses__lang {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.lang-switch {
+  display: inline-flex;
+  border: 1px solid var(--border-dark);
+}
+
+.lang-switch__btn {
+  min-width: 42px;
+  height: 34px;
+  border: 0;
+  background: var(--bg-card);
+  color: var(--text-muted);
+  font-family: var(--font-headers);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.lang-switch__btn:hover {
+  color: var(--gold-primary);
+}
+
+.lang-switch__btn.is-active {
+  background: var(--gold-primary);
+  color: var(--bg-dark);
+}
+
+.bosses__retry {
+  padding: 10px 22px;
+  border: 1px solid var(--gold-primary);
+  background: none;
+  color: var(--gold-primary);
+  font-family: var(--font-headers);
+}
+
+/* ===== Страница босса ===== */
+
+.boss-page {
+  padding: 40px 0 24px;
+}
+
+.boss-page__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.boss-page__back {
+  font-family: var(--font-headers);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.boss-page__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: 40px;
+  align-items: start;
+}
+
+.boss-page__media {
+  position: sticky;
+  top: 24px;
+}
+
+.boss-page__art {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-card);
+}
+
+.boss-page__art .boss-entry__tier {
+  top: 16px;
+  right: 16px;
+}
+
+.boss-page__title {
+  margin: 0 0 6px;
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  line-height: 1.2;
+}
+
+.boss-page__en {
+  margin: 0 0 18px;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+.boss-page__lead {
+  margin: 0 0 22px;
+  color: var(--gold-hover);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.boss-page__body h2 {
+  margin: 34px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-dark);
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.boss-page__body p {
+  margin: 0 0 14px;
+  line-height: 1.75;
+}
+
+.boss-page__facts {
+  display: grid;
+  gap: 0;
+  margin: 0 0 22px;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-card);
+}
+
+.boss-page__facts > div {
+  display: flex;
+  gap: 16px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.boss-page__facts > div:last-child {
+  border-bottom: 0;
+}
+
+.boss-page__facts dt {
+  flex: 0 0 130px;
+  color: var(--text-muted);
+}
+
+.boss-page__facts dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.boss-page__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.boss-page__chip {
+  padding: 2px 10px;
+  border: 1px solid rgba(var(--accent-rgb), 0.45);
+  border-radius: 999px;
+  color: var(--gold-primary);
+  font-size: 0.85rem;
+}
+
+.boss-page__reason {
+  padding: 14px 18px;
+  border-left: 3px solid var(--gold-primary);
+  background: rgba(var(--accent-rgb), 0.07);
+  color: var(--text-muted);
+}
+
+.boss-page__reason strong {
+  color: var(--gold-primary);
+  font-weight: 500;
+}
+
+.boss-page__lore {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.boss-page__phases,
+.boss-page__list,
+.boss-page__rewards {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.boss-page__phases {
+  display: grid;
+  gap: 14px;
+}
+
+.boss-page__phase {
+  padding: 16px 18px;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-card);
+}
+
+.boss-page__phase h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.boss-page__phase p:last-child {
+  margin-bottom: 0;
+}
+
+.boss-page__phase-sub {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.boss-page__list li {
+  position: relative;
+  margin-bottom: 8px;
+  padding-left: 22px;
+  line-height: 1.7;
+}
+
+.boss-page__list li::before {
+  position: absolute;
+  left: 0;
+  color: var(--gold-primary);
+  content: '✦';
+  font-size: 0.8rem;
+}
+
+.boss-page__rewards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.boss-page__reward {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-card);
+}
+
+.boss-page__reward small {
+  display: block;
+  color: var(--text-muted);
+  text-transform: capitalize;
+}
+
+.boss-page__reward-img {
+  display: grid;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-dark);
+}
+
+.boss-page__reward-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.boss-page__video {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-card);
+}
+
+.boss-page__video img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.boss-page__play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--bg-dark) 45%, transparent);
+  color: var(--gold-primary);
+  font-size: 3rem;
+  transition: background 0.2s ease;
+}
+
+.boss-page__video:hover .boss-page__play {
+  background: color-mix(in srgb, var(--bg-dark) 20%, transparent);
+}
+
+.boss-page__pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 56px 0 0;
+}
+
+.boss-page__pager a {
+  display: grid;
+  gap: 4px;
+  max-width: 48%;
+  padding: 12px 18px;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-card);
+  font-family: var(--font-headers);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.boss-page__pager a span {
+  color: var(--text-main);
+  font-size: 0.95rem;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.boss-page__pager a:hover {
+  border-color: var(--gold-primary);
+}
+
+/* ===== Адаптив ===== */
+
+@media (max-width: 1024px) {
+  .boss-page__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .boss-page__media {
+    position: static;
+    max-width: 420px;
+  }
+}
+
 @media (max-width: 768px) {
+  .bosses__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
   .bosses__toolbar {
     position: static;
+  }
+
+  .bosses__toolbar > input,
+  .bosses__location-filter {
+    flex-basis: 100%;
   }
 
   .bosses__location-heading {
     flex-wrap: wrap;
   }
 
-  .boss-card__badge {
-    opacity: 0;
+  .boss-entry__more {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .boss-entry__reason {
+    -webkit-line-clamp: 2;
+  }
+
+  .bosses__lang {
+    position: static;
+    margin-bottom: 14px;
   }
 }
 
@@ -1265,19 +1069,25 @@
     width: 100%;
     margin-left: 0;
   }
+
+  .boss-page__facts > div {
+    flex-direction: column;
+    gap: 2px;
+  }
+}
+
+/* На телефонах и планшетах нет наведения: показываем всё сразу */
+@media (hover: none) {
+  .boss-entry__more {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .boss-card,
-  .boss-card__image,
-  .boss-card__video,
-  .boss-card__more,
   .boss-entry,
   .boss-entry__image,
-  .boss-entry__caption,
-  .boss-entry__more,
-  .boss-modal {
-    animation: none;
+  .boss-entry__more {
     transition: none;
   }
 }

@@ -1,3 +1,8 @@
+/*
+ * html.js — две мелочи.
+ * escapeHtml: данные API вставляются в innerHTML, поэтому спецсимволы экранируются.
+ * normalizeText: для поиска — нижний регистр, без знаков, чтобы «Alecto,» == «alecto».
+ */
 // Данные из API попадают в innerHTML, поэтому все строки экранируем
 export function escapeHtml(value) {
   return String(value ?? '')

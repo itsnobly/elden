@@ -1,21 +1,24 @@
+// modal.js — модалки «Contact» и «Where to buy». Модалки лежат вне #page и
+// не перерисовываются, поэтому подключаются один раз. Кнопка «Shop now» есть
+// только на главной, поэтому слушаем клики на всём документе.
 const modal = document.getElementById('modal');
 const modalClose = document.getElementById('modal__close-btn');
 const open = document.getElementById('open__modal');
 
 const openModal = () => {
-  modal.classList.add('open__modal-active');
+  modal?.classList.add('open__modal-active');
   document.body.style.overflow = 'hidden';
 };
 
 const closeModal = () => {
-  modal.classList.remove('open__modal-active');
+  modal?.classList.remove('open__modal-active');
   document.body.style.overflow = '';
 };
 
-open.addEventListener('click', openModal);
-modalClose.addEventListener('click', closeModal);
+open?.addEventListener('click', openModal);
+modalClose?.addEventListener('click', closeModal);
 
-modal.addEventListener('click', (event) => {
+modal?.addEventListener('click', (event) => {
   if (event.target === modal) {
     closeModal();
   }
@@ -39,7 +42,6 @@ setTimeout(openModal, 10000);
 
 // game-modal
 const gameModal = document.getElementById('game-modal');
-const gameOpen = document.getElementById('open-game-modal');
 const gameClose = document.getElementById('game-modal-close');
 
 const openSocialLinks = () => {
@@ -52,7 +54,9 @@ const closeSocialLinks = () => {
   document.body.style.overflow = '';
 };
 
-gameOpen?.addEventListener('click', (event) => {
+// «Shop now» живёт внутри #page, поэтому ловим клик на документе
+document.addEventListener('click', (event) => {
+  if (!event.target.closest('#open-game-modal')) return;
   event.preventDefault();
   openSocialLinks();
 });

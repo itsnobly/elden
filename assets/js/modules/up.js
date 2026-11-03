@@ -1,22 +1,17 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const scrollTopBtn = document.getElementById('scrollTopBtn');
+// up.js — кнопка «наверх». Кнопка лежит в футере, который не перерисовывается,
+// поэтому достаточно один раз повесить обработчики.
+const scrollTopBtn = document.getElementById('scrollTopBtn');
 
-  if (!scrollTopBtn) return;
-
+if (scrollTopBtn) {
   // Показываем кнопку, если страница прокручена вниз более чем на 300px
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-      scrollTopBtn.classList.add('scroll-top--show');
-    } else {
-      scrollTopBtn.classList.remove('scroll-top--show');
-    }
-  });
+  window.addEventListener(
+    'scroll',
+    () => scrollTopBtn.classList.toggle('scroll-top--show', window.scrollY > 300),
+    { passive: true },
+  );
 
   // Плавная прокрутка на самый верх при клике
   scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
-});
+}

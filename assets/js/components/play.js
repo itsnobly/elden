@@ -1,51 +1,31 @@
-document.addEventListener('DOMContentLoaded', () => {
+// play.js — трейлер на главной: клик по карточке запускает видео, повторный клик останавливает.
+// initPlay() вызывается при каждом заходе на главную.
+export function initPlay() {
   const trailerCard = document.getElementById('trailerCard');
   const poster = document.getElementById('trailerPoster');
   const playBtn = document.getElementById('playBtn');
   const iframe = document.getElementById('ytPlayer');
 
-  if (trailerCard && iframe) {
-    let isPlaying = false;
+  if (!trailerCard || !iframe) return;
 
-    // Получаем базовый URL iframe без параметров автозапуска
-    const baseUrl = iframe.src.split('?')[0];
+  let isPlaying = false;
 
-    trailerCard.addEventListener('click', () => {
-      if (!isPlaying) {
-        // ВКЛЮЧИТЬ ВИДЕО
-        isPlaying = true;
+  // Получаем базовый URL iframe без параметров автозапуска
+  const baseUrl = iframe.src.split('?')[0];
+  const params =
+    '?enablejsapi=1&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1';
 
-        // Прячем постер и кнопку
-        if (poster) {
-          poster.style.opacity = '0';
-          poster.style.pointerEvents = 'none';
-        }
-        if (playBtn) {
-          playBtn.style.display = 'none';
-        }
+  trailerCard.addEventListener('click', () => {
+    isPlaying = !isPlaying;
 
-        // Запускаем с autoplay=1
-        iframe.src =
-          baseUrl +
-          '?enablejsapi=1&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&autoplay=1';
-      } else {
-        // ОСТАНОВИТЬ ВИДЕО (перезагружаем iframe, сбрасывая его состояние)
-        isPlaying = false;
+    // Постер и кнопка Play: прячем при запуске, возвращаем при остановке
+    if (poster) {
+      poster.style.opacity = isPlaying ? '0' : '1';
+      poster.style.pointerEvents = isPlaying ? 'none' : 'auto';
+    }
+    if (playBtn) playBtn.style.display = isPlaying ? 'none' : 'flex';
 
-        // Показываем обратно постер и кнопку
-        if (poster) {
-          poster.style.opacity = '1';
-          poster.style.pointerEvents = 'auto';
-        }
-        if (playBtn) {
-          playBtn.style.display = 'flex';
-        }
-
-        // Очищаем src, чтобы видео полностью остановилось и закрылось
-        iframe.src =
-          baseUrl +
-          '?enablejsapi=1&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1';
-      }
-    });
-  }
-});
+    // Перезагрузка iframe полностью сбрасывает видео
+    iframe.src = baseUrl + params + (isPlaying ? '&autoplay=1' : '');
+  });
+}
