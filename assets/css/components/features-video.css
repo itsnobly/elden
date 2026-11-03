@@ -14,7 +14,7 @@
       rgba(10, 9, 7, 0.78) 85%,
       var(--bg-dark) 100%
     ),
-    url('../../img/images/EldenBackg.webp') center / cover no-repeat fixed;
+    url('../../img/images/radaganBAck.webp') center / cover no-repeat fixed;
 }
 
 .kf__title {

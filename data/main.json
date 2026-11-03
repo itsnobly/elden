@@ -16,7 +16,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/godrick-the-grafted.webp",
       "cutscene_youtube_id": "dQw4w9WgXcQ"
     },
     "phases": [
@@ -42,13 +41,11 @@
     "rewards": [
       {
         "item_id": "remembrance-of-the-grafted",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-of-the-grafted.webp"
+        "type": "remembrance"
       },
       {
         "item_id": "godricks-great-rune",
-        "type": "great_rune",
-        "image": "/assets/img/items/godricks-great-rune.webp"
+        "type": "great_rune"
       }
     ]
   },
@@ -72,7 +69,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/rennala-queen-of-the-full-moon.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -99,13 +95,11 @@
     "rewards": [
       {
         "item_id": "remembrance-of-the-full-moon-queen",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-of-the-full-moon-queen.webp"
+        "type": "remembrance"
       },
       {
         "item_id": "great-rune-of-the-unborn",
-        "type": "great_rune",
-        "image": "/assets/img/items/great-rune-of-the-unborn.webp"
+        "type": "great_rune"
       }
     ]
   },
@@ -126,7 +120,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/starscourge-radahn.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -153,13 +146,11 @@
     "rewards": [
       {
         "item_id": "remembrance-of-the-starscourge",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-of-the-starscourge.webp"
+        "type": "remembrance"
       },
       {
         "item_id": "radahns-great-rune",
-        "type": "great_rune",
-        "image": "/assets/img/items/radahns-great-rune.webp"
+        "type": "great_rune"
       }
     ]
   },
@@ -182,7 +173,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/morgott-the-omen-king.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -209,13 +199,11 @@
     "rewards": [
       {
         "item_id": "remembrance-of-the-omen-king",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-of-the-omen-king.webp"
+        "type": "remembrance"
       },
       {
         "item_id": "morgotts-great-rune",
-        "type": "great_rune",
-        "image": "/assets/img/items/morgotts-great-rune.webp"
+        "type": "great_rune"
       }
     ]
   },
@@ -239,7 +227,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/fire-giant.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -267,8 +254,7 @@
     "rewards": [
       {
         "item_id": "remembrance-of-the-fire-giant",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-of-the-fire-giant.webp"
+        "type": "remembrance"
       }
     ]
   },
@@ -291,7 +277,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/rykard-lord-of-blasphemy.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -317,8 +302,7 @@
     "rewards": [
       {
         "item_id": "remembrance-of-the-blasphemous",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-of-the-blasphemous.webp"
+        "type": "remembrance"
       }
     ]
   },
@@ -339,7 +323,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/mohg-lord-of-blood.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -365,13 +348,11 @@
     "rewards": [
       {
         "item_id": "remembrance-of-the-blood-lord",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-of-the-blood-lord.webp"
+        "type": "remembrance"
       },
       {
         "item_id": "mohgs-great-rune",
-        "type": "great_rune",
-        "image": "/assets/img/items/mohgs-great-rune.webp"
+        "type": "great_rune"
       }
     ]
   },
@@ -392,7 +373,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/maliketh-the-black-blade.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -418,8 +398,7 @@
     "rewards": [
       {
         "item_id": "remembrance-of-the-black-blade",
-        "type": "remembrance",
-        "image": "https://eldenring.fanapis.com/images/items/17f698f3aadl0i2038pwv566m3ddrj.png"
+        "type": "remembrance"
       }
     ]
   },
@@ -440,7 +419,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/godfrey-first-elden-lord.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -466,8 +444,7 @@
     "rewards": [
       {
         "item_id": "remembrance-of-hoarah-loux",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-of-hoarah-loux.webp"
+        "type": "remembrance"
       }
     ]
   },
@@ -490,7 +467,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/radagon-elden-beast.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -516,8 +492,7 @@
     "rewards": [
       {
         "item_id": "remembrance-of-the-elden-beast",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-of-elden-beast.webp"
+        "type": "remembrance"
       }
     ]
   },
@@ -541,7 +516,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/malenia-blade-of-miquella.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -567,13 +541,11 @@
     "rewards": [
       {
         "item_id": "remembrance-of-the-rot-goddess",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-rot-goddess.webp"
+        "type": "remembrance"
       },
       {
         "item_id": "malenias-great-rune",
-        "type": "great_rune",
-        "image": "/assets/img/items/great-rune-malenia.webp"
+        "type": "great_rune"
       }
     ]
   },
@@ -596,7 +568,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/dragonlord-placidusax.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -622,8 +593,7 @@
     "rewards": [
       {
         "item_id": "remembrance-of-the-dragonlord",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-of-dragonlord.webp"
+        "type": "remembrance"
       }
     ]
   },
@@ -644,7 +614,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/lichdragon-fortissax.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -661,8 +630,7 @@
     "rewards": [
       {
         "item_id": "remembrance-of-the-lichdragon",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-fortissax.webp"
+        "type": "remembrance"
       }
     ]
   },
@@ -683,7 +651,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/commander-niall.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -710,13 +677,11 @@
     "rewards": [
       {
         "item_id": "veterans-prosthesis",
-        "type": "weapon",
-        "image": "/assets/img/items/veterans-prosthesis.webp"
+        "type": "weapon"
       },
       {
         "item_id": "haligtree-secret-medallion-left",
-        "type": "quest_item",
-        "image": "/assets/img/items/medallion.webp"
+        "type": "quest_item"
       }
     ]
   },
@@ -737,7 +702,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/loretta-knight-of-the-haligtree.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -755,13 +719,11 @@
     "rewards": [
       {
         "item_id": "lorettas-war-sickle",
-        "type": "weapon",
-        "image": "/assets/img/items/lorettas-war-sickle.webp"
+        "type": "weapon"
       },
       {
         "item_id": "lorettas-mastery",
-        "type": "spell",
-        "image": "/assets/img/items/lorettas-mastery.webp"
+        "type": "spell"
       }
     ]
   }

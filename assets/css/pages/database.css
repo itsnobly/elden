@@ -22,7 +22,7 @@
   z-index: -1;
   width: clamp(240px, 32vw, 430px);
   height: 115%;
-  background: url('/assets/img/images/radaganNBack.png') center / contain no-repeat;
+  background: url('/assets/img/images/radaganNBack.webp') center / contain no-repeat;
   content: '';
   opacity: 0.4;
   filter: brightness(0.8) saturate(0.72);

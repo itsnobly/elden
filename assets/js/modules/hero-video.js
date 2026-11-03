@@ -15,8 +15,6 @@ export function initHero() {
   const VIDEO_PATH = '/assets/video/';
 
   const videos = ['eldenfc3.mp4', 'eldenblue2.mp4'];
-  const selectableVideos = [...videos, 'elden-test-main.mp4'];
-
   const themes = {
     'elden-test-main.mp4': 'gold',
     'eldenfc3.mp4': 'blood',
@@ -39,7 +37,7 @@ export function initHero() {
   function readBanner() {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      return selectableVideos.includes(saved) ? saved : null;
+      return videos.includes(saved) ? saved : null;
     } catch {
       return null;
     }

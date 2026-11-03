@@ -18,7 +18,6 @@
     },
     "optional": true,
     "media": {
-      "image": "/assets/img/bosses/astel-naturalborn-of-the-void.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -36,8 +35,7 @@
     "rewards": [
       {
         "item_id": "remembrance-of-the-naturalborn",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-astel.webp"
+        "type": "remembrance"
       }
     ]
   },
@@ -58,7 +56,6 @@
     },
     "optional": true,
     "media": {
-      "image": "/assets/img/bosses/regal-ancestor-spirit.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -75,8 +72,7 @@
     "rewards": [
       {
         "item_id": "remembrance-of-the-regal-ancestor",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-regal-ancestor.webp"
+        "type": "remembrance"
       }
     ]
   },
@@ -97,7 +93,6 @@
     },
     "optional": true,
     "media": {
-      "image": "/assets/img/bosses/tree-sentinel.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -115,13 +110,11 @@
     "rewards": [
       {
         "item_id": "golden-halberd",
-        "type": "weapon",
-        "image": "/assets/img/items/golden-halberd.webp"
+        "type": "weapon"
       },
       {
         "item_id": "ash-of-war-golden-vow",
-        "type": "ash_of_war",
-        "image": "/assets/img/items/ash-of-war-golden-vow.webp"
+        "type": "ash_of_war"
       }
     ]
   },
@@ -144,7 +137,6 @@
     },
     "optional": true,
     "media": {
-      "image": "/assets/img/bosses/flying-dragon-agheel.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -162,8 +154,7 @@
     "rewards": [
       {
         "item_id": "dragon-heart",
-        "type": "material",
-        "image": "/assets/img/items/dragon-heart.webp"
+        "type": "material"
       }
     ]
   },
@@ -184,7 +175,6 @@
     },
     "optional": true,
     "media": {
-      "image": "/assets/img/bosses/bloodhound-knight-darriwil.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -201,8 +191,7 @@
     "rewards": [
       {
         "item_id": "bloodhound-fang",
-        "type": "weapon",
-        "image": "/assets/img/items/bloodhound-fang.webp"
+        "type": "weapon"
       }
     ]
   },
@@ -223,7 +212,6 @@
     },
     "optional": true,
     "media": {
-      "image": "/assets/img/bosses/nights-cavalry.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -240,8 +228,7 @@
     "rewards": [
       {
         "item_id": "ash-of-war-Repeating-Thrust",
-        "type": "ash_of_war",
-        "image": "/assets/img/items/ash-of-war-repeating-thrust.webp"
+        "type": "ash_of_war"
       }
     ]
   },
@@ -262,7 +249,6 @@
     },
     "optional": true,
     "media": {
-      "image": "/assets/img/bosses/bell-bearing-hunter.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -280,8 +266,7 @@
     "rewards": [
       {
         "item_id": "bone-peddler-bell-bearing",
-        "type": "material",
-        "image": "/assets/img/items/bell-bearing.webp"
+        "type": "material"
       }
     ]
   },
@@ -304,7 +289,6 @@
     },
     "optional": true,
     "media": {
-      "image": "/assets/img/bosses/magma-wyrm-makar.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -322,13 +306,11 @@
     "rewards": [
       {
         "item_id": "magma-wyrms-scalesword",
-        "type": "weapon",
-        "image": "/assets/img/items/magma-wyrms-scalesword.webp"
+        "type": "weapon"
       },
       {
         "item_id": "dragon-heart",
-        "type": "material",
-        "image": "/assets/img/items/dragon-heart.webp"
+        "type": "material"
       }
     ]
   },
@@ -349,7 +331,6 @@
     },
     "optional": true,
     "media": {
-      "image": "/assets/img/bosses/elemer-of-the-briar.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -367,13 +348,11 @@
     "rewards": [
       {
         "item_id": "marais-executioners-sword",
-        "type": "weapon",
-        "image": "/assets/img/items/marais-executioners-sword.webp"
+        "type": "weapon"
       },
       {
         "item_id": "briar-set",
-        "type": "armor",
-        "image": "/assets/img/items/briar-set.webp"
+        "type": "armor"
       }
     ]
   },
@@ -396,7 +375,6 @@
     },
     "optional": true,
     "media": {
-      "image": "/assets/img/bosses/commander-oneil.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -414,13 +392,11 @@
     "rewards": [
       {
         "item_id": "veterans-prosthesis",
-        "type": "weapon",
-        "image": "/assets/img/items/veterans-prosthesis.webp"
+        "type": "weapon"
       },
       {
         "item_id": "unalloyed-gold-needle",
-        "type": "quest_item",
-        "image": "/assets/img/items/unalloyed-gold-needle.webp"
+        "type": "quest_item"
       }
     ]
   },
@@ -441,7 +417,6 @@
     },
     "optional": true,
     "media": {
-      "image": "/assets/img/bosses/eleonora-violet-bloody-finger.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -458,13 +433,11 @@
     "rewards": [
       {
         "item_id": "eleonoras-poleblade",
-        "type": "weapon",
-        "image": "/assets/img/items/eleonoras-poleblade.webp"
+        "type": "weapon"
       },
       {
         "item_id": "purifying-crystal-tear",
-        "type": "material",
-        "image": "/assets/img/items/crystal-tear.webp"
+        "type": "material"
       }
     ]
   },
@@ -485,7 +458,6 @@
     },
     "optional": true,
     "media": {
-      "image": "/assets/img/bosses/black-knife-assassin.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -502,8 +474,7 @@
     "rewards": [
       {
         "item_id": "concealing-veil",
-        "type": "talisman",
-        "image": "/assets/img/items/talisman.webp"
+        "type": "talisman"
       }
     ]
   },
@@ -526,7 +497,6 @@
     },
     "optional": true,
     "media": {
-      "image": "/assets/img/bosses/death-rite-bird.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -544,8 +514,7 @@
     "rewards": [
       {
         "item_id": "deaths-poker",
-        "type": "weapon",
-        "image": "/assets/img/items/deaths-poker.webp"
+        "type": "weapon"
       }
     ]
   },
@@ -568,7 +537,6 @@
     },
     "optional": true,
     "media": {
-      "image": "/assets/img/bosses/putrid-avatar.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -586,8 +554,7 @@
     "rewards": [
       {
         "item_id": "greenspill-crystal-tear",
-        "type": "material",
-        "image": "/assets/img/items/crystal-tear.webp"
+        "type": "material"
       }
     ]
   },
@@ -608,7 +575,6 @@
     },
     "optional": true,
     "media": {
-      "image": "/assets/img/bosses/ulcerated-tree-spirit.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -626,8 +592,7 @@
     "rewards": [
       {
         "item_id": "seed-bed-curse",
-        "type": "quest_item",
-        "image": "/assets/img/items/seedbed-curse.webp"
+        "type": "quest_item"
       }
     ]
   }

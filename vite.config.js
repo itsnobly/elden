@@ -1,4 +1,4 @@
-import { copyFile, mkdir } from 'node:fs/promises';
+import { copyFile, cp, mkdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
@@ -12,6 +12,7 @@ const bossDataFiles = [
   'ru.json',
   'items.json',
   'difficulty.json',
+  'quotesBoss.json',
 ];
 
 export default defineConfig({
@@ -28,12 +29,23 @@ export default defineConfig({
         const outputDirectory = resolve(projectRoot, 'dist/data');
         await mkdir(outputDirectory, { recursive: true });
         await Promise.all(
-          bossDataFiles.map((file) =>
-            copyFile(
-              resolve(projectRoot, 'data', file),
-              resolve(outputDirectory, file),
+          [
+            ...bossDataFiles.map((file) =>
+              copyFile(
+                resolve(projectRoot, 'data', file),
+                resolve(outputDirectory, file),
+              ),
             ),
-          ),
+            cp(
+              resolve(projectRoot, 'assets/video'),
+              resolve(projectRoot, 'dist/assets/video'),
+              { recursive: true },
+            ),
+            copyFile(
+              resolve(projectRoot, 'favicon.ico'),
+              resolve(projectRoot, 'dist/favicon.ico'),
+            ),
+          ],
         );
       },
     },
@@ -43,6 +55,7 @@ export default defineConfig({
       input: {
         main: resolve(projectRoot, 'index.html'),
         bosses: resolve(projectRoot, 'pages/bosses/bosses.html'),
+        bossesLegacy: resolve(projectRoot, 'pages/bosses.html'),
         boss: resolve(projectRoot, 'pages/bosses/boss.html'),
         classes: resolve(projectRoot, 'pages/guide/classes.html'),
         class: resolve(projectRoot, 'pages/guide/class.html'),

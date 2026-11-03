@@ -131,16 +131,16 @@ select,
 summary,
 .boss-card:not(.boss-card--skeleton),
 .boss-entry__artwork {
-  cursor: url('../img/cursors/pointer.cur'), pointer;
+  cursor: url('../img/cursors/pointer.cur'), pointer !important;
 }
 .modal {
-  cursor: url('../img/cursors/cur.cur'), auto;
+  cursor: url('../img/cursors/cur.cur'), auto !important;
 }
 
 .modal button,
 .modal a,
 .modal [role='button'] {
-  cursor: url('../img/cursors/pointer.cur'), pointer;
+  cursor: url('../img/cursors/pointer.cur'), pointer !important;
 }
 
 .modal input,

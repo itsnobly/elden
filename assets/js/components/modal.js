@@ -3,7 +3,7 @@
 // только на главной, поэтому слушаем клики на всём документе.
 const modal = document.getElementById('modal');
 const modalClose = document.getElementById('modal__close-btn');
-const open = document.getElementById('open__modal');
+const openButtons = document.querySelectorAll('#open__modal, [data-open-contact]');
 const gameModal = document.getElementById('game-modal');
 const gameClose = document.getElementById('game-modal-close');
 
@@ -31,7 +31,7 @@ const openModal = () => {
   syncBodyScroll();
 };
 
-open?.addEventListener('click', openModal);
+openButtons.forEach((button) => button.addEventListener('click', openModal));
 modalClose?.addEventListener('click', closeModal);
 
 modal?.addEventListener('click', (event) => {

@@ -13,7 +13,7 @@
   background:
     linear-gradient(90deg, var(--bg-dark) 4%, rgba(10, 9, 7, 0.88) 54%, rgba(10, 9, 7, 0.42)),
     linear-gradient(0deg, var(--bg-dark), transparent 60%),
-    url('/assets/img/images/radaganNBack.png') 78% 28% / auto 135% no-repeat,
+    url('/assets/img/images/radaganNBack.webp') 78% 28% / auto 135% no-repeat,
     var(--bg-dark);
 }
 

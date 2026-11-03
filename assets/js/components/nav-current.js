@@ -27,7 +27,7 @@ function setupMobileNavigation() {
   toggle.dataset.menuBound = 'true';
   toggle.addEventListener('click', toggleMenu);
   links.addEventListener('click', (event) => {
-    if (event.target.closest('a')) closeMenu();
+    if (event.target.closest('a, [data-open-contact]')) closeMenu();
   });
   document.addEventListener('click', (event) => {
     if (!nav.contains(event.target)) closeMenu();

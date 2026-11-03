@@ -13,7 +13,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/messmer-the-impaler.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -39,13 +38,11 @@
     "rewards": [
       {
         "item_id": "remembrance-of-the-impaler",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-of-the-impaler.webp"
+        "type": "remembrance"
       },
       {
         "item_id": "messmers-kindling",
-        "type": "key_item",
-        "image": "/assets/img/items/messmers-kindling.webp"
+        "type": "key_item"
       }
     ],
     "data_quality": {
@@ -73,7 +70,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/divine-beast-dancing-lion.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -91,8 +87,7 @@
     "rewards": [
       {
         "item_id": "remembrance-of-the-dancing-lion",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-dancing-lion.webp"
+        "type": "remembrance"
       }
     ]
   },
@@ -113,7 +108,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/rellana-twin-moon-knight.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -140,8 +134,7 @@
     "rewards": [
       {
         "item_id": "remembrance-of-the-twin-moon-knight",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-rellana.webp"
+        "type": "remembrance"
       }
     ]
   },
@@ -162,7 +155,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/commander-gaius.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -180,8 +172,7 @@
     "rewards": [
       {
         "item_id": "remembrance-of-the-boar-rider",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-gaius.webp"
+        "type": "remembrance"
       }
     ]
   },
@@ -204,7 +195,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/putrescent-knight.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -222,8 +212,7 @@
     "rewards": [
       {
         "item_id": "remembrance-of-putrescence",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-putrescent.webp"
+        "type": "remembrance"
       }
     ]
   },
@@ -244,7 +233,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/metyr-mother-of-fingers.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -262,8 +250,7 @@
     "rewards": [
       {
         "item_id": "remembrance-of-the-mother-of-fingers",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-metyr.webp"
+        "type": "remembrance"
       }
     ]
   },
@@ -284,7 +271,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/scadutree-avatar.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -302,8 +288,7 @@
     "rewards": [
       {
         "item_id": "remembrance-of-the-shadow-sunflower",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-sunflower.webp"
+        "type": "remembrance"
       }
     ]
   },
@@ -326,7 +311,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/bayle-the-dread.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -344,8 +328,7 @@
     "rewards": [
       {
         "item_id": "remembrance-of-the-dread",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-bayle.webp"
+        "type": "remembrance"
       }
     ]
   },
@@ -368,7 +351,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/midra-lord-of-frenzied-flame.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -394,8 +376,7 @@
     "rewards": [
       {
         "item_id": "remembrance-of-the-lord-of-frenzied-flame",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-midra.webp"
+        "type": "remembrance"
       }
     ]
   },
@@ -418,7 +399,6 @@
     },
     "optional": false,
     "media": {
-      "image": "/assets/img/bosses/promised-consort-radahn.webp",
       "cutscene_youtube_id": ""
     },
     "phases": [
@@ -446,8 +426,7 @@
     "rewards": [
       {
         "item_id": "remembrance-of-a-god-and-a-lord",
-        "type": "remembrance",
-        "image": "/assets/img/items/remembrance-radahn-dlc.webp"
+        "type": "remembrance"
       }
     ]
   }
