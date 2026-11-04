@@ -2,6 +2,7 @@ import { getLang, t } from '../utils/i18n.js';
 
 const API_ROOT = 'https://eldenring.fanapis.com/api';
 const PAGE_SIZE = 16;
+const FETCH_TIMEOUT = 8000;
 const CACHE_TTL = 7 * 24 * 60 * 60 * 1000;
 
 function localizedValue(value) {
@@ -28,7 +29,12 @@ const CATEGORIES = {
       [
         localizedValue(item.category),
         item.weight != null ? `${t('Weight')} ${item.weight}` : '',
-        formatStats(item.dmgNegation, 'amount', ['Phy', 'Magic', 'Fire', 'Holy']),
+        formatStats(item.dmgNegation, 'amount', [
+          'Phy',
+          'Magic',
+          'Fire',
+          'Holy',
+        ]),
         formatStats(item.resistance, 'amount', ['Poise']),
       ]
         .filter(Boolean)
@@ -94,7 +100,9 @@ function formatStats(values, valueKey, selectedNames) {
 
 function readCache(category) {
   try {
-    const saved = JSON.parse(localStorage.getItem(`er:database:v1:${category}`));
+    const saved = JSON.parse(
+      localStorage.getItem(`er:database:v1:${category}`),
+    );
     if (
       saved &&
       Date.now() - saved.time < CACHE_TTL &&
@@ -132,7 +140,15 @@ function stateFor(category) {
       category,
       cached
         ? { ...cached, loading: false, error: null, request: null }
-        : { time: Date.now(), page: 0, total: 0, data: [], loading: false, error: null, request: null },
+        : {
+            time: Date.now(),
+            page: 0,
+            total: 0,
+            data: [],
+            loading: false,
+            error: null,
+            request: null,
+          },
     );
   }
   return states.get(category);
@@ -150,7 +166,19 @@ async function fetchPage(category, page, signal) {
   const endpoints = CATEGORIES[category].endpoint;
   const responses = await Promise.all(
     endpoints.map(async (endpoint) => {
-      const response = await fetch(makeApiUrl(endpoint, page), { signal });
+      const timeout = new AbortController();
+      const timer = setTimeout(() => timeout.abort(), FETCH_TIMEOUT);
+      const onAbort = () => timeout.abort();
+      signal.addEventListener('abort', onAbort, { once: true });
+      let response;
+      try {
+        response = await fetch(makeApiUrl(endpoint, page), {
+          signal: timeout.signal,
+        });
+      } finally {
+        clearTimeout(timer);
+        signal.removeEventListener('abort', onAbort);
+      }
       if (!response.ok)
         throw new Error(`${endpoint} API returned HTTP ${response.status}`);
       const result = await response.json();
@@ -161,7 +189,10 @@ async function fetchPage(category, page, signal) {
   );
   return {
     data: responses.flatMap((response) => response.data),
-    total: responses.reduce((sum, response) => sum + Number(response.total || 0), 0),
+    total: responses.reduce(
+      (sum, response) => sum + Number(response.total || 0),
+      0,
+    ),
   };
 }
 
@@ -222,7 +253,9 @@ function createItemCard(item, category) {
   const art = createText(
     'span',
     'database-item__art',
-    String(item.name || '?').slice(0, 1).toUpperCase(),
+    String(item.name || '?')
+      .slice(0, 1)
+      .toUpperCase(),
   );
   if (typeof item.image === 'string') {
     try {
@@ -320,7 +353,9 @@ function renderCategory(panel) {
           .map((item) => String(item.category ?? '').trim())
           .filter(Boolean),
       ),
-    ].sort((a, b) => localizedValue(a).localeCompare(localizedValue(b), getLang()));
+    ].sort((a, b) =>
+      localizedValue(a).localeCompare(localizedValue(b), getLang()),
+    );
     const options = [createText('option', '', t('All weapon types'))];
     options[0].value = 'all';
     categories.forEach((value) => {
@@ -344,16 +379,24 @@ function renderCategory(panel) {
     );
   });
 
-  list.replaceChildren(...filtered.map((item) => createItemCard(item, category)));
+  list.replaceChildren(
+    ...filtered.map((item) => createItemCard(item, category)),
+  );
   if (state.error) {
-    status.replaceChildren(document.createTextNode(`${t('Could not load catalog data.')} `));
+    status.replaceChildren(
+      document.createTextNode(`${t('Could not load catalog data.')} `),
+    );
     const retry = createText('button', 'database-retry', t('Retry'));
     retry.type = 'button';
     retry.dataset.databaseRetry = '';
     status.append(retry);
   } else if (state.loading && !state.data.length) {
     status.textContent = t('Loading catalog entries…');
-  } else if (query && filtered.length === 0 && state.data.length < state.total) {
+  } else if (
+    query &&
+    filtered.length === 0 &&
+    state.data.length < state.total
+  ) {
     status.textContent =
       getLang() === 'ru'
         ? `Среди загруженных записей нет совпадений с «${panel.querySelector('[data-database-search]').value}». Загрузите ещё, чтобы продолжить поиск.`
@@ -375,13 +418,15 @@ function renderCategory(panel) {
   more.hidden = state.data.length >= state.total;
   more.disabled = state.loading;
   if (state.loading && state.data.length) more.textContent = t('Loading…');
-  else more.textContent = `${t('Load more')} ${panel.querySelector('h2').textContent}`;
+  else
+    more.textContent = `${t('Load more')} ${panel.querySelector('h2').textContent}`;
 }
 
 async function loadCategory(panel) {
   const category = panel.dataset.dbCategory;
   const state = stateFor(category);
-  if (state.loading || state.data.length >= state.total && state.page > 0) return;
+  if (state.loading || (state.data.length >= state.total && state.page > 0))
+    return;
 
   const controller = new AbortController();
   controllers.add(controller);
@@ -400,7 +445,7 @@ async function loadCategory(panel) {
     state.time = Date.now();
     writeCache(category, state);
   } catch (error) {
-    if (error.name !== 'AbortError') {
+    if (!controller.signal.aborted) {
       console.error(`Failed to load ${category} database entries.`, error);
       state.error = error;
     }
@@ -414,7 +459,9 @@ async function loadCategory(panel) {
 
 function setActiveCategory(id) {
   const tabs = rootElement.querySelectorAll('.database-tabs a');
-  const panels = rootElement.querySelectorAll('[data-db-category], .database-map');
+  const panels = rootElement.querySelectorAll(
+    '[data-db-category], .database-map',
+  );
   const panel = rootElement.querySelector(`#${CSS.escape(id)}`);
   if (!panel || ![...panels].includes(panel)) return;
 
@@ -439,7 +486,9 @@ function onHashChange() {
   setActiveCategory(id || 'weapons');
 }
 
-export function mount(root = document.querySelector('#page[data-page="database"]')) {
+export function mount(
+  root = document.querySelector('#page[data-page="database"]'),
+) {
   rootElement = root;
   if (!rootElement) return;
 
@@ -448,7 +497,8 @@ export function mount(root = document.querySelector('#page[data-page="database"]
     if (tab && rootElement.contains(tab)) {
       event.preventDefault();
       const id = tab.hash.slice(1);
-      if (location.hash !== tab.hash) history.pushState(history.state, '', tab.hash);
+      if (location.hash !== tab.hash)
+        history.pushState(history.state, '', tab.hash);
       setActiveCategory(id);
       activePanel.scrollIntoView({
         behavior: matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -459,15 +509,19 @@ export function mount(root = document.querySelector('#page[data-page="database"]
       return;
     }
 
-    const button = event.target.closest('[data-database-more], [data-database-retry]');
+    const button = event.target.closest(
+      '[data-database-more], [data-database-retry]',
+    );
     if (!button || !rootElement.contains(button)) return;
     const panel = button.closest('[data-db-category]');
     if (panel) loadCategory(panel);
   };
+  let searchTimer;
   const onInput = (event) => {
     if (event.target.matches('[data-database-search]')) {
       const panel = event.target.closest('[data-db-category]');
-      if (panel) renderCategory(panel);
+      clearTimeout(searchTimer);
+      if (panel) searchTimer = setTimeout(() => renderCategory(panel), 250);
     }
   };
   const onChange = (event) => {
@@ -488,6 +542,7 @@ export function mount(root = document.querySelector('#page[data-page="database"]
   onHashChange();
 
   return () => {
+    clearTimeout(searchTimer);
     rootElement.removeEventListener('click', onClick);
     rootElement.removeEventListener('input', onInput);
     rootElement.removeEventListener('change', onChange);
