@@ -98,6 +98,7 @@ export const SITE_RU = {
   Music: 'Музыка',
   Database: 'База данных',
   Contact: 'Контакты',
+  'Touch grace': 'Коснуться благодати',
   Weapons: 'Оружие',
   Armor: 'Броня',
   Talismans: 'Талисманы',
