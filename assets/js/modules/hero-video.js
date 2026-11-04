@@ -37,19 +37,8 @@ export function initHero() {
 
   let isActive = true;
   let isHeroVisible = !('IntersectionObserver' in window);
-  let videoStarted = false;
-  let startWhenVisible = false;
-  let idleHandle = null;
-  let startupTimer = null;
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const saveData = navigator.connection?.saveData === true;
-
-  const cancelStartup = () => {
-    if (idleHandle !== null) window.cancelIdleCallback(idleHandle);
-    if (startupTimer !== null) window.clearTimeout(startupTimer);
-    idleHandle = null;
-    startupTimer = null;
-  };
+  let selectedVideo;
+  const poster = document.querySelector('.main__poster');
 
   // Запоминаем выбранный баннер в браузере, чтобы при следующем заходе он остался
   function saveBanner(videoName) {
@@ -106,8 +95,7 @@ export function initHero() {
     isHeroVisible = entry.isIntersecting && entry.intersectionRatio >= 0.1;
 
     if (isHeroVisible) {
-      if (startWhenVisible) startVideo();
-      else playHeroVideo();
+      playHeroVideo();
     } else {
       video.pause();
       standbyVideo.pause();
@@ -146,7 +134,6 @@ export function initHero() {
   async function switchVideo(videoName) {
     const newVideo = `${VIDEO_PATH}${videoName}`;
     if (video.src.endsWith(newVideo)) return;
-    cancelStartup();
     const request = ++videoRequest;
     cancelPendingLoad?.();
 
@@ -172,6 +159,10 @@ export function initHero() {
       ) {
         console.error('Не удалось воспроизвести видео:', error);
       }
+      if (error.name === 'NotAllowedError') {
+        video.muted = true;
+        updateSound();
+      }
       return;
     }
 
@@ -183,7 +174,9 @@ export function initHero() {
     const previousVideo = video;
     video = candidate;
     standbyVideo = previousVideo;
+    selectedVideo = videoName;
     updateVideoSelection(videoName);
+    poster?.classList.add('is-hidden');
     video.classList.remove('is-hidden');
     standbyVideo.classList.add('is-hidden');
     standbyVideo.pause();
@@ -204,7 +197,11 @@ export function initHero() {
       video.muted = false;
 
       try {
-        if (isHeroVisible && !document.hidden) await video.play();
+        if (!video.src) {
+          await switchVideo(selectedVideo);
+        } else if (isHeroVisible && !document.hidden) {
+          await video.play();
+        }
       } catch (error) {
         video.muted = true;
         if (error.name !== 'AbortError' && error.name !== 'NotAllowedError') {
@@ -220,38 +217,9 @@ export function initHero() {
   soundToggle.addEventListener('click', onSoundToggle);
 
   const savedBanner = readBanner();
-  const initialVideo = savedBanner ?? videos[0];
+  selectedVideo = savedBanner ?? videos[0];
   video.loop = true;
-  updateVideoSelection(initialVideo);
-  function startVideo() {
-    idleHandle = null;
-    startupTimer = null;
-    if (!isActive || document.hidden) return;
-    if (!isHeroVisible) {
-      startWhenVisible = true;
-      return;
-    }
-    startWhenVisible = false;
-    if (videoStarted) {
-      playHeroVideo();
-      return;
-    }
-    videoStarted = true;
-    video.src = `${VIDEO_PATH}${initialVideo}`;
-    video.load();
-    playHeroVideo();
-  }
-
-  if (!reduceMotion && !saveData) {
-    startupTimer = window.setTimeout(() => {
-      startupTimer = null;
-      if ('requestIdleCallback' in window) {
-        idleHandle = window.requestIdleCallback(startVideo, { timeout: 1500 });
-      } else {
-        startVideo();
-      }
-    }, 800);
-  }
+  updateVideoSelection(selectedVideo);
 
   const onDocumentVisibilityChange = () => {
     if (document.hidden) {
@@ -266,7 +234,6 @@ export function initHero() {
   return () => {
     isActive = false;
     videoRequest += 1;
-    cancelStartup();
     cancelPendingLoad?.();
     heroObserver?.disconnect();
     document.removeEventListener('visibilitychange', onDocumentVisibilityChange);

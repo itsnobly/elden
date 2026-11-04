@@ -10,6 +10,7 @@
   background: #080807;
 }
 
+.main__poster,
 .main__video {
   position: absolute;
   inset: 0;
@@ -20,6 +21,7 @@
   object-position: center 40%;
 }
 
+.main__poster.is-hidden,
 .main__video.is-hidden {
   visibility: hidden;
 }
@@ -126,6 +128,7 @@ html[lang='ru'] .main__content h2 {
     min-height: 82svh;
   }
 
+  .main__poster,
   .main__video {
     object-position: 68% 42%;
   }
