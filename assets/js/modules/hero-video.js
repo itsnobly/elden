@@ -39,6 +39,10 @@ export function initHero() {
   let isHeroVisible = !('IntersectionObserver' in window);
   let selectedVideo;
   const poster = document.querySelector('.main__poster');
+  const reduceMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)',
+  ).matches;
+  const saveData = navigator.connection?.saveData === true;
 
   // Запоминаем выбранный баннер в браузере, чтобы при следующем заходе он остался
   function saveBanner(videoName) {
@@ -95,7 +99,8 @@ export function initHero() {
     isHeroVisible = entry.isIntersecting && entry.intersectionRatio >= 0.1;
 
     if (isHeroVisible) {
-      playHeroVideo();
+      if (!video.src) startAutoVideo();
+      else playHeroVideo();
     } else {
       video.pause();
       standbyVideo.pause();
@@ -220,6 +225,14 @@ export function initHero() {
   selectedVideo = savedBanner ?? videos[0];
   video.loop = true;
   updateVideoSelection(selectedVideo);
+
+  function startAutoVideo() {
+    if (!isActive || reduceMotion || saveData || video.src || !isHeroVisible)
+      return;
+    void switchVideo(selectedVideo);
+  }
+
+  startAutoVideo();
 
   const onDocumentVisibilityChange = () => {
     if (document.hidden) {
