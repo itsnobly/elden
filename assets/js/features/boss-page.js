@@ -1,13 +1,9 @@
-/*
- * boss-page.js — страница одного босса (/pages/bosses/boss.html?id=godrick-the-grafted).
- * Заменяет прежнюю модалку: у каждого босса своя ссылка, её можно
- * скопировать, открыть в новой вкладке и вернуться кнопкой «назад».
- */
 import { loadBosses, tierOf, videoIdOf } from '../modules/characters.js';
 import { escapeHtml } from '../utils/html.js';
 import { t, getLang, statLabel } from '../utils/i18n.js';
 import { localizeBossText } from '../utils/boss-localization.js';
 import { changeDeaths, getDeaths } from '../utils/deaths.js';
+import { bossImageNow, fillBossImages } from '../modules/boss-images.js';
 
 let data;
 let root;
@@ -19,7 +15,10 @@ const href = (id) => `/pages/bosses/boss.html?id=${encodeURIComponent(id)}`;
 function chips(values) {
   if (!values?.length) return escapeHtml(t('unknown'));
   return `<span class="boss-page__chips">${values
-    .map((value) => `<span class="boss-page__chip">${escapeHtml(statLabel(value))}</span>`)
+    .map(
+      (value) =>
+        `<span class="boss-page__chip">${escapeHtml(statLabel(value))}</span>`,
+    )
     .join('')}</span>`;
 }
 
@@ -52,7 +51,9 @@ function render() {
 
   const phases = (boss.phases ?? []).map((phase, i) => {
     const tr = ru.phases[i] ?? {};
-    const title = ruMode ? `${t('phase')} ${phase.phase}` : (phase.title_en ?? `${t('phase')} ${phase.phase}`);
+    const title = ruMode
+      ? `${t('phase')} ${phase.phase}`
+      : (phase.title_en ?? `${t('phase')} ${phase.phase}`);
     return `
       <li class="boss-page__phase">
         <h3>${escapeHtml(title)}</h3>
@@ -77,12 +78,30 @@ function render() {
 
   const facts = [
     [t('category'), category ? t(category.label) : '—'],
-    [t('region'), escapeHtml(localizeBossText(boss.region ?? t('unknown'), lang))],
-    [t('location'), escapeHtml(localizeBossText(boss.location ?? t('unknown'), lang))],
-    ['HP', boss.hp == null ? escapeHtml(t('notConfirmed')) : escapeHtml(boss.hp.toLocaleString(ruMode ? 'ru-RU' : 'en-US'))],
-    [t('parry'), boss.stats?.parryable == null ? '—' : escapeHtml(boss.stats.parryable ? t('yes') : t('no'))],
+    [
+      t('region'),
+      escapeHtml(localizeBossText(boss.region ?? t('unknown'), lang)),
+    ],
+    [
+      t('location'),
+      escapeHtml(localizeBossText(boss.location ?? t('unknown'), lang)),
+    ],
+    [
+      'HP',
+      boss.hp == null
+        ? escapeHtml(t('notConfirmed'))
+        : escapeHtml(boss.hp.toLocaleString(ruMode ? 'ru-RU' : 'en-US')),
+    ],
+    [
+      t('parry'),
+      boss.stats?.parryable == null
+        ? '—'
+        : escapeHtml(boss.stats.parryable ? t('yes') : t('no')),
+    ],
     [t('weakTo'), chips(boss.stats?.weakness)],
-    ...(boss.stats?.immunity?.length ? [[t('immune'), chips(boss.stats.immunity)]] : []),
+    ...(boss.stats?.immunity?.length
+      ? [[t('immune'), chips(boss.stats.immunity)]]
+      : []),
     ...(boss.optional ? [[t('optional'), escapeHtml(t('yes'))]] : []),
   ];
 
@@ -98,7 +117,7 @@ function render() {
           <aside class="boss-page__media">
             <div class="boss-page__art">
               <span class="boss-entry__placeholder" aria-hidden="true"><span class="boss-entry__placeholder-mark">✦</span></span>
-              ${boss.media?.image ? `<img class="boss-entry__image" src="${escapeHtml(boss.media.image)}" alt="${escapeHtml(name)}" decoding="async" />` : ''}
+              <img class="boss-entry__image" data-boss-img="${escapeHtml(boss.id)}" ${bossImageNow(boss) ? `src="${escapeHtml(bossImageNow(boss))}"` : 'hidden'} alt="${escapeHtml(name)}" decoding="async" />
               <span class="boss-entry__tier" title="${escapeHtml(t('difficulty'))}">${tier}</span>
             </div>
           </aside>
@@ -121,12 +140,16 @@ function render() {
             ${ruMode && ru.description ? `<p>${escapeHtml(ru.description)}</p>` : ''}
             ${ruMode && ru.lore ? `<h2>${escapeHtml(t('lore'))}</h2><p class="boss-page__lore">${escapeHtml(ru.lore)}</p>` : ''}
 
-            ${videoId ? `
+            ${
+              videoId
+                ? `
               <h2>${escapeHtml(t('cutscene'))}</h2>
               <button class="boss-page__video" type="button" data-video="${escapeHtml(videoId)}" aria-label="${escapeHtml(t('playVideo'))}">
                 <img src="https://i.ytimg.com/vi/${escapeHtml(videoId)}/hqdefault.jpg" alt="" loading="lazy" />
                 <span class="boss-page__play" aria-hidden="true">▶</span>
-              </button>` : ''}
+              </button>`
+                : ''
+            }
 
             ${phases.length ? `<h2>${escapeHtml(t('phases'))}</h2><ol class="boss-page__phases">${phases.join('')}</ol>` : ''}
             ${ruMode && ru.tips.length ? `<h2>${escapeHtml(t('tips'))}</h2><ul class="boss-page__list">${ru.tips.map((tip) => `<li>${escapeHtml(tip)}</li>`).join('')}</ul>` : ''}
@@ -140,6 +163,7 @@ function render() {
         </nav>
       </div>
     </article>`;
+  fillBossImages(root, data.byId);
 }
 
 function on(target, type, handler, options) {

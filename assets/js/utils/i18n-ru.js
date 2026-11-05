@@ -19,6 +19,7 @@ export const DICT_RU = {
   bosses: 'боссов',
   difficulty: 'Сложность',
   whyTier: 'Почему этот ранг',
+  hardestBoss: 'Самый сложный босс',
   details: 'Подробнее',
   unknown: 'Неизвестно',
   notConfirmed: 'Нет данных',

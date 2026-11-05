@@ -1,14 +1,14 @@
-/*
- * bosses-page.js — список боссов (/pages/bosses/bosses.html).
- * Страница сама строит свою разметку внутри <main id="boss-root">.
- * Клик по боссу — обычная ссылка на /pages/bosses/boss.html?id=..., без модалок.
- * Данные и тексты — в modules/characters.js и utils/i18n.js.
- */
-import { loadBosses, tierOf, locationKey, TIERS } from '../modules/characters.js';
+import {
+  loadBosses,
+  tierOf,
+  locationKey,
+  TIERS,
+} from '../modules/characters.js';
 import { escapeHtml, normalizeText } from '../utils/html.js';
 import { t, getLang } from '../utils/i18n.js';
 import { localizeBossText } from '../utils/boss-localization.js';
 import { changeDeaths, getDeaths } from '../utils/deaths.js';
+import { bossImageNow, fillBossImages } from '../modules/boss-images.js';
 
 const PAGE_SIZE = 12;
 const state = { category: 'all', tier: '', location: '', query: '', page: 0 };
@@ -61,7 +61,9 @@ function shell() {
 const categoryBosses = () =>
   state.category === 'all'
     ? data.sorted
-    : data.sorted.filter((boss) => data.categoryOf.get(boss.id)?.id === state.category);
+    : data.sorted.filter(
+        (boss) => data.categoryOf.get(boss.id)?.id === state.category,
+      );
 
 function filter(withTier = true) {
   const words = normalizeText(state.query).split(' ').filter(Boolean);
@@ -74,7 +76,8 @@ function filter(withTier = true) {
   });
 }
 
-const bossName = (boss) => (getLang() === 'ru' ? (data.ru(boss.id).name ?? boss.name_en) : boss.name_en);
+const bossName = (boss) =>
+  getLang() === 'ru' ? (data.ru(boss.id).name ?? boss.name_en) : boss.name_en;
 const placeOf = (boss) => {
   const lang = getLang();
   return `${localizeBossText(boss.region ?? t('unknown'), lang)} — ${localizeBossText(boss.location ?? t('unknown'), lang)}`;
@@ -97,7 +100,10 @@ function renderTexts() {
 }
 
 function renderCategories() {
-  refs.categories.innerHTML = [{ id: 'all', label: 'catAll', bosses: data.all }, ...data.categories]
+  refs.categories.innerHTML = [
+    { id: 'all', label: 'catAll', bosses: data.all },
+    ...data.categories,
+  ]
     .map(
       (category) => `
         <button class="bosses__category${state.category === category.id ? ' is-active' : ''}"
@@ -125,10 +131,13 @@ function renderTiers() {
 
 function renderLocations() {
   const places = new Map();
-  for (const boss of categoryBosses()) places.set(locationKey(boss), placeOf(boss));
+  for (const boss of categoryBosses())
+    places.set(locationKey(boss), placeOf(boss));
   if (state.location && !places.has(state.location)) state.location = '';
 
-  refs.location.value = locationOpen ? locationQuery : (places.get(state.location) ?? '');
+  refs.location.value = locationOpen
+    ? locationQuery
+    : (places.get(state.location) ?? '');
   refs.location.setAttribute('aria-expanded', String(locationOpen));
   refs.options.hidden = !locationOpen;
   if (!locationOpen) return;
@@ -151,17 +160,19 @@ function cardHtml(boss) {
   const tier = tierOf(boss);
   const lang = getLang();
   const reason = data.difficulty[boss.id]?.[lang] ?? '';
-  const image = boss.media?.image;
+  const image = bossImageNow(boss);
+  const isMalenia = boss.id === 'malenia-blade-of-miquella';
   const deaths = getDeaths(boss.id);
   const href = `/pages/bosses/boss.html?id=${encodeURIComponent(boss.id)}`;
   return `
-    <article class="boss-entry${deaths ? ' has-deaths' : ''}" data-boss-id="${escapeHtml(boss.id)}">
+    <article class="boss-entry${deaths ? ' has-deaths' : ''}${isMalenia ? ' boss-entry--malenia' : ''}" data-boss-id="${escapeHtml(boss.id)}">
       <a class="boss-entry__artwork" href="${href}" aria-label="${escapeHtml(`${t('details')}: ${bossName(boss)}`)}">
         <span class="boss-entry__placeholder" aria-hidden="true"><span class="boss-entry__placeholder-mark">✦</span></span>
-        ${image ? `<img class="boss-entry__image" src="${escapeHtml(image)}" alt="" loading="lazy" decoding="async" />` : ''}
+        <img class="boss-entry__image" data-boss-img="${escapeHtml(boss.id)}" ${image ? `src="${escapeHtml(image)}"` : 'hidden'} alt="" loading="lazy" decoding="async" />
         <span class="boss-entry__artwork-shade" aria-hidden="true"></span>
         <span class="boss-entry__tier" aria-hidden="true">${tier}</span>
         <span class="boss-entry__caption">
+          ${isMalenia ? `<span class="boss-entry__distinction">${escapeHtml(t('hardestBoss'))}</span>` : ''}
           <span class="boss-entry__name">${escapeHtml(bossName(boss))}</span>
           <span class="boss-entry__location">${escapeHtml(placeOf(boss))}</span>
         </span>
@@ -203,14 +214,22 @@ function renderPagination(totalPages) {
     return;
   }
   const shown = new Set([0, totalPages - 1]);
-  for (let p = Math.max(0, state.page - 1); p <= Math.min(totalPages - 1, state.page + 1); p += 1) shown.add(p);
+  for (
+    let p = Math.max(0, state.page - 1);
+    p <= Math.min(totalPages - 1, state.page + 1);
+    p += 1
+  )
+    shown.add(p);
 
   const parts = [
     `<button type="button" data-page="${state.page - 1}" ${state.page === 0 ? 'disabled' : ''} aria-label="${escapeHtml(t('prevPage'))}">‹</button>`,
   ];
   let previous = -1;
   for (const page of [...shown].sort((a, b) => a - b)) {
-    if (previous >= 0 && page - previous > 1) parts.push('<span class="pagination__ellipsis" aria-hidden="true">…</span>');
+    if (previous >= 0 && page - previous > 1)
+      parts.push(
+        '<span class="pagination__ellipsis" aria-hidden="true">…</span>',
+      );
     parts.push(
       `<button type="button" data-page="${page}" class="${page === state.page ? 'active' : ''}" ${page === state.page ? 'aria-current="page"' : ''} aria-label="${escapeHtml(t('page'))} ${page + 1}">${page + 1}</button>`,
     );
@@ -236,13 +255,24 @@ function render({ force = false } = {}) {
   refs.message.hidden = filtered.length !== 0;
   refs.message.textContent = filtered.length ? '' : t('noResults');
 
-  const key = [getLang(), state.category, state.tier, state.location, state.query, state.page].join('|');
+  const key = [
+    getLang(),
+    state.category,
+    state.tier,
+    state.location,
+    state.query,
+    state.page,
+  ].join('|');
   if (force || key !== lastResultsKey) {
     lastResultsKey = key;
-    const pageBosses = filtered.slice(state.page * PAGE_SIZE, (state.page + 1) * PAGE_SIZE);
+    const pageBosses = filtered.slice(
+      state.page * PAGE_SIZE,
+      (state.page + 1) * PAGE_SIZE,
+    );
     if (pageBosses.length) renderResults(pageBosses);
     else refs.results.replaceChildren();
     renderPagination(totalPages);
+    fillBossImages(refs.results, data.byId);
   }
 }
 
@@ -261,7 +291,8 @@ function setFilters(patch) {
 function bind() {
   on(refs.categories, 'click', (event) => {
     const button = event.target.closest('[data-category]');
-    if (button) setFilters({ category: button.dataset.category, location: '', tier: '' });
+    if (button)
+      setFilters({ category: button.dataset.category, location: '', tier: '' });
   });
 
   const tierClick = (event) => {
@@ -280,7 +311,10 @@ function bind() {
   // поиск с небольшой задержкой, чтобы не перерисовывать на каждую букву
   on(refs.search, 'input', () => {
     clearTimeout(searchTimer);
-    searchTimer = setTimeout(() => setFilters({ query: refs.search.value }), 120);
+    searchTimer = setTimeout(
+      () => setFilters({ query: refs.search.value }),
+      120,
+    );
   });
 
   on(refs.location, 'focus', () => {
@@ -307,7 +341,8 @@ function bind() {
     setFilters({ location: option.dataset.location });
   });
   on(document, 'pointerdown', (event) => {
-    if (!locationOpen || event.target.closest('.bosses__location-filter')) return;
+    if (!locationOpen || event.target.closest('.bosses__location-filter'))
+      return;
     locationOpen = false;
     renderLocations();
   });
@@ -353,7 +388,9 @@ async function build(container) {
   data = await loadBosses();
   root = container;
   root.innerHTML = shell();
-  refs = Object.fromEntries([...root.querySelectorAll('[data-ref]')].map((el) => [el.dataset.ref, el]));
+  refs = Object.fromEntries(
+    [...root.querySelectorAll('[data-ref]')].map((el) => [el.dataset.ref, el]),
+  );
   locationOpen = false;
   lastResultsKey = '';
   refs.search.value = state.query;

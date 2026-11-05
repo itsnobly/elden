@@ -37,6 +37,7 @@ const DICT = {
     bosses: 'bosses',
     difficulty: 'Difficulty',
     whyTier: 'Why this rank',
+    hardestBoss: 'Hardest boss',
     details: 'Details',
     unknown: 'Unknown',
     notConfirmed: 'Not confirmed',
